@@ -1,6 +1,6 @@
-﻿"""SQLAlchemy models for the versioned, point-in-time research dataset."""
+"""SQLAlchemy models for the versioned, point-in-time research dataset."""
 
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 from decimal import Decimal
 from uuid import UUID, uuid4
 
@@ -17,7 +17,8 @@ from sqlalchemy import (
     Text,
     UniqueConstraint,
 )
-from sqlalchemy.dialects.postgresql import JSONB, UUID as PG_UUID
+from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
@@ -38,7 +39,7 @@ class DatasetVersion(Base):
     coverage_end: Mapped[date | None] = mapped_column(Date)
     manifest: Mapped[dict] = mapped_column(JSONB, default=dict)
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
+        DateTime(timezone=True), default=lambda: datetime.now(UTC)
     )
 
 
@@ -60,7 +61,9 @@ class SecurityIdentifier(Base):
 
     __tablename__ = "security_identifiers"
     __table_args__ = (
-        UniqueConstraint("company_id", "ticker", "valid_from", name="uq_security_identifier_period"),
+        UniqueConstraint(
+            "company_id", "ticker", "valid_from", name="uq_security_identifier_period"
+        ),
         Index("ix_security_identifiers_ticker_period", "ticker", "valid_from", "valid_to"),
     )
 
@@ -196,6 +199,5 @@ class Experiment(Base):
     status: Mapped[str] = mapped_column(String(20), default="draft")
     dataset_version: Mapped[str] = mapped_column(String(100), index=True)
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
+        DateTime(timezone=True), default=lambda: datetime.now(UTC)
     )
-
