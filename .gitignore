@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+dist/
+coverage/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+apps/web/.env.local
+apps/api/.env
+.DS_Store
+.idea/
+.vscode/
+

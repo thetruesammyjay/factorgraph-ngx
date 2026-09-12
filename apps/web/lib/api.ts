@@ -1,0 +1,8 @@
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api/v1";
+
+export async function getApiHealth() {
+  const response = await fetch(`${API_URL}/health`, { cache: "no-store" });
+  if (!response.ok) throw new Error("Research API is unavailable");
+  return response.json() as Promise<{ status: string; service: string; version: string }>;
+}
+
