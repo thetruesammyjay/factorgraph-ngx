@@ -48,14 +48,14 @@ The general objective is to design and implement a graph-orchestrated multi-agen
 
 The specific objectives are:
 
-1. To design a versioned data pipeline for NGX prices, company fundamentals, corporate actions, benchmark observations, and risk-free rates.
-2. To implement point-in-time data alignment that uses publication dates or an explicitly recorded fixed reporting lag.
-3. To construct Market, Size, Value, Momentum, and Liquidity factors from eligible NGX securities.
-4. To validate factor behaviour with descriptive statistics, Newey-West adjusted tests, bootstrap confidence intervals, and regression diagnostics.
-5. To identify latent market regimes with a Gaussian Hidden Markov Model and analyse factor performance within each regime.
-6. To rank eligible securities, construct a configurable long-only portfolio, and perform a historical backtest with transaction-cost adjustment.
-7. To provide a web interface and REST API for experiment configuration, workflow execution, result storage, and research-result visualisation.
-8. To preserve dataset provenance and experiment configuration so that research results can be reproduced.
+1. Design a versioned data pipeline for NGX prices, company fundamentals, corporate actions, benchmark observations, and risk-free rates.
+2. Implement point-in-time data alignment that uses publication dates or an explicitly recorded fixed reporting lag.
+3. Construct Market, Size, Value, Momentum, and Liquidity factors from eligible NGX securities.
+4. Validate factor behaviour with descriptive statistics, Newey-West adjusted tests, bootstrap confidence intervals, and regression diagnostics.
+5. Identify latent market regimes with a Gaussian Hidden Markov Model and analyse factor performance within each regime.
+6. Rank eligible securities, construct a configurable long-only portfolio, and perform a historical backtest with transaction-cost adjustment.
+7. Provide a web interface and REST API for experiment configuration, workflow execution, result storage, and research-result visualisation.
+8. Preserve dataset provenance and experiment configuration so that research results can be reproduced.
 
 ## 1.4 Scope of the Study
 

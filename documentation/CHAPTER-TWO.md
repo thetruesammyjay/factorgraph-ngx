@@ -28,32 +28,15 @@ Liquidity is important because a security can have a high estimated return and s
 
 The system also uses market-regime analysis. A market regime is a period with a distinct pattern of return, volatility, or transition behaviour. Nystrup, Kolm, and Stenfors (2020) apply Hidden Markov Models to regime-switching factor investing. Their work supports the use of hidden states to compare factor performance under different market conditions.
 
-Research quality also depends on the treatment of data and model choices. Harvey, Liu, and Zhu (2016) discuss the problem of false discoveries in the cross-section of expected returns. McLean and Pontiff (2016) show that return predictability can decline outside the original research sample and after publication. These findings support the use of transparent configurations, out-of-sample evaluation, data versioning, and multiple statistical checks.
+Research quality also depends on the treatment of data and model choices. Harvey, Liu, and Zhu (2016) discuss the problem of false discoveries in the cross-section of expected returns. McLean and Pontiff (2016) show that return predictability can decline outside the original research sample and after publication. These findings support the use of transparent configurations, out-of-sample evaluation, data versioning, and multiple statistical controls.
 
 Figure 2.1 presents the conceptual framework for the proposed system.
 
-**Figure 2.1: Conceptual Framework for the Proposed Graph-Orchestrated Multi-Agent System**
+![Conceptual framework for the graph-orchestrated multi-agent system](figures/conceptual-framework.png)
 
-~~~mermaid
-flowchart TD
-    A[NGX price data] --> D[Data ingestion]
-    B[Company fundamentals] --> D
-    C[Benchmark and risk-free data] --> D
-    D --> E[Data validation]
-    E --> F[Point-in-time alignment]
-    F --> G[Five-factor construction]
-    G --> H[Statistical validation]
-    H --> I[Market regime estimation]
-    I --> J[Regime-specific factor analysis]
-    J --> K[Security ranking]
-    K --> L[Portfolio construction]
-    L --> M[Historical backtest]
-    M --> N[Benchmark comparison]
-    N --> O[Versioned experiment results]
-~~~
+**Figure 2.1: Conceptual Framework for the Proposed Graph-Orchestrated Multi-Agent System. Source: Researcher's design (2026).**
 
-The framework begins with NGX source data. The data pipeline checks and aligns the records before it constructs the factors. The statistical engine evaluates the factor series. The regime engine identifies latent market states. The portfolio engine ranks securities and simulates a portfolio. The system stores the dataset version, configuration, and results so that the experiment can be repeated.
-
+The framework begins with NGX market data, company fundamentals, supporting market series, and a versioned experiment configuration. The LangGraph orchestrator coordinates the specialised analytical agents and records the execution state. The data-preparation agent validates and aligns the observations before the five factor agents construct the Market, Size, Value, Momentum, and Liquidity factors. The statistical-validation agent evaluates the factor results, while the regime-analysis agent identifies latent market states. Validated factor scores and regime information jointly inform security ranking. The portfolio and backtest agent then simulates the selected securities. The evaluation agent applies transaction-cost assumptions and compares performance with the NGX benchmark. The system stores the validated factor results, regime-specific findings, portfolio results, benchmark comparison, and reproducible experiment record.
 ## 2.2 Theoretical Framework
 
 Four theoretical perspectives support this study: factor asset pricing theory, liquidity and market microstructure theory, regime-switching theory, and reproducible computational research.

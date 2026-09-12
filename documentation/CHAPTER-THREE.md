@@ -4,23 +4,27 @@
 
 ## 3.0 Introduction
 
-This chapter describes the method used to design and implement the graph-orchestrated multi-agent system. It presents the requirements, system architecture, data model, research workflow, implementation tools, and testing plan.
+This chapter presents the software engineering methodology used to design and implement the graph-orchestrated multi-agent system for liquidity-augmented, regime-aware multi-factor analysis of Nigerian Exchange equities. An **iterative and incremental software development methodology** was adopted. The system was divided into functional increments instead of being developed as one complete unit. Each increment passed through requirements analysis, system design, implementation, testing, and review before integration with the next increment.
 
-The study uses a design and implementation approach. The approach converts the research question into a working software system. The system collects and prepares NGX data, constructs five factors, validates the factor results, estimates market regimes, constructs a portfolio, and performs a historical backtest.
+The methodology was suitable because the system contains several dependent modules. The database structure and data-preparation functions had to exist before factor values could be calculated. Factor outputs had to exist before regime analysis and stock ranking could be performed. Portfolio construction depended on the ranking results, while historical backtesting depended on portfolio weights and later returns. The web interface and REST API also depended on stable analytical outputs. Incremental development allowed each dependency to be implemented and tested before the next module used it.
 
-The implementation uses a staged workflow. Each stage has a defined input, process, output, and validation rule. The stages also form a directed graph. This structure allows the researcher to trace an experiment from the input dataset to the final portfolio and benchmark results.
+Brhel et al. (2015) identify iterative and incremental design and development as a core principle of user-centred Agile software development. Campanelli and Parreiras (2015) also report that Agile methods can be tailored to suit a project's objectives and development environment. These findings support the adapted methodology used for this study. The project applied short implementation cycles, continuous testing, and revision without claiming to follow every practice of a formal Scrum framework.
 
-The main research assumptions are as follows:
+Development was organised into five increments:
 
-1. The study focuses on NGX equities.
-2. The target study period is 1 January 2019 to 31 December 2025.
-3. The system converts daily source data to monthly research data after validation.
-4. Fundamental data is used only from its publication date or recorded fixed reporting lag.
-5. The model uses Market, Size, Value, Momentum, and Liquidity factors.
-6. The default portfolio is long-only and equal-weighted.
-7. Missing observations remain missing unless a defined method handles them.
-8. The system produces research results and does not execute live trades.
+1. The first increment defined the software requirements and established the project structure, configuration, web application, FastAPI service, and health endpoints.
+2. The second increment implemented the research database, schema migrations, dataset versioning, data validation, ingestion structures, and point-in-time fundamental alignment.
+3. The third increment implemented the Market, Size, Value, Momentum, and Liquidity factor modules. It also added statistical validation and Hidden Markov Model regime estimation.
+4. The fourth increment added security ranking, portfolio construction, transaction costs, historical backtesting, benchmark comparison, LangGraph orchestration, and research API endpoints.
+5. The fifth increment integrated the landing page and research dashboards, improved responsive behaviour, connected production configuration, strengthened automated testing, and prepared the project documentation.
 
+Testing and review occurred within every increment. A defect found during integration was returned to the relevant requirement, design decision, or module for correction. This cycle continued until the increment satisfied its acceptance conditions and could be connected to the rest of the system.
+
+Figure 3.1 summarises the development cycle and the five project increments.
+
+![Iterative and incremental software development methodology](figures/methodology-process.png)
+
+**Figure 3.1: Iterative and Incremental Software Development Process Used for the System. Source: Researcher's design, adapted from Brhel et al. (2015) and Campanelli and Parreiras (2015).**
 ## 3.1 Requirements Elicitation
 
 The study derived requirements from the research question, the factor definitions, the proposed NGX data request, the system architecture, and the need for reproducible research. The study grouped the requirements into functional and non-functional requirements.
@@ -54,45 +58,17 @@ The non-functional requirements define how the system must operate. The system m
 
 ## 3.2 System Design
 
-The proposed system uses a three-tier architecture. The presentation tier contains the Next.js web application. The application tier contains the FastAPI API, data services, quantitative modules, and LangGraph workflow. The workflow coordinates specialised analysis tasks as cooperating graph nodes. The data tier contains PostgreSQL and the versioned research tables.
+The proposed system is a web-based research application with presentation, application, analytical, orchestration, and data-management responsibilities. The separation of these responsibilities allows the researcher to inspect stored results through the web interface without placing financial calculations inside the page components.
 
-External data sources provide NGX prices, company fundamentals, benchmark observations, and risk-free rates. The data pipeline receives these sources and stores their metadata before it writes canonical observations. The quantitative modules read validated data through the application tier.
+The presentation component uses Next.js and TypeScript. It provides the landing page and research views for factors, market regimes, portfolios, backtests, and experiments. The interface sends structured requests to the FastAPI service and displays the returned research results.
 
-**Figure 3.1: High-Level System Architecture**
+The application component uses FastAPI to validate requests and expose the research functions through REST endpoints. Research services translate an experiment configuration into the state required by the analytical workflow. They also manage experiment status and provide structured responses to the web application.
 
-~~~mermaid
-flowchart TB
-    R[Researcher]
-    subgraph WEB[Next.js Web Application]
-        D[Dashboard]
-        F[Factor Views]
-        G[Regime Views]
-        P[Portfolio Views]
-        E[Experiment Views]
-    end
-    subgraph API[FastAPI Research API]
-        S[Research Services]
-        W[LangGraph Workflow]
-        Q[Quantitative Engine]
-        V[Validation and Alignment]
-    end
-    DB[(PostgreSQL Research Database)]
-    SRC[NGX and supporting data sources]
+The analytical component uses Python modules for data preparation, point-in-time alignment, factor construction, statistical validation, regime estimation, and security ranking. Other modules handle portfolio construction, transaction-cost adjustment, historical backtesting, and benchmark comparison. Each module has a defined input and output so that it can be tested separately.
 
-    R --> WEB
-    WEB --> API
-    SRC --> V
-    V --> DB
-    S --> W
-    W --> Q
-    Q --> DB
-    S --> DB
-    DB --> S
-    S --> WEB
-~~~
+LangGraph coordinates the analytical modules as an ordered set of specialised graph nodes. A node receives the current experiment state, performs one research task, and returns an updated state. The next node uses that state as its input. This design provides a traceable execution path from the selected dataset to the final experiment results.
 
-The architecture separates data preparation from financial calculations. It also separates calculation from presentation. The researcher can test a factor without starting the web application. The web application can display stored results without recalculating them.
-
+PostgreSQL provides persistent storage for companies, historical identifiers, prices, fundamentals, corporate actions, benchmark observations, risk-free observations, dataset versions, and experiment records. The data-preparation modules read the required observations from the database, while the workflow stores experiment metadata and completed results. External NGX and supporting data sources enter the system through the ingestion and validation process before analytical modules can use them.
 ### 3.2.1 Use Case Diagram
 
 The main actor is the researcher. The researcher configures an experiment, selects the date range, selects the factors, reviews the data status, starts the workflow, and examines the results. The system performs data validation, factor construction, statistical validation, regime analysis, portfolio construction, and backtesting.
@@ -101,26 +77,7 @@ The database and data sources support the system but do not act as human users. 
 
 **Figure 3.2: Use Case Diagram for the Research System**
 
-~~~mermaid
-flowchart LR
-    R[Researcher]
-    U((Configure experiment))
-    L((Load dataset))
-    A((Audit data))
-    X((Execute research workflow))
-    F((Review factor results))
-    G((Review market regimes))
-    P((Review portfolio and backtest))
-    M((Compare with NGX benchmark))
-    R --> U
-    R --> L
-    R --> A
-    R --> X
-    R --> F
-    R --> G
-    R --> P
-    R --> M
-~~~
+![Figure 3.2: Use Case Diagram](figures/use-case-diagram.png)
 
 ### 3.2.2 Data Model
 
@@ -128,7 +85,7 @@ The data model separates issuer identity, security identifiers, observations, so
 
 The companies table stores the issuer record. The security_identifiers table stores ticker and ISIN validity periods. The price_observations table stores daily security data with a composite key of company and trading date. The fundamental_observations table stores fiscal information and its publication and effective dates. The corporate_actions table stores events that can affect price interpretation.
 
-The benchmark_observations table stores NGX All Share and other benchmark observations. The risk_free_observations table stores dated rates by tenor. The dataset_versions table stores source and coverage metadata. The experiments table stores research configuration and the dataset version used by the experiment.
+The benchmark_observations table stores NGX All Share and other benchmark observations. The risk_free_observations table stores dated rates by tenor. The dataset_versions table stores source and coverage metadata. The experiments table stores research configuration and a logical reference to the dataset version used by the experiment.
 
 **Figure 3.3: Core Data Model**
 
@@ -138,11 +95,12 @@ erDiagram
     COMPANIES ||--o{ PRICE_OBSERVATIONS : has
     COMPANIES ||--o{ FUNDAMENTAL_OBSERVATIONS : has
     COMPANIES ||--o{ CORPORATE_ACTIONS : has
-    DATASET_VERSIONS ||--o{ PRICE_OBSERVATIONS : labels
-    DATASET_VERSIONS ||--o{ FUNDAMENTAL_OBSERVATIONS : labels
-    DATASET_VERSIONS ||--o{ CORPORATE_ACTIONS : labels
-    DATASET_VERSIONS ||--o{ BENCHMARK_OBSERVATIONS : labels
-    DATASET_VERSIONS ||--o{ RISK_FREE_OBSERVATIONS : labels
+    DATASET_VERSIONS o|--o{ PRICE_OBSERVATIONS : labels
+    DATASET_VERSIONS o|--o{ FUNDAMENTAL_OBSERVATIONS : labels
+    DATASET_VERSIONS o|--o{ CORPORATE_ACTIONS : labels
+    DATASET_VERSIONS o|--o{ BENCHMARK_OBSERVATIONS : labels
+    DATASET_VERSIONS o|--o{ RISK_FREE_OBSERVATIONS : labels
+    DATASET_VERSIONS ||..o{ EXPERIMENTS : referenced_by
 
     COMPANIES {
         uuid id PK
@@ -155,13 +113,28 @@ erDiagram
         boolean active
     }
 
+    SECURITY_IDENTIFIERS {
+        uuid id PK
+        uuid company_id FK
+        string ticker
+        string isin
+        date valid_from
+        date valid_to
+        boolean is_primary
+    }
+
     PRICE_OBSERVATIONS {
         uuid company_id PK, FK
         date trading_date PK
+        decimal open
+        decimal high
+        decimal low
         decimal close
         decimal adjusted_close
         decimal volume
         decimal trading_value
+        integer number_of_transactions
+        uuid dataset_version_id FK
     }
 
     FUNDAMENTAL_OBSERVATIONS {
@@ -173,15 +146,55 @@ erDiagram
         string effective_date_source
         decimal book_equity
         decimal shares_outstanding
+        decimal earnings_per_share
+        decimal pe_ratio
+        decimal dividend_yield
+        uuid dataset_version_id FK
+    }
+
+    CORPORATE_ACTIONS {
+        uuid id PK
+        uuid company_id FK
+        date action_date
+        string action_type
+        decimal adjustment_factor
+        decimal cash_amount
+        uuid dataset_version_id FK
+    }
+
+    BENCHMARK_OBSERVATIONS {
+        string benchmark_code PK
+        date trading_date PK
+        decimal close
+        decimal adjusted_close
+        uuid dataset_version_id FK
+    }
+
+    RISK_FREE_OBSERVATIONS {
+        date observation_date PK
+        string tenor PK
+        decimal annualized_rate
+        uuid dataset_version_id FK
     }
 
     DATASET_VERSIONS {
         uuid id PK
         string version UK
+        string name
         string source
         date coverage_start
         date coverage_end
         json manifest
+        datetime created_at
+    }
+
+    EXPERIMENTS {
+        uuid id PK
+        string name
+        json config
+        string status
+        string dataset_version
+        datetime created_at
     }
 ~~~
 
@@ -189,7 +202,7 @@ The model uses constraints and indexes to protect data quality. Price records ca
 
 ### 3.2.3 Activity Diagram
 
-The research activity starts when the researcher selects an experiment configuration. The system loads and inspects the selected dataset. It aligns fundamentals by their effective dates. It then constructs the five factors.
+The research activity starts when the researcher selects an experiment configuration. The system loads and inspects the selected dataset. If validation fails, the system records the errors and marks the experiment as failed. If validation succeeds, the system aligns fundamentals by their effective dates and constructs the five factors.
 
 The workflow calculates factor statistics before it estimates market regimes. It analyses factor performance by regime. It ranks eligible securities and constructs the portfolio. It performs the backtest, compares results with the NGX benchmark, and stores the experiment.
 
@@ -201,28 +214,32 @@ flowchart TD
     C[Load experiment configuration]
     D[Load dataset version]
     V[Validate source data]
+    Q{Is the dataset valid?}
+    X[Record validation errors]
+    Z[Mark experiment as failed]
+    EF([End: Failed])
     A[Align fundamentals]
     F[Construct five factors]
     T[Run statistical validation]
-    H[Estimate market regimes]
-    R[Analyse factors by regime]
+    H[Estimate regimes and regime statistics]
     K[Rank eligible securities]
     P[Construct portfolio]
     B[Run historical backtest]
     N[Compare with benchmark]
     W[Write experiment results]
-    E([End])
-    S --> C --> D --> V
-    V -->|Valid| A
-    V -->|Invalid| E
-    A --> F --> T --> H --> R --> K --> P --> B --> N --> W --> E
+    U[Mark experiment as completed]
+    EC([End: Completed])
+
+    S --> C --> D --> V --> Q
+    Q -->|No| X --> Z --> EF
+    Q -->|Yes| A --> F --> T --> H --> K --> P --> B --> N --> W --> U --> EC
 ~~~
 
 ### 3.2.4 Sequence Diagram
 
-The researcher sends an experiment request through the web application. The FastAPI service reads the configuration and starts the workflow. Each workflow node reads the required data and passes its output to the next node. The final result is stored in the database and returned to the web application.
+The proposed production sequence starts when the researcher sends an experiment request through the web application. The FastAPI service stores the configuration, marks the experiment as running, and invokes the workflow. Each workflow node receives the state produced by the preceding node. The workflow stores the final results and returns them to the API. The API then returns the completed experiment to the web application.
 
-**Figure 3.5: Experiment Execution Sequence**
+**Figure 3.5: Proposed Experiment Execution Sequence**
 
 ~~~mermaid
 sequenceDiagram
@@ -236,20 +253,27 @@ sequenceDiagram
 
     Researcher->>Web: Select experiment settings
     Web->>API: Submit experiment request
-    API->>DB: Store experiment configuration
-    API->>Graph: Start workflow
+    API->>DB: Store configuration and running status
+    DB-->>API: Confirm experiment record
+    API->>Graph: Invoke workflow with experiment ID
+    Graph->>DB: Read configuration and dataset version
+    DB-->>Graph: Return experiment inputs
     Graph->>Data: Load and validate dataset
     Data->>DB: Read source observations
+    DB-->>Data: Return source observations
     Data-->>Graph: Return validated data
     Graph->>Data: Align fundamental observations
     Data-->>Graph: Return point-in-time data
     Graph->>Quant: Calculate factors and statistics
     Quant-->>Graph: Return factor results
-    Graph->>Quant: Estimate regimes and portfolio
-    Quant-->>Graph: Return regimes and portfolio results
-    Graph->>DB: Store experiment outputs
-    DB-->>API: Return stored results
-    API-->>Web: Return experiment status and results
+    Graph->>Quant: Estimate regimes and rank securities
+    Quant-->>Graph: Return regimes and security scores
+    Graph->>Quant: Construct portfolio and run backtest
+    Quant-->>Graph: Return portfolio and benchmark results
+    Graph->>DB: Store outputs and completed status
+    DB-->>Graph: Confirm stored results
+    Graph-->>API: Return completed experiment
+    API-->>Web: Return status and results
     Web-->>Researcher: Display research dashboard
 ~~~
 
@@ -469,12 +493,15 @@ Table 3.2 presents the testing metrics and acceptance basis.
 
 ## 3.5 Summary
 
-This chapter described the methodology and system design for the proposed system. The requirements came from the research question, the factor model, NGX data needs, and reproducibility requirements. The system uses a three-tier architecture. It contains a Next.js interface, a FastAPI application tier, a Python quantitative engine, LangGraph workflow orchestration, and a PostgreSQL research database.
+This chapter described the iterative and incremental methodology used to develop the proposed system. Development was divided into five increments that covered the project foundation, research data, quantitative analysis, workflow orchestration, interface integration, and testing. The system contains a Next.js interface, a FastAPI application component, Python analytical modules, LangGraph workflow orchestration, and a PostgreSQL research database.
 
 The design includes a versioned data model, point-in-time fundamental alignment, and five factor modules. It also includes statistical validation, Hidden Markov Model regime analysis, portfolio construction, benchmark comparison, and historical backtesting. The testing plan covers unit, component, integration, data-quality, reproducibility, and efficiency validation.
 
 ## REFERENCES
 
+Brhel, M., Meth, H., Maedche, A., & Werder, K. (2015). Exploring principles of user-centered agile software development: A literature review. *Information and Software Technology, 61*, 163-181. https://doi.org/10.1016/j.infsof.2015.01.004
+
+Campanelli, A. S., & Parreiras, F. S. (2015). Agile methods tailoring: A systematic literature review. *Journal of Systems and Software, 110*, 85-100. https://doi.org/10.1016/j.jss.2015.08.035
 Confalonieri, R., Kutz, O., Calvanese, D., Alonso, J. M., Zhou, S. M., & Daga, E. (2024). Data journeys: Explaining AI workflows through abstraction. *Semantic Web, 15, 1057-1083. https://doi.org/10.3233/SW-233407
 
 Fama, E. F., & French, K. R. (2015). A five-factor asset pricing model. *Journal of Financial Economics, 116*(1), 1-22. https://doi.org/10.1016/j.jfineco.2014.10.010
