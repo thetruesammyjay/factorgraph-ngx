@@ -4,7 +4,7 @@
 
 ## 3.0 Introduction
 
-This chapter presents the software engineering methodology used to design and implement the graph-orchestrated multi-agent system for liquidity-augmented, regime-aware multi-factor analysis of Nigerian Exchange equities. An **iterative and incremental software development methodology** was adopted. The system was divided into functional increments instead of being developed as one complete unit. Each increment passed through requirements analysis, system design, implementation, testing, and review before integration with the next increment.
+This chapter presents the software engineering methodology used to design and implement the graph-orchestrated multi-agent system for liquidity-augmented, regime-aware multi-factor analysis of Nigerian Exchange equities. An iterative and incremental software development methodology was adopted. The system was divided into functional increments instead of being developed as one complete unit. Each increment passed through requirements analysis, system design, implementation, testing, and review before integration with the next increment.
 
 The methodology was suitable because the system contains several dependent modules. The database structure and data-preparation functions had to exist before factor values could be calculated. Factor outputs had to exist before regime analysis and stock ranking could be performed. Portfolio construction depended on the ranking results, while historical backtesting depended on portfolio weights and later returns. The web interface and REST API also depended on stable analytical outputs. Incremental development allowed each dependency to be implemented and tested before the next module used it.
 
@@ -20,11 +20,8 @@ Development was organised into five increments:
 
 Testing and review occurred within every increment. A defect found during integration was returned to the relevant requirement, design decision, or module for correction. This cycle continued until the increment satisfied its acceptance conditions and could be connected to the rest of the system.
 
-Figure 3.1 summarises the development cycle and the five project increments.
+**Figure 3.1: Iterative and Incremental Software Development Process Used for the System**
 
-![Iterative and incremental software development methodology](figures/methodology-process.png)
-
-**Figure 3.1: Iterative and Incremental Software Development Process Used for the System. Source: Researcher's design, adapted from Brhel et al. (2015) and Campanelli and Parreiras (2015).**
 ## 3.1 Requirements Elicitation
 
 The study derived requirements from the research question, the factor definitions, the proposed NGX data request, the system architecture, and the need for reproducible research. The study grouped the requirements into functional and non-functional requirements.
@@ -36,7 +33,7 @@ The non-functional requirements define how the system must operate. The system m
 **Table 3.1: Analysed software requirements**
 
 | ID | Software requirement | Acceptance condition |
-|---|---|---|
+| --- | --- | --- |
 | FR-01 | Store companies, security identifiers, prices, fundamentals, corporate actions, benchmarks, and risk-free observations. | Each valid record is stored in the required table with a valid key. |
 | FR-02 | Register a dataset version and its source metadata. | A dataset version contains a name, source, coverage period, and manifest. |
 | FR-03 | Read and normalise NGX source files. | The system converts supported source files to the canonical column names. |
@@ -69,6 +66,7 @@ The analytical component uses Python modules for data preparation, point-in-time
 LangGraph coordinates the analytical modules as an ordered set of specialised graph nodes. A node receives the current experiment state, performs one research task, and returns an updated state. The next node uses that state as its input. This design provides a traceable execution path from the selected dataset to the final experiment results.
 
 PostgreSQL provides persistent storage for companies, historical identifiers, prices, fundamentals, corporate actions, benchmark observations, risk-free observations, dataset versions, and experiment records. The data-preparation modules read the required observations from the database, while the workflow stores experiment metadata and completed results. External NGX and supporting data sources enter the system through the ingestion and validation process before analytical modules can use them.
+
 ### 3.2.1 Use Case Diagram
 
 The main actor is the researcher. The researcher configures an experiment, selects the date range, selects the factors, reviews the data status, starts the workflow, and examines the results. The system performs data validation, factor construction, statistical validation, regime analysis, portfolio construction, and backtesting.
@@ -76,8 +74,6 @@ The main actor is the researcher. The researcher configures an experiment, selec
 The database and data sources support the system but do not act as human users. The workflow controls the order of computational activities.
 
 **Figure 3.2: Use Case Diagram for the Research System**
-
-![Figure 3.2: Use Case Diagram](figures/use-case-diagram.png)
 
 ### 3.2.2 Data Model
 
@@ -87,118 +83,9 @@ The companies table stores the issuer record. The security_identifiers table sto
 
 The benchmark_observations table stores NGX All Share and other benchmark observations. The risk_free_observations table stores dated rates by tenor. The dataset_versions table stores source and coverage metadata. The experiments table stores research configuration and a logical reference to the dataset version used by the experiment.
 
-**Figure 3.3: Core Data Model**
-
-~~~mermaid
-erDiagram
-    COMPANIES ||--o{ SECURITY_IDENTIFIERS : has
-    COMPANIES ||--o{ PRICE_OBSERVATIONS : has
-    COMPANIES ||--o{ FUNDAMENTAL_OBSERVATIONS : has
-    COMPANIES ||--o{ CORPORATE_ACTIONS : has
-    DATASET_VERSIONS o|--o{ PRICE_OBSERVATIONS : labels
-    DATASET_VERSIONS o|--o{ FUNDAMENTAL_OBSERVATIONS : labels
-    DATASET_VERSIONS o|--o{ CORPORATE_ACTIONS : labels
-    DATASET_VERSIONS o|--o{ BENCHMARK_OBSERVATIONS : labels
-    DATASET_VERSIONS o|--o{ RISK_FREE_OBSERVATIONS : labels
-    DATASET_VERSIONS ||..o{ EXPERIMENTS : referenced_by
-
-    COMPANIES {
-        uuid id PK
-        string ticker UK
-        string isin UK
-        string name
-        string sector
-        date listing_date
-        date delisting_date
-        boolean active
-    }
-
-    SECURITY_IDENTIFIERS {
-        uuid id PK
-        uuid company_id FK
-        string ticker
-        string isin
-        date valid_from
-        date valid_to
-        boolean is_primary
-    }
-
-    PRICE_OBSERVATIONS {
-        uuid company_id PK, FK
-        date trading_date PK
-        decimal open
-        decimal high
-        decimal low
-        decimal close
-        decimal adjusted_close
-        decimal volume
-        decimal trading_value
-        integer number_of_transactions
-        uuid dataset_version_id FK
-    }
-
-    FUNDAMENTAL_OBSERVATIONS {
-        uuid id PK
-        uuid company_id FK
-        date fiscal_period
-        date publication_date
-        date effective_from
-        string effective_date_source
-        decimal book_equity
-        decimal shares_outstanding
-        decimal earnings_per_share
-        decimal pe_ratio
-        decimal dividend_yield
-        uuid dataset_version_id FK
-    }
-
-    CORPORATE_ACTIONS {
-        uuid id PK
-        uuid company_id FK
-        date action_date
-        string action_type
-        decimal adjustment_factor
-        decimal cash_amount
-        uuid dataset_version_id FK
-    }
-
-    BENCHMARK_OBSERVATIONS {
-        string benchmark_code PK
-        date trading_date PK
-        decimal close
-        decimal adjusted_close
-        uuid dataset_version_id FK
-    }
-
-    RISK_FREE_OBSERVATIONS {
-        date observation_date PK
-        string tenor PK
-        decimal annualized_rate
-        uuid dataset_version_id FK
-    }
-
-    DATASET_VERSIONS {
-        uuid id PK
-        string version UK
-        string name
-        string source
-        date coverage_start
-        date coverage_end
-        json manifest
-        datetime created_at
-    }
-
-    EXPERIMENTS {
-        uuid id PK
-        string name
-        json config
-        string status
-        string dataset_version
-        datetime created_at
-    }
-~~~
-
 The model uses constraints and indexes to protect data quality. Price records cannot contain a non-positive close price. Trading volume and trading value cannot be negative. Fundamental records cannot contain non-positive shares outstanding. The model also prevents duplicate daily observations for one company.
+
+**Figure 3.3: Core Data Model**
 
 ### 3.2.3 Activity Diagram
 
@@ -208,78 +95,15 @@ The workflow calculates factor statistics before it estimates market regimes. It
 
 **Figure 3.4: Research Workflow Activity Diagram**
 
-~~~mermaid
-flowchart TD
-    S([Start])
-    C[Load experiment configuration]
-    D[Load dataset version]
-    V[Validate source data]
-    Q{Is the dataset valid?}
-    X[Record validation errors]
-    Z[Mark experiment as failed]
-    EF([End: Failed])
-    A[Align fundamentals]
-    F[Construct five factors]
-    T[Run statistical validation]
-    H[Estimate regimes and regime statistics]
-    K[Rank eligible securities]
-    P[Construct portfolio]
-    B[Run historical backtest]
-    N[Compare with benchmark]
-    W[Write experiment results]
-    U[Mark experiment as completed]
-    EC([End: Completed])
-
-    S --> C --> D --> V --> Q
-    Q -->|No| X --> Z --> EF
-    Q -->|Yes| A --> F --> T --> H --> K --> P --> B --> N --> W --> U --> EC
-~~~
-
 ### 3.2.4 Sequence Diagram
 
 The proposed production sequence starts when the researcher sends an experiment request through the web application. The FastAPI service stores the configuration, marks the experiment as running, and invokes the workflow. Each workflow node receives the state produced by the preceding node. The workflow stores the final results and returns them to the API. The API then returns the completed experiment to the web application.
 
-**Figure 3.5: Proposed Experiment Execution Sequence**
-
-~~~mermaid
-sequenceDiagram
-    actor Researcher
-    participant Web as Next.js Web
-    participant API as FastAPI API
-    participant Graph as LangGraph Workflow
-    participant Data as Data Services
-    participant Quant as Quantitative Engine
-    participant DB as PostgreSQL
-
-    Researcher->>Web: Select experiment settings
-    Web->>API: Submit experiment request
-    API->>DB: Store configuration and running status
-    DB-->>API: Confirm experiment record
-    API->>Graph: Invoke workflow with experiment ID
-    Graph->>DB: Read configuration and dataset version
-    DB-->>Graph: Return experiment inputs
-    Graph->>Data: Load and validate dataset
-    Data->>DB: Read source observations
-    DB-->>Data: Return source observations
-    Data-->>Graph: Return validated data
-    Graph->>Data: Align fundamental observations
-    Data-->>Graph: Return point-in-time data
-    Graph->>Quant: Calculate factors and statistics
-    Quant-->>Graph: Return factor results
-    Graph->>Quant: Estimate regimes and rank securities
-    Quant-->>Graph: Return regimes and security scores
-    Graph->>Quant: Construct portfolio and run backtest
-    Quant-->>Graph: Return portfolio and benchmark results
-    Graph->>DB: Store outputs and completed status
-    DB-->>Graph: Confirm stored results
-    Graph-->>API: Return completed experiment
-    API-->>Web: Return status and results
-    Web-->>Researcher: Display research dashboard
-~~~
+**Figure 3.5: Sequence Diagram**
 
 ## 3.3 System Implementation
 
-Implementation follows the requirements and the workflow shown in Figure 3.4. Each major function is kept in a separate module. Data ingestion, validation, alignment, factor construction, statistical analysis, regime estimation, portfolio construction, and backtesting do not depend on the web page layout.
+Implementation follows the requirements and the stated workflow. Each major function is kept in a separate module. Data ingestion, validation, alignment, factor construction, statistical analysis, regime estimation, portfolio construction, and backtesting do not depend on the web page layout.
 
 The implementation also preserves the difference between raw data and processed research data. Raw source extracts remain in the data directory and are not committed when the source terms restrict redistribution. The processed dataset receives a version and a manifest before it is used by an experiment.
 
@@ -327,20 +151,21 @@ The data rules examine required columns, date values, duplicate keys, positive c
 
 The pipeline uses these canonical input structures:
 
-~~~text
 prices:
+
 ticker, trading_date, close, volume, trading_value
 
 fundamentals:
-ticker, fiscal_period, publication_date, book_equity,
-shares_outstanding
+
+ticker, fiscal_period, publication_date, book_equity, shares_outstanding
 
 benchmark:
+
 benchmark_code, trading_date, close
 
 risk_free:
+
 observation_date, tenor, annualized_rate
-~~~
 
 The importer first creates or updates company and security-identifier records. It then inserts observations with the related dataset version. A repeated import must update the same natural key or report a conflict. It must not create duplicate observations.
 
@@ -365,8 +190,7 @@ MKT_t = R_m,t - R_f,t
 The Size factor uses market capitalisation:
 
 ~~~text
-Market Capitalisation =
-Closing Price multiplied by Shares Outstanding
+Market Capitalisation = Closing Price x Shares Outstanding
 ~~~
 
 The Size factor compares small and large securities.
@@ -374,8 +198,7 @@ The Size factor compares small and large securities.
 The Value factor uses book-to-market:
 
 ~~~text
-Book-to-Market =
-Book Equity divided by Market Capitalisation
+Book-to-Market = Book Equity / Market Capitalisation
 ~~~
 
 The Value factor uses only fundamental observations that satisfy the point-in-time rule.
@@ -385,8 +208,7 @@ The Momentum factor uses the 12-1 month formation rule. The calculation uses the
 The Liquidity factor uses trading value and return movement. The system supports an Amihud-style measure:
 
 ~~~text
-ILLIQ_i =
-average of absolute daily return_i divided by daily trading value_i
+ILLIQ_i = average( |daily return_i| / daily trading value_i )
 ~~~
 
 The factor configuration records the chosen ranking, breakpoint, and portfolio rules. The engine does not replace missing values with zero unless the selected method states that rule.
@@ -474,12 +296,10 @@ Efficiency tests measure data-loading time, factor-calculation time, workflow ti
 
 The test records the number of rows, number of securities, date range, execution time, and memory conditions where available. The researcher uses these measurements to identify slow stages before loading the full NGX dataset.
 
-Table 3.2 presents the testing metrics and acceptance basis.
-
 **Table 3.2: Testing metrics and acceptance basis**
 
 | Metric | What was inspected | Reason for selection |
-|---|---|---|
+| --- | --- | --- |
 | Pass or fail status | Actual result against expected result | Indicates whether the requirement behaves correctly. |
 | Functional pass rate | Passed tests divided by executed tests | Summarises functional correctness. |
 | Data validation rate | Valid and rejected records | Indicates whether unsafe input is detected. |
@@ -493,23 +313,42 @@ Table 3.2 presents the testing metrics and acceptance basis.
 
 ## 3.5 Summary
 
-This chapter described the iterative and incremental methodology used to develop the proposed system. Development was divided into five increments that covered the project foundation, research data, quantitative analysis, workflow orchestration, interface integration, and testing. The system contains a Next.js interface, a FastAPI application component, Python analytical modules, LangGraph workflow orchestration, and a PostgreSQL research database.
+This chapter described the methodology and system design for the proposed system. The requirements came from the research question, the factor model, NGX data needs, and reproducibility requirements. The system uses a three-tier architecture. It contains a Next.js interface, a FastAPI application tier, a Python quantitative engine, LangGraph workflow orchestration, and a PostgreSQL research database.
 
 The design includes a versioned data model, point-in-time fundamental alignment, and five factor modules. It also includes statistical validation, Hidden Markov Model regime analysis, portfolio construction, benchmark comparison, and historical backtesting. The testing plan covers unit, component, integration, data-quality, reproducibility, and efficiency validation.
 
 ## REFERENCES
 
-Brhel, M., Meth, H., Maedche, A., & Werder, K. (2015). Exploring principles of user-centered agile software development: A literature review. *Information and Software Technology, 61*, 163-181. https://doi.org/10.1016/j.infsof.2015.01.004
+Abdullahi, I. B., & Fakunmoju, S. K. (2019). Market liquidity and stock return in the Nigerian Stock Exchange market. Binus Business Review, 10(2), 87–94. https://doi.org/10.21512/bbr.v10i2.5588
 
-Campanelli, A. S., & Parreiras, F. S. (2015). Agile methods tailoring: A systematic literature review. *Journal of Systems and Software, 110*, 85-100. https://doi.org/10.1016/j.jss.2015.08.035
-Confalonieri, R., Kutz, O., Calvanese, D., Alonso, J. M., Zhou, S. M., & Daga, E. (2024). Data journeys: Explaining AI workflows through abstraction. *Semantic Web, 15, 1057-1083. https://doi.org/10.3233/SW-233407
+Alaba, J. S., Ahmed, Y., Malik-Abdulmajeed, K. M., & Hussain, U. (2024). Stock market liquidity and stock market performance in Nigeria: Evidence from the Nigerian Exchange Limited. iRASD Journal of Management, 6(2), 78–89. https://doi.org/10.52131/jom.2024.0602.0124 (Open access)
 
-Fama, E. F., & French, K. R. (2015). A five-factor asset pricing model. *Journal of Financial Economics, 116*(1), 1-22. https://doi.org/10.1016/j.jfineco.2014.10.010
+Confalonieri, R., Kutz, O., Calvanese, D., Alonso, J. M., Zhou, S. M., & Daga, E. (2024). Data journeys: Explaining AI workflows through abstraction. Semantic Web, 15, 1057–1083. https://doi.org/10.3233/SW-233407
 
-Gu, S., Kelly, B., & Xiu, D. (2020). Empirical asset pricing via machine learning. *The Review of Financial Studies, 33*(5), 2223-2273. https://doi.org/10.1093/rfs/hhaa009
+Fama, E. F., & French, K. R. (2015). A five-factor asset pricing model. Journal of Financial Economics, 116(1), 1–22. https://doi.org/10.1016/j.jfineco.2014.10.010
 
-Kundu, S., Sahoo, D., Li, V., Rabowsky, J., & Varshney, A. (2025). A multi-agent framework for quantitative finance: An application to portfolio management analytics. *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: Industry Track*, 812-824. https://aclanthology.org/2025.emnlp-industry.55/
+Fama, E. F., & French, K. R. (2017). International tests of a five-factor asset pricing model. Journal of Financial Economics, 123(3), 441–463. https://doi.org/10.1016/j.jfineco.2016.11.004
 
-McLean, R. D., & Pontiff, J. (2016). Does academic research destroy stock return predictability? *The Journal of Finance, 71*(1), 5-32. https://doi.org/10.1111/jofi.12365
+Foye, J. (2018). A comprehensive test of the Fama-French five-factor model in emerging markets. Emerging Markets Review, 37, 199–222. https://doi.org/10.1016/j.ememar.2018.09.002
 
-Nystrup, P., Kolm, P. N., & Stenfors, A. (2020). Regime-switching factor investing with hidden Markov models. *Journal of Risk and Financial Management, 13*(12), 311. https://doi.org/10.3390/jrfm13120311
+Gu, S., Kelly, B., & Xiu, D. (2020). Empirical asset pricing via machine learning. The Review of Financial Studies, 33(5), 2223–2273. https://doi.org/10.1093/rfs/hhaa009
+
+Harvey, C. R., Liu, Y., & Zhu, H. (2016). ...and the cross-section of expected returns. The Review of Financial Studies, 29(1), 5–68. https://doi.org/10.1093/rfs/hhv059
+
+Hou, K., Xue, C., & Zhang, L. (2015). Digesting anomalies: An investment approach. The Review of Financial Studies, 28(3), 650–705. https://doi.org/10.1093/rfs/hhu068
+
+Irejeh, E. M., & Aninoritse, L. E. (2024). Fama and French three factor model. European Journal of Accounting, Auditing and Finance Research, 12(5), 17–30. https://eajournals.org/ejaafr/wp-content/uploads/sites/16/2024/04/Fama-and-French-Three-Factor-Model.pdf (Open access)
+
+Kundu, S., Sahoo, D., Li, V., Rabowsky, J., & Varshney, A. (2025). A multi-agent framework for quantitative finance: An application to portfolio management analytics. Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: Industry Track, 812–824. https://aclanthology.org/2025.emnlp-industry.55/
+
+McLean, R. D., & Pontiff, J. (2016). Does academic research destroy stock return predictability? The Journal of Finance, 71(1), 5–32. https://doi.org/10.1111/jofi.12365
+
+Nguyen, P., & Pham, T. (2026). Toward reliable evaluation of LLM-based financial multi-agent systems: Taxonomy, coordination primacy, and cost awareness. arXiv. https://arxiv.org/abs/2603.27539 (Open access)
+
+Xiao, Y., et al. (2025). TradingAgents: Multi-agents LLM financial trading framework. Proceedings of the 39th AAAI Conference on Artificial Intelligence. arXiv. https://arxiv.org/abs/2412.20138 (Open access)
+
+Yahaya, A., John, S. A., Adegoroye, A., & Olorunfemi, O. A. (2023). Stock market liquidity and volatility on the Nigerian Exchange Limited (NGX). World Journal of Advanced Research and Reviews, 20(3), 147–156. https://doi.org/10.30574/wjarr.2023.20.3.2333 (Open access)
+
+Nystrup, P., Kolm, P. N., & Stenfors, A. (2020). Regime-switching factor investing with hidden Markov models. Journal of Risk and Financial Management, 13(12), 311. https://doi.org/10.3390/jrfm13120311
+
+Zaremba, A. (2015). Country selection strategies based on value, size and momentum. Investment Analysts Journal, 44(3), 171–198. https://doi.org/10.1080/10293523.2015.1060747

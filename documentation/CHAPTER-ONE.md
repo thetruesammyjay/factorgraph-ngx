@@ -117,7 +117,7 @@ Hidden Markov Model: A statistical model that represents observed data as the ou
 
 Liquidity: The ability to trade a security with limited delay and limited price impact.
 
-Market Capitalisation: The value of a company’s equity, calculated as price multiplied by shares outstanding.
+Market Capitalisation: The value of a company's equity, calculated as price multiplied by shares outstanding.
 
 Point-in-Time Alignment: The process of using a financial observation only from the date on which that information became available.
 
@@ -130,19 +130,3 @@ Ticker: The short security identifier used by an exchange.
 Transaction Cost: An estimated cost of buying or selling a security, expressed as a monetary amount or basis-point rate.
 
 Workflow Orchestration: The coordination of dependent computational steps in a defined execution order.
-
-## REFERENCES
-
-Abdullahi, I. B., & Fakunmoju, S. K. (2019). Market liquidity and stock return in the Nigerian Stock Exchange market. *Binus Business Review, 10*(2), 87-94. https://doi.org/10.21512/bbr.v10i2.5588
-
-Fama, E. F., & French, K. R. (2015). A five-factor asset pricing model. *Journal of Financial Economics, 116*(1), 1-22. https://doi.org/10.1016/j.jfineco.2014.10.010
-
-Gu, S., Kelly, B., & Xiu, D. (2020). Empirical asset pricing via machine learning. *The Review of Financial Studies, 33*(5), 2223-2273. https://doi.org/10.1093/rfs/hhaa009
-
-Hou, K., Xue, C., & Zhang, L. (2015). Digesting anomalies: An investment approach. *The Review of Financial Studies, 28*(3), 650-705. https://doi.org/10.1093/rfs/hhu068
-
-McLean, R. D., & Pontiff, J. (2016). Does academic research destroy stock return predictability? *The Journal of Finance, 71*(1), 5-32. https://doi.org/10.1111/jofi.12365
-
-Nystrup, P., Kolm, P. N., & Stenfors, A. (2020). Regime-switching factor investing with hidden Markov models. *Journal of Risk and Financial Management, 13*(12), 311. https://doi.org/10.3390/jrfm13120311
-
-Zaremba, A. (2015). Country selection strategies based on value, size and momentum. *Investment Analysts Journal, 44*(3), 171-198. https://doi.org/10.1080/10293523.2015.1060747
