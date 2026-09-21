@@ -1,0 +1,19 @@
+{
+  "dataset_id": "ngx-dol-december-2024-pilot",
+  "structural_status": "passed",
+  "research_readiness": "blocked_missing_liquidity_and_stale_price_review",
+  "source_pdf_count": 18,
+  "observation_count": 54,
+  "tickers": ["DANGCEM", "SEPLAT", "ZENITHBANK"],
+  "date_min": "2024-12-02",
+  "date_max": "2024-12-31",
+  "observations_by_ticker": {"DANGCEM": 18, "SEPLAT": 18, "ZENITHBANK": 18},
+  "missing_ticker_dates": {"DANGCEM": 0, "SEPLAT": 0, "ZENITHBANK": 0},
+  "duplicate_keys": 0,
+  "non_positive_closes": 0,
+  "carried_market_prices_by_ticker": {"DANGCEM": 18, "SEPLAT": 18, "ZENITHBANK": 7},
+  "unique_closes_by_ticker": {"DANGCEM": 1, "SEPLAT": 2, "ZENITHBANK": 14},
+  "longest_unchanged_close_run_by_ticker": {"DANGCEM": 18, "SEPLAT": 16, "ZENITHBANK": 2},
+  "missing_liquidity_fields": {"volume": 54, "trading_value": 54, "number_of_transactions": 54},
+  "interpretation": "Current Market Price is staged as close. Rows without an Official Close are flagged as carried_market_price. Business Done Qty is deliberately excluded because it is not verified as total daily volume."
+}

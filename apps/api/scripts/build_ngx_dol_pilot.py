@@ -20,6 +20,7 @@ def main() -> None:
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
+    parser.add_argument("--api-report", type=Path)
     parser.add_argument("--tickers", nargs="+", required=True)
     args = parser.parse_args()
 
@@ -87,6 +88,9 @@ def main() -> None:
     args.report.parent.mkdir(parents=True, exist_ok=True)
     frame.to_csv(args.output, index=False)
     args.report.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    if args.api_report:
+        args.api_report.parent.mkdir(parents=True, exist_ok=True)
+        args.api_report.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
 
     if not passed:

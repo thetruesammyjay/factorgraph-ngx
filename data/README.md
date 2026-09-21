@@ -50,6 +50,7 @@ uv run python -m scripts.build_ngx_dol_pilot `
   --input ../../data/raw/ngx-dol-2024-12 `
   --output ../../data/processed/ngx-dol-december-2024-pilot.csv `
   --report ../../research/audit-results/ngx-dol-december-2024-validation.json `
+  --api-report app/data/reports/latest.json `
   --tickers DANGCEM ZENITHBANK SEPLAT
 ```
 

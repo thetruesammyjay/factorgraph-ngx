@@ -1,5 +1,6 @@
 from datetime import date, datetime
 from typing import Literal
+
 from pydantic import BaseModel, Field
 
 FactorName = Literal["market", "size", "value", "momentum", "liquidity"]
@@ -42,3 +43,23 @@ class FactorStatistics(BaseModel):
     sharpe: float
     newey_west_t: float
     max_drawdown: float
+
+
+class DatasetQualityResponse(BaseModel):
+    dataset_id: str
+    structural_status: Literal["passed", "failed"]
+    research_readiness: str
+    source_pdf_count: int
+    observation_count: int
+    tickers: list[str]
+    date_min: date
+    date_max: date
+    observations_by_ticker: dict[str, int]
+    missing_ticker_dates: dict[str, int]
+    duplicate_keys: int
+    non_positive_closes: int
+    carried_market_prices_by_ticker: dict[str, int]
+    unique_closes_by_ticker: dict[str, int]
+    longest_unchanged_close_run_by_ticker: dict[str, int]
+    missing_liquidity_fields: dict[str, int]
+    interpretation: str
