@@ -48,8 +48,11 @@ class FactorStatistics(BaseModel):
 class DatasetQualityResponse(BaseModel):
     dataset_id: str
     structural_status: Literal["passed", "failed"]
+    price_universe_expansion: str
     research_readiness: str
     source_pdf_count: int
+    valid_dol_document_count: int
+    valid_document_rate: float
     observation_count: int
     tickers: list[str]
     date_min: date

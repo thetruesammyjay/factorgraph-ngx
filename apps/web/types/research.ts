@@ -36,8 +36,11 @@ export type Experiment = {
 export type DatasetQuality = {
   dataset_id: string;
   structural_status: "passed" | "failed";
+  price_universe_expansion: string;
   research_readiness: string;
   source_pdf_count: number;
+  valid_dol_document_count: number;
+  valid_document_rate: number;
   observation_count: number;
   tickers: string[];
   date_min: string;

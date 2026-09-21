@@ -1,0 +1,2291 @@
+{
+  "dataset_id": "ngx-dol-2024-01-01-2024-12-31",
+  "provider": "Nigerian Exchange Limited",
+  "purpose": "Bounded public-source coverage audit",
+  "records": [
+    {
+      "date": "2024-01-01",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2001-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-01.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-01-02",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2002-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-02.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99633,
+      "sha256": "36de2adcfea022af020cb9821f7497cd1dea103da9859d603ced26ddb84972ad"
+    },
+    {
+      "date": "2024-01-03",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2003-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-03.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99657,
+      "sha256": "ea7dca037f350a621bbc5db5f60a6dcb39b049dc15437f1e9631ffc4fbfb14d7"
+    },
+    {
+      "date": "2024-01-04",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2004-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-04.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99692,
+      "sha256": "49efbdaeed06c5de60fde46a12e39c1325e8d4afddd3489bbfe2891110317aa8"
+    },
+    {
+      "date": "2024-01-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99749,
+      "sha256": "0823c9a13917fefca4aa6af1158f66771dcb77a2184f40ee1c23f303c2f6e9c2"
+    },
+    {
+      "date": "2024-01-08",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2008-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-08.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-01-09",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2009-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-09.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99729,
+      "sha256": "77d39cd3e2dc1c38e240d9eb7a79383fcff9b575920c963a0492d779f6afd693"
+    },
+    {
+      "date": "2024-01-10",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2010-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-10.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99796,
+      "sha256": "b57d7c77a9a443bd3ff0cbc631dd9ce9ce57fba535f2c45df6f30a5c6aec8b3e"
+    },
+    {
+      "date": "2024-01-11",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2011-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-11.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99782,
+      "sha256": "4359774147132420ed39134463c7b845f3d854b63851cd85bc609dac4fcc7a80"
+    },
+    {
+      "date": "2024-01-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-12.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99692,
+      "sha256": "ef4d6f3ae608891da599eff5d426031a50aa0937dd96f3da996c9ff4cba2980e"
+    },
+    {
+      "date": "2024-01-15",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2015-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-15.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99698,
+      "sha256": "8d8fa5832bd65e2dfaef02784e61fed7b92bd92305c68bdeeaff997d71294bd4"
+    },
+    {
+      "date": "2024-01-16",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2016-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-16.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99838,
+      "sha256": "24a5aed85f0dcb798346e0dce80232d51fb7647933844a2ae20cbd89f368d718"
+    },
+    {
+      "date": "2024-01-17",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2017-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-17.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-01-18",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2018-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-18.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 56049,
+      "sha256": "671dfd011e73f6d61b381ed777be6c3f9264e051d1fe340350bbedbf9e771578"
+    },
+    {
+      "date": "2024-01-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-19.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99742,
+      "sha256": "c3c3110373f468dabcbe28abfa147afb204b81ca302678bfe7b7fef283a32a42"
+    },
+    {
+      "date": "2024-01-22",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-22.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99581,
+      "sha256": "3c3e1444d47c96be6687e2b0277361e6bb1969d8ed764be88f7d60a10b6620e2"
+    },
+    {
+      "date": "2024-01-23",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2023-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-23.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99586,
+      "sha256": "5d90fe1c69cecbc49cc526d926261955d4b1a9dce5bf0da4abffaa6b27f70be7"
+    },
+    {
+      "date": "2024-01-24",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2024-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-24.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99551,
+      "sha256": "b1cb2635f69650d14d56bef191ceb84fca29e29fe767bb7f635e6a7712de8558"
+    },
+    {
+      "date": "2024-01-25",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2025-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-25.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99548,
+      "sha256": "11528bfda38410b7e13ae12dc8c4cfd53eb5f7eed01b0045cd14cdebba285c7d"
+    },
+    {
+      "date": "2024-01-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-26.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99559,
+      "sha256": "27bcd4d9da9b4972554b3c0988900cc0d390faa6c9aed396c4df7414db92a345"
+    },
+    {
+      "date": "2024-01-29",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-29.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99590,
+      "sha256": "0017d66ce6d55eacd630ed9fbc058c44815356cff855714bfa4c3a801dc92fd1"
+    },
+    {
+      "date": "2024-01-30",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2030-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-30.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99503,
+      "sha256": "dcdecfe49c9a6281b2eb49c81f1e1450c6ce1c228702f02b8ab494bf19750788"
+    },
+    {
+      "date": "2024-01-31",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2031-01-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-01-31.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99493,
+      "sha256": "349ca25b284baaa72458d7835b65b56c6199e199f6bac303c5530b5d8a7a7cd5"
+    },
+    {
+      "date": "2024-02-01",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2001-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-01.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99628,
+      "sha256": "68dafb8f5e481b26b16562f10a0836b977b56cad558c1d7fc1c8c5721459dfd7"
+    },
+    {
+      "date": "2024-02-02",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2002-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-02.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99534,
+      "sha256": "ef381d291b11e570bb7ad651f964040f241dcbd1fad10ab7f97de3b8382f2601"
+    },
+    {
+      "date": "2024-02-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99627,
+      "sha256": "3fe0055c1e4de7f693d70adf6507b25e93baf9844f57f90409d221a945b5317a"
+    },
+    {
+      "date": "2024-02-06",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2006-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-06.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99649,
+      "sha256": "84dd2fc75141c80db5f61e8c1ad688adf530d50b374b9bd33cbc20651fa6a35d"
+    },
+    {
+      "date": "2024-02-07",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2007-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-07.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99578,
+      "sha256": "c98f32570bae5a8dbb4e2813223dd935af11d66c5cae53bae3bcc240f6d3c401"
+    },
+    {
+      "date": "2024-02-08",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2008-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-08.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99578,
+      "sha256": "606b1b12e725f15a776e30efb2e822f4ccc0daf9b325bd0cb9205e0b2c0928a7"
+    },
+    {
+      "date": "2024-02-09",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2009-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-09.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99609,
+      "sha256": "28bb89b733fcdcfb758247563e981c4fc060a5c409de1fd793fa3a27ffdfd361"
+    },
+    {
+      "date": "2024-02-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-12.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99586,
+      "sha256": "b87314b40fbad697243bfd119afe4bd1c3cc8390019c7c0c3918b491150c9cb0"
+    },
+    {
+      "date": "2024-02-13",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2013-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-13.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99529,
+      "sha256": "6daaf6ee8261a2ff6ce5655a2e834be2752a29f3eeb09263d9e510dd95ee8a6c"
+    },
+    {
+      "date": "2024-02-14",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2014-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-14.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99506,
+      "sha256": "6f43340a7b902f8e7241a950cd33f862b1b81f323229a4d7f2652981f0da69c2"
+    },
+    {
+      "date": "2024-02-15",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2015-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-15.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-02-16",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2016-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-16.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99582,
+      "sha256": "bac0e0e50f6a90ed88568a7670f2e5b78170745e27335fdb2077d026fc33cc2a"
+    },
+    {
+      "date": "2024-02-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-19.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99522,
+      "sha256": "d89a954f5e4992ca09ca1b7b71836a3439f10c495840d175b054e21cc442d859"
+    },
+    {
+      "date": "2024-02-20",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2020-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-20.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99520,
+      "sha256": "b6234e2880d18eac4ac058451687d3f8e9ae8c191301df15a4a71331afc063b1"
+    },
+    {
+      "date": "2024-02-21",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2021-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-21.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99494,
+      "sha256": "448509cd98a1412f76de4ca0b0602a4d0ad518d6a1bf5fa4ad06ac86e4ae226c"
+    },
+    {
+      "date": "2024-02-22",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-22.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99501,
+      "sha256": "d5d962ac2cd310de88bd2d56d5bbeeb30755869cbd9c82746d456fddee380bab"
+    },
+    {
+      "date": "2024-02-23",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2023-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-23.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99483,
+      "sha256": "86b7d263d6425e9374d926d91450a77ee2acccad6883bb43990a57eead8aa506"
+    },
+    {
+      "date": "2024-02-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-26.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 99562,
+      "sha256": "8824475b1eb06d9c22ef968e9690d227ee1d126455f014dc138c3dacbea4a0fa"
+    },
+    {
+      "date": "2024-02-27",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2027-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-27.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-02-28",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2028-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-28.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-02-29",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-02-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-02-29.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97935,
+      "sha256": "ccd710adf35878cb86f3f7a0e62cc9549d9fe8a74c758d6a1874fa42405e2d60"
+    },
+    {
+      "date": "2024-03-01",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2001-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-01.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97937,
+      "sha256": "6bd06dafd9ede7fcfda9d944f38cf9f3fc09c9528eb7d3cf7cd306fe52d933b8"
+    },
+    {
+      "date": "2024-03-04",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2004-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-04.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98138,
+      "sha256": "2ca6f704340a7bb897ce087906750e0371db02f499fce8ce2531137a9810634e"
+    },
+    {
+      "date": "2024-03-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98138,
+      "sha256": "2ca6f704340a7bb897ce087906750e0371db02f499fce8ce2531137a9810634e"
+    },
+    {
+      "date": "2024-03-06",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2006-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-06.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98073,
+      "sha256": "f883ed75393bffd52d0bda7117819cc482d21590f081baa787177cc5e0028103"
+    },
+    {
+      "date": "2024-03-07",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2007-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-07.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98149,
+      "sha256": "adc94a2e11da73e4bfc4dbe2830c19150b574ce0014ca3b367f7831f62235521"
+    },
+    {
+      "date": "2024-03-08",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2008-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-08.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98073,
+      "sha256": "4966e7355f5c9dd1dd56a1001d80ca02fe35c87d1f5a5cfefa51a31de6f683bb"
+    },
+    {
+      "date": "2024-03-11",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2011-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-11.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98146,
+      "sha256": "7f05a4fa67ebf4b0e07e75f8ee7cb2cc67d6e62e31fd86ece9ec83c4a6eafa7e"
+    },
+    {
+      "date": "2024-03-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-12.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98120,
+      "sha256": "0c90e914f486ac462914ad1fc2595f7ef3bbe329d3b9fa01f99dc284b512ce99"
+    },
+    {
+      "date": "2024-03-13",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2013-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-13.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-03-14",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2014-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-14.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98077,
+      "sha256": "e5f77cab8ba0ccb34cebc9048b817ca8bdfe90f7f55a45d5afbfd02f83801869"
+    },
+    {
+      "date": "2024-03-15",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2015-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-15.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98008,
+      "sha256": "603ce0b2e26f8694fb4281eb0d3623e71830368852dd7736e07c1562f3d2ff28"
+    },
+    {
+      "date": "2024-03-18",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2018-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-18.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98071,
+      "sha256": "ef7d1b700c4e9460b688cdd24d704c9c10ff39101035d84fc78a300152b5c4d9"
+    },
+    {
+      "date": "2024-03-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-19.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98098,
+      "sha256": "3ae23468760e471c28d8bc5c760d09bc8479f73217602e65481cfaf4dbb31eb5"
+    },
+    {
+      "date": "2024-03-20",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2020-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-20.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98149,
+      "sha256": "33a539f3895cf65b420641503a693d50d124ad5d352ec1e65a57b1a7344ee3bd"
+    },
+    {
+      "date": "2024-03-21",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2021-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-21.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98052,
+      "sha256": "5fecdff299f54308a38654efcf95a46e2fd3c04d747bd1dbbf5e7c5535769c55"
+    },
+    {
+      "date": "2024-03-22",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-22.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98132,
+      "sha256": "9df38af57838d024fab96839f2244c6bec5bf74e36626f8b23b62b206eef5be4"
+    },
+    {
+      "date": "2024-03-25",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2025-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-25.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-03-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-26.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-03-27",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2027-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-27.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98095,
+      "sha256": "2927b435f057a01b910ad257b7847fcb282b953d7dbac6334fe4727354ba8208"
+    },
+    {
+      "date": "2024-03-28",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2028-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-28.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98093,
+      "sha256": "c3bb1e1c02297745b85cd72ed0aeb95cc3a2cab110e49dfe357968622022f57a"
+    },
+    {
+      "date": "2024-03-29",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-03-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-03-29.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-04-01",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2001-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-01.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-04-02",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2002-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-02.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98126,
+      "sha256": "c0518e0760c7d146b776bd5d4d8b94d17821a60381707b82752ef00d13cb3c88"
+    },
+    {
+      "date": "2024-04-03",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2003-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-03.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-04-04",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2004-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-04.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98083,
+      "sha256": "3f49a838c5dc53015193d6ac4ac714cf38979d55fe2315a8a529ccf2e69bf578"
+    },
+    {
+      "date": "2024-04-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98175,
+      "sha256": "a2f729e6eff436b2d4c61e47619181d65a455db7624a7e4b1cc62124036b4125"
+    },
+    {
+      "date": "2024-04-08",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2008-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-08.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98136,
+      "sha256": "8dbae75d22639f73771837847d4fcf2730fef52b86382ddcdfeee9af72478452"
+    },
+    {
+      "date": "2024-04-09",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2009-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-09.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-04-10",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2010-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-10.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-04-11",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2011-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-11.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-04-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-12.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98013,
+      "sha256": "bad3a62e84cb28fb5206b5008c6f8893c675e185c6ac98349051b7118b08836d"
+    },
+    {
+      "date": "2024-04-15",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2015-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-15.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98063,
+      "sha256": "f24f52195aff590be96fff3ac2243d31a4269dfcf95082adc3edf60051f8f947"
+    },
+    {
+      "date": "2024-04-16",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2016-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-16.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98057,
+      "sha256": "29f6e1629e34ab6b3367cdd0ab7ae3f0a1042df9dfb6100285f3f0dd505eb9c3"
+    },
+    {
+      "date": "2024-04-17",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2017-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-17.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98023,
+      "sha256": "1d82bcf2d7131b4527102ff8512059fe1f6444a64e74e74752c8dddb977bef0c"
+    },
+    {
+      "date": "2024-04-18",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2018-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-18.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98064,
+      "sha256": "e22f03e352ed96591e28d0b13a459bfe6043fab1f777aeb798a3590829eeeea5"
+    },
+    {
+      "date": "2024-04-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-19.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98060,
+      "sha256": "0f7cace0bd548668d47c9e3770c345ce52022a421c83146568735531b01a93ae"
+    },
+    {
+      "date": "2024-04-22",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-22.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98132,
+      "sha256": "31eaeae8b95f34dd26ae4f2391197b1be3ad713fd7524ee37e02d9449fd5e1bd"
+    },
+    {
+      "date": "2024-04-23",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2023-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-23.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-04-24",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2024-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-24.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98127,
+      "sha256": "92f0e4dcfb138861784d02aef14f31baa3150fa1eacfb452182f810c700c33f0"
+    },
+    {
+      "date": "2024-04-25",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2025-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-25.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98029,
+      "sha256": "e427067a39abdb04d76e739f43983173130c7cf62807e6da022fd3214bb9d6fb"
+    },
+    {
+      "date": "2024-04-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-26.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98056,
+      "sha256": "2456ef217deb1e3dc38f0b0b6dd06df0c838b0a442a1946de35a813d0ffa8e72"
+    },
+    {
+      "date": "2024-04-29",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-29.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98089,
+      "sha256": "fb39146c6b102703ece17d97b201e88c027d1dafcc9626a310ffc5984e91c25a"
+    },
+    {
+      "date": "2024-04-30",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2030-04-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-04-30.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98085,
+      "sha256": "b7113d3900d9e0d2f40ce9bc713dc3ce9146d1458fbb8cc3115e2766e98ed3ef"
+    },
+    {
+      "date": "2024-05-01",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2001-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-01.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-05-02",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2002-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-02.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98152,
+      "sha256": "db23d319a27ec562508e3a95e8d63d59e3ccce983112b273644cb116ace809a0"
+    },
+    {
+      "date": "2024-05-03",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2003-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-03.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98210,
+      "sha256": "3e1ceecbb39f07ee211eaac5600782cb51edfabdad126d2ccf07cecbcd7dc41c"
+    },
+    {
+      "date": "2024-05-06",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2006-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-06.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98194,
+      "sha256": "e4bba6f2fa381a33cbe9d60e1256299c5c81edde83fe50fdedd1a1b68c444c25"
+    },
+    {
+      "date": "2024-05-07",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2007-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-07.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98229,
+      "sha256": "e2c5f3b118b2017a36c257eb837bde03f4bf02a3ce85ccc6874c292b634d9286"
+    },
+    {
+      "date": "2024-05-08",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2008-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-08.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98119,
+      "sha256": "81cdbe8ec940629a3d8923cc43e8720d90e18fd125aad0ac2cee5c13033af809"
+    },
+    {
+      "date": "2024-05-09",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2009-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-09.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98192,
+      "sha256": "20eae95fb87fc569b74924d5054f56d361b7a68bb45120cf68e3db6e4ce8a084"
+    },
+    {
+      "date": "2024-05-10",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2010-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-10.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98332,
+      "sha256": "981da37145c797ab15105e62693970cbfadcae0430aa02a8ebb21090bb16c7f0"
+    },
+    {
+      "date": "2024-05-13",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2013-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-13.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98315,
+      "sha256": "d0a10a3996212d73f5814e1f31e8e3bd84f4aa68f5b692b2013bb7ee8f41c5d0"
+    },
+    {
+      "date": "2024-05-14",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2014-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-14.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98322,
+      "sha256": "8581986bcdd702b61e1ad0de928b7087ff971bebb57e22fc9a4cdb053b181f02"
+    },
+    {
+      "date": "2024-05-15",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2015-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-15.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98337,
+      "sha256": "140150cc52e846e0a8db9c536eadc5c81a1b87a05abdd8240716d79e165208bf"
+    },
+    {
+      "date": "2024-05-16",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2016-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-16.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 98339,
+      "sha256": "7644f4852378e18072b83d56945db8b513b75a4e8d9ec060374c6e47ac01c735"
+    },
+    {
+      "date": "2024-05-17",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2017-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-17.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97664,
+      "sha256": "0be86901e9a188a70cfd7ee5bf5347e8d7deb27b0714d63954ce8e98e0362947"
+    },
+    {
+      "date": "2024-05-20",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2020-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-20.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97644,
+      "sha256": "8018eba993756c76cf05ac5e0940458bf030406d9f9d53629fce18fa4609e22c"
+    },
+    {
+      "date": "2024-05-21",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2021-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-21.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97617,
+      "sha256": "0e31a33223f1a5fb1c1aae72ca0b00aaa48d0371ea25e40b9ce4f80b0ba0b719"
+    },
+    {
+      "date": "2024-05-22",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-22.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97700,
+      "sha256": "0f9e4a083374b8a4ec78d335a9cfd729932ca33089ecea501fe12f3f63a6efa7"
+    },
+    {
+      "date": "2024-05-23",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2023-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-23.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97734,
+      "sha256": "b0ae5226e2bcb12cdac92f76887ed754e36bf7490d423194d32d991e1788d293"
+    },
+    {
+      "date": "2024-05-24",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2024-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-24.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-05-27",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2027-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-27.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97709,
+      "sha256": "6cc32dabfcf733d8c5ef732e29b92149b1c2bc0a2dd6b00623a2cb5af6289467"
+    },
+    {
+      "date": "2024-05-28",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2028-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-28.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97722,
+      "sha256": "f8557dff281a5ea1d206c06d85ab6e4fed28d41bda93ed8392f58dd71f47ee30"
+    },
+    {
+      "date": "2024-05-29",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-29.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97672,
+      "sha256": "c65462ad50b40c89764df2d2340c0006da752ea2366a5a29e0772a205dc28e32"
+    },
+    {
+      "date": "2024-05-30",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2030-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-30.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97697,
+      "sha256": "def820e4d93840f74289832da0b8b09adf7e642bcac6d9bbf33bce70785668c9"
+    },
+    {
+      "date": "2024-05-31",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2031-05-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-05-31.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97697,
+      "sha256": "def820e4d93840f74289832da0b8b09adf7e642bcac6d9bbf33bce70785668c9"
+    },
+    {
+      "date": "2024-06-03",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2003-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-03.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97733,
+      "sha256": "476718594a95d5eaa31aa55840542431dcdd3a149c76c4f1d28a55919dd11d33"
+    },
+    {
+      "date": "2024-06-04",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2004-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-04.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97669,
+      "sha256": "9e550b124953a3f103416bf5e09dced07993faf33be9621a2c5c367256601de7"
+    },
+    {
+      "date": "2024-06-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97743,
+      "sha256": "6103ceec666a19bd7ee90ee528f2d4b62de738e6fbc14ac7d971db546ab0e45c"
+    },
+    {
+      "date": "2024-06-06",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2006-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-06.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97689,
+      "sha256": "8bf4b09404339af3c0beacc89b9074dbd65a84cf0a3a44756e55dc3f82dbf853"
+    },
+    {
+      "date": "2024-06-07",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2007-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-07.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97761,
+      "sha256": "0a192894e79a3b900061c76a030dd59ea9cd87f6ee80da2547ecea1be19ef6cf"
+    },
+    {
+      "date": "2024-06-10",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2010-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-10.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97644,
+      "sha256": "a06f231bbe0c3d5b4371365ea7dce051b8b522a67973e8d35c8e0fde43d3126e"
+    },
+    {
+      "date": "2024-06-11",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2011-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-11.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97707,
+      "sha256": "103760286c83a9ba2137d098a35196772e59a378c5366dccebd01f576f679968"
+    },
+    {
+      "date": "2024-06-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-12.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-06-13",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2013-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-13.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97752,
+      "sha256": "0d6d1aa9b10eac098123c809fce49c8f9bfd77f851ea5de93caad857189b6cd2"
+    },
+    {
+      "date": "2024-06-14",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2014-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-14.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97701,
+      "sha256": "08bdafd02b0841a40ff71c5dac43cf53c9bc92400f697e955db0e7f2e9fb3fb1"
+    },
+    {
+      "date": "2024-06-17",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2017-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-17.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-06-18",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2018-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-18.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-06-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-19.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-06-20",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2020-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-20.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97735,
+      "sha256": "90a92e3a6456e7ef5863af52f3ad4272b7bb71a9f95d473638770b5c47efcd53"
+    },
+    {
+      "date": "2024-06-21",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2021-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-21.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97748,
+      "sha256": "8a862696cb51f2df72b6322d16ae966114cd7b7431d9308665f240bca57c0a68"
+    },
+    {
+      "date": "2024-06-24",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2024-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-24.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97713,
+      "sha256": "520e73cd1215d65edfd098a4693368c30bdf165974aa95a374a2d9fe797bd7e6"
+    },
+    {
+      "date": "2024-06-25",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2025-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-25.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97802,
+      "sha256": "111e143147ab654f41c769c8965eb427783cbadfdfe885797e1cdf7b4ee79bf3"
+    },
+    {
+      "date": "2024-06-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-26.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97783,
+      "sha256": "bc22e70811eca962f85818159857f990a387a46e91868e76083c43dfbb6f52be"
+    },
+    {
+      "date": "2024-06-27",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2027-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-27.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97811,
+      "sha256": "549ee133760c95d4925a1bf5ff391072ed1bae4a1a512bb2e353f55b3bbbb842"
+    },
+    {
+      "date": "2024-06-28",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2028-06-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-06-28.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97740,
+      "sha256": "5d3852179305920a52eeb9c1f98e9e000c6599e86cba683c2ee356e7627e432b"
+    },
+    {
+      "date": "2024-07-01",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2001-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-01.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97766,
+      "sha256": "73c4bd5095b6b144d209c29ff7b5d0ca76f28b78e96982013997555053db003f"
+    },
+    {
+      "date": "2024-07-02",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2002-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-02.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97827,
+      "sha256": "e51d7808cf685347b7e1ea1cd2163e0faeb1a42615019b7b4e166c647c4d8e18"
+    },
+    {
+      "date": "2024-07-03",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2003-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-03.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97806,
+      "sha256": "578448d5c4096ef0e5c6bcb525628e03d24f68bbdde60e8bf65679cfd2d8e013"
+    },
+    {
+      "date": "2024-07-04",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2004-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-04.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97851,
+      "sha256": "388e8331238ebda7c82c0a721faf6a2414f10a7a62ac77857207a9b87eabe1f1"
+    },
+    {
+      "date": "2024-07-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97792,
+      "sha256": "c76879557136db2f6b55b12716d83c1c87f78bd6ca5d6de387d8c41d07d14be2"
+    },
+    {
+      "date": "2024-07-08",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2008-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-08.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97827,
+      "sha256": "e69337ee4e280a29c6be95fd9b78335ab6cdd468283365abf1677d383d94e4f2"
+    },
+    {
+      "date": "2024-07-09",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2009-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-09.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97957,
+      "sha256": "2f1af75eaf680d819c90e4b2cbc449aa07388899052447626f69eb67e99c68fb"
+    },
+    {
+      "date": "2024-07-10",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2010-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-10.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97820,
+      "sha256": "225008014703efa1d1a616d0c8b72d51e58c1dba4bca67d33a6971c6e419d15b"
+    },
+    {
+      "date": "2024-07-11",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2011-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-11.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97826,
+      "sha256": "b6583c6721a181ba6812e813bca504ab405bdb4d76e8a0216d497213f0e06a98"
+    },
+    {
+      "date": "2024-07-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-12.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-07-15",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2015-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-15.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-07-16",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2016-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-16.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97772,
+      "sha256": "cd46db88f9bfdb6a900c8a33b8813e2e191ea80afea4f3812ea8bce82a24ec2e"
+    },
+    {
+      "date": "2024-07-17",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2017-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-17.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97866,
+      "sha256": "e406ac964d48628a17afa8786a8cd7228354103ea996a95a8ccd426cd46d72de"
+    },
+    {
+      "date": "2024-07-18",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2018-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-18.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97266,
+      "sha256": "3759d9d82b43acc966068ae02a0a31788887878dcce55e4be8b260395c55e7f9"
+    },
+    {
+      "date": "2024-07-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-19.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97244,
+      "sha256": "570806bfaa0ffde777f33a893c610bcb38f3704cc983011842aa7e1955043443"
+    },
+    {
+      "date": "2024-07-22",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-22.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97244,
+      "sha256": "f26d644b57a854117db2179c59e13a550b60d5e35f58e65d1ebebac4110305d3"
+    },
+    {
+      "date": "2024-07-23",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2023-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-23.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97198,
+      "sha256": "3f69f8e5ab913a12040c1288704308e79a572779adcedb93fe6b14dcc42f90af"
+    },
+    {
+      "date": "2024-07-24",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2024-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-24.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97265,
+      "sha256": "e1015811f81c3ac51c556ced00f28162b1a6333c30e7dc99ed3cca725b047961"
+    },
+    {
+      "date": "2024-07-25",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2025-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-25.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97261,
+      "sha256": "c95f3977a68bb062d86ed4f7a09b9d919bb05bde835a3328fa360de510d3a728"
+    },
+    {
+      "date": "2024-07-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-26.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97187,
+      "sha256": "338bb3351bf6e10200ffcfd20f0eb7b68c89481a26da81ec53e53138fe41f283"
+    },
+    {
+      "date": "2024-07-29",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-29.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97187,
+      "sha256": "338bb3351bf6e10200ffcfd20f0eb7b68c89481a26da81ec53e53138fe41f283"
+    },
+    {
+      "date": "2024-07-30",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2030-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-30.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97267,
+      "sha256": "d0dad2766f6c46df5354fe6a2d024399cb2f452b74c065dd920b9d543e7d0016"
+    },
+    {
+      "date": "2024-07-31",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2031-07-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-07-31.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-08-01",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2001-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-01.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97235,
+      "sha256": "aee2d043bcdf8bb1d75bb01331963d37531d588a12bf8c5aab6cf7bace2dd750"
+    },
+    {
+      "date": "2024-08-02",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2002-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-02.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97233,
+      "sha256": "f954db229609b1460eece4f3dbef6c0002533c570a1176aef7a770e7af03b60c"
+    },
+    {
+      "date": "2024-08-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97282,
+      "sha256": "dd9f5e3c9238400f3aafc990143cff3eae2ca316ea80d1ff6c0f590fe2c6cc6f"
+    },
+    {
+      "date": "2024-08-06",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2006-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-06.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97283,
+      "sha256": "71af7b44519e0e8f64dab9345be58aecf10fb0ee6f933c74e82092f8d476b80d"
+    },
+    {
+      "date": "2024-08-07",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2007-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-07.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97259,
+      "sha256": "ec42889d24919bec157456f93e29c45b47e36d05c8898ffba5603cde7536a061"
+    },
+    {
+      "date": "2024-08-08",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2008-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-08.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97295,
+      "sha256": "a884f5413a8267587a35acdde72c9a7f4d1c7e10f40e72a018ba47a0b82a47f7"
+    },
+    {
+      "date": "2024-08-09",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2009-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-09.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-08-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-12.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97241,
+      "sha256": "590978b9571753a28635630f7c6b5dbc5854adc95614e5c16b6b02337b0843ec"
+    },
+    {
+      "date": "2024-08-13",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2013-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-13.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97210,
+      "sha256": "54182a8c01f975d80e3a0bdb2ad41b1f6ac8e36e08a5ac468944aa1e99e96d68"
+    },
+    {
+      "date": "2024-08-14",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2014-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-14.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97226,
+      "sha256": "3e5836ce076658314b20de7e27f1f9e00d87de3c62876fd62d659a027db73a8c"
+    },
+    {
+      "date": "2024-08-15",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2015-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-15.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97231,
+      "sha256": "c09a1d78effeabdcc19999e1937cfdf1ceb6b0d827f4c210ed75f2603bd13f62"
+    },
+    {
+      "date": "2024-08-16",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2016-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-16.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-08-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-19.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97213,
+      "sha256": "7d19ca431a294f1e4ec024aac0e7c75e6239252cfd0f85e9dc91bdc1d2f560b5"
+    },
+    {
+      "date": "2024-08-20",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2020-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-20.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97216,
+      "sha256": "907f2fcf7e9da854bd5a4989d0c294fc46682c0ea5330b2a817ae2316227ebb8"
+    },
+    {
+      "date": "2024-08-21",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2021-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-21.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97214,
+      "sha256": "22fa7a2e0b5db658d96c189a11ead6afee90917474cfbe2676a148354dfa8e6d"
+    },
+    {
+      "date": "2024-08-22",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-22.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97166,
+      "sha256": "d4eba907f6c3b6d39aae5c51146f26b2b34c98310c70c49632de01ce6f44c2c1"
+    },
+    {
+      "date": "2024-08-23",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2023-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-23.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97157,
+      "sha256": "be0129767bf35e4bf693d8ae94c030629ddc71011f998ac8271cfe55bce29cd1"
+    },
+    {
+      "date": "2024-08-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-26.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97215,
+      "sha256": "a1e883c1d31b8230a80fb37453940ee74a66e7dfe4a6dffdafa0c5d7b072450e"
+    },
+    {
+      "date": "2024-08-27",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2027-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-27.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97256,
+      "sha256": "17e9b862f436d2b6b9c5aed7cfaa8cc2451835f8e91d15846e2aba9d80d3a406"
+    },
+    {
+      "date": "2024-08-28",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2028-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-28.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97231,
+      "sha256": "2c4e495bdca09c0e2a60d22bc791bc77f2c668874142205510e4e919826eb3c2"
+    },
+    {
+      "date": "2024-08-29",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-29.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97218,
+      "sha256": "953af460b4032c4c6220c3456aff1c8aa009967f21e512c3c367906b73f4efa5"
+    },
+    {
+      "date": "2024-08-30",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2030-08-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-08-30.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-09-02",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2002-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-02.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97277,
+      "sha256": "d28c62c77f39d6f63f0cb81781900796dade7490d29906dd8140ec9f79b17b93"
+    },
+    {
+      "date": "2024-09-03",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2003-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-03.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97328,
+      "sha256": "ed5c878ed26c0a6bd79baa4ce993de9e9f5f2545a8dd8b0977e1b45b1e4dbac5"
+    },
+    {
+      "date": "2024-09-04",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2004-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-04.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97303,
+      "sha256": "461400fa7f9cedf1a561ec48235c9e90db6f2184eca713101fa2258a3c5198c8"
+    },
+    {
+      "date": "2024-09-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97283,
+      "sha256": "48f1d027eb4bcc5a06d8f16affc11efaeb355781c1ea773a0b2bb1fe7f0ace53"
+    },
+    {
+      "date": "2024-09-06",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2006-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-06.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97231,
+      "sha256": "b51d4946d2b70472d44f3aa13d1a100729cace87a41fcf64ad6851dd3aff9526"
+    },
+    {
+      "date": "2024-09-09",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2009-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-09.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97257,
+      "sha256": "c28e0f6a0e7b420f540ff578e82eb6a4f83f11286e69d7c1130b84b5f5520b6e"
+    },
+    {
+      "date": "2024-09-10",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2010-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-10.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97296,
+      "sha256": "1e5fdb44fedf9a9c18eb606df0f7184326e170fe0d07b17ff2ad58cb07a9ad6d"
+    },
+    {
+      "date": "2024-09-11",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2011-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-11.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97297,
+      "sha256": "78e754157ce3376ac8cb9b8783d798eaa0cab0e922d1a8ea817618a2f7458d71"
+    },
+    {
+      "date": "2024-09-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-12.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97240,
+      "sha256": "4b31469ea3e1abb306f82fac3d58caf039da09c3e096fad2898230bf543751a2"
+    },
+    {
+      "date": "2024-09-13",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2013-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-13.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97277,
+      "sha256": "44be877cdc76a62db0a70964097d34dbb23e4d7a2671e929f38495862990a942"
+    },
+    {
+      "date": "2024-09-16",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2016-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-16.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-09-17",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2017-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-17.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97228,
+      "sha256": "471671307326477ca664c29e9b578ef9fa3f2f05b53f63aef8af9f40a04c251d"
+    },
+    {
+      "date": "2024-09-18",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2018-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-18.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97287,
+      "sha256": "d3922eb0b154467b57fdda447e4ab906e998aa46c3da7c1ad1311a62c0c7c27a"
+    },
+    {
+      "date": "2024-09-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-19.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97252,
+      "sha256": "f4dc44c144ae2976e5a2349c9c580bc75a7624a6681c9bbc72f30f7e160176dd"
+    },
+    {
+      "date": "2024-09-20",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2020-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-20.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97279,
+      "sha256": "ef8236fbcfa5dc493656526b652669c89c2b3e83ebf926cd6a4dad5593986b1f"
+    },
+    {
+      "date": "2024-09-23",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2023-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-23.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97164,
+      "sha256": "aff61f79e549febb5e1f4d9e283582da1b5495f918c202e0773fbe34a71d0ab3"
+    },
+    {
+      "date": "2024-09-24",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2024-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-24.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97238,
+      "sha256": "4ece42a8756e717287dbc325e782f2102421e6276a063b78d8a46c10effd2788"
+    },
+    {
+      "date": "2024-09-25",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2025-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-25.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97266,
+      "sha256": "70aa0280986a9236cef95e12a5062c731f14fcda7c33f843376e23707564c9b5"
+    },
+    {
+      "date": "2024-09-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-26.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97256,
+      "sha256": "bc9bf21c02ebbbc72f8d0b96c931a36dec5073235d55b0c12a62e63f340207eb"
+    },
+    {
+      "date": "2024-09-27",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2027-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-27.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97218,
+      "sha256": "4f87e76b81678b0cb76ba1f7c322c9e06095c3dee26bcf92df7cb189430e7606"
+    },
+    {
+      "date": "2024-09-30",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2030-09-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-09-30.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-10-01",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2001-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-01.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-10-02",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2002-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-02.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97320,
+      "sha256": "5bf91155c91fafdbea4f83849475bea49cd5b30d00f5ca4ef31f9bd948c40ac1"
+    },
+    {
+      "date": "2024-10-03",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2003-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-03.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97243,
+      "sha256": "f9f97ed2e0c23c8c2ac7a67c2170dad95f6e35f0e64f6ac93cc887f0c0c03d4c"
+    },
+    {
+      "date": "2024-10-04",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2004-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-04.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97266,
+      "sha256": "61bb84721abd8c6656ebc69317217f0fc4bc5099c32e57a73611574a38d34195"
+    },
+    {
+      "date": "2024-10-07",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2007-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-07.pdf",
+      "http_status": 200,
+      "status": "downloaded",
+      "bytes": 97310,
+      "sha256": "924920ca6426930880154111cc0a53f0af59ce06688b7158d240daba99449500"
+    },
+    {
+      "date": "2024-10-08",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2008-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-08.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97240,
+      "sha256": "107faf2fe41a633915c69c7a81c99c0ae066f9504465df0e75d4b93d1319a478"
+    },
+    {
+      "date": "2024-10-09",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2009-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-09.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97240,
+      "sha256": "107faf2fe41a633915c69c7a81c99c0ae066f9504465df0e75d4b93d1319a478"
+    },
+    {
+      "date": "2024-10-10",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2010-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-10.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97231,
+      "sha256": "7702c420776724afaf915354aa5de4ce09e80ede6c25021d14bc3eed0c9d00a5"
+    },
+    {
+      "date": "2024-10-11",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2011-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-11.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97218,
+      "sha256": "f2b79e85232e581b9e2184b770b42afe3baba8652297567d4c1878d5f707acd8"
+    },
+    {
+      "date": "2024-10-14",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2014-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-14.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97426,
+      "sha256": "5688faf8d6d565e2721c9e27ca0c0dbc91675f4d74b031e127d5d1a5423cd311"
+    },
+    {
+      "date": "2024-10-15",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2015-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-15.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97455,
+      "sha256": "3592d43ac46b7241be3b59b7fafbeb0e3f16ea66c3ab91865195377a97dff362"
+    },
+    {
+      "date": "2024-10-16",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2016-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-16.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-10-17",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2017-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-17.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97415,
+      "sha256": "401dbb0eea310e27b7b13d126e453b5607f4e2569da88dde1bf182a956cc3701"
+    },
+    {
+      "date": "2024-10-18",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2018-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-18.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97353,
+      "sha256": "6b1758f3e137fa8bc9c79a8c5217313ca6e0ef528a7ab348cb0cde6d2829e831"
+    },
+    {
+      "date": "2024-10-21",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2021-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-21.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97402,
+      "sha256": "1d884fe9f63262bfa000fac6c1167482080e70ce55f3b178f4ada66a48ef5fe0"
+    },
+    {
+      "date": "2024-10-22",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-22.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97402,
+      "sha256": "736d8936220c5f78994fbf727c7820c5c85b50dfe027ae52b67b50ca0e818872"
+    },
+    {
+      "date": "2024-10-23",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2023-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-23.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97471,
+      "sha256": "86a2d303cc4f90d2f14a1f02025c95e487ace8eeeba6cde15d926c0872cb140f"
+    },
+    {
+      "date": "2024-10-24",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2024-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-24.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97431,
+      "sha256": "16d996a045105b2dbdb8f1345842b73c4215d5042160ab047c40fefdf4fc5b2e"
+    },
+    {
+      "date": "2024-10-25",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2025-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-25.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97448,
+      "sha256": "4e7e44c5d003856a862a96b16f55de4b52c6710ffa333baa56a9f66b100a7a85"
+    },
+    {
+      "date": "2024-10-28",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2028-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-28.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97406,
+      "sha256": "493709c126393278077d8dee57f74ea67a702df3d16f117ad03ac14c4eae2cae"
+    },
+    {
+      "date": "2024-10-29",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-29.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97410,
+      "sha256": "c00b586351e19abb09f7193dbc4af1e5bb3f29659291abc93b7f5a37c0acdfbd"
+    },
+    {
+      "date": "2024-10-30",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2030-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-30.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97391,
+      "sha256": "25f18dcc2a5032ecb9f8afdae834203fb1a893a08f6a9e0180778eaf5e84cf53"
+    },
+    {
+      "date": "2024-10-31",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2031-10-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-10-31.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97316,
+      "sha256": "a973e64b6c8ac9bd30b3332f1e2546dba5697e38527b7d2f56a06a7c4c83ff49"
+    },
+    {
+      "date": "2024-11-01",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2001-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-01.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97433,
+      "sha256": "f1d0a333d5888146d11121d7d3efbc48b3b8513af5e7b6fb0eb07799d3639f91"
+    },
+    {
+      "date": "2024-11-04",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2004-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-04.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97347,
+      "sha256": "e47c0fb2c215a0ef51b55730df441a1e4fb107243d96474f5be0ee27cf6c8a8b"
+    },
+    {
+      "date": "2024-11-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97399,
+      "sha256": "ad9ec8f0cb527ad4a8b9109fc195d318a86bd89d68016d7712053cebe418c382"
+    },
+    {
+      "date": "2024-11-06",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2006-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-06.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97424,
+      "sha256": "fa12a984326a60dead55b03857f0e92d35c19dd5fc558413a7b452ce585c2e87"
+    },
+    {
+      "date": "2024-11-07",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2007-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-07.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97383,
+      "sha256": "e969e421fdb2afe1e1dd0b23c548414f1855303c490279edbb41ade5829eed6b"
+    },
+    {
+      "date": "2024-11-08",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2008-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-08.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97379,
+      "sha256": "9105bfd512254690bf7ba79d9d15f57837757c86cf45c2d3442381e76a9871c8"
+    },
+    {
+      "date": "2024-11-11",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2011-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-11.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97404,
+      "sha256": "03019acef2ede1d9a9f0f0d11825fe85bd56fd4820bbb1b6952aa3755216a03a"
+    },
+    {
+      "date": "2024-11-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-12.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97375,
+      "sha256": "c0450fc59af9253a3e09ed92c84ad9d18a80f6eddc09217941351080eff17098"
+    },
+    {
+      "date": "2024-11-13",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2013-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-13.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97435,
+      "sha256": "57fe4666ab2fc466e82a09b25a8ca1c372f81adfc02b0a83835b868f34655b2e"
+    },
+    {
+      "date": "2024-11-14",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2014-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-14.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97410,
+      "sha256": "2174425ddeec3d2c219b2c002789b8f3cb8f81c4481d02f2eb19403bd0d6fb30"
+    },
+    {
+      "date": "2024-11-15",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2015-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-15.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97420,
+      "sha256": "6312e076b647e6a567a5a755493076f2bc6e9bb6c32e5bdde4d775e1d7d30b83"
+    },
+    {
+      "date": "2024-11-18",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2018-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-18.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97397,
+      "sha256": "0a507373248896ad45a3563eb02f38b4e6a1ee039fbafa6b849593a23c7732f2"
+    },
+    {
+      "date": "2024-11-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-19.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97357,
+      "sha256": "c79f2eeadebcf0166c80ccddc97e236452cc185e2e215518a42fe2556e7658d3"
+    },
+    {
+      "date": "2024-11-20",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2020-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-20.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97634,
+      "sha256": "77feded0db9213223e80f03373f47406d5e8d63503ef739977f9964560729606"
+    },
+    {
+      "date": "2024-11-21",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2021-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-21.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 24227,
+      "sha256": "be65c7bffbee6756781f6f09914545cb11dac824633f53d794688a81a796e107"
+    },
+    {
+      "date": "2024-11-22",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-22.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97552,
+      "sha256": "bc7d3ea2757a2ed87f9dbe4f155cf631e39500d3243c5dc43983aa7d5b8e8759"
+    },
+    {
+      "date": "2024-11-25",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2025-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-25.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97585,
+      "sha256": "5b8a0f332ed9907e4606984aaf2cff9414ba5f5a0524a7d6b19e421d418a5865"
+    },
+    {
+      "date": "2024-11-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-26.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97601,
+      "sha256": "351ff8aef8bb28e44755d55c2f31f9bb6a81fbdad45f27cf37e02b77444bf58b"
+    },
+    {
+      "date": "2024-11-27",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2027-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-27.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97616,
+      "sha256": "fcd37f31fe36675ff70478315874b9b8df5523f3d51e89ae7b49b1c0bcd87e0e"
+    },
+    {
+      "date": "2024-11-28",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2028-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-28.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-11-29",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-11-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-11-29.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97622,
+      "sha256": "9e60599b15f4f2296ab6ef90fa5d52a68b5bbef90742e7074f32d031a2e86212"
+    },
+    {
+      "date": "2024-12-02",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2002-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-02.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97658,
+      "sha256": "52d15f672e6b193968860cc92fa2655b93cef566884e44ae650554b0cf007daf"
+    },
+    {
+      "date": "2024-12-03",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2003-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-03.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97710,
+      "sha256": "dda0d6070ec5b0ca3cd15ed6eb026779ab18c3d277a82f9bafe1c268e707a1f0"
+    },
+    {
+      "date": "2024-12-04",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2004-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-04.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97609,
+      "sha256": "ebb64e487154d2c5dd2cfb2d3c56772f01c05a0115d85f91f5e28cddbb3f020d"
+    },
+    {
+      "date": "2024-12-05",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2005-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-05.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97544,
+      "sha256": "cc9bca72f0a612ee6f0fa2c530722e061402d8e59044c341ffbcb1e926b95754"
+    },
+    {
+      "date": "2024-12-06",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2006-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-06.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97591,
+      "sha256": "dbb90078ad418c683f8f50fe57156410bf8631d3dd7856ced23a8072d09f3359"
+    },
+    {
+      "date": "2024-12-09",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2009-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-09.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97649,
+      "sha256": "82e8d047701196827e9f7380130cef5988364442f815e843ee2ff699002dd2e8"
+    },
+    {
+      "date": "2024-12-10",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2010-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-10.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97644,
+      "sha256": "89d5ad9b0239367c5029273db5421fa32f8665e4f7ba7f51ace8c2f963386d5e"
+    },
+    {
+      "date": "2024-12-11",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2011-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-11.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97598,
+      "sha256": "63bca5773a099e05a53afeff58199710d92ff32b579a7a413aa06906191e10b7"
+    },
+    {
+      "date": "2024-12-12",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2012-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-12.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97633,
+      "sha256": "97f09245f607d50636dc17d0fb6ebff5bc0e05aa29ea75cbdeaf372eaf70932f"
+    },
+    {
+      "date": "2024-12-13",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2013-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-13.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97580,
+      "sha256": "34a865c2713f57aab40c363d662b123e07c872082c2f4d27993f8290790f4159"
+    },
+    {
+      "date": "2024-12-16",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2016-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-16.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97704,
+      "sha256": "537a644468e07c601e6817a41c9d40ec19737f38bbfb08542bacaaab5b0575ff"
+    },
+    {
+      "date": "2024-12-17",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2017-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-17.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-12-18",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2018-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-18.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97600,
+      "sha256": "245105d76f2c35423ffbe0ea55368a47798f5ae285e5ac468dc93b90b3f3198e"
+    },
+    {
+      "date": "2024-12-19",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2019-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-19.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97617,
+      "sha256": "daa540055697095f56f1512ac80255ada9cabed9706717daca14c90937462d6a"
+    },
+    {
+      "date": "2024-12-20",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2020-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-20.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97610,
+      "sha256": "9b51c9a053c67088f038ce1b24874d69214057abf305bf2212a4735db774fa1f"
+    },
+    {
+      "date": "2024-12-23",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2023-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-23.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97661,
+      "sha256": "1e9d353280adc16e6b2201b1298569ac45f29acdb8e3aeb6fbacdbf527b77f12"
+    },
+    {
+      "date": "2024-12-24",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2024-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-24.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97614,
+      "sha256": "efa7b3f4f4820cdfe0e11473163dc7ed32aa392f926860be59721b08f6f79b30"
+    },
+    {
+      "date": "2024-12-25",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2025-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-25.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-12-26",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2026-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-26.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-12-27",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2027-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-27.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "date": "2024-12-30",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2030-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-30.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97455,
+      "sha256": "1a7d10bb1345dc304764974c74da432ba5435ea5de106bbda8c45fe3a6947393"
+    },
+    {
+      "date": "2024-12-31",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2031-12-2024.pdf",
+      "local_path": "data/raw/ngx-dol-2024/ngx-dol-equities-2024-12-31.pdf",
+      "http_status": 200,
+      "status": "already_downloaded",
+      "bytes": 97419,
+      "sha256": "bae57fe88484317a4cee839aca35f90e82d4b4e652b7b46409f6beb089533c52"
+    }
+  ]
+}

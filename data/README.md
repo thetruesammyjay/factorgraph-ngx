@@ -58,3 +58,8 @@ The processed CSV is reproducible and ignored by Git. The validation report is
 committed because it records coverage, duplicate checks, stale-price runs, and
 the deliberate absence of unverified liquidity values.
 
+For the annual audit, use the same commands with a 2024 date range, the
+`data/raw/ngx-dol-2024` directory, `--download-manifest`, a stable `--dataset-id`,
+and `--workers 4`. The annual decision and monthly statistics are documented in
+`research/audit-results/ngx-dol-2024-coverage.md`.
+
