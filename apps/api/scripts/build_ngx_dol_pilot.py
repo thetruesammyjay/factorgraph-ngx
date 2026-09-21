@@ -35,11 +35,18 @@ def main() -> None:
     parser.add_argument("--api-report", type=Path)
     parser.add_argument("--download-manifest", type=Path)
     parser.add_argument("--dataset-id", default="ngx-dol-pilot")
-    parser.add_argument("--tickers", nargs="+", required=True)
+    universe_group = parser.add_mutually_exclusive_group(required=True)
+    universe_group.add_argument("--tickers", nargs="+")
+    universe_group.add_argument("--universe", type=Path)
     parser.add_argument("--workers", type=int, default=1)
     args = parser.parse_args()
 
-    requested = set(args.tickers)
+    universe_metadata = None
+    if args.universe:
+        universe_metadata = json.loads(args.universe.read_text(encoding="utf-8"))
+        requested = {security["ticker"] for security in universe_metadata["securities"]}
+    else:
+        requested = set(args.tickers)
     pdfs = sorted(args.input.glob("*.pdf"))
     work = [(path, requested) for path in pdfs]
     if args.workers > 1:
@@ -144,6 +151,7 @@ def main() -> None:
         "valid_document_rate": valid_document_rate,
         "observation_count": len(frame),
         "tickers": sorted(requested),
+        "universe": universe_metadata,
         "date_min": frame["trading_date"].min(),
         "date_max": frame["trading_date"].max(),
         "observations_by_ticker": dict(sorted(counts.items())),

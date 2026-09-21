@@ -60,6 +60,7 @@ def parse_layout_text(text: str, tickers: set[str], source_file: str) -> list[Ng
         if header is None:
             raise ValueError(f"column header not found before {ticker} in {source_file}")
 
+        name_at = header.index("Security Name")
         quote_at = header.index("Price (N)")
         open_at = header.index("Official Open")
         close_at = header.index("Official Close")
@@ -68,10 +69,13 @@ def parse_layout_text(text: str, tickers: set[str], source_file: str) -> list[Ng
 
         ticker_at = line.index(ticker)
         security_name = line[ticker_at + len(ticker) : quote_at].strip()
-        if index + 1 < len(lines):
-            continuation = lines[index + 1][:quote_at].strip()
-            if continuation and not continuation.startswith(("Symbol", "Daily Official")):
-                security_name = f"{security_name} {continuation}"
+        continuation_at = max(header.index("Symbol") + 10, name_at - 8)
+        for next_line in lines[index + 1 : index + 4]:
+            continuation = next_line[continuation_at:quote_at].strip()
+            indentation = len(next_line) - len(next_line.lstrip())
+            if indentation < continuation_at or not continuation:
+                break
+            security_name = f"{security_name} {continuation}"
 
         official_open = _number(line[open_at:close_at])
         official_close = _number(line[close_at:market_at])

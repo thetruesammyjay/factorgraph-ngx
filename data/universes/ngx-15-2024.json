@@ -1,0 +1,22 @@
+{
+  "universe_id": "ngx-15-2024",
+  "name": "NGX 15-security public-data audit universe",
+  "selection_basis": "Cross-sector, long-listed securities selected for data-feasibility testing; inclusion is not an investment recommendation.",
+  "securities": [
+    {"ticker": "ACCESSCORP", "company": "Access Holdings", "sector": "Banking"},
+    {"ticker": "AIICO", "company": "AIICO Insurance", "sector": "Insurance"},
+    {"ticker": "DANGCEM", "company": "Dangote Cement", "sector": "Industrial Goods"},
+    {"ticker": "FBNH", "company": "FBN Holdings", "sector": "Banking"},
+    {"ticker": "GTCO", "company": "Guaranty Trust Holding", "sector": "Banking"},
+    {"ticker": "MTNN", "company": "MTN Nigeria Communications", "sector": "Telecommunications"},
+    {"ticker": "NB", "company": "Nigerian Breweries", "sector": "Consumer Goods"},
+    {"ticker": "NESTLE", "company": "Nestle Nigeria", "sector": "Consumer Goods"},
+    {"ticker": "OKOMUOIL", "company": "Okomu Oil Palm", "sector": "Agriculture"},
+    {"ticker": "PRESCO", "company": "Presco", "sector": "Agriculture"},
+    {"ticker": "SEPLAT", "company": "Seplat Energy", "sector": "Oil and Gas"},
+    {"ticker": "TOTAL", "company": "TotalEnergies Marketing Nigeria", "sector": "Oil and Gas"},
+    {"ticker": "UBA", "company": "United Bank for Africa", "sector": "Banking"},
+    {"ticker": "WAPCO", "company": "Lafarge Africa", "sector": "Industrial Goods"},
+    {"ticker": "ZENITHBANK", "company": "Zenith Bank", "sector": "Banking"}
+  ]
+}

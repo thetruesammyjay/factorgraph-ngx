@@ -63,3 +63,8 @@ For the annual audit, use the same commands with a 2024 date range, the
 and `--workers 4`. The annual decision and monthly statistics are documented in
 `research/audit-results/ngx-dol-2024-coverage.md`.
 
+The versioned 15-security universe is stored in `universes/ngx-15-2024.json`.
+Pass it to the builder with `--universe ../../data/universes/ngx-15-2024.json`;
+the resulting audit is documented in
+`research/audit-results/ngx-dol-2024-15-security.md`.
+

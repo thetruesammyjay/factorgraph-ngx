@@ -51,3 +51,33 @@ def test_flags_carried_market_price_and_leaves_liquidity_missing():
     assert parsed.volume is None
     assert parsed.trading_value is None
     assert parsed.price_status == "carried_market_price"
+
+
+def test_multiline_name_does_not_consume_the_next_security():
+    first = list(" " * 170)
+    continuation = list(" " * 170)
+    next_security = list(" " * 170)
+    for start, value in {
+        3: "DANGCEM",
+        HEADER.index("Security Name"): "DANGOTE CEMENT",
+        HEADER.index("Price (N)"): "0.50",
+        HEADER.index("Market Price"): "478.80",
+    }.items():
+        first[start : start + len(value)] = value
+    name_at = HEADER.index("Security Name")
+    continuation[name_at : name_at + 3] = "PLC"
+    next_security[3:8] = "WAPCO"
+    next_security[name_at : name_at + 14] = "LAFARGE AFRICA"
+    text = "\n".join(
+        [
+            "Daily Official List (Equities) For 03/12/2024",
+            HEADER,
+            "".join(first),
+            "".join(continuation),
+            "".join(next_security),
+        ]
+    )
+
+    parsed = parse_layout_text(text, {"DANGCEM"}, "sample.pdf")[0]
+
+    assert parsed.security_name == "DANGOTE CEMENT PLC"
