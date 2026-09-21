@@ -36,3 +36,8 @@ The raw NGX files remain outside the database and outside Git. Import jobs
 should register their source file hashes and coverage in `dataset_versions`
 before loading canonical observations.
 
+CSV schemas for public-data collection are kept in `templates/`. Committed
+source manifests contain URLs, retrieval metadata, hashes, and coverage without
+committing the downloaded files themselves. The first public-source assessment
+is documented in `research/audit-results/public-data-feasibility.md`.
+

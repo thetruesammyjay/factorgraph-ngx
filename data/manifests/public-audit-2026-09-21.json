@@ -1,0 +1,54 @@
+{
+  "dataset_id": "public-audit-2026-09-21",
+  "created_at_utc": "2026-09-21T00:00:00Z",
+  "purpose": "Test whether official public NGX files can support a reproducible pilot for DANGCEM, ZENITHBANK, and SEPLAT.",
+  "files": [
+    {
+      "source_id": "ngx-dol-equities-2022-09-22",
+      "provider": "Nigerian Exchange Limited",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2022-09-2022.pdf",
+      "retrieved_on": "2026-09-21",
+      "local_path": "data/raw/public-audit/ngx-dol-equities-2022-09-22.pdf",
+      "bytes": 99523,
+      "sha256": "a2d76c82c65f04ef144482c890094b4536873d356e2ba5e57cb8a605e1bb46c3",
+      "coverage": "NGX equity Daily Official List for 2022-09-22"
+    },
+    {
+      "source_id": "ngx-dol-equities-2023-12-29",
+      "provider": "Nigerian Exchange Limited",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2029-12-2023.pdf",
+      "retrieved_on": "2026-09-21",
+      "local_path": "data/raw/public-audit/ngx-dol-equities-2023-12-29.pdf",
+      "bytes": 99701,
+      "sha256": "692e9d3e6c558b2818fc056332a8c08e3fb6fcf3c90e45ad95c2a920e1b7c0c9",
+      "coverage": "NGX equity Daily Official List for 2023-12-29"
+    },
+    {
+      "source_id": "ngx-dol-equities-2024-12-31",
+      "provider": "Nigerian Exchange Limited",
+      "source_url": "https://doclib.ngxgroup.com/DownloadsContent/Daily%20Official%20List%20-%20Equities%20for%2031-12-2024.pdf",
+      "retrieved_on": "2026-09-21",
+      "local_path": "data/raw/public-audit/ngx-dol-equities-2024-12-31.pdf",
+      "bytes": 97419,
+      "sha256": "bae57fe88484317a4cee839aca35f90e82d4b4e652b7b46409f6beb089533c52",
+      "coverage": "NGX equity Daily Official List for 2024-12-31"
+    }
+  ],
+  "unsuccessful_automated_downloads": [
+    {
+      "provider": "Zenith Bank",
+      "resource": "2024 annual report",
+      "result": "Blocked by the publisher's web application firewall"
+    },
+    {
+      "provider": "Dangote Cement",
+      "resource": "2024 annual report",
+      "result": "The previously indexed direct URL returned not found"
+    },
+    {
+      "provider": "Seplat Energy",
+      "resource": "2024 annual report",
+      "result": "The publisher returned HTTP 403 to the automated request"
+    }
+  ]
+}

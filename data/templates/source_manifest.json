@@ -1,0 +1,18 @@
+{
+  "dataset_id": "replace-me",
+  "created_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "purpose": "Describe the bounded collection or experiment.",
+  "files": [
+    {
+      "source_id": "stable-source-id",
+      "provider": "Publisher name",
+      "source_url": "https://example.org/file",
+      "retrieved_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+      "local_path": "data/raw/provider/file.ext",
+      "sha256": "lowercase-sha256",
+      "license_or_terms": "Publicly accessible; verify reuse terms",
+      "coverage": "Describe dates, instruments, and fields",
+      "notes": "Record transformations, omissions, and uncertainties"
+    }
+  ]
+}
