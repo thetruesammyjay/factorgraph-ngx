@@ -1,1 +1,1 @@
-trade_date,ticker,isin,open,high,low,close,adjusted_close,volume,traded_value,number_of_trades,currency,source_id
+trading_date,ticker,isin,open,high,low,close,adjusted_close,volume,trading_value,number_of_transactions,currency,source_id

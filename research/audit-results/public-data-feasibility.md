@@ -12,6 +12,8 @@ The three PDFs are machine-readable. `pypdf` extracted all pages, and each test 
 
 A full-month retrieval test then checked all 22 weekdays in December 2024. Eighteen official PDFs downloaded successfully and four dates returned HTTP 404: 17, 25, 26, and 27 December. The latter dates include public holidays, so a trading-calendar reconciliation is required before describing 18/22 as missing-data coverage. DANGCEM, ZENITHBANK, and SEPLAT appeared in all 18 retrieved documents.
 
+The positioned-text parser produced 54 keyed observations with no duplicate keys, missing ticker dates, or non-positive current market prices. It also exposed substantial stale-price risk: DANGCEM had no Official Close in all 18 files, SEPLAT had none in all 18, and ZENITHBANK lacked one in 7. DANGCEM's Current Market Price was unchanged throughout the retrieved month. The extraction therefore passes its structural check, while research readiness remains blocked pending stale-price review and a verified liquidity source. Detailed machine-readable results are in `research/audit-results/ngx-dol-december-2024-validation.json`.
+
 ## Fields observed
 
 The Daily Official List exposes the security symbol and name, public quotation price, official open, official close, current market price, the date and quantity shown under “Ex - Business Done,” 52-week high and low, dividend fields, EPS, and P/E.

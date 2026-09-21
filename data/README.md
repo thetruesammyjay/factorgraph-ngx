@@ -41,3 +41,19 @@ source manifests contain URLs, retrieval metadata, hashes, and coverage without
 committing the downloaded files themselves. The first public-source assessment
 is documented in `research/audit-results/public-data-feasibility.md`.
 
+## December 2024 pilot
+
+From `apps/api`, build the three-security pilot with:
+
+```powershell
+uv run python -m scripts.build_ngx_dol_pilot `
+  --input ../../data/raw/ngx-dol-2024-12 `
+  --output ../../data/processed/ngx-dol-december-2024-pilot.csv `
+  --report ../../research/audit-results/ngx-dol-december-2024-validation.json `
+  --tickers DANGCEM ZENITHBANK SEPLAT
+```
+
+The processed CSV is reproducible and ignored by Git. The validation report is
+committed because it records coverage, duplicate checks, stale-price runs, and
+the deliberate absence of unverified liquidity values.
+
