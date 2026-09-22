@@ -1,0 +1,190 @@
+{
+  "dataset_id": "ngx-15-fundamentals-source-documents",
+  "purpose": "Candidate pages for human-reviewed fundamentals extraction",
+  "automatic_values_accepted": false,
+  "status_counts": {
+    "document_unavailable": 30
+  },
+  "records": [
+    {
+      "ticker": "ACCESSCORP",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "ACCESSCORP",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "AIICO",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "AIICO",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "DANGCEM",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "DANGCEM",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "FBNH",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "FBNH",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "GTCO",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "GTCO",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "MTNN",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "MTNN",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "NB",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "NB",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "NESTLE",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "NESTLE",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "OKOMUOIL",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "OKOMUOIL",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "PRESCO",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "PRESCO",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "SEPLAT",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "SEPLAT",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "TOTAL",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "TOTAL",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "UBA",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "UBA",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "WAPCO",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "WAPCO",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "ZENITHBANK",
+      "fiscal_period": "2022-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    },
+    {
+      "ticker": "ZENITHBANK",
+      "fiscal_period": "2023-12-31",
+      "status": "document_unavailable",
+      "hits": []
+    }
+  ]
+}

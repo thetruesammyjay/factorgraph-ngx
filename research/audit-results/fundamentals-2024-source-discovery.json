@@ -1,0 +1,260 @@
+{
+  "plan_id": "ngx-15-fundamentals-point-in-time-pilot",
+  "discovered_at": "2026-09-22T15:25:13.727567+00:00",
+  "automatic_selection": false,
+  "status_counts": {
+    "candidates_found": 7,
+    "landing_url_required": 20,
+    "no_candidates": 1,
+    "request_error": 2
+  },
+  "records": [
+    {
+      "ticker": "ACCESSCORP",
+      "fiscal_period": "2022-12-31",
+      "landing_url": "https://theaccesscorporation.com/investor-relations/annual-reports/",
+      "status": "request_error",
+      "error": "HTTPStatusError",
+      "candidates": []
+    },
+    {
+      "ticker": "ACCESSCORP",
+      "fiscal_period": "2023-12-31",
+      "landing_url": "https://theaccesscorporation.com/investor-relations/annual-reports/",
+      "status": "request_error",
+      "error": "HTTPStatusError",
+      "candidates": []
+    },
+    {
+      "ticker": "AIICO",
+      "fiscal_period": "2022-12-31",
+      "landing_url": "https://www.aiicoplc.com/index.php/about-us/investor-relations",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.aiicoplc.com/images/financialreports/Annual/AIICO_2022_Annual_Report.pdf",
+          "link_text": "AIICO 2022 Annual Report",
+          "fiscal_year": 2022,
+          "score": 135
+        }
+      ]
+    },
+    {
+      "ticker": "AIICO",
+      "fiscal_period": "2023-12-31",
+      "landing_url": "https://www.aiicoplc.com/index.php/about-us/investor-relations",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.aiicoplc.com/images/financialreports/Annual/AIICO_Insurance_2023_Annual_Report.pdf",
+          "link_text": "AIICO Insurance 2023 Annual Report",
+          "fiscal_year": 2023,
+          "score": 135
+        },
+        {
+          "url": "https://www.aiicoplc.com/images/financialreports/Annual/AIICO_Insurance_Plc_YE2023_Final_AFS.pdf",
+          "link_text": "Annual Report For The Year Ended 31 DECEMBER 2023",
+          "fiscal_year": 2023,
+          "score": 135
+        }
+      ]
+    },
+    {
+      "ticker": "DANGCEM",
+      "fiscal_period": "2022-12-31",
+      "landing_url": "https://www.dangotecement.com/investor-relations/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.dangotecement.com/wp-content/uploads/2023/04/DCP-2022-Annual-Report-UPDATED.pdf",
+          "link_text": "",
+          "fiscal_year": 2022,
+          "score": 135
+        }
+      ]
+    },
+    {
+      "ticker": "DANGCEM",
+      "fiscal_period": "2023-12-31",
+      "landing_url": "https://www.dangotecement.com/investor-relations/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.dangotecement.com/wp-content/uploads/2024/04/DCP-Annual-Report_AR23_full.pdf",
+          "link_text": "Dangote Cement 2023 Annual Report",
+          "fiscal_year": 2023,
+          "score": 135
+        }
+      ]
+    },
+    {
+      "ticker": "FBNH",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "FBNH",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "GTCO",
+      "fiscal_period": "2022-12-31",
+      "landing_url": "https://www.gtcoplc.com/investor-relations/annual-reports",
+      "status": "no_candidates",
+      "candidates": []
+    },
+    {
+      "ticker": "GTCO",
+      "fiscal_period": "2023-12-31",
+      "landing_url": "https://www.gtcoplc.com/investor-relations/annual-reports",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://gtco-plc.files.svdcdn.com/production/annual-reports/2023-annual-report/2023-Annual-Report.pdf?dm=1716814519",
+          "link_text": "Download Report",
+          "fiscal_year": 2023,
+          "score": 135
+        }
+      ]
+    },
+    {
+      "ticker": "MTNN",
+      "fiscal_period": "2022-12-31",
+      "landing_url": "https://www.mtn.ng/investors/annual-report/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.mtn.ng/wp-content/uploads/2023/07/MTN-Nigeria-Annual-Report-2022.pdf?x53449",
+          "link_text": "MTN-Nigeria-Annual-Report-2022",
+          "fiscal_year": 2022,
+          "score": 135
+        }
+      ]
+    },
+    {
+      "ticker": "MTNN",
+      "fiscal_period": "2023-12-31",
+      "landing_url": "https://www.mtn.ng/investors/annual-report/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.mtn.ng/wp-content/uploads/2024/04/MTN-Nigeria-2023-Annual-Report.pdf?x53449",
+          "link_text": "MTN Nigeria 2023 Annual Report",
+          "fiscal_year": 2023,
+          "score": 135
+        }
+      ]
+    },
+    {
+      "ticker": "NB",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "NB",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "NESTLE",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "NESTLE",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "OKOMUOIL",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "OKOMUOIL",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "PRESCO",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "PRESCO",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "SEPLAT",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "SEPLAT",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "TOTAL",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "TOTAL",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "UBA",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "UBA",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "WAPCO",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "WAPCO",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "ZENITHBANK",
+      "fiscal_period": "2022-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    },
+    {
+      "ticker": "ZENITHBANK",
+      "fiscal_period": "2023-12-31",
+      "status": "landing_url_required",
+      "candidates": []
+    }
+  ]
+}

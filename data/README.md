@@ -68,3 +68,108 @@ Pass it to the builder with `--universe ../../data/universes/ngx-15-2024.json`;
 the resulting audit is documented in
 `research/audit-results/ngx-dol-2024-15-security.md`.
 
+## Point-in-time fundamentals pilot
+
+The 2024 pilot targets fiscal years 2022 and 2023 for all 15 issuers, giving 30
+issuer-period collection tasks. Create the collection plan from `apps/api`:
+
+```powershell
+uv run python -m scripts.create_fundamentals_plan `
+  --universe ../../data/universes/ngx-15-2024.json `
+  --output ../../data/manifests/fundamentals-2024-pilot-plan.json `
+  --catalog ../../data/collection/fundamentals-document-sources.csv `
+  --fiscal-years 2022 2023
+```
+
+After reviewing each issuer or NGX disclosure page, enter the direct HTTPS PDF
+URL, publication date, and source type in the source catalog. Download and hash
+the configured documents with:
+
+Official issuer landing pages are recorded separately in
+`collection/fundamentals-issuer-pages.csv`. Discover candidate report links with:
+
+```powershell
+uv run python -m scripts.discover_fundamentals_sources `
+  --plan ../../data/manifests/fundamentals-2024-pilot-plan.json `
+  --registry ../../data/collection/fundamentals-issuer-pages.csv `
+  --output ../../research/audit-results/fundamentals-2024-source-discovery.json `
+  --review ../../data/collection/fundamentals-source-candidates.csv
+```
+
+Discovery matches fiscal years against link labels and PDF filenames, not
+upload-directory dates. It ranks candidates but never selects one. Review the
+candidate worksheet and verify that the document is the complete issuer annual
+report before copying its URL and publication evidence into the source catalog.
+
+```powershell
+uv run python -m scripts.fetch_fundamentals_documents `
+  --plan ../../data/manifests/fundamentals-2024-pilot-plan.json `
+  --catalog ../../data/collection/fundamentals-document-sources.csv `
+  --output ../../data/raw/fundamentals-2024-pilot `
+  --manifest ../../data/manifests/fundamentals-2024-documents.json
+```
+
+The command resumes from valid local PDFs, rejects insecure URLs and non-PDF
+responses, and records a SHA-256 hash for every accepted document. Raw PDFs are
+ignored by Git; the evidence manifest is committed.
+
+After documents are available, create a page-level evidence index:
+
+```powershell
+uv run python -m scripts.index_fundamentals_evidence `
+  --manifest ../../data/manifests/fundamentals-2024-documents.json `
+  --documents ../../data/raw/fundamentals-2024-pilot `
+  --output ../../research/audit-results/fundamentals-2024-evidence.json
+```
+
+The index reports candidate pages for book equity, shares outstanding, and unit
+labels. It never promotes nearby numbers into the canonical dataset. A reviewer
+must inspect the PDF page, choose consolidated or company-only scope, confirm
+the relevant year column and unit, and enter the supported value manually.
+
+Create the human-review worksheet once the evidence index has been refreshed:
+
+```powershell
+uv run python -m scripts.create_fundamentals_review `
+  --evidence ../../research/audit-results/fundamentals-2024-evidence.json `
+  --output ../../data/collection/fundamentals-2024-review.csv
+```
+
+The command refuses to overwrite an existing worksheet unless `--replace` is
+passed, because the file may contain manual work. A reviewer must enter the
+financial values, statement scope, units, separate book-equity and share-count
+page citations, their name, review date, and `approved` status.
+
+Promote approved rows through the canonical validator with:
+
+```powershell
+uv run python -m scripts.promote_fundamentals_review `
+  --review ../../data/collection/fundamentals-2024-review.csv `
+  --universe ../../data/universes/ngx-15-2024.json `
+  --output ../../data/collection/fundamentals-2024-pilot.csv `
+  --report ../../research/audit-results/fundamentals-2024-promotion.json
+```
+
+Promotion fails when there are no approved rows, required review evidence is
+missing, or the canonical point-in-time validator rejects an observation.
+
+Enter only report-supported values in
+`collection/fundamentals-2024-pilot.csv`. Record the source URL, document name,
+SHA-256 hash, reporting scope, unit multiplier, and exact page reference. Use
+the report release date as `publication_date`; leave it blank only when the
+date cannot be established, so the builder labels its fixed-lag fallback.
+
+```powershell
+uv run python -m scripts.build_fundamentals_pilot `
+  --input ../../data/collection/fundamentals-2024-pilot.csv `
+  --universe ../../data/universes/ngx-15-2024.json `
+  --output ../../data/processed/fundamentals-2024-pilot.csv `
+  --report ../../research/audit-results/fundamentals-2024-pilot-status.json `
+  --expected-periods 2022-12-31 2023-12-31 `
+  --fixed-lag-days 90
+```
+
+Do not load the processed file into PostgreSQL or use it in a factor run until
+the report's point-in-time gate passes. The empty committed collection file and
+status report expose unfinished coverage without inventing data.
+

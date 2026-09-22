@@ -1,0 +1,163 @@
+{
+  "dataset_id": "ngx-15-fundamentals-source-documents",
+  "plan_id": "ngx-15-fundamentals-point-in-time-pilot",
+  "retrieved_at": "2026-09-22T14:50:50.455261+00:00",
+  "expected_documents": 30,
+  "available_documents": 0,
+  "complete": false,
+  "status_counts": {
+    "source_url_required": 30
+  },
+  "records": [
+    {
+      "ticker": "ACCESSCORP",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "ACCESSCORP",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "AIICO",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "AIICO",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "DANGCEM",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "DANGCEM",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "FBNH",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "FBNH",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "GTCO",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "GTCO",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "MTNN",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "MTNN",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "NB",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "NB",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "NESTLE",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "NESTLE",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "OKOMUOIL",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "OKOMUOIL",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "PRESCO",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "PRESCO",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "SEPLAT",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "SEPLAT",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "TOTAL",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "TOTAL",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "UBA",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "UBA",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "WAPCO",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "WAPCO",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "ZENITHBANK",
+      "fiscal_period": "2022-12-31",
+      "status": "source_url_required"
+    },
+    {
+      "ticker": "ZENITHBANK",
+      "fiscal_period": "2023-12-31",
+      "status": "source_url_required"
+    }
+  ]
+}

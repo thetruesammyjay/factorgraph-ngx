@@ -1,0 +1,493 @@
+{
+  "plan_id": "ngx-15-fundamentals-point-in-time-pilot",
+  "universe_id": "ngx-15-2024",
+  "fiscal_years": [
+    2022,
+    2023
+  ],
+  "task_count": 30,
+  "publication_date_policy": "Use the actual issuer release or NGX submission date. Apply a fixed lag only when the missing evidence is explicitly recorded.",
+  "ngx_disclosures_url": "https://ngxgroup.com/exchange/data/corporate-disclosures/",
+  "tasks": [
+    {
+      "ticker": "ACCESSCORP",
+      "company": "Access Holdings",
+      "sector": "Banking",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "ACCESSCORP",
+      "company": "Access Holdings",
+      "sector": "Banking",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "AIICO",
+      "company": "AIICO Insurance",
+      "sector": "Insurance",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "AIICO",
+      "company": "AIICO Insurance",
+      "sector": "Insurance",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "DANGCEM",
+      "company": "Dangote Cement",
+      "sector": "Industrial Goods",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "DANGCEM",
+      "company": "Dangote Cement",
+      "sector": "Industrial Goods",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "FBNH",
+      "company": "FBN Holdings",
+      "sector": "Banking",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "FBNH",
+      "company": "FBN Holdings",
+      "sector": "Banking",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "GTCO",
+      "company": "Guaranty Trust Holding",
+      "sector": "Banking",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "GTCO",
+      "company": "Guaranty Trust Holding",
+      "sector": "Banking",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "MTNN",
+      "company": "MTN Nigeria Communications",
+      "sector": "Telecommunications",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "MTNN",
+      "company": "MTN Nigeria Communications",
+      "sector": "Telecommunications",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "NB",
+      "company": "Nigerian Breweries",
+      "sector": "Consumer Goods",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "NB",
+      "company": "Nigerian Breweries",
+      "sector": "Consumer Goods",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "NESTLE",
+      "company": "Nestle Nigeria",
+      "sector": "Consumer Goods",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "NESTLE",
+      "company": "Nestle Nigeria",
+      "sector": "Consumer Goods",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "OKOMUOIL",
+      "company": "Okomu Oil Palm",
+      "sector": "Agriculture",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "OKOMUOIL",
+      "company": "Okomu Oil Palm",
+      "sector": "Agriculture",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "PRESCO",
+      "company": "Presco",
+      "sector": "Agriculture",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "PRESCO",
+      "company": "Presco",
+      "sector": "Agriculture",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "SEPLAT",
+      "company": "Seplat Energy",
+      "sector": "Oil and Gas",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "SEPLAT",
+      "company": "Seplat Energy",
+      "sector": "Oil and Gas",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "TOTAL",
+      "company": "TotalEnergies Marketing Nigeria",
+      "sector": "Oil and Gas",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "TOTAL",
+      "company": "TotalEnergies Marketing Nigeria",
+      "sector": "Oil and Gas",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "UBA",
+      "company": "United Bank for Africa",
+      "sector": "Banking",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "UBA",
+      "company": "United Bank for Africa",
+      "sector": "Banking",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "WAPCO",
+      "company": "Lafarge Africa",
+      "sector": "Industrial Goods",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "WAPCO",
+      "company": "Lafarge Africa",
+      "sector": "Industrial Goods",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "ZENITHBANK",
+      "company": "Zenith Bank",
+      "sector": "Banking",
+      "fiscal_period": "2022-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    },
+    {
+      "ticker": "ZENITHBANK",
+      "company": "Zenith Bank",
+      "sector": "Banking",
+      "fiscal_period": "2023-12-31",
+      "status": "pending",
+      "preferred_source": "issuer investor-relations annual report",
+      "fallback_source": "NGX corporate disclosures portal",
+      "required_evidence": [
+        "annual report PDF",
+        "actual publication or NGX submission date",
+        "book equity page",
+        "shares outstanding page",
+        "source URL and SHA-256"
+      ]
+    }
+  ]
+}
