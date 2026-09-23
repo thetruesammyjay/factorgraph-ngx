@@ -64,21 +64,26 @@ public source and are deliberately left missing.
 ### Point-in-time fundamentals
 
 The pilot targets FY2022 and FY2023 for all 15 issuers, or 30 issuer-periods.
-Seven observations have completed page-level review and canonical validation:
+Twelve observations have completed page-level review and canonical validation:
 
 - AIICO FY2022 and FY2023;
 - Dangote Cement FY2022 and FY2023;
-- GTCO FY2023; and
-- MTN Nigeria FY2022 and FY2023.
+- FBN Holdings FY2022 and FY2023;
+- GTCO FY2023;
+- MTN Nigeria FY2022 and FY2023;
+- Nigerian Breweries FY2022;
+- UBA FY2022; and
+- Lafarge Africa FY2023.
 
 Each observation preserves book equity attributable to owners, period-end
 shares outstanding, reporting scope, source units, report URL, document hash,
-exact PDF pages and its point-in-time effective date. Two observations use
-verified publication dates; five use the declared 90-day fallback. Negative
+exact PDF pages and its point-in-time effective date. Three observations use
+verified publication dates; nine use the declared 90-day fallback. Negative
 book equity is retained and excluded from positive book-to-market sorts.
 
-Twelve official annual reports are downloaded and SHA-256 verified. Five
-additional reports are ready for statement review. See the
+Twelve official annual reports are downloaded, SHA-256 verified and promoted.
+The remaining 18 issuer-period tasks are blocked pending acceptable report
+evidence. See the
 [fundamentals pilot report](research/audit-results/fundamentals-2024-pilot.md)
 for the current collection status.
 
@@ -90,7 +95,7 @@ Factors are enabled only after their input gate passes.
 | --- | --- | --- |
 | Market | Partial | 15-security market proxy pending NGX ASI history |
 | Size | Partial | Pilot only; incomplete point-in-time shares and market capitalisation |
-| Value | Partial | Seven verified issuer-period observations |
+| Value | Partial | Twelve verified issuer-period observations |
 | Momentum | Pilot-ready | Short-horizon 2024 analysis with stale-price sensitivity controls |
 | Liquidity | Blocked | Verified daily volume and traded value are unavailable |
 | Regime analysis | Limited | Exploratory pipeline validation; one year is insufficient for strong inference |
@@ -178,6 +183,7 @@ The pipeline applies:
 - actual publication dates where verifiable;
 - labelled fixed-lag estimates where dates are unavailable; and
 - factor-specific coverage gates.
+- deterministic point-in-time Size and Value sorts with inferential diagnostics.
 
 ## First deterministic experiment
 
@@ -239,6 +245,16 @@ GET /api/v1/factors/{factor}
 GET /api/v1/factors/market/history
 GET /api/v1/factors/size/characteristics
 GET /api/v1/factors/value/characteristics
+GET /api/v1/factors/size/history
+GET /api/v1/factors/value/history
+GET /api/v1/factors/size/statistics
+GET /api/v1/factors/value/statistics
+GET /api/v1/factors/size/regression
+GET /api/v1/factors/value/regression
+GET /api/v1/factors/momentum/regression
+GET /api/v1/regimes
+GET /api/v1/regimes/timeline
+GET /api/v1/regimes/statistics
 GET /api/v1/portfolios/ngx-public-data-2023-2024-pilot-v1
 GET /api/v1/portfolios/ngx-public-data-2023-2024-pilot-v1/holdings
 GET /api/v1/portfolios/ngx-public-data-2023-2024-pilot-v1/performance
@@ -260,6 +276,23 @@ fundamental observation's `effective_from` date. They expose eligible and
 excluded security-months separately. Market-capitalisation and book-to-market
 rankings remain descriptive until broader issuer coverage permits defensible
 SMB and HML return portfolios.
+
+Size and Value history endpoints now expose the computed preliminary portfolio
+sorts. Each formation uses only characteristics known by that month and applies
+equal-weight holdings to the following month. Their statistics include
+Newey-West t-statistics and seeded bootstrap confidence intervals; incomplete
+fundamental coverage remains visible in the factor status.
+
+The regression endpoints expose market-only diagnostics for the Size, Value,
+and Momentum pilot returns. They use jointly aligned monthly observations and
+Newey-West HAC standard errors. With fewer than 36 observations, coefficients
+are labelled preliminary and are not treated as evidence of a stable premium.
+
+Regime endpoints now return the experiment's deterministic HMM readiness
+record, including monthly endpoint coverage, feature observations, the
+minimum-sample gate, and (when available) state probabilities and transition
+diagnostics. The current 24-month pilot remains blocked until at least 36
+monthly observations are available.
 
 Every generated experiment records SHA-256 identities for its input files, a
 stable dataset fingerprint, its numerical configuration, the Git commit, and

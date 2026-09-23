@@ -21,3 +21,10 @@ def test_factor_api_returns_eligibility_instead_of_placeholder_statistics():
     statistics = client.get("/api/v1/factors/market/statistics").json()
     assert statistics["statistics"]["observations"] == 23
     assert statistics["reason"] is None
+
+    regression = client.get("/api/v1/factors/value/regression")
+    assert regression.status_code == 200
+    payload = regression.json()
+    assert payload["regression"]["status"] == "preliminary"
+    assert payload["regression"]["observations"] >= 12
+    assert payload["regression"]["coefficients"]["market_excess_return"]

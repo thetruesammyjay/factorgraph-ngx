@@ -37,25 +37,24 @@ positive book-to-market portfolio sorts.
 
 ## Current status
 
-Twelve official issuer annual reports are downloaded and SHA-256 verified. Seven
-have completed page-level review and promotion: AIICO FY2022–FY2023, Dangote
-Cement FY2022–FY2023, GTCO FY2023, and MTN Nigeria FY2022–FY2023. Their group
-book equity attributable to owners, period-end shares outstanding, source units,
-scope, hashes, and exact pages are recorded in the canonical collection.
+Twelve official issuer annual reports are downloaded, SHA-256 verified, and
+promoted after page-level review: AIICO FY2022-FY2023, Dangote Cement
+FY2022-FY2023, FBN Holdings FY2022-FY2023, GTCO FY2023, MTN Nigeria
+FY2022-FY2023, Nigerian Breweries FY2022, UBA FY2022, and Lafarge Africa
+FY2023. Their group book equity attributable to owners, period-end shares
+outstanding, source units, scope, hashes, and exact pages are recorded in the
+canonical collection.
 
-The validated pilot now contains seven of 30 required observations. Two Dangote
-Cement observations use verified official results-release dates; five use the
-declared 90-day fallback because board approval dates do not establish public
-availability. MTN Nigeria FY2023 has negative equity and is retained with the
-required positive-B/M exclusion warning.
+The validated pilot now contains 12 of 30 required observations. Dangote Cement
+FY2022-FY2023 and Nigerian Breweries FY2022 use verified publication dates; the
+other nine use the declared 90-day fallback because board approval dates do not
+establish public availability. MTN Nigeria FY2023 has negative equity and is
+retained with the required positive-B/M exclusion warning.
 
-Five newly downloaded reports are ready for statement review: FBN Holdings
-FY2022–FY2023, Nigerian Breweries FY2022, UBA FY2022, and Lafarge Africa FY2023.
-The review queue therefore contains seven approved, five pending, and 18 blocked
-issuer-periods. Nigerian Breweries FY2023 and UBA FY2023 were selected from
-official archives but timed out during download; the other 16 blocked tasks need
-reviewed direct-source handling. The point-in-time gate remains closed until all
-30 observations pass validation.
+The review queue now contains 12 approved and 18 blocked issuer-periods. The
+blocked tasks remain without acceptable local report evidence and are not
+imputed. The point-in-time gate remains closed until all 30 observations pass
+validation.
 
 The acquisition command reads reviewed URLs from
 `data/collection/fundamentals-document-sources.csv`. It does not infer report

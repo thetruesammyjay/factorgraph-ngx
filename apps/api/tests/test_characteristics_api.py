@@ -9,9 +9,9 @@ def test_size_and_value_characteristic_endpoints_expose_eligible_and_excluded_ro
     value = client.get("/api/v1/factors/value/characteristics").json()
 
     assert size["status"] == "preliminary"
-    assert size["coverage"]["fundamental_tickers"] == 4
-    assert len(size["items"]) == 4
-    assert len(value["items"]) == 3
+    assert size["coverage"]["fundamental_tickers"] == 8
+    assert len(size["items"]) == 8
+    assert len(value["items"]) == 7
     assert any(
         row["ticker"] == "MTNN"
         and row["value_exclusion_reason"] == "non_positive_or_missing_book_equity"

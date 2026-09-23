@@ -1,0 +1,31 @@
+{
+  "dataset_id": "ngx-15-point-in-time-fundamentals-completion",
+  "generated_at": "2026-09-23T18:48:36.180772+00:00",
+  "universe_id": "ngx-15-2024",
+  "summary": {
+    "expected_issuer_periods": 30,
+    "complete_issuer_periods": 12,
+    "missing_issuer_periods": 18,
+    "issuers_in_scope": 15,
+    "issuers_with_complete_observations": 8,
+    "remaining_issuers": [
+      "ACCESSCORP",
+      "NESTLE",
+      "OKOMUOIL",
+      "PRESCO",
+      "SEPLAT",
+      "TOTAL",
+      "ZENITHBANK"
+    ],
+    "fiscal_periods": [
+      "2022-12-31",
+      "2023-12-31"
+    ]
+  },
+  "workflow": [
+    "review missing or incomplete issuer-period tasks",
+    "verify book equity, shares outstanding, units, scope, and publication date",
+    "promote only approved rows into the canonical fundamentals file",
+    "rerun the point-in-time gate before portfolio formation"
+  ]
+}

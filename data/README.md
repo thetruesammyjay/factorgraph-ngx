@@ -192,6 +192,23 @@ Do not use incomplete fundamentals for a full-universe Size or Value claim until
 the point-in-time gate passes. The committed collection and status report expose
 partial coverage without inventing data.
 
+To continue collection after an incomplete review, regenerate the issuer-period
+queue. It preserves the current canonical observations and identifies the 11
+issuers that still have no complete observation:
+
+```powershell
+uv run python scripts/build_fundamentals_completion.py `
+  --universe ../../data/universes/ngx-15-2024.json `
+  --input ../../data/collection/fundamentals-2024-pilot.csv `
+  --fiscal-periods 2022-12-31 2023-12-31 `
+  --output ../../data/collection/fundamentals-2024-completion-queue.csv `
+  --report ../../research/audit-results/fundamentals-2024-completion.json
+```
+
+Review each `missing` or `needs_review` task, verify its annual-report pages,
+units, reporting scope, and publication date, then promote only approved rows.
+The queue is a collection control; it never fabricates a fundamental value.
+
 ## Deterministic return and eligibility pilot
 
 The first experiment uses the validated 15-security price dataset and reviewed
@@ -241,6 +258,23 @@ recent fundamental observation whose `effective_from` date is on or before the
 price date. Size uses `close × shares_outstanding`. Value uses `book_equity ÷
 market_cap` and excludes non-positive book equity without excluding the issuer
 from Size. Missing and excluded observations retain explicit reason codes.
+
+The same report contains deterministic Size and Value portfolios. Each sort is
+formed at month end and applied to the following month, with two equal-weight
+groups: Small minus Big for Size and High book-to-market minus Low for Value.
+The report includes group counts, long-short spreads, Newey-West t-statistics,
+and seeded 95% bootstrap intervals. These outputs remain labelled preliminary
+while the fundamentals completion gate is incomplete.
+
+It also contains market-only HAC regression diagnostics for the Size, Value,
+and Momentum return series. The regressions align each target with the monthly
+market excess return, report alpha and factor coefficients with Newey-West
+standard errors, and mark samples shorter than 36 observations as preliminary.
+
+The regime analysis record applies the same evidence gate before fitting a
+three-state Gaussian HMM. It records the number of monthly endpoints,
+complete feature observations, the configured minimum sample, and either a
+blocked reason or the fitted timeline, state summaries, and transition matrix.
 
 ## Official market inputs
 

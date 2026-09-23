@@ -1,0 +1,31 @@
+ticker,company,sector,fiscal_period,status,priority,required_missing,source_id,source_url
+AIICO,AIICO Insurance,Insurance,2022-12-31,complete,missing_period,,aiico-annual-report-2022,https://www.aiicoplc.com/images/financialreports/Annual/AIICO_2022_Annual_Report.pdf
+AIICO,AIICO Insurance,Insurance,2023-12-31,complete,missing_period,,aiico-annual-report-2023,https://www.aiicoplc.com/images/financialreports/Annual/AIICO_Insurance_2023_Annual_Report.pdf
+DANGCEM,Dangote Cement,Industrial Goods,2022-12-31,complete,missing_period,,dangcem-annual-report-2022,https://www.dangotecement.com/wp-content/uploads/2023/04/DCP-2022-Annual-Report-UPDATED.pdf
+DANGCEM,Dangote Cement,Industrial Goods,2023-12-31,complete,missing_period,,dangcem-annual-report-2023,https://www.dangotecement.com/wp-content/uploads/2024/04/DCP-Annual-Report_AR23_full.pdf
+FBNH,FBN Holdings,Banking,2022-12-31,complete,missing_period,,fbnh-annual-report-2022,https://first-holdco.com/wp-content/uploads/2025/10/FBNHoldings-Plc_2022_Annual_Report.pdf
+FBNH,FBN Holdings,Banking,2023-12-31,complete,missing_period,,fbnh-annual-report-2023,https://first-holdco.com/downloads/2024/FBNHoldings_Plc_2023_Annual_Report_and_Accounts.pdf
+GTCO,Guaranty Trust Holding,Banking,2023-12-31,complete,missing_period,,gtco-annual-report-2023,https://gtco-plc.files.svdcdn.com/production/annual-reports/2023-annual-report/2023-Annual-Report.pdf?dm=1716814519
+MTNN,MTN Nigeria Communications,Telecommunications,2022-12-31,complete,missing_period,,mtnn-annual-report-2022,https://www.mtn.ng/wp-content/uploads/2023/07/MTN-Nigeria-Annual-Report-2022.pdf?x53449
+MTNN,MTN Nigeria Communications,Telecommunications,2023-12-31,complete,missing_period,,mtnn-annual-report-2023,https://www.mtn.ng/wp-content/uploads/2024/04/MTN-Nigeria-2023-Annual-Report.pdf?x53449
+NB,Nigerian Breweries,Consumer Goods,2022-12-31,complete,missing_period,,nb-annual-report-2022,https://www.nbplc.com/storage/2023/04/NB-Plc-2022-Annual-Report-and-Account.pdf
+UBA,United Bank for Africa,Banking,2022-12-31,complete,missing_period,,uba-annual-report-2022,https://www.ubagroup.com/wp-content/uploads/2023/04/UBA-ANNUAL-REPORT-ACCOUNTS-2022.pdf
+WAPCO,Lafarge Africa,Industrial Goods,2023-12-31,complete,missing_period,,wapco-annual-report-2023,https://www.lafarge.com.ng/sites/nigeria/files/2024-04/lafarge-africa-plc-2023-annual-report-accounts.pdf
+ACCESSCORP,Access Holdings,Banking,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+ACCESSCORP,Access Holdings,Banking,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+GTCO,Guaranty Trust Holding,Banking,2022-12-31,missing,missing_period,book_equity;shares_outstanding;reporting_scope;source_id,,
+NB,Nigerian Breweries,Consumer Goods,2023-12-31,missing,missing_period,book_equity;shares_outstanding;reporting_scope;source_id,,
+NESTLE,Nestle Nigeria,Consumer Goods,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+NESTLE,Nestle Nigeria,Consumer Goods,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+OKOMUOIL,Okomu Oil Palm,Agriculture,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+OKOMUOIL,Okomu Oil Palm,Agriculture,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+PRESCO,Presco,Agriculture,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+PRESCO,Presco,Agriculture,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+SEPLAT,Seplat Energy,Oil and Gas,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+SEPLAT,Seplat Energy,Oil and Gas,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+TOTAL,TotalEnergies Marketing Nigeria,Oil and Gas,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+TOTAL,TotalEnergies Marketing Nigeria,Oil and Gas,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+UBA,United Bank for Africa,Banking,2023-12-31,missing,missing_period,book_equity;shares_outstanding;reporting_scope;source_id,,
+WAPCO,Lafarge Africa,Industrial Goods,2022-12-31,missing,missing_period,book_equity;shares_outstanding;reporting_scope;source_id,,
+ZENITHBANK,Zenith Bank,Banking,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+ZENITHBANK,Zenith Bank,Banking,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,

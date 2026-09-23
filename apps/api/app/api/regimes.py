@@ -1,38 +1,48 @@
-"""Regime endpoints guarded by the latest experiment's monthly sample."""
+"""Regime endpoints backed by the latest experiment's deterministic analysis."""
 
 import json
-from pathlib import Path
 
 from fastapi import APIRouter
 
-router = APIRouter()
+from app.data.experiment_reports import load_pilot_report
 
-REPORT_PATH = Path(__file__).resolve().parents[1] / "data" / "reports" / "pilot-latest.json"
+router = APIRouter()
 
 
 def blocked_context() -> tuple[str, str]:
-    report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
-    months = report.get("market_input_coverage", {}).get("aligned_months", 0)
-    reason = (
-        f"The current experiment has only {months} monthly endpoints; a multi-state "
-        "regime model requires at least 36 observations for this pilot."
-    )
-    return report["experiment_id"], reason
+    report = load_pilot_report()
+    analysis = report.get("regime_analysis", {})
+    return report["experiment_id"], analysis.get("reason", "regime analysis is unavailable")
+
+
+def regime_report() -> dict:
+    try:
+        return load_pilot_report().get("regime_analysis", {})
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
 
 
 @router.get("")
 def list_regimes() -> dict:
-    _, reason = blocked_context()
-    return {"status": "blocked", "items": [], "model": None, "reason": reason}
+    report = regime_report()
+    return {
+        "status": report.get("status", "blocked"),
+        "items": report.get("statistics", []),
+        "model": report.get("model"),
+        "coverage": report.get("coverage"),
+        "reason": report.get("reason"),
+    }
 
 
 @router.get("/timeline")
 def timeline() -> dict:
+    report = regime_report()
     dataset_version, reason = blocked_context()
     return {
-        "status": "blocked",
-        "items": [],
+        "status": report.get("status", "blocked"),
+        "items": report.get("timeline", []),
         "dataset_version": dataset_version,
+        "coverage": report.get("coverage"),
         "reason": reason,
     }
 

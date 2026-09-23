@@ -9,6 +9,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from app.data.fundamentals import validate_and_align_fundamentals
 from app.data.market_inputs import build_monthly_market_inputs
 from app.data.provenance import dataset_fingerprint, git_revision, input_identity
 from app.factors.characteristics import (
@@ -16,7 +17,10 @@ from app.factors.characteristics import (
     latest_characteristic_snapshot,
 )
 from app.factors.eligibility import evaluate_factor_eligibility
+from app.quant.characteristic_portfolios import build_characteristic_portfolios
 from app.quant.momentum_pilot import run_momentum_pilot
+from app.quant.regimes import build_regime_analysis
+from app.quant.regressions import build_factor_regressions
 from app.quant.return_engine import (
     build_daily_returns,
     build_equal_weight_market_proxy,
@@ -49,6 +53,9 @@ def main() -> None:
     parser.add_argument("--benchmark-code", default="NGXASI")
     parser.add_argument("--risk-free-tenor", default="91D")
     parser.add_argument("--universe", type=Path)
+    parser.add_argument("--bootstrap-iterations", type=int, default=2_000)
+    parser.add_argument("--characteristic-groups", type=int, default=2)
+    parser.add_argument("--characteristic-min-assets", type=int, default=2)
     args = parser.parse_args()
     if bool(args.benchmark) != bool(args.risk_free):
         parser.error("--benchmark and --risk-free must be provided together")
@@ -72,11 +79,27 @@ def main() -> None:
         "momentum_portfolio_size": 5,
         "transaction_cost_bps": 50,
         "missing_values": "not_imputed",
+        "bootstrap_iterations": args.bootstrap_iterations,
+        "characteristic_groups": args.characteristic_groups,
+        "characteristic_min_assets": args.characteristic_min_assets,
     }
     fingerprint = dataset_fingerprint(input_identities, experiment_configuration)
     universe = (
         json.loads(args.universe.read_text(encoding="utf-8")) if args.universe else None
     )
+    fundamentals_validation = validate_and_align_fundamentals(
+        fundamentals,
+        universe={
+            security["ticker"] for security in universe["securities"]
+        } if universe else set(fundamentals["ticker"].dropna().astype(str).str.upper()),
+        normalize_units=True,
+    )
+    if fundamentals_validation.errors:
+        raise ValueError(
+            "fundamentals validation failed: "
+            + "; ".join(fundamentals_validation.errors)
+        )
+    fundamentals = fundamentals_validation.frame
     daily, coverage = build_daily_returns(prices)
     monthly = build_monthly_returns(daily)
     characteristics, characteristic_coverage = build_point_in_time_characteristics(
@@ -93,6 +116,12 @@ def main() -> None:
         skip_months=args.momentum_skip_months,
         portfolio_size=5,
         transaction_cost_bps=50,
+    )
+    characteristic_portfolios = build_characteristic_portfolios(
+        characteristics,
+        groups=args.characteristic_groups,
+        min_assets=args.characteristic_min_assets,
+        bootstrap_iterations=args.bootstrap_iterations,
     )
     market_inputs = pd.DataFrame()
     market_input_coverage = None
@@ -128,6 +157,12 @@ def main() -> None:
         if not market_inputs.empty
         else None
     )
+    factor_regressions = build_factor_regressions(
+        market_inputs,
+        characteristic_portfolios["performance"],
+        momentum_portfolio["performance"],
+    )
+    regime_analysis = build_regime_analysis(market_inputs)
 
     price_dates = pd.to_datetime(prices["trading_date"])
     first_year = int(price_dates.dt.year.min())
@@ -148,6 +183,11 @@ def main() -> None:
         "universe": universe,
         "price_dataset": args.prices.name,
         "fundamentals_dataset": args.fundamentals.name,
+        "fundamentals_validation": {
+            "errors": fundamentals_validation.errors,
+            "warnings": fundamentals_validation.warnings,
+            "normalized_units": True,
+        },
         "methodology": {
             "marked_return": "close-to-close return using every staged market price",
             "official_trade_return": "return between consecutive official-trade observations",
@@ -176,11 +216,20 @@ def main() -> None:
         "market_proxy": records(market_proxy),
         "market_factor": records(market_inputs),
         "market_factor_statistics": market_factor_statistics,
+        "factor_regressions": factor_regressions,
+        "regime_analysis": regime_analysis,
         "latest_momentum": records(momentum),
         "momentum_portfolio": {
             **{key: value for key, value in momentum_portfolio.items() if key not in {"performance", "holdings"}},
             "performance": records(momentum_portfolio["performance"]),
             "holdings": records(momentum_portfolio["holdings"]),
+        },
+        "characteristic_portfolios": {
+            "status": characteristic_portfolios["status"],
+            "coverage": characteristic_portfolios["coverage"],
+            "performance": records(characteristic_portfolios["performance"]),
+            "holdings": records(characteristic_portfolios["holdings"]),
+            "factors": characteristic_portfolios["factors"],
         },
     }
 

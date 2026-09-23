@@ -3,9 +3,9 @@
   "status": "collection_incomplete",
   "universe_id": "ngx-15-2024",
   "expected_observations": 30,
-  "observed_observations": 7,
-  "actual_publication_dates": 2,
-  "fixed_lag_estimates": 5,
+  "observed_observations": 12,
+  "actual_publication_dates": 3,
+  "fixed_lag_estimates": 9,
   "missing_ticker_periods": [
     {
       "ticker": "ACCESSCORP",
@@ -16,23 +16,11 @@
       "fiscal_period": "2023-12-31"
     },
     {
-      "ticker": "FBNH",
-      "fiscal_period": "2022-12-31"
-    },
-    {
-      "ticker": "FBNH",
-      "fiscal_period": "2023-12-31"
-    },
-    {
       "ticker": "GTCO",
       "fiscal_period": "2022-12-31"
     },
     {
       "ticker": "NB",
-      "fiscal_period": "2022-12-31"
-    },
-    {
-      "ticker": "NB",
       "fiscal_period": "2023-12-31"
     },
     {
@@ -77,19 +65,11 @@
     },
     {
       "ticker": "UBA",
-      "fiscal_period": "2022-12-31"
-    },
-    {
-      "ticker": "UBA",
       "fiscal_period": "2023-12-31"
     },
     {
       "ticker": "WAPCO",
       "fiscal_period": "2022-12-31"
-    },
-    {
-      "ticker": "WAPCO",
-      "fiscal_period": "2023-12-31"
     },
     {
       "ticker": "ZENITHBANK",
