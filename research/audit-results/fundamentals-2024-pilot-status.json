@@ -3,9 +3,9 @@
   "status": "collection_incomplete",
   "universe_id": "ngx-15-2024",
   "expected_observations": 30,
-  "observed_observations": 0,
-  "actual_publication_dates": 0,
-  "fixed_lag_estimates": 0,
+  "observed_observations": 7,
+  "actual_publication_dates": 2,
+  "fixed_lag_estimates": 5,
   "missing_ticker_periods": [
     {
       "ticker": "ACCESSCORP",
@@ -16,22 +16,6 @@
       "fiscal_period": "2023-12-31"
     },
     {
-      "ticker": "AIICO",
-      "fiscal_period": "2022-12-31"
-    },
-    {
-      "ticker": "AIICO",
-      "fiscal_period": "2023-12-31"
-    },
-    {
-      "ticker": "DANGCEM",
-      "fiscal_period": "2022-12-31"
-    },
-    {
-      "ticker": "DANGCEM",
-      "fiscal_period": "2023-12-31"
-    },
-    {
       "ticker": "FBNH",
       "fiscal_period": "2022-12-31"
     },
@@ -42,18 +26,6 @@
     {
       "ticker": "GTCO",
       "fiscal_period": "2022-12-31"
-    },
-    {
-      "ticker": "GTCO",
-      "fiscal_period": "2023-12-31"
-    },
-    {
-      "ticker": "MTNN",
-      "fiscal_period": "2022-12-31"
-    },
-    {
-      "ticker": "MTNN",
-      "fiscal_period": "2023-12-31"
     },
     {
       "ticker": "NB",
@@ -129,7 +101,9 @@
     }
   ],
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "non-positive book equity must be excluded from positive-B/M sorts"
+  ],
   "point_in_time_gate": {
     "complete_ticker_period_coverage": false,
     "no_validation_errors": true,

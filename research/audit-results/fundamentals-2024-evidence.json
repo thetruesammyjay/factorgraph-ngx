@@ -3,7 +3,8 @@
   "purpose": "Candidate pages for human-reviewed fundamentals extraction",
   "automatic_values_accepted": false,
   "status_counts": {
-    "document_unavailable": 30
+    "document_unavailable": 18,
+    "review_required": 12
   },
   "records": [
     {
@@ -21,38 +22,1739 @@
     {
       "ticker": "AIICO",
       "fiscal_period": "2022-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "124aa86c988ce8ed480e5d9bd0f6ec72aa1ea825593897ed8882bed6fc98f0e1",
+      "source_document": "aiico-annual-report-2022.pdf",
+      "source_url": "https://www.aiicoplc.com/images/financialreports/Annual/AIICO_2022_Annual_Report.pdf",
+      "publication_date": null,
+      "page_count": 212,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding",
+        "unit_scale"
+      ],
+      "hits": [
+        {
+          "field": "book_equity",
+          "page": 5,
+          "label": "Total Equity",
+          "context": "atementsCorporate governance Other national disclosures Our Performance Net Premium Income N70.712b Total Equity N45.008b Gross Premium Income N86.043b N Total Asset N270.329b Shareholders\u2019 Funds N44.585b Pro\ufb01t B"
+        },
+        {
+          "field": "book_equity",
+          "page": 5,
+          "label": "Shareholders\u2019 Funds",
+          "context": "Premium Income N70.712b Total Equity N45.008b Gross Premium Income N86.043b N Total Asset N270.329b Shareholders\u2019 Funds N44.585b Pro\ufb01t Before Tax (PBT) N5.085b Pro\ufb01t After Tax (PAT) N7.552b Gross Premiums Written N88.27"
+        },
+        {
+          "field": "book_equity",
+          "page": 13,
+          "label": "Total equity",
+          "context": "xchange reserve Contingency reserve Retained earnings Shareholders' funds Non-controlling interests Total equity Total liabilities and equity In thousands of naira Gross premium written Gross premium income Net u"
+        },
+        {
+          "field": "book_equity",
+          "page": 13,
+          "label": "Shareholders' funds",
+          "context": "valuation reserve Fair value reserve Foreign exchange reserve Contingency reserve Retained earnings Shareholders' funds Non-controlling interests Total equity Total liabilities and equity In thousands of naira Gross pre"
+        },
+        {
+          "field": "unit_scale",
+          "page": 13,
+          "label": "In thousands of naira",
+          "context": "res 14 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Consolidated Statement of Financial Position In thousands of naira Cash and cash equivalents Financial assets Trade receivables Reinsurance assets Deferred acquisitio"
+        },
+        {
+          "field": "book_equity",
+          "page": 14,
+          "label": "Shareholders' funds",
+          "context": "valuation reserve Fair value reserve Foreign exchange reserve Contingency reserve Retained earnings Shareholders' funds Total liabilities and equity 2021 71,001,519 70,009,673 60,161,133 (39,397,775) 9,207,262 29,970,62"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 14,
+          "label": "Issued share capital",
+          "context": "liabilities Trade payables Other payables and accruals Current income tax payable Total liabilities Issued share capital Share premium Revaluation reserve Fair value reserve Foreign exchange reserve Contingency reserve R"
+        },
+        {
+          "field": "unit_scale",
+          "page": 14,
+          "label": "In thousands of naira",
+          "context": "tsCorporate governance Other national disclosures 15AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 In thousands of naira Gross premium written Gross premium income Net underwriting income Claim expenses (net) Other under"
+        },
+        {
+          "field": "unit_scale",
+          "page": 31,
+          "label": "In thousands of naira",
+          "context": "summary of the Group\u2019s operating results. Consolidated Pro\ufb01t or loss and other comprehensive income In thousands of naira Gross premium written Gross premium income Net premium income Claim expenses (net) Underwriting pro"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 32,
+          "label": "issued share capital",
+          "context": "s According to the Register of Members at 31 December 2022, no shareholder held more than 5% of the issued share capital of the Company except as disclosed as follows: Directors that served during the year and their shar"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 32,
+          "label": "Number of Shares",
+          "context": "ters Act 2020 and the listing requirements of the Nigerian Stock Exchange are disclosed as follows: Number of Shares held % Number of Shares held % AIICO Investment Inc. - - 3,126,876,790 8.54 AIICO Bahamas Limited 4"
+        },
+        {
+          "field": "unit_scale",
+          "page": 34,
+          "label": "In thousands of naira",
+          "context": "00000002884 Plot PC 12, Churchgate Street Victoria Island Lagos, Nigeria 28 February 2023 Donations In thousands of naira Description Amount Breast Cancer Awareness Support 4,845 Sponsorship of Global Fund for Widows- 14t"
+        },
+        {
+          "field": "book_equity",
+          "page": 71,
+          "label": "total equity",
+          "context": " you, our shareholders. The Company also grew shareholder value on an accounting basis in 2022 with total equity increasing 17.3% to N45 billion from N38 billion in 2021. A major aspect of our ALM activities is t"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 108,
+          "label": "number of ordinary shares",
+          "context": "viding the pro\ufb01t or loss attributable to ordinary shareholders of the Group by the weighted average number of ordinary shares outstanding during the year, excluding treasury shares held by the Group. Diluted EPS is determined"
+        },
+        {
+          "field": "book_equity",
+          "page": 113,
+          "label": "Total equity",
+          "context": "e gains reserve Contingency reserve Retained earnings Shareholders' funds Non-controlling interests Total equity Total liabilities and equity 2022 15,915,258 225,460,028 866,977 11,913,776 858,307 4,685,426 21,50"
+        },
+        {
+          "field": "book_equity",
+          "page": 113,
+          "label": "Shareholders' funds",
+          "context": "ion reserve Fair value reserve Foreign exchange gains reserve Contingency reserve Retained earnings Shareholders' funds Non-controlling interests Total equity Total liabilities and equity 2022 15,915,258 225,460,028 866"
+        },
+        {
+          "field": "unit_scale",
+          "page": 113,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira Assets Cash and cash equivalents Financial assets Trade receivables Reinsurance assets Deferred acq"
+        },
+        {
+          "field": "unit_scale",
+          "page": 114,
+          "label": "In thousands of naira",
+          "context": ",054 6,895,054 - 6,895,054 (393,613) - (411,357) 951,309 146,339 7,041,393 7,041,393 - 7,041,393 19 In thousands of naira Gross premium written Gross premium income Reinsurance expenses Net premium income Fee and commissi"
+        },
+        {
+          "field": "unit_scale",
+          "page": 115,
+          "label": "In thousands of naira",
+          "context": "rnance Other national disclosures 116 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Share Capital In thousands of naira Notes Share Premium Balance as at 1 January 2021 Profit for the year Other comprehensive income NCI"
+        },
+        {
+          "field": "unit_scale",
+          "page": 116,
+          "label": "In thousands of naira",
+          "context": "Separate Statement of Changes in Equity - Company For the year ended 31 December 2022 Share Capital In thousands of naira Note Share Premium Revaluation Reserve Fair Value Reserve Foreign Exchange Translation Reserve Cont"
+        },
+        {
+          "field": "unit_scale",
+          "page": 117,
+          "label": "thousands of naira",
+          "context": "2022 2021In thousands of naira 2022Notes 2021 Group Company Operating activities: Total premium received Commission received Commi"
+        },
+        {
+          "field": "unit_scale",
+          "page": 119,
+          "label": "In thousands of naira",
+          "context": "120 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 In thousands of naira CompanyLife Business General Business Elimination of inter-business transactions Health management "
+        },
+        {
+          "field": "unit_scale",
+          "page": 120,
+          "label": "In thousands of naira",
+          "context": "Investment income(29)(a)In thousands of naira CompanyLife Business General Business Elimination of inter-business transactions Health management "
+        },
+        {
+          "field": "book_equity",
+          "page": 121,
+          "label": "Total equity",
+          "context": "ir value reserve Contingency reserve Retained earnings Shareholders funds Non- controlling interest Total equity Total liabilities and equity Segment Statement of Financial Position 4,846,593 56,553,963 4,245,204"
+        },
+        {
+          "field": "book_equity",
+          "page": 121,
+          "label": "Shareholders funds",
+          "context": "capital Share premium Revaluation reserves Fair value reserve Contingency reserve Retained earnings Shareholders funds Non- controlling interest Total equity Total liabilities and equity Segment Statement of Financial "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 121,
+          "label": "Issued share capital",
+          "context": "ccrual Fixed income liability Current tax payable Deferred tax liabilities Total liabilities Equity Issued share capital Share premium Revaluation reserves Fair value reserve Contingency reserve Retained earnings Shareho"
+        },
+        {
+          "field": "unit_scale",
+          "page": 121,
+          "label": "In thousands of naira",
+          "context": "Investment income(29)(a) 122 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 In thousands of naira CompanyLife General Elimination of inter-business transactions Health management services Asset man"
+        },
+        {
+          "field": "book_equity",
+          "page": 122,
+          "label": "Total equity",
+          "context": "ir value reserve Contingency reserve Retained earnings Shareholders funds Non- controlling interest Total equity Total liabilities and equity 4,835,072 51,130,214 2,265,438 83,165,217 - 2,101,479 - 3,130,036 - 83"
+        },
+        {
+          "field": "book_equity",
+          "page": 122,
+          "label": "Shareholders funds",
+          "context": "Revaluation reserve Exchange gains reserve Fair value reserve Contingency reserve Retained earnings Shareholders funds Non- controlling interest Total equity Total liabilities and equity 4,835,072 51,130,214 2,265,438 "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 122,
+          "label": "Issued share capital",
+          "context": " accrual Fixed income liability Current tax payable Deferred tax liability Total liabilities Equity Issued share capital Share premium Statutory reserve Revaluation reserve Exchange gains reserve Fair value reserve Conti"
+        },
+        {
+          "field": "unit_scale",
+          "page": 122,
+          "label": "In thousands of naira",
+          "context": "Investment income(29)(b) 31 Dec 2021 In thousands of naira CompanyLife General Elimination of inter-business transactions Health management services Asset man"
+        },
+        {
+          "field": "unit_scale",
+          "page": 123,
+          "label": "thousands of naira",
+          "context": "124 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Cash and cash equivalents6 2022 2021In thousands of naira 2022 2021 Group Company Cash on hand Cash in banks Short-term deposits Cash at bank attributable to"
+        },
+        {
+          "field": "unit_scale",
+          "page": 124,
+          "label": "thousands of naira",
+          "context": "(a)Financial assets at amortized cost 2022 2021In thousands of naira 2022 2021 Group Company Federal government bonds Treasury bills Other financial assets (see (I) bel"
+        },
+        {
+          "field": "unit_scale",
+          "page": 125,
+          "label": "thousands of naira",
+          "context": "2022 2021In thousands of naira 2022 2021 Group CompanyMovement in amortized cost portfolio is as follows;(iii) Balance at 1 Januar"
+        },
+        {
+          "field": "unit_scale",
+          "page": 125,
+          "label": "In thousands of naira",
+          "context": "2022 2021In thousands of naira 2022 2021 Group CompanyMovement in amortized cost portfolio is as follows;(iii) Balance at 1 Januar"
+        },
+        {
+          "field": "unit_scale",
+          "page": 126,
+          "label": "thousands of naira",
+          "context": " financial asset classified as fair value through profit or loss (FVTPL) is as follows; 2022 2021In thousands of naira 2022 2021 Group Company Balance at 1 January Additions during the year Asset transfer from portfoli"
+        },
+        {
+          "field": "unit_scale",
+          "page": 126,
+          "label": "In thousands of naira",
+          "context": " in financial asset classified as fair value through profit or loss (FVTPL) is as follows; 2022 2021In thousands of naira 2022 2021 Group Company Balance at 1 January Additions during the year Asset transfer from portfoli"
+        },
+        {
+          "field": "unit_scale",
+          "page": 127,
+          "label": "In thousands of naira",
+          "context": "ICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Gross movement in financial assets 2021 (Company)(IV) In thousands of naira Amortised cost FVOCI FVTPL Total Balance at 1 January Additions during the year Disposals/Repayment"
+        },
+        {
+          "field": "unit_scale",
+          "page": 128,
+          "label": "In thousands of naira",
+          "context": "Fair value measurements At 31 December 2021 In thousands of naira Level 1 Level 2 Level 3 Total Financial assets at fair value through profit or loss (FVPL) -Federal"
+        },
+        {
+          "field": "unit_scale",
+          "page": 130,
+          "label": "thousands of naira",
+          "context": "alue by N48.1million (2021: N64.9million) Trade receivables Trade receivables comprise: 2022 2021In thousands of naira 2022 2021 Group Company Due from brokers 414,041 Due from direct clients (see note (i) below) 156,9"
+        },
+        {
+          "field": "unit_scale",
+          "page": 131,
+          "label": "thousands of naira",
+          "context": "2022 2021In thousands of naira 2022 2021 Group Company At 1 January Charge/(Reversal) for the year 107,384 34,676 142,060 134,724 "
+        },
+        {
+          "field": "unit_scale",
+          "page": 131,
+          "label": "In thousands of naira",
+          "context": "2022 2021In thousands of naira 2022 2021 Group Company At 1 January Charge/(Reversal) for the year 107,384 34,676 142,060 134,724 "
+        },
+        {
+          "field": "unit_scale",
+          "page": 132,
+          "label": "In thousands of naira",
+          "context": "anding claims is as follows; Balance at 1 January Changes during the year Balance as at 31 December In thousands of naira 6,582,652 (736,275) 5,846,377 5,068,359 1,514,293 6,582,652 6,582,652 (736,275) 5,846,377 5,068,359"
+        },
+        {
+          "field": "unit_scale",
+          "page": 132,
+          "label": "thousands of naira",
+          "context": "ing claims is as follows; Balance at 1 January Changes during the year Balance as at 31 December In thousands of naira 6,582,652 (736,275) 5,846,377 5,068,359 1,514,293 6,582,652 6,582,652 (736,275) 5,846,377 5,068,359"
+        },
+        {
+          "field": "unit_scale",
+          "page": 133,
+          "label": "thousands of naira",
+          "context": "INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Current Non Current Balance as at 31 December 2022 2021In thousands of naira 2022 2021 Group Company 4,804,814 - 4,804,814 2,458,667 - 2,458,667 4,210,414 - 4,210,414 2,209,068"
+        },
+        {
+          "field": "unit_scale",
+          "page": 134,
+          "label": "thousands of naira",
+          "context": "Amounts recognised in profit or loss 2022 2021In thousands of naira 2022 2021 Group Company Minimum tax (see note (iii) below) 147,215 147,215 147,215 147,215 91,893 9"
+        },
+        {
+          "field": "unit_scale",
+          "page": 135,
+          "label": "In thousands of naira",
+          "context": "136 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Amounts recognised in OCI Group 2022 In thousands of naira Before tax Tax (expense) Net of tax Fair value loss on fair value financial assets - Bonds Fair val"
+        },
+        {
+          "field": "unit_scale",
+          "page": 136,
+          "label": "thousands of naira",
+          "context": "(e) Unrecognised deferred tax on unrelieved losses 2022 2021In thousands of naira 2022 2021 Group Company Unrecognised deferred tax 19,254,551 19,254,551 11,870,014 11,870,014 19,25"
+        },
+        {
+          "field": "unit_scale",
+          "page": 137,
+          "label": "In thousands of naira",
+          "context": "n health management insurance. AIICO Capital Limited Balance at 1 January Balance as at 31 December In thousands of naira 2022 2021 500,000 500,000 500,000 500,000 - - - - This represents the Company's 90% (2021: 90%) inv"
+        },
+        {
+          "field": "unit_scale",
+          "page": 137,
+          "label": "thousands of naira",
+          "context": "ealth management insurance. AIICO Capital Limited Balance at 1 January Balance as at 31 December In thousands of naira 2022 2021 500,000 500,000 500,000 500,000 - - - - This represents the Company's 90% (2021: 90%) inv"
+        },
+        {
+          "field": "unit_scale",
+          "page": 138,
+          "label": "thousands of naira",
+          "context": "(I) Investment in associate AIICO Pension Managers Limited Group CompanyGroup Company 2022 2021In thousands of naira 2022 2021 Balance at 1 January Reclassifed from assets held for sale (see note 19.1(b)) Share of as"
+        },
+        {
+          "field": "unit_scale",
+          "page": 139,
+          "label": "thousands of naira",
+          "context": "rty Disposal Proceeds Cost of Investment properties disposed Group CompanyGroup Company 2022 2021In thousands of naira 2022 2021 186,000 (184,000) 2,000 - - - 186,000 (184,000) 2,000 - - - Measurement of fair values Fa"
+        },
+        {
+          "field": "unit_scale",
+          "page": 140,
+          "label": "thousands of naira",
+          "context": "me from operating leases Fair value gain/ loss recognised in other income Group Company 2022 2021In thousands of naira 2022 2021 14,833 - 14,833 22,933 48,000 70,933 14,833 - 14,833 22,933 48,000 70,933 Goodwill and ot"
+        },
+        {
+          "field": "unit_scale",
+          "page": 141,
+          "label": "thousands of naira",
+          "context": "142 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 COMPANY 2022 Goodwill Computer Software TotalIn thousands of naira Cost Balance at 1 January 2022 Acquisitions Balance at 31 December Accumulated amortization Balance"
+        },
+        {
+          "field": "unit_scale",
+          "page": 142,
+          "label": "In thousands of naira",
+          "context": "Group Property and equipment 2022 In thousands of naira Land Buildings Capital work in progress Furniture & equipment Motor vehicles Total Cost At 1 Januar"
+        },
+        {
+          "field": "unit_scale",
+          "page": 143,
+          "label": "In thousands of naira",
+          "context": "144 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 (b) Company 2022 In thousands of naira Land Buildings Capital work in progress Furniture & equipment Motor vehicles Total Cost At 1 Januar"
+        },
+        {
+          "field": "unit_scale",
+          "page": 144,
+          "label": "thousands of naira",
+          "context": " Interest income earned on this deposit is included in investment income. Group Company 2022 2021In thousands of naira 2022 2021 Non life business Life business 300,000 200,000 500,000 300,000 200,000 500,000 300,000 2"
+        },
+        {
+          "field": "unit_scale",
+          "page": 144,
+          "label": "In thousands of naira",
+          "context": "03. Interest income earned on this deposit is included in investment income. Group Company 2022 2021In thousands of naira 2022 2021 Non life business Life business 300,000 200,000 500,000 300,000 200,000 500,000 300,000 2"
+        },
+        {
+          "field": "unit_scale",
+          "page": 145,
+          "label": "In thousands of naira",
+          "context": "146 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Results of discontinued operations In thousands of naira 2022 2021 Revenue Direct cost Gross profit Investment and other income Employee Benefits expense Ot"
+        },
+        {
+          "field": "unit_scale",
+          "page": 145,
+          "label": "thousands of naira",
+          "context": "146 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Results of discontinued operations In thousands of naira 2022 2021 Revenue Direct cost Gross profit Investment and other income Employee Benefits expense Ot"
+        },
+        {
+          "field": "unit_scale",
+          "page": 146,
+          "label": "thousands of naira",
+          "context": "Group Company 2022 2021In thousands of naira 2022 2021 Proceed from sale of property and equipment Gain/(loss) on disposal (see note 30(a)) Add:"
+        },
+        {
+          "field": "unit_scale",
+          "page": 147,
+          "label": "thousands of naira",
+          "context": "148 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Group Company 2022 2021In thousands of naira 2022 2021 Insurance contract liabilities - Non-Life Outstanding claims Claims incurred but not repo"
+        },
+        {
+          "field": "unit_scale",
+          "page": 148,
+          "label": "thousands of naira",
+          "context": "443,841,027 11,509,186,477 Claims incurred but not reported Non life Life Group Company 2022 2021In thousands of naira 2022 2021 3,787,516 2,427,201 6,214,717 3,023,421 1,529,836 4,553,257 3,787,516 2,427,201 6,214,717"
+        },
+        {
+          "field": "unit_scale",
+          "page": 149,
+          "label": "thousands of naira",
+          "context": "The movement in annuity fund is as follows; Group Company 2022 2021In thousands of naira 2022 2021 Balance at 1 January Changes during the year Additional reserve on new portfolio (see not"
+        },
+        {
+          "field": "unit_scale",
+          "page": 150,
+          "label": "thousands of naira",
+          "context": "Group Company 2022 2021In thousands of naira 2022 2021 At 1 January Movement during the year Balance as at 31 December 19,993,119 1,601,235 21,5"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 151,
+          "label": "issued share capital",
+          "context": "d on 27 May 2022, resolved to cancel the excess of its authorised share capital, over and above its issued share capital and necessary documents were consequently filed with the CAC. 18,800,000 (497,361) 18,302,639 18,80"
+        },
+        {
+          "field": "unit_scale",
+          "page": 151,
+          "label": "thousands of naira",
+          "context": "Fixed income liabilities Group Company 2022 2021In thousands of naira 2022 2021 Guaranteed income notes (see note (I)) Opening balance Net redemption during the year Clo"
+        },
+        {
+          "field": "unit_scale",
+          "page": 152,
+          "label": "thousands of naira",
+          "context": "ion during the year (transfer to share capital) Balance as at 31 December Group Company 2022 2021In thousands of naira 2022 2021 64,745 - 64,745 64,745 - 64,745 7,037,181 (6,972,436) 64,745 7,037,181 (6,972,436) 64,745"
+        },
+        {
+          "field": "unit_scale",
+          "page": 153,
+          "label": "thousands of naira",
+          "context": " INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 Foreign exchange gains reserve Group Company 2022 2021In thousands of naira 2022 2021 At 1 January Reclassification Balance as at 31 December 175,600 (175,600) - 175,600 - 175"
+        },
+        {
+          "field": "unit_scale",
+          "page": 154,
+          "label": "thousands of naira",
+          "context": "um Gross premium written Gross premium written by business is as follows: Group Company 2022 2021In thousands of naira 2022 2021 Non-life Life (individual and group) Annuity Health Management 26,490,383 54,450,968 6,62"
+        },
+        {
+          "field": "unit_scale",
+          "page": 155,
+          "label": "thousands of naira",
+          "context": "Group Company 2022 2021In thousands of naira 2022 2021 At 1 January Fee and commission received on reinsurance contract Fee and commission incom"
+        },
+        {
+          "field": "unit_scale",
+          "page": 156,
+          "label": "thousands of naira",
+          "context": "Claim recoveries Group Company 2022 2021In thousands of naira 2022 2021 3,635,974 (431,215) 3,204,759 2,372,304 832,455 3,204,759 810,140 22,315 832,455 5,063,45"
+        },
+        {
+          "field": "book_equity",
+          "page": 157,
+          "label": "Shareholders' funds",
+          "context": "ds of naira 2022 2021 Policyholders' funds (see note (I) below) Annuity funds (see note (ii) below) Shareholders' funds (see note (iii) below) 9,482,078 6,417,861 2,846,657 18,746,596 6,792,277 4,626,870 1,959,562 13,37"
+        },
+        {
+          "field": "unit_scale",
+          "page": 157,
+          "label": "thousands of naira",
+          "context": "Change in Life Fund can be analysed as follows: Group Company 2022 2021In thousands of naira 2022 2021 Ordinary Life Annuity 11,149,037 30,708,092 41,857,129 53,470,757 43,785,472 97,256,229 1"
+        },
+        {
+          "field": "unit_scale",
+          "page": 158,
+          "label": "thousands of naira",
+          "context": "Net realised gains Group Company 2022 2021In thousands of naira 2022 2021 Net realised gains are attributable to the following: Property and equipment Investment p"
+        },
+        {
+          "field": "unit_scale",
+          "page": 159,
+          "label": "thousands of naira",
+          "context": "Other operating expenses Group CompanyGroup Company 2022 2021In thousands of naira 2022 2021 Marketing and administration Communication and postages Consulting fees (External actuary"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 160,
+          "label": "number of ordinary shares",
+          "context": " dividing the net profit for the year attributable to ordinary shareholders by the weighted average number of ordinary shares outstanding at the reporting date. Group Company 2022 2021In thousands of naira 2022 2021 Profit af"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 160,
+          "label": "ordinary shares in issue",
+          "context": "ued operations Net profit attributable to ordinary shareholders from operations Weighted average of ordinary shares in issue Basic and diluted earnings per share from continued operation (kobo) Basic and diluted earnings per"
+        },
+        {
+          "field": "unit_scale",
+          "page": 160,
+          "label": "thousands of naira",
+          "context": "hted average number of ordinary shares outstanding at the reporting date. Group Company 2022 2021In thousands of naira 2022 2021 Profit after Tax Less: NCI Profit from continued operations Profit from discontinued oper"
+        },
+        {
+          "field": "unit_scale",
+          "page": 161,
+          "label": "thousands of naira",
+          "context": "en given or received.\u201d Key management personnel compensation for the year Group Company 2022 2021In thousands of naira 2022 2021 Wages and salaries Post employment benefits 1,062,576 55,173 1,117,749 490,600 34,449 525"
+        },
+        {
+          "field": "unit_scale",
+          "page": 162,
+          "label": "thousands of naira",
+          "context": " at amortised cost. An analysis of funds under management is shown below: Group Company 2022 2021In thousands of naira 2022 2021 1,311,047 166,596 2,261,020 3,738,663 802,882 149,536 2,074,178 3,026,596 - - - - - - - -"
+        },
+        {
+          "field": "unit_scale",
+          "page": 163,
+          "label": "In thousands of naira",
+          "context": "PORT AND ACCOUNTS 2022 Group Company Fees earned from the management of these funds are as follows: In thousands of naira AMMF ABF Portfolio management - others Total funds 2022 13,78 82,372 - 16,160 2021 8,089 2,245 6,86"
+        },
+        {
+          "field": "unit_scale",
+          "page": 164,
+          "label": "In thousands of naira",
+          "context": "ICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 (a)The personnel expenses for the above persons were: In thousands of naira Wages and salaries Other sta\ufb00 costs 1,857,842 2,806,183 4,664,025 1,502,640 1,828,661 3,331,301 1,3"
+        },
+        {
+          "field": "book_equity",
+          "page": 167,
+          "label": "shareholders\u2019 funds",
+          "context": "mic conditions and risk characteristics. \"The primary source of capital used by the Group is equity shareholders\u2019 funds. The Group has had no signi\ufb01cant changes in its policies and processes to its capital structure dur"
+        },
+        {
+          "field": "book_equity",
+          "page": 167,
+          "label": "shareholders' funds",
+          "context": "he table below shows the available capital resources as at 31 December: In thousands of naira Total shareholders' funds Regulatory required capital Excess capital reserve 2022 45,008,008 5,000,000 40,008,008 2021 38,374"
+        },
+        {
+          "field": "unit_scale",
+          "page": 167,
+          "label": "In thousands of naira",
+          "context": "year from previous years.\" The table below shows the available capital resources as at 31 December: In thousands of naira Total shareholders' funds Regulatory required capital Excess capital reserve 2022 45,008,008 5,000,"
+        },
+        {
+          "field": "unit_scale",
+          "page": 168,
+          "label": "In thousands of naira",
+          "context": "t.\" The solvency margin of the Company is as follows: Solvency margin computation as at 31 December In thousands of naira Assets Cash and cash equivalents Trade receivables Reinsurance assets Deferred acquisition cost Fin"
+        },
+        {
+          "field": "unit_scale",
+          "page": 169,
+          "label": "In thousands of naira",
+          "context": "ir value if the carrying amount is a reasonable approximation of fair value. GROUP 31 December 2022 In thousands of naira Financial assets measured at fair value Debt Instruments^^ Equities Financial assets not measured a"
+        },
+        {
+          "field": "unit_scale",
+          "page": 170,
+          "label": "In thousands of naira",
+          "context": "COMPANY 31 December 2022 In thousands of naira Financial assets measured at fair value Debt Instruments Equities Financial assets not measured at "
+        },
+        {
+          "field": "unit_scale",
+          "page": 171,
+          "label": "In thousands of naira",
+          "context": "c report Financial statementsCorporate governance Other national disclosures GROUP 31 December 2021 In thousands of naira Financial assets measured at fair value Debt Instruments Equities Designated at fair value 95,908,9"
+        },
+        {
+          "field": "unit_scale",
+          "page": 172,
+          "label": "In thousands of naira",
+          "context": "COMPANY 31 December 2021 In thousands of naira Financial assets measured at fair value Debt Instruments Equities Financial assets not measured at "
+        },
+        {
+          "field": "unit_scale",
+          "page": 174,
+          "label": "In thousands of naira",
+          "context": "At 31 December 2022 In thousands of naira Performing Underperforming Loss Loss allowance Carrying amount At 31 December 2021 In thousands of "
+        },
+        {
+          "field": "unit_scale",
+          "page": 175,
+          "label": "In thousands of naira",
+          "context": "Company In thousands of naira Balance at 1 January Net remeasurement of loan Closing balance Gross amount \"12-month ECL Individua"
+        },
+        {
+          "field": "unit_scale",
+          "page": 176,
+          "label": "In thousands of naira",
+          "context": "ected utilisation or settlement of assets and liabilities as at 31 December: Group 31 December 2022 In thousands of naira Trade and other receivables Financial Assets Cash and cash equivalents Investment contract liabilit"
+        },
+        {
+          "field": "unit_scale",
+          "page": 177,
+          "label": "In thousands of naira",
+          "context": "Group 31 December 2021 In thousands of naira Trade and other receivables Financial Assets Cash and cash equivalents Investment contract liabilit"
+        },
+        {
+          "field": "unit_scale",
+          "page": 178,
+          "label": "In thousands of naira",
+          "context": "22,738,179 - - - 106,150,484 119,565,299 22,829,871 3,748,134 3,394,547 307,392 149,845,243 Company In thousands of naira Cash and cash equivalents Financial assets Trade receivable Reinsurance assets Deferred acquisition"
+        },
+        {
+          "field": "unit_scale",
+          "page": 179,
+          "label": "in thousands of naira",
+          "context": "d purchases. Group Company Pro\ufb01t or loss Equity, net of tax Pro\ufb01t or loss Equity, net of tax E\ufb00ects in thousands of naira 31 December 2022 EUR (10% movement) USD (10% movement) GBP (10% movement) 31 December 2021 EUR (10%"
+        },
+        {
+          "field": "unit_scale",
+          "page": 196,
+          "label": "In thousands of Naira",
+          "context": "In thousands of Naira Gross Premium Written: Local Investment and other income Impairment (charge)/reversal on \ufb01nancial a"
+        },
+        {
+          "field": "book_equity",
+          "page": 197,
+          "label": "Total equity",
+          "context": " reserve of disposed assets classi\ufb01ed as held for sale Shareholders' fund Non-controlling interests Total equity Total liabilities and equity 2022 15,915,258 225,460,028 866,977 11,913,776 858,307 4,685,426 21,50"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 197,
+          "label": "Issued share capital",
+          "context": "term borrowing Liabilities attributable to assets held for sale Total liabilities Net assets Equity Issued share capital Share premium Revaluation reserves Fair value reserve Foreign exchange gains reserve Statutory rese"
+        },
+        {
+          "field": "unit_scale",
+          "page": 197,
+          "label": "In thousands of naira",
+          "context": "ummary - Group Strategic report Financial statementsCorporate governance Other national disclosures In thousands of naira Assets Cash and cash equivalents Financial assets Trade receivables Reinsurance assets Deferred acq"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 198,
+          "label": "Issued share capital",
+          "context": "income tax payable Deferred tax liabilities Long term borrowing Total liabilities Net assets Equity Issued share capital Share premium Revaluation reserves Fair value reserve Foreign exchange gains reserve Contingency re"
+        },
+        {
+          "field": "unit_scale",
+          "page": 198,
+          "label": "In thousands of naira",
+          "context": "ial statementsCorporate governance Other national disclosures Five-year Financial Summary - Company In thousands of naira Assets Cash and cash equivalents Financial assets Trade receivables Reinsurance assets Deferred acq"
+        },
+        {
+          "field": "unit_scale",
+          "page": 199,
+          "label": "In thousands of naira",
+          "context": "Corporate governance Other national disclosures 200 AIICO INSURANCE ANNUAL REPORT AND ACCOUNTS 2022 In thousands of naira Income Direct premium Inward premium Gross written premium Changes in unexpired risk premium Gross "
+        },
+        {
+          "field": "unit_scale",
+          "page": 200,
+          "label": "In thousands of naira",
+          "context": "Revenue Account of Life Business In thousands of naira Income Gross premium written Changes in unearned premium Gross premium income Less: Reinsurance cos"
+        }
+      ]
     },
     {
       "ticker": "AIICO",
       "fiscal_period": "2023-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "e244e4b0b67e341d4f160d61bcf0e4ad04d4084ae8353c95a1e06d467c5aa3cb",
+      "source_document": "aiico-annual-report-2023.pdf",
+      "source_url": "https://www.aiicoplc.com/images/financialreports/Annual/AIICO_Insurance_2023_Annual_Report.pdf",
+      "publication_date": null,
+      "page_count": 269,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding",
+        "unit_scale"
+      ],
+      "hits": [
+        {
+          "field": "book_equity",
+          "page": 7,
+          "label": "Total Equity",
+          "context": "ures 008 AIICO INSURANCE Annual Report & Accounts 2023 Total Asset N318b Pro\ufb01t After Tax (PAT) N12b Total Equity N51.8b Pro\ufb01t Before Tax (PBT) N12.5b For 60 years, AIICO has helped its clients save and plan, givi"
+        },
+        {
+          "field": "book_equity",
+          "page": 15,
+          "label": "Total equity",
+          "context": "r value reserve Contingency reserve Retained earnings Shareholders' funds Non-controlling interests Total equity Total liabilities and equity Increase / (decrease) % 25 32 50 (19) (820) 40 78 282 (3) (1050) 11 10"
+        },
+        {
+          "field": "book_equity",
+          "page": 15,
+          "label": "Shareholders' funds",
+          "context": " capital Share premium Revaluation reserve Fair value reserve Contingency reserve Retained earnings Shareholders' funds Non-controlling interests Total equity Total liabilities and equity Increase / (decrease) % 25 32 5"
+        },
+        {
+          "field": "unit_scale",
+          "page": 15,
+          "label": "In thousands of naira",
+          "context": "s Corporate Governance Other National Disclosures 016 AIICO INSURANCE Annual Report & Accounts 2023 In thousands of naira Gross written premium Insurance revenue Insurance service expense Net reinsurance Insurance service"
+        },
+        {
+          "field": "book_equity",
+          "page": 16,
+          "label": "Shareholders' funds",
+          "context": " capital Share premium Revaluation reserve Fair value reserve Contingency reserve Retained earnings Shareholders' funds Total liabilities and equity 2023 109,379,110 71,628,478 (64,847,043) (8,753,832) (1,972,397) 26,64"
+        },
+        {
+          "field": "unit_scale",
+          "page": 16,
+          "label": "In thousands of naira",
+          "context": "s Corporate Governance Other National Disclosures 017 AIICO INSURANCE Annual Report & Accounts 2023 In thousands of naira Gross written premium Insurance revenue Insurance service expense Net expenses from reinsurance con"
+        },
+        {
+          "field": "book_equity",
+          "page": 19,
+          "label": "shareholders' funds",
+          "context": " results illustrate how we have grown our business across various lines. With over \u20a651.4 billion in shareholders' funds, our current \ufb01nancial position remains solid, a testament to our unwavering \ufb01nancial discipline and"
+        },
+        {
+          "field": "unit_scale",
+          "page": 34,
+          "label": "In thousands of naira",
+          "context": "summary of the Group\u2019s operating results. Consolidated Pro\ufb01t or loss and other comprehensive income In thousands of naira Insurance revenue Insurance service expense Insurance service result before reinsurance contracts h"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 35,
+          "label": "Issued Share Capital",
+          "context": " served during the year and their shareholding The direct and indirect interest of Directors in the Issued Share Capital of the Company as recorded in the Register of Directors\u2019 Shareholding and/or as noti\ufb01ed by the Dire"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 35,
+          "label": "Number of Shares",
+          "context": ".71% 1.41% 5.38% 8.50% 19.79% 50.48% 100.00% Holding pattern (range) as at 31 December 2023 - - - - Number of Shares held % AIICO Investment Inc. - - AIICO Bahamas Limited 15,104,442,427 41.26 DF Holdings Limited Lea"
+        },
+        {
+          "field": "unit_scale",
+          "page": 37,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira Amount 980 3,226 6,200 1,973 2,661 500 5,000 4,000 268 4,073 5,000 250 1,350 4,500 39,981 In thousa"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 50,
+          "label": "Issued Share Capital",
+          "context": "porting period N0.76 (31 December 2022: N0.59) Shareholding Structure/Free Float Status Description Issued Share Capital*** Substantial Shareholdings (5% and above) AIICO Bahamas Limited LeapFrog III Nigeria Insurance Ho"
+        },
+        {
+          "field": "book_equity",
+          "page": 73,
+          "label": "Total equity",
+          "context": " seek organic and inorganic growth opportunities, prioritizing value creation for our shareholders. Total equity grew 32% to \u20a651.8 billion from \u20a639.2 billion, demonstrating our commitment to shareholder value. Ou"
+        },
+        {
+          "field": "book_equity",
+          "page": 76,
+          "label": "total equity",
+          "context": " and aligns our \ufb01nancial reporting practices with international best practices. Beyond the reported total equity of \u20a651.8 billion, an additional \u20a619.8 billion and \u20a62.9 billion exist as unearned pro\ufb01t (CSM) and ri"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 112,
+          "label": "number of ordinary shares",
+          "context": "viding the pro\ufb01t or loss attributable to ordinary shareholders of the Group by the weighted average number of ordinary shares outstanding during the year, excluding treasury shares held by the Group. Diluted EPS is determined"
+        },
+        {
+          "field": "book_equity",
+          "page": 131,
+          "label": "Total equity",
+          "context": "ncy reserve Retained earnings Equity attributable to owners of the parent Non-controlling interests Total equity Total liabilities and equity Notes 2 3(a) 3(b) 3(c) 4 5 6 8(d) 9 9(f) 10(a) 12 13 7 11 14(a) 14(d) "
+        },
+        {
+          "field": "book_equity",
+          "page": 131,
+          "label": "Equity attributable to owners",
+          "context": "serve Fair value reserve Foreign currency translation reserve Contingency reserve Retained earnings Equity attributable to owners of the parent Non-controlling interests Total equity Total liabilities and equity Notes 2 3(a) 3(b)"
+        },
+        {
+          "field": "unit_scale",
+          "page": 131,
+          "label": "In thousands of naira",
+          "context": "s Corporate Governance Other National Disclosures 132 AIICO INSURANCE Annual Report & Accounts 2023 In thousands of naira Assets Cash and cash equivalents Financial assets: - Debt instruments at amortised cost - Fair valu"
+        },
+        {
+          "field": "unit_scale",
+          "page": 132,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira Insurance revenue Insurance service expense Net expenses from reinsurance contracts Insurance servi"
+        },
+        {
+          "field": "book_equity",
+          "page": 133,
+          "label": "Total equity",
+          "context": "29) 76,075 - - 1,024 1,024 - - 422,402 422,402 25,217 - (14,835) 10,381 - - 2,468 2,468 - - 435,251 Total equity 38,374,255 (3,364,088) 35,010,167 5,166,115 (186,979) - 4,979,136 - - - - (732,105) (732,105) 39,25"
+        },
+        {
+          "field": "book_equity",
+          "page": 133,
+          "label": "Equity Attributable to owners",
+          "context": " 39,257,198 39,257,198 12,016,289 1,701,288 - 13,717,577 - - - - (1,098,158) (1,098,158) 51,830,367 Equity Attributable to owners of the Parent The accompanying material accounting policies and notes to the consolidated and separ"
+        },
+        {
+          "field": "unit_scale",
+          "page": 133,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira Balance at 1 January 2022 Impact of initial application of IFRS 17 Restated balance as at 1 Jan 202"
+        },
+        {
+          "field": "unit_scale",
+          "page": 134,
+          "label": "In thousands of naira",
+          "context": "e consolidated and separate \ufb01nancial statements form an integral part of these \ufb01nancial statements. In thousands of naira Balance at 1 January 2022 Impact of initial application of IFRS 17 Balance at 1 Jan 2022 (restated)"
+        },
+        {
+          "field": "unit_scale",
+          "page": 135,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira Operating activities: Premiums received for insurance contract Reinsurance premium paid during the "
+        },
+        {
+          "field": "unit_scale",
+          "page": 137,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira Insurance revenue Insurance service expense Net expenses from reinsurance contracts Insurance servi"
+        },
+        {
+          "field": "unit_scale",
+          "page": 138,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira Insurance revenue Insurance service expense Net income/(expenses) from reinsurance contracts Insura"
+        },
+        {
+          "field": "book_equity",
+          "page": 139,
+          "label": "Total equity",
+          "context": "r value reserve Contingency reserve Retained earnings Shareholders' funds Non-controlling interests Total equity Total liabilities and equity Life Business 6,037,981 63,034,156 5,659,711 141,438,059 - 1,135,405 3"
+        },
+        {
+          "field": "book_equity",
+          "page": 139,
+          "label": "Shareholders' funds",
+          "context": " capital Share premium Revaluation reserve Fair value reserve Contingency reserve Retained earnings Shareholders' funds Non-controlling interests Total equity Total liabilities and equity Life Business 6,037,981 63,034,"
+        },
+        {
+          "field": "unit_scale",
+          "page": 139,
+          "label": "In thousands of naira",
+          "context": "s Corporate Governance Other National Disclosures 140 AIICO INSURANCE Annual Report & Accounts 2023 In thousands of naira Assets Cash and cash equivalents Financial assets: - Debt instruments at amortised cost - Fair valu"
+        },
+        {
+          "field": "book_equity",
+          "page": 140,
+          "label": "Total equity",
+          "context": "ir value reserve Contingency reserve Retained earnings Shareholders funds Non- controlling interest Total equity Total liabilities and equity Life Business 4,846,712 56,553,848 4,245,207 125,233,425 - 2,592,564 -"
+        },
+        {
+          "field": "book_equity",
+          "page": 140,
+          "label": "Shareholders funds",
+          "context": " capital Share premium Revaluation reserve Fair value reserve Contingency reserve Retained earnings Shareholders funds Non- controlling interest Total equity Total liabilities and equity Life Business 4,846,712 56,553,"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 140,
+          "label": "Issued share capital",
+          "context": " accrual Fixed income liability Current tax payable Deferred tax liability Total liabilities Equity Issued share capital Share premium Revaluation reserve Fair value reserve Contingency reserve Retained earnings Sharehol"
+        },
+        {
+          "field": "unit_scale",
+          "page": 140,
+          "label": "In thousands of naira",
+          "context": "rporate Governance Other National Disclosures 141 AIICO INSURANCE Annual Report & Accounts 2023 1.2 In thousands of naira Assets Cash and cash equivalents Financial assets: - Debt instruments at amortised cost - Fair valu"
+        },
+        {
+          "field": "unit_scale",
+          "page": 141,
+          "label": "In thousands of naira",
+          "context": "2 Cash and cash equivalents In thousands of naira Cash on hand Cash in banks Bank placements Cash at bank attributable to discontinued operations All"
+        },
+        {
+          "field": "unit_scale",
+          "page": 142,
+          "label": "In thousands of naira",
+          "context": "3. Financial assets In thousands of naira Financial assets at amortized cost (see note (a) below) Fair value through other comprehensive inco"
+        },
+        {
+          "field": "unit_scale",
+          "page": 143,
+          "label": "In thousands of naira",
+          "context": "ets Exchange loss Recoveries Balance as at (iii)Movement in amortized cost portfolio is as follows; In thousands of naira Balance at 1 January Additions during the year Asset transfer from portfolio acquisition* Disposals"
+        },
+        {
+          "field": "unit_scale",
+          "page": 144,
+          "label": "In thousands of naira",
+          "context": "3 (52,625,153) - 6,689,550 (6,174,060) (733,641) (394,869) - 225,552,163 (92,252) - 225,459,912 (c) In thousands of naira Federal Government bonds State Government bonds Corporate bonds Unquoted Equities Balance as at (i)"
+        },
+        {
+          "field": "unit_scale",
+          "page": 145,
+          "label": "In thousands of naira",
+          "context": "(iii) Gross movement in \ufb01nancial assets 2023 (Company) In thousands of naira Balance at 1 January Additions during the year Disposals/Repayments during the year Exchange gain A"
+        },
+        {
+          "field": "unit_scale",
+          "page": 146,
+          "label": "In thousands of naira",
+          "context": "Group Fair value measurements At 31 December 2022 In thousands of naira Financial assets at fair value through pro\ufb01t or loss (FVTPL) -Federal Government bonds -Corporate b"
+        },
+        {
+          "field": "unit_scale",
+          "page": 147,
+          "label": "In thousands of naira",
+          "context": "Company Fair value measurements at 1 January 2022 In thousands of naira Financial assets at fair value through pro\ufb01t or loss (FVTPL) -Federal Government bonds -State Gover"
+        },
+        {
+          "field": "unit_scale",
+          "page": 148,
+          "label": "In thousands of naira",
+          "context": "Age Analysis of trade receivables: In thousands of naira Within 30 days Above 30 days Balance as at (i) Due from direct clients relates to fees receivables."
+        },
+        {
+          "field": "unit_scale",
+          "page": 154,
+          "label": "In thousands of naira",
+          "context": "2,125,173 (I) Prepaid expenses relate to rent and other expenses. Other receivables and prepayments In thousands of naira Prepaid expenses (see note (I) below) Short term lease payment Prepaid minimum deposit (see note (i"
+        },
+        {
+          "field": "unit_scale",
+          "page": 155,
+          "label": "In thousands of naira",
+          "context": "and prepayments - continued6 (ii) Prepaid minimum deposit Jan-22 Dec-22 Dec-23 Jan-22 Dec-22 Dec-23 In thousands of naira Balance at 1 January Addition Expensed during the year Balance as at 112,809 59,099 (112,809) 59,09"
+        },
+        {
+          "field": "unit_scale",
+          "page": 156,
+          "label": "In thousands of naira",
+          "context": "(b) Amounts recognised in pro\ufb01t or loss Dec-22 Dec-23 Dec-22 Dec-23 In thousands of naira Minimum tax (see note (iii) below) 363,528 363,528 147,215 147,215 332,767 332,767 147,215 147,215 "
+        },
+        {
+          "field": "unit_scale",
+          "page": 157,
+          "label": "In thousands of naira",
+          "context": "Amounts recognised in OCI Group Dec-23 In thousands of naira Before tax Tax (expense) Net of tax ( c ) Fair value gain on fair value \ufb01nancial assets Balance as "
+        },
+        {
+          "field": "unit_scale",
+          "page": 158,
+          "label": "In thousands of naira",
+          "context": "9 (e) Jan-22 Dec-22 Dec-23 Jan-22 Dec-22 Dec-23 In thousands of naira Unrecognised deferred tax on unrelieved losses Unrecognised deferred tax 16,785,228 16,785,228 19,2"
+        },
+        {
+          "field": "unit_scale",
+          "page": 159,
+          "label": "thousands of naira",
+          "context": "(d) Non-controlling interests NCI Percentage Holding Dec-23In thousands of naira NCI Percentage Holding Jan-22Dec-22 AIICO Multishield HMO AIICO Capital 23.9% 10.0% 306,839 128,412"
+        },
+        {
+          "field": "unit_scale",
+          "page": 159,
+          "label": "In thousands of naira",
+          "context": "(d) Non-controlling interests NCI Percentage Holding Dec-23In thousands of naira NCI Percentage Holding Jan-22Dec-22 AIICO Multishield HMO AIICO Capital 23.9% 10.0% 306,839 128,412"
+        },
+        {
+          "field": "unit_scale",
+          "page": 160,
+          "label": "In thousands of naira",
+          "context": "10 (a) Jan-22 Dec-22 Dec-23 Jan-22 Dec-22 Dec-23 In thousands of naira Investment properties The balance in this account can be analysed as follows: Balance at 1 January "
+        },
+        {
+          "field": "unit_scale",
+          "page": 161,
+          "label": "In thousands of naira",
+          "context": "estment properties - continued Pro\ufb01t on disposal of Investment property Dec-22 Dec-23 Dec-22 Dec-23 In thousands of naira Disposal Proceeds Fair value of Investment properties disposed 239,000 (230,000) 9,000 186,000 (184"
+        },
+        {
+          "field": "unit_scale",
+          "page": 162,
+          "label": "In thousands of naira",
+          "context": "(a) Dec-22 Dec-23 Dec-22 Dec-23 In thousands of naira Amounts recognised in pro\ufb01t or loss for investment properties Rental income from operating leases F"
+        },
+        {
+          "field": "unit_scale",
+          "page": 163,
+          "label": "thousands of naira",
+          "context": " - continued (a) 11 Reconciliation of carrying amount - continued COMPANY Goodwill Software TotalIn thousands of naira Cost Balance at 1 January 2023 Acquisitions Balance at 31 December 2023 Accumulated amortization Ba"
+        },
+        {
+          "field": "unit_scale",
+          "page": 163,
+          "label": "In thousands of naira",
+          "context": "ets - continued (a) 11 Reconciliation of carrying amount - continued COMPANY Goodwill Software TotalIn thousands of naira Cost Balance at 1 January 2023 Acquisitions Balance at 31 December 2023 Accumulated amortization Ba"
+        },
+        {
+          "field": "unit_scale",
+          "page": 164,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira Land Buildings Capital work in progress Furniture & equipment Motor vehicles Total Cost At 1 Januar"
+        },
+        {
+          "field": "unit_scale",
+          "page": 165,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira Land Buildings Capital work in progress Furniture & equipment Motor vehicles Total Cost At 1 Januar"
+        },
+        {
+          "field": "unit_scale",
+          "page": 166,
+          "label": "In thousands of naira",
+          "context": "ned on this deposit is included in the investment income. Jan-22 Dec-22 Dec-23 Jan-22 Dec-22 Dec-23 In thousands of naira Non life business Life business 300,000 200,000 500,000 300,000 200,000 500,000 300,000 200,000 500"
+        },
+        {
+          "field": "unit_scale",
+          "page": 183,
+          "label": "\u20a6'000",
+          "context": ",346 Age analysis of outstanding claims by reason of being outstanding: 2023 claims status - Reason \u20a6'000 Discharged vouchers signed and returned to policy holders - Discharge vouchers not yet signed - Cla"
+        },
+        {
+          "field": "unit_scale",
+          "page": 184,
+          "label": "\u20a6'000",
+          "context": "ruction Third party liability outstanding Adjusters fee payable Total Qty - 883 - - - - - - - - 883 \u20a6'000 - 1,918,057 - - - - - - - - 1,918,057 Qty - 145 - - - - - - - - 145 \u20a6'000 - 157,152 - - - - - - - -"
+        },
+        {
+          "field": "unit_scale",
+          "page": 185,
+          "label": "\u20a6'000",
+          "context": "ity outstanding Adjusters fee payable Total Qty - - 3 - - - - - - - 3 Qty - 411 - - - - - - - - 411 \u20a6'000 - - 50,350 - - - - - - - 50,350 \u20a6'000 - 564,392 - - - - - - - - 564,392 Qty - - 11 - - - - - - - 11"
+        },
+        {
+          "field": "unit_scale",
+          "page": 186,
+          "label": "In thousands of naira",
+          "context": "14 (d) Investment contract liabilities In thousands of naira Deposit administration (see note (i) below) Total investment contract liabilities (i) At 1 January "
+        },
+        {
+          "field": "unit_scale",
+          "page": 187,
+          "label": "In thousands of naira",
+          "context": " grow in line with the growth in Net Asset Value (NAV) of the Company. (b) Fixed income liabilities In thousands of naira Dec-23 Dec-22 Jan-22 Dec-23 Dec-22 Jan-22 Guaranteed income notes (see note (i)) 22,781,598 33,506,"
+        },
+        {
+          "field": "unit_scale",
+          "page": 188,
+          "label": "In thousands of naira",
+          "context": "(b)(i) Share premium In thousands of naira Dec-23 Dec-22 Jan-22 Dec-23 Dec-22 Jan-22 At 1 January 64,745 64,745 64,745 64,745 Balance as at 31"
+        },
+        {
+          "field": "unit_scale",
+          "page": 189,
+          "label": "In thousands of naira",
+          "context": "(I) Retained earnings The movement in retained earnings can be analysed as follows: In thousands of naira At 1 January Impact of initial application of IFRS 17 (see (j) below) At 1 January (restated) Trans"
+        },
+        {
+          "field": "unit_scale",
+          "page": 190,
+          "label": "In thousands of naira",
+          "context": "18 Insurance Result 18 (a) Insurance Revenue In thousands of naira Dec-23 Dec-22 Dec-23 Dec-22 Expected insurance service expenses incurred in the period 21,175,447 1"
+        },
+        {
+          "field": "unit_scale",
+          "page": 191,
+          "label": "In thousands of naira",
+          "context": "18 (b) Insurance Service Expenses: In thousands of naira Dec-23 Dec-22 Dec-23 Dec-22 Incurred claims and other expenses 64,694,774 52,907,979 64,026,604 52,"
+        },
+        {
+          "field": "unit_scale",
+          "page": 192,
+          "label": "In thousands of naira",
+          "context": "(c) Net expense from reinsurance contracts held (i) In thousands of naira Dec-22 Dec-23 Dec-22 Contracts measured under the PAA (13,105,899) (18,244,898) (13,105,899) Alloca"
+        },
+        {
+          "field": "unit_scale",
+          "page": 193,
+          "label": "In thousands of naira",
+          "context": "enses from reinsurance contracts held (1,647) - 323,986 (11,115,551) (10,793,212) Investment income In thousands of naira Dec-23 Dec-22 Dec-23 Dec-22 Interest income 30,911,687 22,757,028 25,556,020 17,291,267 Dividend in"
+        },
+        {
+          "field": "book_equity",
+          "page": 194,
+          "label": "Shareholders' funds",
+          "context": "14,572,049 11,295,514 Annuity funds (see note (ii) below) 11,112,268 6,417,861 11,112,268 6,417,861 Shareholders' funds (see note (iii) below) 5,403,050 Accrued interest/dividend @31 Dec 2022 7,185 440,690 990,346 1,438"
+        },
+        {
+          "field": "unit_scale",
+          "page": 194,
+          "label": "In thousands of naira",
+          "context": "sed in pro\ufb01t or loss 427,810 3,765,491 1,420,201 5,613,502 11,677,765 17,291,267 440,645 17,731,912 In thousands of naira Dec-23 Dec-22 Dec-23 Dec-22 Policyholders' funds (see note (i) below) 14,572,049 11,295,513 14,572,"
+        },
+        {
+          "field": "unit_scale",
+          "page": 195,
+          "label": "In thousands of naira",
+          "context": "20 (a)(i)Net realised gains In thousands of naira Dec-23 Dec-22 Dec-23 Dec-22 Net realised gains are attributable to the following: Property and equi"
+        },
+        {
+          "field": "unit_scale",
+          "page": 197,
+          "label": "In thousands of naira",
+          "context": "income or expenses (4,501,584) (3,025,090) (88,902) (201,507) (7,817,083) 24 Other operating income In thousands of naira Dec-22 Dec-22 Sundry income 951,040 861,045 951,040 861,045 (a) Sundry income is analysed as follow"
+        },
+        {
+          "field": "unit_scale",
+          "page": 198,
+          "label": "In thousands of naira",
+          "context": "25 (a) Other Expenses - Personnel expenses (attributable) In thousands of naira Dec-23 Dec-22 Dec-23 Dec-22 Salaries 2,924,043 1,786,341 2,924,043 1,786,341 Allowances and other b"
+        },
+        {
+          "field": "unit_scale",
+          "page": 199,
+          "label": "In thousands of naira",
+          "context": "2023 2,924,043 2,765,204 5,689,247 2022 1,786,341 2,217,807 4,004,148 In thousands of naira Salaries Allowances and other bene\ufb01ts 2023 2,924,043 2,765,204 5,689,247 2022 1,786,341 2,217,807 4"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 200,
+          "label": "Number of shares",
+          "context": "m continuing operations Net pro\ufb01t attributable to ordinary shareholders from discontinued operation Number of shares in issue Weighted average of ordinary shares in issue Basic and diluted earnings per share from con"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 200,
+          "label": "number of ordinary shares",
+          "context": "y dividing the net pro\ufb01t for the year attributable to ordinary shareholders by the weighted average number of ordinary shares outstanding at the reporting date. 27 Related party disclosures (a) Parent and ultimate controlling"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 200,
+          "label": "ordinary shares in issue",
+          "context": " to ordinary shareholders from discontinued operation Number of shares in issue Weighted average of ordinary shares in issue Basic and diluted earnings per share from continued operation (kobo)Basic and diluted earnings per "
+        },
+        {
+          "field": "unit_scale",
+          "page": 200,
+          "label": "In thousands of naira",
+          "context": "05,276 - 36,605,276 - 32 32 4,467,391 - 4,467,391 - 4,467,391 36,605,276 36,605,276 12 12 2023 2022 In thousands of naira 2023 2022 26 (a) Earnings per share from continued operation Basic earnings per share amounts is ca"
+        },
+        {
+          "field": "unit_scale",
+          "page": 201,
+          "label": "thousands of naira",
+          "context": "5,809 183,393 339,202 46,745 116,992 1,663 72,449 74,112 163,088 237,200 17,775 101,389 2023 2022In thousands of naira 2023 2022 The number of directors, including the Chairman, whose emoluments were within the followi"
+        },
+        {
+          "field": "unit_scale",
+          "page": 202,
+          "label": "In thousands of naira",
+          "context": "91,215 224,968 5,498,493 10,414,676 1,311,047 166,596 2,261,020 3,738,663 - - - - - - - - 2023 2022 In thousands of naira 2023 2022 Fees earned from the management of these funds are as follows: AMM FABF Portfolio managem"
+        },
+        {
+          "field": "unit_scale",
+          "page": 203,
+          "label": "In thousands of naira",
+          "context": " Managerial Senior sta\ufb00 Junior sta\ufb00 84 334 74 492 78 310 93 481 67 301 6 374 61 295 6 362 2023 2022 In thousands of naira 2023 2022 (a) The personnel expenses for the above persons were: Wages and salaries Other sta\ufb00 cost"
+        },
+        {
+          "field": "unit_scale",
+          "page": 206,
+          "label": "In thousands of naira",
+          "context": ",196 (106) (3) 18,219 6,373,982,403 5,204,935,355 (71,848,115) (2,800,507) 11,504,269,136 2022 2022 In thousands of naira 2023 2023 Mortality assumptions We have assumed the following sample average expectation of life in"
+        },
+        {
+          "field": "book_equity",
+          "page": 207,
+          "label": "shareholders\u2019 funds",
+          "context": "omic conditions and risk characteristics. The primary source of capital used by the Group is equity shareholders\u2019 funds. The Group has had no signi\ufb01cant changes in its policies and processes to its capital structure dur"
+        },
+        {
+          "field": "book_equity",
+          "page": 208,
+          "label": "shareholders' funds",
+          "context": "e Consolidated and Separate Financial Statements (Cont\u2019d) For the year ended 31 December 2023 Total shareholders' funds Regulatory required capital Excess capital reserve 51,830,366 5,000,000 46,830,366 39,210,947 5,000"
+        },
+        {
+          "field": "unit_scale",
+          "page": 208,
+          "label": "In thousands of naira",
+          "context": ",947 5,000,000 34,210,947 49,591,268 5,000,000 44,591,268 37,310,218 5,000,000 32,310,218 2023 2022 In thousands of naira 2023 2022 Group Company"
+        },
+        {
+          "field": "unit_scale",
+          "page": 209,
+          "label": "In thousands of naira",
+          "context": "AIICO INSURANCE Annual Report & Accounts 2023 35.Solvency margin computation as at 31 December 2023 In thousands of naira 2023 Admissible 2022 AdmissibleTotal Inadmissible Total Inadmissible Assets Cash and cash equivalen"
+        },
+        {
+          "field": "unit_scale",
+          "page": 211,
+          "label": "In thousands of naira",
+          "context": "Other National Disclosures 212 AIICO INSURANCE Annual Report & Accounts 2023 GROUP 31 December 2023 In thousands of naira Note FVTPL Amortized Cost FVOCI Other \ufb01nancial liabilties Total Level 1 Level 2 Level 3 Total Finan"
+        },
+        {
+          "field": "unit_scale",
+          "page": 212,
+          "label": "In thousands of naira",
+          "context": "COMPANY 31 December 2023 In thousands of naira Note FVTPL Amortized Cost FVOCI Other \ufb01nancial liabilties Total Level 1 Level 2 Level 3 Total Finan"
+        },
+        {
+          "field": "unit_scale",
+          "page": 213,
+          "label": "In thousands of naira",
+          "context": "e was no transfer between level 1, level 2 and level 3 (2022: NIL) - - - - - GROUP 31 December 2022 In thousands of naira FVTPL Amortized Cost FVOCI Other \ufb01nancial liabilties Total Level 1 Level 2 Level 3 Total Financial "
+        },
+        {
+          "field": "unit_scale",
+          "page": 214,
+          "label": "In thousands of naira",
+          "context": "her National Disclosures 215 AIICO INSURANCE Annual Report & Accounts 2023 COMPANY 31 December 2022 In thousands of naira FVTPL Amortized Cost FVOCI Other \ufb01nancial liabilties Total Level 1 Level 2 Level 3 Total Financial "
+        },
+        {
+          "field": "book_equity",
+          "page": 238,
+          "label": "Total equity",
+          "context": "lders' funds 44,585,606 - (5,797,059) 38,788,547 Non-controlling interests j(i) 422,402 - - 422,402 Total equity 45,008,008 - (5,797,059) 39,210,949 Total liabilities and equity 270,329,520 (2,889,163) (570,607) "
+        },
+        {
+          "field": "book_equity",
+          "page": 238,
+          "label": "Shareholders' funds",
+          "context": "- - Contingency reserve 9,710,046 - 9,710,046 Retained earnings 16,540,784 - (5,797,059) 10,743,725 Shareholders' funds 44,585,606 - (5,797,059) 38,788,547 Non-controlling interests j(i) 422,402 - - 422,402 Total equity"
+        },
+        {
+          "field": "book_equity",
+          "page": 241,
+          "label": "Total equity",
+          "context": "areholders' funds 43,092,786 (31,054) (5,751,515) 37,310,217 Non-controlling interests j(i) - - - - Total equity 43,092,786 (31,054) (5,751,515) 37,310,217 Total liabilities and equity 244,028,140 (2,889,162) (57"
+        },
+        {
+          "field": "book_equity",
+          "page": 241,
+          "label": "Shareholders' funds",
+          "context": "eserve 9,710,046 - - 9,710,046 Retained earnings i(c,d,h) 14,073,037 (31,054) (5,751,515) 8,290,468 Shareholders' funds 43,092,786 (31,054) (5,751,515) 37,310,217 Non-controlling interests j(i) - - - - Total equity 43,0"
+        },
+        {
+          "field": "unit_scale",
+          "page": 250,
+          "label": "In thousands of Naira",
+          "context": "2023 Company In thousands of Naira 2023 2022 2022 % % % % Gross Premium Written: Local 93,271,453 72,330,351 92,531,181 71,619,057 For"
+        },
+        {
+          "field": "book_equity",
+          "page": 251,
+          "label": "Total equity",
+          "context": " 34,664,863 33,701,839 27,914,465 Non-controlling interests 435,252 422,402 345,303 957,243 995,599 Total equity 51,830,366 39,210,947 35,010,166 34,659,082 28,910,064 ** years presented in compliance with IFRS 1"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 251,
+          "label": "Issued share capital",
+          "context": "55 208,439,343 130,566,159 Net assets 51,830,365 39,210,947 35,010,166 34,659,082 28,910,064 Equity Issued share capital 18,302,638 18,302,638 18,302,638 7,843,988 3,465,102 Share premium 64,745 64,745 64,745 7,037,181 2"
+        },
+        {
+          "field": "unit_scale",
+          "page": 251,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira 2023** 2022** (restated) 2021** (restated) 2020* 2019* Assets Cash and cash equivalents 18,422,728 "
+        },
+        {
+          "field": "unit_scale",
+          "page": 252,
+          "label": "In thousands of naira",
+          "context": "2023**In thousands of naira 2022** 2021* 2020* 2019* Gross premium written - - 71,625,943 61,979,667 50,138,467 Gross premium i"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 253,
+          "label": "Issued share capital",
+          "context": "18 163,856,023 109,319,031 Net assets 49,591,268 37,310,218 33,428,593 32,478,585 25,944,424 Equity Issued share capital 18,302,638 18,302,638 18,302,638 7,843,988 3,465,102 Share premium 64,745 64,745 64,745 7,037,181 2"
+        },
+        {
+          "field": "unit_scale",
+          "page": 253,
+          "label": "In thousands of naira",
+          "context": "2023** In thousands of naira 2022** (restated) 2021** (restated) 2020* 2019* Assets Cash and cash equivalents 7,921,257 6,521,94"
+        },
+        {
+          "field": "unit_scale",
+          "page": 254,
+          "label": "In thousands of naira",
+          "context": "In thousands of naira 2023** 2022** 2021* 2020* 2019* Gross premium written - - 71,001,519 61,318,398 49,440,231 Gross pr"
+        }
+      ]
     },
     {
       "ticker": "DANGCEM",
       "fiscal_period": "2022-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "6a3d12dfb89f691d3f6dab97b0c7e33e286f81620b0daeb702f34a6f957e06b5",
+      "source_document": "dangcem-annual-report-2022.pdf",
+      "source_url": "https://www.dangotecement.com/wp-content/uploads/2023/04/DCP-2022-Annual-Report-UPDATED.pdf",
+      "publication_date": null,
+      "page_count": 207,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding"
+      ],
+      "hits": [
+        {
+          "field": "shares_outstanding",
+          "page": 93,
+          "label": "issued share capital",
+          "context": " accordance with the Companies and Allied Matters Act (CAMA), 2020, the Directors\u2019 interests in the issued share capital of the Company are recorded in the Register of Members and stated below: S/N Reg no Shareholder As "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 95,
+          "label": "issued share capital",
+          "context": "Dangote Industries Limited and Stanbic IBTC Nominees Nigeria Ltd held more than 5% of the Company\u2019s issued share capital detailed below. Aside from Dangote Industries Limited and Stanbic IBTC Nominees Nigeria Limited, no"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 95,
+          "label": "number of shares",
+          "context": "nches. Details of previous share buy-back tranches below: Share capital analysis Units Pre-Buy-Back number of shares 17,040,507,404 Shares bought back from 30 to 31 December 2020 (Tranche I) (40,200,000) Shares bough"
+        },
+        {
+          "field": "book_equity",
+          "page": 112,
+          "label": "Total equity",
+          "context": "ers of the Company 1,054,369 965,370 1,491,535 1,461,472 Non-controlling interest 24,578 18,299 \u2014 \u2014 Total equity 1,078,947 983,669 1,491,535 1,461,472 Total equity and liabilities 2,615,655 2,392,019 2,658,463 2,"
+        },
+        {
+          "field": "book_equity",
+          "page": 112,
+          "label": "Equity attributable to owners",
+          "context": "cy translation reserve 23.7 76,220 53,102 \u2014 \u2014 Retained earnings 969,478 868,274 1,482,913 1,417,527 Equity attributable to owners of the Company 1,054,369 965,370 1,491,535 1,461,472 Non-controlling interest 24,578 18,299 \u2014 \u2014 Tot"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 129,
+          "label": "number of shares",
+          "context": "ing the profit or loss attributable to ordinary shareholders of the Company by the weighted average number of shares outstanding during the period. The weighted average number of ordinary shares outstanding during th"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 129,
+          "label": "number of ordinary shares",
+          "context": "ompany by the weighted average number of shares outstanding during the period. The weighted average number of ordinary shares outstanding during the period and for all periods presented is adjusted for the issue of bonus shar"
+        },
+        {
+          "field": "book_equity",
+          "page": 130,
+          "label": "shareholders equity",
+          "context": "t at statement of financial position date; \u2022 Non-monetary assets and liabilities, and components of shareholders equity/funds, are restated by applying the change in index from date/month of transaction or, if applicabl"
+        },
+        {
+          "field": "book_equity",
+          "page": 131,
+          "label": "Total equity",
+          "context": "270,643 143,692 Total current liabilities 99,028 98,793 Total non-current liabilities 90,142 57,028 Total equity/Net asset 81,473 (12,129) 3. Application of new and revised International Financial Reporting Stand"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 142,
+          "label": "number of ordinary shares",
+          "context": "ment of financial assets (223) 341 705 402 13. Earnings per share The earnings and weighted average number of ordinary shares used in the calculation of basic and diluted earnings per share are as follows: Group Company Year "
+        },
+        {
+          "field": "book_equity",
+          "page": 154,
+          "label": "Equity attributable to owners",
+          "context": "-current assets 74,437 74,068 Current liabilities 33,347 45,358 Non-current liabilities 8,945 2,326 Equity attributable to owners of the Company 50,785 49,084 Non-controlling interests 140 105 Information in respect of the profit"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 203,
+          "label": "Number of shares",
+          "context": "gos on Thursday, 13 April 2023, at 11.00 a.m. Shareholder\u2019s name: Signature: Shareholder\u2019s address: Number of shares held:"
+        }
+      ]
     },
     {
       "ticker": "DANGCEM",
       "fiscal_period": "2023-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "6078aa26746e208f32e092a6576bc8d1f97c0797339f016b4419cd167b6d3b39",
+      "source_document": "dangcem-annual-report-2023.pdf",
+      "source_url": "https://www.dangotecement.com/wp-content/uploads/2024/04/DCP-Annual-Report_AR23_full.pdf",
+      "publication_date": null,
+      "page_count": 208,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding",
+        "unit_scale"
+      ],
+      "hits": [
+        {
+          "field": "unit_scale",
+          "page": 61,
+          "label": "\u20a6million",
+          "context": "5 10 5 0 2015 2016 2017 2018 2019 2020 2021 2022 2023 SN Parameters 2021 2022 2023 1. Tax payments (\u20a6million) 33,408 150,766 166,129 2. Dividend payments per share (\u20a6) 20.00 20.00 30.00 Dangote Cement Plc Ann"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 89,
+          "label": "issued share capital",
+          "context": " accordance with the Companies and Allied Matters Act (CAMA), 2020, the Directors\u2019 interests in the issued share capital of the Company are recorded in the Register of Members and stated below: S/N REG NO Shareholder As "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 91,
+          "label": "issued share capital",
+          "context": "Dangote Industries Limited and Stanbic IBTC Nominees Nigeria Ltd held more than 5% of the Company\u2019s issued share capital, detailed below. Aside from Dangote Industries Limited and Stanbic IBTC Nominees Nigeria Limited, n"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 91,
+          "label": "number of shares",
+          "context": "any\u2019s financial position. Further details are as follows: Share capital analysis Units Pre-Buy-Back number of shares 17,040,507,404 Programme I Shares bought back from 30 to 31 December 2020 (Tranche I) (40,200,000) "
+        },
+        {
+          "field": "book_equity",
+          "page": 112,
+          "label": "Total equity",
+          "context": "s of the Company 1,691,034 1,054,369 1,602,964 1,491,535 Non-controlling interest 34,806 24,578 \u2014 \u2014 Total equity 1,725,840 1,078,947 1,602,964 1,491,535 Total equity and liabilities 3,938,725 2,615,655 3,070,468 "
+        },
+        {
+          "field": "book_equity",
+          "page": 112,
+          "label": "Equity attributable to owners",
+          "context": "translation reserve 23.7 625,160 76,220 \u2014 \u2014 Retained earnings 1,098,626 969,478 1,635,765 1,482,913 Equity attributable to owners of the Company 1,691,034 1,054,369 1,602,964 1,491,535 Non-controlling interest 34,806 24,578 \u2014 \u2014 T"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 129,
+          "label": "number of shares",
+          "context": "ing the profit or loss attributable to ordinary shareholders of the Company by the weighted average number of shares outstanding during the period. The weighted average number of ordinary shares outstanding during th"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 129,
+          "label": "number of ordinary shares",
+          "context": "ompany by the weighted average number of shares outstanding during the period. The weighted average number of ordinary shares outstanding during the period and for all periods presented is adjusted for the issue of bonus shar"
+        },
+        {
+          "field": "book_equity",
+          "page": 131,
+          "label": "Total equity",
+          "context": ",330 187,998 30,490 30,490 Total non-current liabilities 76,371 3,530 16,933 93,406 594 594 4,832 \u2014 Total equity 313,494 84,607 (54,392) (81,188) (168,495) (177,487) 9,657 (4,971) Dangote Cement Plc Annual Report"
+        },
+        {
+          "field": "book_equity",
+          "page": 131,
+          "label": "shareholders equity",
+          "context": "t at statement of financial position date; \u2022 non-monetary assets and liabilities, and components of shareholders equity/funds, are restated by applying the change in index from date/month of transaction or, if applicabl"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 141,
+          "label": "number of ordinary shares",
+          "context": "ment of financial assets 860 (223) 486 705 13. Earnings per share The earnings and weighted average number of ordinary shares used in the calculation of basic and diluted earnings per share are as follows: Group Company Year "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 142,
+          "label": "number of ordinary shares",
+          "context": "d 14.1 Income tax expense recognised in profit or loss continued Reconciliation of weighted average number of ordinary shares is shown below: The income tax expense for the year can be reconciled to the profit before tax as f"
+        },
+        {
+          "field": "book_equity",
+          "page": 153,
+          "label": "Equity attributable to owners",
+          "context": "917 125,634 Current liabilities 77,202 33,347 33,762 16,000 Non-current liabilities 9,786 8,945 \u2014 \u2014 Equity attributable to owners of the Company 89,400 50,785 112,108 115,576 Non-controlling interests 107 140 \u2014 \u2014 Information in r"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 205,
+          "label": "Number of shares",
+          "context": " on this Slip or his/her duly appointed proxy Shareholder\u2019s name: Signature: Shareholder\u2019s address: Number of shares held: Dangote Cement Plc Annual Report and Accounts 2023 203 Supplementary information Proxy form"
+        }
+      ]
     },
     {
       "ticker": "FBNH",
       "fiscal_period": "2022-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "6cf201df511eadb53f85fdd82120702fb6abbada68c1681ebb7305c129e8b75d",
+      "source_document": "fbnh-annual-report-2022.pdf",
+      "source_url": "https://first-holdco.com/wp-content/uploads/2025/10/FBNHoldings-Plc_2022_Annual_Report.pdf",
+      "publication_date": null,
+      "page_count": 300,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding"
+      ],
+      "hits": [
+        {
+          "field": "book_equity",
+          "page": 9,
+          "label": "shareholders' funds",
+          "context": "ity. RETURN ON AVERAGE EQUITY (RoAE)3 2022: 14.5% 2021: 18.4% RoAE reflects the direction of PBT as shareholders' funds further improve. RETURN ON AVERAGE ASSETS (RoAA)4 2022: 1.4% 2021: 1.8% RoAA moved in tandem with P"
+        },
+        {
+          "field": "book_equity",
+          "page": 37,
+          "label": "shareholders\u2019 funds",
+          "context": "t Group\u2019s total assets increased by 28.5% to N495.4bn, and the Group remains well capitalised, with shareholders\u2019 funds of N63.3bn. The Merchant Bank\u2019s capital adequacy ratio (CAR) stood at 16.3%, comfortably above the "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 98,
+          "label": "issued share capital",
+          "context": "directors\u2019 rePort (e) Directors\u2019 Shareholding The direct and indirect interests of Directors in the issued share capital of the Company as at 31 December 2022, as recorded in the register of Directors\u2019 shareholding and/o"
+        },
+        {
+          "field": "book_equity",
+          "page": 131,
+          "label": "Total equity",
+          "context": "39 53,667 72,359 - - 983,629 869,451 289,057 282,286 Non-controlling interests 40 12,112 10,405 - - Total equity 995,741 879,856 289,057 282,286 Total equity and liabilities 10,577,710 8,932,373 306,355 298,485 T"
+        },
+        {
+          "field": "book_equity",
+          "page": 149,
+          "label": "shareholders\u2019 equity",
+          "context": "he Group purchase the Company\u2019s equity share capital, the consideration paid is deducted from total shareholders\u2019 equity as treasury shares until they are cancelled. Where such shares are subsequently sold or reissued, a"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 149,
+          "label": "number of ordinary shares",
+          "context": "ding the profit and loss attributable to ordinary shareholders of the Group by the weighted average number of ordinary shares outstanding during the period. Diluted EPS is determined by adjusting the profit or loss attributab"
+        },
+        {
+          "field": "book_equity",
+          "page": 152,
+          "label": "shareholders\u2019 funds",
+          "context": " The Group\u2019s Portfolio limit includes: \u2022 Maintain aggregate large exposure of not more than 400% of shareholders\u2019 funds. \u2022 Maintain minimum weighted average obligor risk rating (obligor-WARR) of \u2018Ba2\u2019 \u2022 Maintain minimum"
+        },
+        {
+          "field": "book_equity",
+          "page": 211,
+          "label": "shareholders\u2019 equity",
+          "context": "and general reserve. Non-controlling interests arising on consolidation from interests in permanent shareholders\u2019 equity. The book value of goodwill, unpublished losses and under provisions are deducted in arriving at qu"
+        },
+        {
+          "field": "book_equity",
+          "page": 230,
+          "label": "Total equity",
+          "context": " - - Listed equity securities 14,677 7,083 - - Unlisted equity securities 31,757 41,278 1,601 1,337 Total equity securities 46,434 48,361 1,601 1,337 Derivative assets (refer note 23a) 63,180 78,780 - - Total ass"
+        },
+        {
+          "field": "book_equity",
+          "page": 231,
+          "label": "Total equity",
+          "context": "20 3,963 4,210 Equity securities: \u2013 Listed 755 3,813 - - \u2013 Unlisted (note 24.2) 150,164 124,095 - - Total equity securities classified as FVOCI 150,918 127,908 - - Total securities classified as FVOCI 1,023,690 7"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 261,
+          "label": "Number of shares",
+          "context": "s Issued and fully paid 35.9 billion ordinary shares of 50k each (2021: 35.9 billion) 17,948 17,948 Number of shares N\u2019millions Ordinary shares \u20a6\u2019millions Movements during the period: At 31 December 2021 35,895 17,94"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 271,
+          "label": "number of ordinary shares",
+          "context": "ed by dividing the net profit attributable to equity holders of the Company by the weighted average number of ordinary shares in issue during the year, excluding the average number of ordinary shares purchased by the members "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 271,
+          "label": "ordinary shares in issue",
+          "context": "ding the net profit attributable to equity holders of the Company by the weighted average number of ordinary shares in issue during the year, excluding the average number of ordinary shares purchased by the members of the Gr"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 272,
+          "label": "number of ordinary shares",
+          "context": "tinued operations attributable to owners of the parent (N\u2019millions) (138) (68) - - Weighted average number of ordinary shares in issue (in million) 35,895 35,895 35,895 35,895 Basic/diluted earnings per share (expressed in ko"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 272,
+          "label": "number of shares",
+          "context": "on the profit attributable to equity holders of the parent and the number of basic weighted average number of shares. 50 Non audit services The external auditors of FBNHoldings (\u201cCompany\u201d), KPMG Professional Services"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 272,
+          "label": "ordinary shares in issue",
+          "context": "rations attributable to owners of the parent (N\u2019millions) (138) (68) - - Weighted average number of ordinary shares in issue (in million) 35,895 35,895 35,895 35,895 Basic/diluted earnings per share (expressed in kobo per sh"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 282,
+          "label": "Issued Share Capital",
+          "context": ". To consider and if thought fit, pass the following as ordinary resolutions: a. That the Company\u2019s Issued Share Capital be and is hereby increased from N17,947,646,396 (Seventeen Billion, Nine Hundred and Forty-Seven Mi"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 285,
+          "label": "Issued Share Capital",
+          "context": "xty Three Million, Seven Hundred Thousand Naira Only) for the Board Chairman. 8a That the Company\u2019s Issued Share Capital be and is hereby increased from N17,947,646,396 (Seventeen Billion, Nine Hundred and Forty-Seven Mi"
+        },
+        {
+          "field": "book_equity",
+          "page": 290,
+          "label": "Shareholders\u2019 funds",
+          "context": "ebenture interest and tax) Weighted average number of shares in issue Book value per share (BVPS) = Shareholders\u2019 funds Number of outstanding shares in issue (35,895,292,792 units) Cost of borrowed funds = Interest expe"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 290,
+          "label": "number of shares",
+          "context": "ributable to ordinary shareholders (after deduction of debenture interest and tax) Weighted average number of shares in issue Book value per share (BVPS) = Shareholders\u2019 funds Number of outstanding shares in issue (3"
+        },
+        {
+          "field": "book_equity",
+          "page": 291,
+          "label": "total equity",
+          "context": "rofit after tax x 100 Average total asset Return on average equity = Profit after tax x 100 Average total equity Risk asset ratio = Total loans Total assets Risk weighted assets* = Assets x weight of risks Tier 1"
+        }
+      ]
     },
     {
       "ticker": "FBNH",
       "fiscal_period": "2023-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "8b079c506b2db29ca11d8091c47f0a17f719139663a845b1f83d58fd6cf665c6",
+      "source_document": "fbnh-annual-report-2023.pdf",
+      "source_url": "https://first-holdco.com/downloads/2024/FBNHoldings_Plc_2023_Annual_Report_and_Accounts.pdf",
+      "publication_date": null,
+      "page_count": 324,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding"
+      ],
+      "hits": [
+        {
+          "field": "shares_outstanding",
+          "page": 7,
+          "label": "number of shares",
+          "context": "2 Basic EPS computed as profit after tax divided by weighted average number of shares in issue; this includes discontinued operations. 3 Post-tax return on average equity computed as pr"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 97,
+          "label": "issued share capital",
+          "context": "ime of payment. e. Directors' Shareholding . The direct an d indirect interests of Directors in the issued share capital of the Company as at 31 December 2023, as recorded in the register of Directors' shareholding and/o"
+        },
+        {
+          "field": "book_equity",
+          "page": 135,
+          "label": "Total equity",
+          "context": "338,871 53,667 - - 1,718,578 983,629 286,465 289,057 Non-controlling interests 40 28,443 12,112 - - Total equity 1,747,021 995,741 286,465 289,057 Total equity and liabilities 16,937,684 10,577,710 305,535 306,35"
+        },
+        {
+          "field": "book_equity",
+          "page": 137,
+          "label": "Total equity",
+          "context": "currency translation reserve =N=\u2019millions Total =N=\u2019millions Non- controlling interest =N=\u2019millions Total equity =N=\u2019millions Balance at 1 January 2022 17,948 233,392 311,877 1,223 135,372 6,076 87,964 3,240 72,3"
+        },
+        {
+          "field": "book_equity",
+          "page": 159,
+          "label": "shareholders\u2019 equity",
+          "context": "he Group purchase the Company\u2019s equity share capital, the consideration paid is deducted from total shareholders\u2019 equity as treasury shares until they are cancelled. Where such shares are subsequently sold or reissued, a"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 159,
+          "label": "number of ordinary shares",
+          "context": "ding the profit and loss attributable to ordinary shareholders of the Group by the weighted average number of ordinary shares outstanding during the period. Diluted EPS is determined by adjusting the profit or loss attributab"
+        },
+        {
+          "field": "book_equity",
+          "page": 163,
+          "label": "shareholders\u2019 funds",
+          "context": " The Group\u2019s Portfolio limit includes: \u2022 Maintain aggregate large exposure of not more than 400% of shareholders\u2019 funds. \u2022 Maintain minimum weighted average obligor risk rating (obligor-WARR) of \u2018Ba2\u2019 \u2022 Maintain minimum"
+        },
+        {
+          "field": "book_equity",
+          "page": 220,
+          "label": "shareholders\u2019 equity",
+          "context": "and general reserve. Non-controlling interests arising on consolidation from interests in permanent shareholders\u2019 equity. The book value of goodwill, unpublished losses and under provisions are deducted in arriving at qu"
+        },
+        {
+          "field": "book_equity",
+          "page": 241,
+          "label": "Total equity",
+          "context": "3 - - Listed equity securities 12,511 14,677 - - Unlisted equity securities 67,140 31,757 504 1,601 Total equity securities 79,651 46,434 504 1,601 Derivative assets (refer note 23b) 620,503 63,180 - - Total asse"
+        },
+        {
+          "field": "book_equity",
+          "page": 243,
+          "label": "Total equity",
+          "context": ",771 6,959 3,963 Equity securities: \u2013 Listed 705 755 - - \u2013 Unlisted (Note 24.2) 302,571 150,164 - - Total equity securities classified as FVOCI 303,276 150,918 - - Total securities classified as FVOCI 1,330,161 1"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 293,
+          "label": "number of ordinary shares",
+          "context": "ed by dividing the net profit attributable to equity holders of the company by the weighted average number of ordinary shares in issue during the year, excluding the average number of ordinary shares purchased by the members "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 293,
+          "label": "number of shares",
+          "context": "on the profit attributable to equity holders of the parent and the number of basic weighted average number of shares. 50 Non audit services The external auditors of FBNHoldings (\u201cCompany\u201d), KPMG Professional Services"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 293,
+          "label": "ordinary shares in issue",
+          "context": "ding the net profit attributable to equity holders of the company by the weighted average number of ordinary shares in issue during the year, excluding the average number of ordinary shares purchased by the members of the gr"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 305,
+          "label": "number of ordinary shares",
+          "context": "elevant regulatory authorities. c. That t he share capital of the Company be increased by the exact number of ordinary shares which would be required upon determination of the terms of the capital raise and the Directors are "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 306,
+          "label": "issued share capital",
+          "context": "s of Association of the Company be amended as necessary to reflect the Company's new legal name and issued share capital. Notes: 1. PRO XY A member entitled to attend and vote at the AGM is entitled to appoint a proxy to"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 309,
+          "label": "issued share capital",
+          "context": "s of Association of the company be amended as necessary to reflect the company's new legal name and issued share capital. Please indicate with \u201cX\u201d in the appropriate box how you wish your vote to be cast on the resolutio"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 309,
+          "label": "number of ordinary shares",
+          "context": "relevant regulatory authorities. c. That the share capital of the Company be increased by the exact number of ordinary shares which would be required upon determination of the terms of the capital raise and the Directors are "
+        },
+        {
+          "field": "book_equity",
+          "page": 314,
+          "label": "Shareholders\u2019 funds",
+          "context": "ebenture interest and tax) Weighted average number of shares in issue Book value per share (BVPS) = Shareholders\u2019 funds Number of outstanding shares in issue (35,895,292,792 units) Cost of borrowed funds = Interest expe"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 314,
+          "label": "number of shares",
+          "context": "ributable to ordinary shareholders (after deduction of debenture interest and tax) Weighted average number of shares in issue Book value per share (BVPS) = Shareholders\u2019 funds Number of outstanding shares in issue (3"
+        },
+        {
+          "field": "book_equity",
+          "page": 315,
+          "label": "total equity",
+          "context": "rofit after tax x 100 Average total asset Return on average equity = Profit after tax x 100 Average total equity Risk asset ratio = Total loans Total assets Risk weighted assets* = Assets x weight of risks Tier 1"
+        }
+      ]
     },
     {
       "ticker": "GTCO",
@@ -63,26 +1765,620 @@
     {
       "ticker": "GTCO",
       "fiscal_period": "2023-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "42b50218ad8722e569532f6b54c8812173b47c1f213189a59bb0bfa7d5c38a8d",
+      "source_document": "gtco-annual-report-2023.pdf",
+      "source_url": "https://gtco-plc.files.svdcdn.com/production/annual-reports/2023-annual-report/2023-Annual-Report.pdf?dm=1716814519",
+      "publication_date": null,
+      "page_count": 374,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding",
+        "unit_scale"
+      ],
+      "hits": [
+        {
+          "field": "book_equity",
+          "page": 8,
+          "label": "Total equity",
+          "context": "rs 7,410,834 4,485,114 65.2% - - 0.0% Total assets 9,691,255 6,446,456 50.3% 163,815 163,995 (0.1%) Total equity 1,477,128 931,149 58.6% 147,231 137,952 6.7% GROSS EARNINGS N1,186.47 N609.31 N539.65 billion billi"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 9,
+          "label": "issued share capital",
+          "context": "her stock exchange or exchanges or se- curities market or markets (as the case may be); c. That the issued share capital of the Company be and is hereby increased from N14,715,589,612.00 (fourteen bil- lion, seven hundre"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 69,
+          "label": "issued share capital",
+          "context": "Directors who held office during the year, together with their direct and indirect interests in the issued share capital (including DIRECTORS\u2019 REPORT"
+        },
+        {
+          "field": "book_equity",
+          "page": 90,
+          "label": "Total equity",
+          "context": "0 912,004,127 147,230,504 137,951,519 Non-controlling interests in equity 29,486,321 19,145,075 - - Total equity 1,477,128,071 931,149,202 147,230,504 137,951,519 Total liabilities and equity 9,691,254,678 6,446,"
+        },
+        {
+          "field": "book_equity",
+          "page": 93,
+          "label": "Total equity",
+          "context": " reserves Treasury shares Fair value reserve Foreign currency translation reserve Retained earnings Total equity attributable to Company Non- controlling interest Total equity Balance at 1 January 2023 14,715,590"
+        },
+        {
+          "field": "book_equity",
+          "page": 104,
+          "label": "shareholders\u2019 equity",
+          "context": "n other comprehensive income. Exchange differences arising from the above process are re- ported in shareholders\u2019 equity as \u2018Foreign currency transla- tion reserve\u2019. On consolidation, exchange differences arising from th"
+        },
+        {
+          "field": "book_equity",
+          "page": 118,
+          "label": "shareholders\u2019 equity",
+          "context": "led. Where such shares are subsequently sold or reissued, any consideration received is included in shareholders\u2019 equity. (iv) Earnings per share The Group presents Basic Earnings Per Share (EPS) for its or - dinary shar"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 118,
+          "label": "number of ordinary shares",
+          "context": "viding the profit or loss attributable to ordinary shareholders of the Bank by the weighted average number of ordinary shares outstanding during the period. Diluted EPS is determined by adjusting the profit or loss that is at"
+        },
+        {
+          "field": "book_equity",
+          "page": 128,
+          "label": "total equity",
+          "context": " by the regulatory authorities from time to time but currently put at 20% of share- holders\u2019 funds (total equity) Management Credit Committee Up to N2 Billion Managing Director Up to N500 Million Deputy Managing "
+        },
+        {
+          "field": "book_equity",
+          "page": 128,
+          "label": "shareholders\u2019 funds",
+          "context": "graphical area. The obligor limit as set by the regulators and it is currently at 20% of the Bank\u2019s shareholders\u2019 funds is adopted and it covers expo- sures to counterparties and related parties. In addition to the regu"
+        },
+        {
+          "field": "unit_scale",
+          "page": 182,
+          "label": "In thousands of Naira",
+          "context": "end of period-end VaR as well as the high and low VaR for the year. Group VaR by risk type Dec-2023 In thousands of Naira Average High Low At reporting date Foreign exchange risk 5,565 50,043 0 0 Interest rate risk 1,048,"
+        },
+        {
+          "field": "unit_scale",
+          "page": 183,
+          "label": "In thousands of Naira",
+          "context": " changes that would impact the income statement after carrying out interest rate sensitivity: Group In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease (43,219,508) (33,741,470) (2"
+        },
+        {
+          "field": "unit_scale",
+          "page": 184,
+          "label": "In thousands of Naira",
+          "context": "PAGE 184 Guaranty Trust Holding Company Plc // 2023 Annual Report Parent In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease (28,324,119) (22,551,664) (1"
+        },
+        {
+          "field": "unit_scale",
+          "page": 185,
+          "label": "In thousands of Naira",
+          "context": "576) (11,543,099) (12,762,488) (9,963,674) Total 43,219,508 33,741,470 25,217,194 19,687,063 Parent In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease Assets Cash and bank balance"
+        },
+        {
+          "field": "unit_scale",
+          "page": 186,
+          "label": "In thousands of Naira",
+          "context": " all other variables held constant, the effect on cash flow would have been as set out below: Group In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease 779,722 689,119 1,267,472 98"
+        },
+        {
+          "field": "unit_scale",
+          "page": 187,
+          "label": "In thousands of Naira",
+          "context": "Naira with all other variables held constant, would have been as set out in the tables below: Group In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease (5,498,019) (4,859,149) (247"
+        },
+        {
+          "field": "unit_scale",
+          "page": 188,
+          "label": "In thousands of Naira",
+          "context": "4.53) with all other variables held constant, would have been as set out in the tables below: Group In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease (38,544,476) (34,065,608) (2"
+        },
+        {
+          "field": "unit_scale",
+          "page": 189,
+          "label": "In thousands of Naira",
+          "context": "Guaranty Trust Holding Company Plc // 2023 Annual Report Impact on Other Comprehensive Income Group In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease 196,570 173,729 196,570 153,"
+        },
+        {
+          "field": "unit_scale",
+          "page": 190,
+          "label": "In thousands of Naira",
+          "context": "in the table below mainly as a result of foreign exchange gains or losses on the translation. Group In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease (94,205,834) (80,082,224) (2"
+        },
+        {
+          "field": "unit_scale",
+          "page": 191,
+          "label": "In thousands of Naira",
+          "context": "in the table below mainly as a result of foreign exchange gains or losses on the translation. Group In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease (4,569,797) (3,884,680) (339"
+        },
+        {
+          "field": "unit_scale",
+          "page": 192,
+          "label": "In thousands of Naira",
+          "context": "PAGE 192 Guaranty Trust Holding Company Plc // 2023 Annual Report Parent In thousands of Naira Dec-23 Pre-tax Dec-23 Post-tax Dec-22 Pre-tax Dec-22 Post-tax Decrease (2,112,844) (1,861,321) (139"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 208,
+          "label": "number of shares",
+          "context": " equity value per share was obtained by dividing the Equity value obtained in step (6) above by the number of shares outstanding in the company. Step 8: The fair value of the group\u2019s investment in each of the relevan"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 227,
+          "label": "Number of shares",
+          "context": "PAGE 227 Guaranty Trust Holding Company Plc // 2023 Annual Report In thousands Number of shares SARs granted to senior management employees at 31 December 2023 343,649 SARs granted to senior mana"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 233,
+          "label": "number of ordinary shares",
+          "context": "ed by dividing the net profit attributable to equity holders of the company by the weighted average number of ordinary shares in issue during the year, excluding the average number of ordinary shares purchased by the company "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 233,
+          "label": "ordinary shares in issue",
+          "context": "ding the net profit attributable to equity holders of the company by the weighted average number of ordinary shares in issue during the year, excluding the average number of ordinary shares purchased by the company and held "
+        },
+        {
+          "field": "unit_scale",
+          "page": 271,
+          "label": "thousands of Naira",
+          "context": "end of the period have the following expiry date and exercise prices: Exercise price Share options (thousands of Naira) Grant-Vest Dec-2023 Dec-2022 Dec-2023 Dec-2022 2004-2009 27.43 23.00 3,403,631 2,278,513 2004-2017"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 285,
+          "label": "Number of shares",
+          "context": "l Report Share capital Movement in the components of share capital for the Group is as shown below: Number of shares (thousands) Ordinary shares Share premium Treasury shares At January 2022 29,431,180 14,715,590 123"
+        },
+        {
+          "field": "book_equity",
+          "page": 318,
+          "label": "Total equity",
+          "context": ",607,444 Non-controlling interests in equity 29,486,321 19,145,075 18,870,216 15,780,809 13,730,024 Total equity 1,477,128,071 931,149,202 883,227,092 814,395,677 687,337,468 Total equity and liabilities 9,691,25"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 371,
+          "label": "issued share capital",
+          "context": "other stock exchange or exchanges or securities market or markets (as the case may be); c. That the issued share capital of the Company be and is hereby increased from \u20a614,715,589,612.00 (fourteen billion, seven hundred "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 371,
+          "label": "NUMBER OF SHARES",
+          "context": "holders must be duly stamped in accordance with the provisions of the Stamp Duties Act. RESOLUTIONS NUMBER OF SHARES: RESOLUTIONS FOR AGAINST Ordinary Business: 1. To receive the Audited Financial Statements for the "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 372,
+          "label": "Number of Shares",
+          "context": "-------------------------- Shareholder\u2019s Account No. ---------------------------------------------- Number of Shares: -------------------------------------------------------- _________________________________________"
+        }
+      ]
     },
     {
       "ticker": "MTNN",
       "fiscal_period": "2022-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "3a33c72b79a59f91cda98f43c01311e457cd1aee085e0552f5a61ac8a75743ab",
+      "source_document": "mtnn-annual-report-2022.pdf",
+      "source_url": "https://www.mtn.ng/wp-content/uploads/2023/07/MTN-Nigeria-Annual-Report-2022.pdf?x53449",
+      "publication_date": null,
+      "page_count": 256,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding"
+      ],
+      "hits": [
+        {
+          "field": "shares_outstanding",
+          "page": 10,
+          "label": "number of shares",
+          "context": "ket Price). The resulting number of New Ordinary Shares should be rounded down to the nearest whole number of shares in order to deal with any fractional shares which may arise; (iv) the Compan y\u2019s share capital be i"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 11,
+          "label": "issued share capital",
+          "context": "f the Articles of Association of the Company be amended as necessary to reference the Company\u2019s new issued share capital; (vii) the D irectors be and are hereby authorised to take all such lawful steps, pass all requisit"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 16,
+          "label": "number of shares",
+          "context": " entitlements (less withholding tax) and the Reference Share Price. The formula for calculating the number of shares to be received is as follows: N et Cash Dividend Due divided by Reference Share Price. N et Cash Di"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 17,
+          "label": "Issued Share Capital",
+          "context": "porate Affairs Commission (\u201cCAC\u201d) titled \u2018Public Notice: Existing Companies and the Requirements of Issued Share Capital under the Companies and Allied Matters Act 2020\u2019 dated April 16, 2021 which mandated all existing c"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 17,
+          "label": "number of shares",
+          "context": "n, the Board of Directors has recommended that the Company increases its share capital by the exact number of shares to be issued to the Qualifying Shareholders who elect to receive shares instead of cash dividend pu"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 35,
+          "label": "number of shares",
+          "context": "and proposed final dividend; DPS for 2018 and 2019 have been restated to reflect the changes in the number of shares. 5 PP \u2013 Percentage point 6 R OIC for 2019 - 2022 includes leases (based on IFRS 16) 33Annual Report"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 132,
+          "label": "issued share capital",
+          "context": "r 2022 (2021: N92.61 billion). The interim dividend represents N5.60 kobo per ordinary share on the issued share capital of 20.3 billion ordinary shares of 2 kobo each for the period ended 30 June 2022. The Board of Dire"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 134,
+          "label": "issued share capital",
+          "context": "rnational (Mauritius) Limited with total interest of 72.83% (2021: 76.08%) held more than 5% of the issued share capital of the Company. Property and equipment Information relating to changes in property and equipment is"
+        },
+        {
+          "field": "book_equity",
+          "page": 146,
+          "label": "Total equity",
+          "context": "- - - 1,169,157 905,868 1,156,035 901,342 Total liabilities 2,380,318 1,997,978 2,364,451 1,989,112 Total equity and liabilities 2,716,000 2,262,959 2,749,533 2,286,109 The audited consolidated and separate finan"
+        },
+        {
+          "field": "book_equity",
+          "page": 146,
+          "label": "Equity attributable to owners",
+          "context": "85 1,664 885 Treasury shares 28 (4,869) - (4,869) - Retained profit 319,819 246,473 370,664 278,489 Equity attributable to owners of the company 334,237 264,981 385,082 296,997 Non-controlling interest 1,445 - - - 335,682 264,981"
+        },
+        {
+          "field": "book_equity",
+          "page": 152,
+          "label": "equity attributable to owners",
+          "context": "rolling interests and any consideration paid or received is recognised in a separate reserve within equity attributable to owners of the Group. 5.1.5 L oss of control O n loss of control, the Group derecognises the assets and lia"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 157,
+          "label": "number of shares",
+          "context": "nal share offer to its management employees. PSP awards are conditional rights to receive a certain number of shares by qualifying participants annually. The vesting period for the PSP is three years and the awards v"
+        },
+        {
+          "field": "book_equity",
+          "page": 159,
+          "label": "shareholders\u2019 equity",
+          "context": "4 T reasury shares W here the Company purchases its shares, the consideration paid is deducted from shareholders\u2019 equity as treasury shares until they are cancelled. Where such shares are subsequently reissued or sold, a"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 209,
+          "label": "issued share capital",
+          "context": "Interim 2021: N92.60 billion). The interim dividend represents N5.60 kobo per ordinary share on the issued share capital of 20.3 billion ordinary shares of 2 kobo each for the period ended 30 June 2021. T he Board of Dir"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 209,
+          "label": "number of ordinary shares",
+          "context": "r share 44.1 B asic earnings per share E arnings per share is calculated using the weighted average number of ordinary shares in issue during the period and is based on the profit after tax attributable to ordinary shareholde"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 209,
+          "label": "ordinary shares in issue",
+          "context": ".1 B asic earnings per share E arnings per share is calculated using the weighted average number of ordinary shares in issue during the period and is based on the profit after tax attributable to ordinary shareholders of the"
+        },
+        {
+          "field": "book_equity",
+          "page": 236,
+          "label": "Total equity",
+          "context": " - Retained earnings 319,819 246,473 160,524 127,713 154,201 Non-controlling interest 1,445 - - - - Total equity 335,682 264,981 178,386 145,857 219,351 Statement of profit or loss Revenue 2,012,272 1,654,299 1,3"
+        },
+        {
+          "field": "book_equity",
+          "page": 237,
+          "label": "Total equity",
+          "context": "239 521 6 Treasury shares (4,869) - - - - Retained earnings 370,664 278,489 184,370 144,291 167,580 Total equity 385,082 296,997 202,232 162,435 232,730 Statement of profit or loss Revenue 2,011,935 1,652,926 1,3"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 240,
+          "label": "issued share capital",
+          "context": "N Nigeria is made up of N557,000,000 divided into 27,850,000,000 Ordinary Shares of N0.02 each. The issued share capital of the Company is made up of N407,090,261 divided into 20,354,513,050 Ordinary Shares of N0.02 each"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 247,
+          "label": "NUMBER OF SHARES",
+          "context": "g this form, please tear off this part and retain it for admission to the meeting. NAME AND ADDRESS NUMBER OF SHARES HELD NUMBER OF SHAREHOLDER(S) Number of shares I/We desire this proxy to be used in favour of/or ag"
+        }
+      ]
     },
     {
       "ticker": "MTNN",
       "fiscal_period": "2023-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "bae90392914247ade66ac652ca492a07b5c15208fcc9b6c8877f0852d2f7bd6c",
+      "source_document": "mtnn-annual-report-2023.pdf",
+      "source_url": "https://www.mtn.ng/wp-content/uploads/2024/04/MTN-Nigeria-2023-Annual-Report.pdf?x53449",
+      "publication_date": null,
+      "page_count": 138,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding"
+      ],
+      "hits": [
+        {
+          "field": "shares_outstanding",
+          "page": 20,
+          "label": "number of shares",
+          "context": "-controlling interest. The 2022 earnings per share has been restated to reflect the increase in the number of shares to 20,995,560,103 following the scrip dividend issued in 2023. 6 PP \u2013 Percentage point Amount (N\u2019 b"
+        },
+        {
+          "field": "book_equity",
+          "page": 26,
+          "label": "shareholders\u2019 funds",
+          "context": "a restated profit after tax of N348.7 billion in 2022, and a depletion of our retained earnings and shareholders\u2019 funds to negative N208.0 billion and N40.8 billion, respectively. Excluding the net foreign exchange loss"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 60,
+          "label": "number of shares",
+          "context": " the Company\u2019s existing ordinary shares; (ii) the Company\u2019s share capital be increased by the exact number of shares which will be required to accommodate the New Ordinary Shares to be issued to shareholders followin"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 70,
+          "label": "issued share capital",
+          "context": "t of interim profit made during the same period and represents N5.60 kobo per ordinary share on the issued share capital of 21 billion ordinary shares of 2 kobo each for the period ended 30 June 2023. Given the significa"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 71,
+          "label": "issued share capital",
+          "context": "rnational (Mauritius) Limited with total interest of 73.39% (2022: 72.83%) held more than 5% of the issued share capital of the Company. The net increase in MTN International (Mauritius) Limited shares was due to the scr"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 78,
+          "label": "number of shares",
+          "context": "2022 numbers were impacted by reclassification, see note 52. (b) Restated to reflect the changes in number of shares, see note 28.1. The accompanying notes form an integral part of the audited consolidated and separa"
+        },
+        {
+          "field": "book_equity",
+          "page": 79,
+          "label": "Total equity",
+          "context": "746 1,160,044 878,203 Total liabilities 3,229,671 2,276,827 1,897,821 3,204,856 2,260,960 1,888,955 Total equity and liabilities 3,188,827 2,539,369 2,099,812 3,239,635 2,572,902 2,122,962 The audited consolidate"
+        },
+        {
+          "field": "book_equity",
+          "page": 82,
+          "label": "equity attributable to owners",
+          "context": "rolling interests and any consideration paid or received is recognized in a separate reserve within equity attributable to owners of the group. 5.1.5 Loss of control On loss of control, the Group derecognises the assets and liabi"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 84,
+          "label": "number of shares",
+          "context": "nal share offer to its management employees. PSP awards are conditional rights to receive a certain number of shares by qualifying participants annually. The vesting period for the PSP is three years and the awards v"
+        },
+        {
+          "field": "book_equity",
+          "page": 85,
+          "label": "shareholders\u2019 equity",
+          "context": ".14 Treasury shares Where the Company purchases its shares, the consideration paid is deducted from shareholders\u2019 equity as treasury shares until they are cancelled. Where such shares are subsequently reissued or sold, a"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 103,
+          "label": "issued share capital",
+          "context": "eated by the scrip dividend scheme (see note 28.3) has been incorporated into the company\u2019s minimum issued share capital as duly approved by Securities and Exchange Commission (SEC) and registered with the Corporate Affa"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 112,
+          "label": "issued share capital",
+          "context": "nterim 2022: N113.98 billion). The interim dividend represents N5.60 kobo per ordinary share on the issued share capital of 20.996 billion ordinary shares of 2 kobo each for the period ended 30 June 2023 and was paid out"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 112,
+          "label": "number of ordinary shares",
+          "context": "per share 46.1 Basic earnings per share Earnings per share is calculated using the weighted average number of ordinary shares in issue during the period and is based on the profit after tax attributable to ordinary shareholde"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 112,
+          "label": "ordinary shares in issue",
+          "context": "46.1 Basic earnings per share Earnings per share is calculated using the weighted average number of ordinary shares in issue during the period and is based on the profit after tax attributable to ordinary shareholders of the"
+        },
+        {
+          "field": "book_equity",
+          "page": 126,
+          "label": "Total equity",
+          "context": ",868 (23,139) 882,729 Total liabilities 2,380,318 (103,491) 2,276,827 1,997,978 (100,157) 1,897,821 Total equity and liabilities 2,716,000 (176,631) 2,539,369 2,262,959 (163,147) 2,099,812 Notes to the audited co"
+        },
+        {
+          "field": "book_equity",
+          "page": 126,
+          "label": "Equity attributable to owners",
+          "context": "easury shares (4,869) (4,869) - - Retained profit 319,819 (73,140) 246,679 246,473 (62,990) 183,483 Equity attributable to owners of the company 334,237 (73,140) 261,097 264,981 (62,990) 201,991 Non-controlling interest 1,445 1,4"
+        },
+        {
+          "field": "book_equity",
+          "page": 127,
+          "label": "Total equity",
+          "context": ",342 (23,139) 878,203 Total liabilities 2,364,451 (103,491) 2,260,960 1,989,112 (100,157) 1,888,955 Total equity and liabilities 2,749,533 (176,631) 2,572,902 2,286,109 (163,147) 2,122,962 Consolidated and separa"
+        },
+        {
+          "field": "book_equity",
+          "page": 129,
+          "label": "Total equity",
+          "context": "ained earnings (208,018) 246,679 183,483 160,524 127,713 Non-controlling interest 4,560 1,445 - - - Total equity (40,844) 262,542 201,991 178,386 145,857 Statement of profit or loss Revenue 2,468,847 2,012,272 1,"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 129,
+          "label": "number of shares",
+          "context": "9 8.51 6.96 (a) The comparative prior year figures have been restated to reflect the changes in the number of shares. *See note 56 2023 2022 2021 2020 2019 restated* restated* restated N million N million N million N"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 131,
+          "label": "issued share capital",
+          "context": "N Nigeria is made up of N557,000,000 divided into 27,850,000,000 Ordinary Shares of N0.02 each. The issued share capital of the Company is made up of N407,090,261 divided into 20,354,513,050 Ordinary Shares of N0.02 each"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 134,
+          "label": "NUMBER OF SHARES",
+          "context": "g this form, please tear off this part and retain it for admission to the meeting. NAME AND ADDRESS NUMBER OF SHARES HELD NUMBER OF SHAREHOLDER(S) DATA PRIVACY STATEMENT DECLARATION CONSENT Coronation Registrars Limi"
+        }
+      ]
     },
     {
       "ticker": "NB",
       "fiscal_period": "2022-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "3df2f654c4b2c3a00706a59b420c98392f9e99a28c60d4cba935588c327883f7",
+      "source_document": "nb-annual-report-2022.pdf",
+      "source_url": "https://www.nbplc.com/storage/2023/04/NB-Plc-2022-Annual-Report-and-Account.pdf",
+      "publication_date": "2023-02-24",
+      "page_count": 147,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding",
+        "unit_scale"
+      ],
+      "hits": [
+        {
+          "field": "book_equity",
+          "page": 8,
+          "label": "Total equity",
+          "context": " for the year 13,925 12,927 7.7 Declared dividend* 12,979 8,748 48.4 Share capital 5,138 4,038 27.2 Total equity 180,879 172,139 5.1 Data per 50 kobo share in Kobo Earnings 168 161 4.3 Declared dividend* 160 109 "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 8,
+          "label": "issued share capital",
+          "context": "The Directors propose a \ufb01nal dividend of 103 kobo per share (2021: 120 kobo per share) based on the issued share capital of 10,276,132,378 (2021: 8,075,831,900) ordinary shares of 50 kobo each subject to approval by the "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 8,
+          "label": "Number of shares",
+          "context": "** 103 120 (14.2) Stock Exchange informa\u0000on Stock Exchange quota\u0000on in Naira per share 41 50 (18.0) Number of shares listed 8,220,906 8,075,832 1.8 Market capitalisa\u0000on in N: million 337,057 403,792 (16.5) Number of "
+        },
+        {
+          "field": "unit_scale",
+          "page": 8,
+          "label": "In millions of Naira",
+          "context": "6 Company Results at a Glance 2022 2021 % Change In millions of Naira Net Revenue 550,478 437,196 25.9 Results from opera\u0000ng ac\u0000vities 52,555 41,812 25.7 Pro\ufb01t for the y"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 25,
+          "label": "issued share capital",
+          "context": "ding 15.63% and Stanbic Nominees Nigeria Limited holding 11.81% held more than 10% of the Company's issued share capital as at the said date. The remaining 34.24 % of the issued shares were held by other individuals and "
+        },
+        {
+          "field": "book_equity",
+          "page": 60,
+          "label": "Total equity",
+          "context": "ompany 179,800,278 180,879,079 171,803,377 172,139,303 Non-controlling interest 113,437 - 108,887 - Total equity 179,913,715 180,879,079 171,912,264 172,139,303 LIABILITIES Loans and borrowings 25(a) 2,425,875 2,"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 83,
+          "label": "number of ordinary shares",
+          "context": "iding the pro\ufb01t or loss a\u0000ributable to ordinary Shareholders of the Company by the weighted average number of ordinary shares outstanding during the period, adjusted for own shares held. Diluted EPS is determined by adjus\u0000ng "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 94,
+          "label": "number of ordinary shares",
+          "context": ",927,163,000), and on the 8,298,839,837 ordinary shares of 50 kobo each, being the weighted average number of ordinary shares in issue (2021: 8,042,944,463): Group Company Group Company 2022 2022 2021 2021 Weighted average nu"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 94,
+          "label": "ordinary shares in issue",
+          "context": "00), and on the 8,298,839,837 ordinary shares of 50 kobo each, being the weighted average number of ordinary shares in issue (2021: 8,042,944,463): Group Company Group Company 2022 2022 2021 2021 Weighted average number of o"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 102,
+          "label": "number of shares",
+          "context": "841 22,151,846 16,730,029 16,720,040 23 Share capital (a) Authorised ordinary shares of 50k each In number of shares Company 2022 Company 2021 At 1st January 10,000,000,000 10,000,000,000 At 31st December 10,276,132,"
+        },
+        {
+          "field": "unit_scale",
+          "page": 102,
+          "label": "\u20a6'000",
+          "context": ",051 Share issuance 2,200,300,478 78,929,849 At 31st December 10,276,132,378 8,075,831,900 In Naira \u20a6'000 \u20a6'000 At 1st January 4,037,916 3,998,451 Share issuance 1,100,150 39,465 Share value in Naira 5,138"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 109,
+          "label": "number of shares",
+          "context": "t personnel in 2022 6,824 98.86 Con\u0000nued service, 100% internal performance condi\u0000ons 3 years * The number of shares is based on target performance. The number and weighted average share price per share is as follows"
+        },
+        {
+          "field": "unit_scale",
+          "page": 110,
+          "label": "\u20a6'000",
+          "context": "Employee expenses 2022 2021 \u20a6'000 \u20a6'000 Share rights granted in 2019 142,858 (71,429) Share rights granted in 2020 459,742 (138,114) "
+        },
+        {
+          "field": "book_equity",
+          "page": 120,
+          "label": "Total equity",
+          "context": "51,846) (16,730,029) (16,720,040) Adjusted net debt 417,794,126 418,287,329 296,879,934 293,780,222 Total equity 179,800,278 180,879,079 171,803,377 172,139,303 Adjusted debt to capital ra\u0000o 2.32 2.31 1.73 1.71 T"
+        },
+        {
+          "field": "book_equity",
+          "page": 120,
+          "label": "Shareholders' equity",
+          "context": "s the return on capital, which the Company de\ufb01nes as result from opera\u0000ng ac\u0000vi\u0000es divided by total Shareholders' equity. Management also monitors the level of dividends to all Shareholders. The Company monitors capital "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 124,
+          "label": "number of shares",
+          "context": "r which it was reimbursed at cost. As at year end The Trust Fund held 28,752,100 (2021: 25,101,680) number of shares in the Company. 34 Subsequent events There are no signi\ufb01cant subsequent events, which could have ha"
+        },
+        {
+          "field": "book_equity",
+          "page": 125,
+          "label": "Total equity",
+          "context": "he Company 179,800,278 (893,062) 180,879,079 (185,739) Non-controlling interest 113,437 113,437 - - Total equity 179,913,715 (779,625) 180,879,079 (185,739) LIABILITIES Loans and borrowings 2,425,875 - 2,425,875 "
+        },
+        {
+          "field": "book_equity",
+          "page": 125,
+          "label": "Equity attributable to owners",
+          "context": "sed payment reserve 944,383 - 944,383 - Retained earnings 90,773,894 (787,099) 91,852,695 (291,702) Equity attributable to owners of the Company 179,800,278 (893,062) 180,879,079 (185,739) Non-controlling interest 113,437 113,437"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 134,
+          "label": "issued share capital",
+          "context": "n Shares: According to the Register of Members, the following shareholders held more than 5% of the issued share capital of the Company on 31\u0000\u0000 December, 2022. Shareholder Number of Shares Percentage Heineken Brouwerijen"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 136,
+          "label": "Issued Share capital",
+          "context": " Float Declara\u0000on* 31st December, 2022 31st December, 2021 Share Price (Naira) 41.00 50.00 Units % (issued share capital) Units % (issued share capital) Issued Share capital 8,220,905,900 100.00% 8,075,831,900 100.00% Su"
+        }
+      ]
     },
     {
       "ticker": "NB",
@@ -153,8 +2449,144 @@
     {
       "ticker": "UBA",
       "fiscal_period": "2022-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "8835bc14f16a5e1afbafca8dd65f84948e9f0d16a811ab235c39ffa0a6e67e89",
+      "source_document": "uba-annual-report-2022.pdf",
+      "source_url": "https://www.ubagroup.com/wp-content/uploads/2023/04/UBA-ANNUAL-REPORT-ACCOUNTS-2022.pdf",
+      "publication_date": null,
+      "page_count": 286,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding"
+      ],
+      "hits": [
+        {
+          "field": "book_equity",
+          "page": 3,
+          "label": "TOTAL EQUITY",
+          "context": "TO OWNERS OF THE PARENT 695,068 578,573 477,940 446,522 Non-controlling interests 29,080 19,405 - - TOTAL EQUITY 724,148 597,978 477,940 446,522 TOTAL LIABILITIES AND EQUITY 7,697,980 5,620,907 5,207,833 4,136,49"
+        },
+        {
+          "field": "book_equity",
+          "page": 3,
+          "label": "EQUITY ATTRIBUTABLE TO OWNERS",
+          "context": ",715 Retained earnings 255,059 184,685 95,480 90,090 Other reserves 324,194 278,073 266,645 240,617 EQUITY ATTRIBUTABLE TO OWNERS OF THE PARENT 695,068 578,573 477,940 446,522 Non-controlling interests 29,080 19,405 - - TOTAL EQU"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 57,
+          "label": "Issued share capital",
+          "context": " Appointed to the Board on January 3, 2023 6. Directors\u2019 interests The interest of directors in the Issued share capital of the Bank as recorded in the register of directors\u2019 shareholding and/or as notified by the direct"
+        },
+        {
+          "field": "book_equity",
+          "page": 92,
+          "label": "TOTAL EQUITY",
+          "context": "OWNERS OF THE PARENT 887,297 776,174 585,193 501,601 Non-controlling interests 30 34,807 28,633 - - TOTAL EQUITY 922,104 804,807 585,193 501,601 TOTAL LIABILITIES AND EQUITY 10,857,571 8,541,318 7,361,044 5,574,9"
+        },
+        {
+          "field": "book_equity",
+          "page": 92,
+          "label": "EQUITY ATTRIBUTABLE TO OWNERS",
+          "context": "ained earnings 41 429,533 335,843 191,418 124,536 Other reserves 41 341,949 324,516 277,960 261,250 EQUITY ATTRIBUTABLE TO OWNERS OF THE PARENT 887,297 776,174 585,193 501,601 Non-controlling interests 30 34,807 28,633 - - TOTAL "
+        },
+        {
+          "field": "book_equity",
+          "page": 105,
+          "label": "shareholders\u2019 equity",
+          "context": "r any member of the Group purchases the Group\u2019s shares, the consideration paid is deducted from the shareholders\u2019 equity as treasury shares until they are cancelled. Where such shares are subsequently sold or reissued, a"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 105,
+          "label": "number of ordinary shares",
+          "context": "iding the profit or loss attributable to ordinary shareholders of the Group by the weighted average number of ordinary shares outstanding during the period. Diluted EPS is determined by adjusting the profit or loss attributab"
+        },
+        {
+          "field": "book_equity",
+          "page": 164,
+          "label": "Total Equity",
+          "context": "UNITED BANK FOR AFRICA PLC 2022 ANNUAL REPORT AND ACCOUNTS 164 Total Equity Positions Group Bank In millions of Nigerian Naira 31 Dec. 22 31 Dec. 21 31 Dec. 22 31 Dec. 21 Inve"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 194,
+          "label": "number of ordinary shares",
+          "context": "ry shareholders of the Parent of N165.449 billion (Bank: N133.695 billion) and the weighted average number of ordinary shares outstanding of 34.199 billion (Bank: 34.199 billion). The Bank had no dilutive instruments as at ye"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 232,
+          "label": "Number of shares",
+          "context": "7,100 17,100 The movement in the share capital account during the period is as follows: In millions Number of shares in issue at end of the period 34,199 34,199 34,199 34,199 In line with CAMA 2020, the Bank cancelle"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 233,
+          "label": "Number of Shares",
+          "context": " previ- ously recognised. 42. DIVIDENDS Bank Dec 2022 Bank Dec 2021 Dividend Proposed 37,619 34,199 Number of Shares in Issue and Ranking for Dividend 34,199 34,199 Proposed Dividend Per Share (Naira) 1.10 1.00 Inter"
+        },
+        {
+          "field": "book_equity",
+          "page": 244,
+          "label": "Total Equity",
+          "context": "come tax liabilities (5,528) 687 - 1,090 - 2,695 1,293 205 Deferred tax liability - - 861 - - - - - Total Equity 63,473 12,888 50,516 33,494 9,040 17,983 21,942 24,473 Total liabilities and equity 327,556 113,612"
+        },
+        {
+          "field": "book_equity",
+          "page": 245,
+          "label": "Total Equity",
+          "context": "e tax liabilities (47) 154 2,320 60 - - 6,416 2,838 45 Deferred tax liability (19) - - - - - - 12 - Total Equity 17,947 32,010 18,333 9,173 53,621 18,636 58,320 10,891 5,443 Total liabilities and equity 120,959 4"
+        },
+        {
+          "field": "book_equity",
+          "page": 246,
+          "label": "Total Equity",
+          "context": "4) 8,327 - 20,281 Borrowings - - - 1,530 530,446 - 535,735 Deferred tax liability - - - 105 - - 959 Total Equity 4,747 22,360 21,127 20,234 585,193 (189,738) 922,104 Total liabilities and equity 34,242 129,408 26"
+        },
+        {
+          "field": "book_equity",
+          "page": 247,
+          "label": "Total Equity",
+          "context": "t income tax liabilities 180 1,273 - 460 - 1,984 1,747 197 Deferred tax liability - - 843 - - - - - Total Equity 78,006 11,142 38,723 30,834 3,852 10,752 16,328 23,552 Total liabilities and equity 369,491 85,606 "
+        },
+        {
+          "field": "book_equity",
+          "page": 248,
+          "label": "Total Equity",
+          "context": "484 - 2,711 - 5,907 2,407 58 Borrowings - - - - - - - - - Deferred tax liability 19 - - - - - - 7 - Total Equity 12,775 26,674 13,850 3,177 41,949 8,612 54,188 6,084 7,748 Total liabilities and equity 72,497 399,"
+        },
+        {
+          "field": "book_equity",
+          "page": 249,
+          "label": "Total Equity",
+          "context": "9 - 2,751 - 21,415 Borrowings - - - 455,772 - 455,772 Deferred tax liability - - 28 - 18,719 19,617 Total Equity 4,386 9,599 16,749 501,601 (115,771) 804,807 Total liabilities and equity 32,080 98,979 219,932 5,5"
+        },
+        {
+          "field": "book_equity",
+          "page": 251,
+          "label": "TOTAL EQUITY",
+          "context": "51 578,573 483,469 HOLDERS OF THE BANK Non-controlling interests 34,807 28,633 27,895 19,405 19,139 TOTAL EQUITY 922,104 804,807 719,546 597,978 502,608 TOTAL LIABILITIES AND EQUITY 10,857,570 8,541,318 7,693,377"
+        },
+        {
+          "field": "book_equity",
+          "page": 253,
+          "label": "TOTAL EQUITY",
+          "context": "re premium 115,815 115,815 115,815 115,815 115,815 Reserves 469,378 385,786 362,125 330,707 248,783 TOTAL EQUITY 585,193 501,601 477,940 446,522 364,598 TOTAL LIABILITIES AND EQUITY 7,361,045 5,574,976 5,207,833 "
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 256,
+          "label": "number of shares",
+          "context": ". Its shares have been listed on the Nigerian Exchange Limited (NGX) since 1970. The Bank\u2019s current number of shares outstanding is 34,199,421,366 units with an average daily trading volume of 11.32 million shares. A"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 266,
+          "label": "Number of Shares",
+          "context": "/2022AGM, on Thursday, April 27, 2023, at 10:00AM. Name and Address of Shareholder: Account Number: Number of Shares Held: Shareholder\u2019s Signature:"
+        }
+      ]
     },
     {
       "ticker": "UBA",
@@ -171,8 +2603,108 @@
     {
       "ticker": "WAPCO",
       "fiscal_period": "2023-12-31",
-      "status": "document_unavailable",
-      "hits": []
+      "status": "review_required",
+      "source_sha256": "73c075e8a9936bfeadd34ff106121a129e7ea02bcee25c74f927d73ad12944bd",
+      "source_document": "wapco-annual-report-2023.pdf",
+      "source_url": "https://www.lafarge.com.ng/sites/nigeria/files/2024-04/lafarge-africa-plc-2023-annual-report-accounts.pdf",
+      "publication_date": null,
+      "page_count": 176,
+      "candidate_fields": [
+        "book_equity",
+        "shares_outstanding"
+      ],
+      "hits": [
+        {
+          "field": "shares_outstanding",
+          "page": 30,
+          "label": "Issued share capital",
+          "context": " Associated International Cement Limited (AIC UK) holding 27.77% held more than 5% of the Company\u2019s Issued share capital as at 31st December 2023. The remaining 16.19% of the issued shares were held by other institutions"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 32,
+          "label": "issued share capital",
+          "context": "d in compliance with the Listing Rules of Nigerian Exchange Group, the interest of Directors in the issued share capital of the Company are recorded in the Register of Members and Register of Directors Interest in Shares"
+        },
+        {
+          "field": "book_equity",
+          "page": 73,
+          "label": "Total equity",
+          "context": "77,979) Capital and reserves attributable to owners 435,051,865 416,102,005 450,120,336 434,275,803 Total equity 435,051,865 416,102,005 450,120,336 434,275,803 Total equity and liabilities 681,371,571 600,711,47"
+        },
+        {
+          "field": "book_equity",
+          "page": 74,
+          "label": "Total equity",
+          "context": "ed earnings = N =\u2019000 Other reserves arising on business combination and re-organisations = N =\u2019000 Total equity = N =\u2019000 Balance at 1 January 2022 8,053,899 435,148,731 189,487,103 (254,129,057) 378,560,676 Pro"
+        },
+        {
+          "field": "book_equity",
+          "page": 75,
+          "label": "Total equity",
+          "context": "ed earnings = N =\u2019000 Other reserves arising on business combination and re-organisations = N =\u2019000 Total equity = N =\u2019000 Balance at 1 January 2022 8,053,899 435,148,731 145,824,819 (193,677,979) 395,349,470 Pro"
+        },
+        {
+          "field": "book_equity",
+          "page": 77,
+          "label": "total equity",
+          "context": "lved in development, financing and operation of a cement grinding plant in Ghana via, a sale of the total equity interest held by the Company in CBI to a third party, F. Scott AG. The sale was concluded on June 3"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 77,
+          "label": "issued share capital",
+          "context": "rs of AshakaCem, held a Court-ordered EGM on 23, October 2017, at which a Scheme to re-organize the issued share capital of the company was passed. The resolution passed at the court ordered meeting was subsequently file"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 95,
+          "label": "number of shares",
+          "context": "mputed by dividing the profit or loss attributable to owners of the Company by the weighted average number of shares outstanding during the period. Diluted earnings per share is calculated by dividing the profit or l"
+        },
+        {
+          "field": "book_equity",
+          "page": 107,
+          "label": "Total equity",
+          "context": ",495 158,246,383 106,901,117 Net (cash)/ debt (142,125,092) (81,805,645) (133,547,022) (73,115,693) Total equity 435,051,865 416,102,005 450,120,336 434,275,803 Total capital 292,926,773 334,296,360 316,573,314 3"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 132,
+          "label": "number of ordinary shares",
+          "context": "ulated by dividing the profit attributable to equity holders of the Company by the weighted average number of ordinary shares outstanding at the end of the reporting period. GROUP COMPANY 31 Dec 2023 = N =\u2019000 31 Dec 2022 = N"
+        },
+        {
+          "field": "book_equity",
+          "page": 152,
+          "label": "Total equity",
+          "context": "mbination and re-organisation (254,129,057) (254,129,057) (254,129,056) (254,129,057) (254,129,057) Total equity 435,051,865 416,102,005 378,560,677 359,638,502 344,914,001 Represented by: Property, plant & equip"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 152,
+          "label": "number of ordinary shares",
+          "context": "lculated by dividing the profit attributable to equity holders of the Group by the weighted average number of ordinary shares outstanding at the end of the reporting period. Group 2023 = N =\u2019000 2022 = N =\u2019000 2021 = N =\u2019000 "
+        },
+        {
+          "field": "book_equity",
+          "page": 153,
+          "label": "Total equity",
+          "context": "mbination and re-organisation (193,677,979) (193,677,979) (193,677,979) (193,677,979) (193,677,979) Total equity 450,120,336 434,275,803 395,349,470 373,974,933 361,421,559 Represented by: Property, plant & equip"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 153,
+          "label": "number of ordinary shares",
+          "context": "lculated by dividing the profit attributable to equity holders of the Group by the weighted average number of ordinary shares outstanding at the end of the reporting period. Company 2023 = N =\u2019000 2022 = N =\u2019000 2021 = N =\u201900"
+        },
+        {
+          "field": "shares_outstanding",
+          "page": 159,
+          "label": "Number of Shares",
+          "context": "entre, Ozumba Mbadiwe Road, Victoria Island, on Friday 26th April 2024 at 10am. Name of Shareholder Number of Shares Held Signature of Person attending S/N RESOLUTIONS ORDINARY BUSINESS 1. To declare a final dividend"
+        }
+      ]
     },
     {
       "ticker": "ZENITHBANK",

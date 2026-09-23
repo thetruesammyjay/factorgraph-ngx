@@ -88,6 +88,9 @@ def main() -> None:
                     review_rows.append(
                         {
                             "selected": "",
+                            "reviewer": "",
+                            "reviewed_at": "",
+                            "publication_date": "",
                             "ticker": ticker,
                             "fiscal_period": task["fiscal_period"],
                             "rank": rank,
@@ -116,6 +119,9 @@ def main() -> None:
         review_rows,
         columns=[
             "selected",
+            "reviewer",
+            "reviewed_at",
+            "publication_date",
             "ticker",
             "fiscal_period",
             "rank",

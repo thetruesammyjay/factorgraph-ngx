@@ -21,6 +21,7 @@ dependencies = [
   "httpx>=0.28.0",
   "psycopg2>=2.9.13",
   "pypdf",
+  "fonttools>=4.0",
 ]
 
 [dependency-groups]

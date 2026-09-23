@@ -33,11 +33,12 @@ def test_promotes_only_explicitly_approved_complete_rows():
     queue = create_review_queue({"records": [evidence_record()]})
     queue.loc[0, [
         "review_status", "reviewer", "reviewed_at", "book_equity",
-        "shares_outstanding", "unit_multiplier", "reporting_scope",
+        "shares_outstanding", "monetary_unit_multiplier",
+        "shares_unit_multiplier", "reporting_scope",
         "book_equity_page", "shares_outstanding_page", "unit_page",
     ]] = [
         "approved", "Samuel Ifiezibe", "2026-09-22", "100", "31396",
-        "1000000", "GROUP", "120", "142", "120",
+        "1000000", "1", "GROUP", "120", "142", "120",
     ]
 
     result = promote_approved_reviews(queue)

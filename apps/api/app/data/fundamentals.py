@@ -10,11 +10,12 @@ from app.data.alignment import align_fundamentals
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 REQUIRED_COLUMNS = {
     "ticker", "fiscal_period", "publication_date", "book_equity",
-    "shares_outstanding", "currency", "unit_multiplier", "reporting_scope",
+    "shares_outstanding", "currency", "monetary_unit_multiplier",
+    "shares_unit_multiplier", "reporting_scope",
     "source_id", "source_url", "source_sha256", "source_document", "page_reference",
 }
-SCALED_COLUMNS = {
-    "book_equity", "shares_outstanding", "revenue",
+MONETARY_COLUMNS = {
+    "book_equity", "revenue",
     "net_income", "total_assets", "total_liabilities",
 }
 
@@ -55,11 +56,26 @@ def validate_and_align_fundamentals(
     if (publication_supplied & result["publication_date"].isna()).any():
         errors.append("publication_date contains invalid supplied dates")
 
-    multiplier = pd.to_numeric(result["unit_multiplier"], errors="coerce")
-    if multiplier.isna().any() or (multiplier <= 0).any():
-        errors.append("unit_multiplier contains missing, invalid, or non-positive values")
-    for column in sorted(SCALED_COLUMNS.intersection(result.columns)):
-        result[column] = pd.to_numeric(result[column], errors="coerce") * multiplier
+    monetary_multiplier = pd.to_numeric(
+        result["monetary_unit_multiplier"], errors="coerce"
+    )
+    shares_multiplier = pd.to_numeric(result["shares_unit_multiplier"], errors="coerce")
+    if monetary_multiplier.isna().any() or (monetary_multiplier <= 0).any():
+        errors.append(
+            "monetary_unit_multiplier contains missing, invalid, or non-positive values"
+        )
+    if shares_multiplier.isna().any() or (shares_multiplier <= 0).any():
+        errors.append(
+            "shares_unit_multiplier contains missing, invalid, or non-positive values"
+        )
+    for column in sorted(MONETARY_COLUMNS.intersection(result.columns)):
+        result[column] = (
+            pd.to_numeric(result[column], errors="coerce") * monetary_multiplier
+        )
+    result["shares_outstanding"] = (
+        pd.to_numeric(result["shares_outstanding"], errors="coerce")
+        * shares_multiplier
+    )
     if "earnings_per_share" in result:
         result["earnings_per_share"] = pd.to_numeric(
             result["earnings_per_share"], errors="coerce"

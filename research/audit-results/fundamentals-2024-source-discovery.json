@@ -1,12 +1,11 @@
 {
   "plan_id": "ngx-15-fundamentals-point-in-time-pilot",
-  "discovered_at": "2026-09-22T15:25:13.727567+00:00",
+  "discovered_at": "2026-09-23T10:11:01.298352+00:00",
   "automatic_selection": false,
   "status_counts": {
-    "candidates_found": 7,
-    "landing_url_required": 20,
-    "no_candidates": 1,
-    "request_error": 2
+    "candidates_found": 14,
+    "no_candidates": 8,
+    "request_error": 8
   },
   "records": [
     {
@@ -90,14 +89,30 @@
     {
       "ticker": "FBNH",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
-      "candidates": []
+      "landing_url": "https://first-holdco.com/investor-relations/annual-report/annual-reports/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://first-holdco.com/wp-content/uploads/2025/10/FBNHoldings-Plc_2022_Annual_Report.pdf",
+          "link_text": "FBN Holdings Plc 2022 Annual Report & Accounts",
+          "fiscal_year": 2022,
+          "score": 135
+        }
+      ]
     },
     {
       "ticker": "FBNH",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
-      "candidates": []
+      "landing_url": "https://first-holdco.com/investor-relations/annual-report/annual-reports/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://first-holdco.com/downloads/2024/FBNHoldings_Plc_2023_Annual_Report_and_Accounts.pdf",
+          "link_text": "FBN Holdings Plc 2023 Annual Report & Accounts",
+          "fiscal_year": 2023,
+          "score": 135
+        }
+      ]
     },
     {
       "ticker": "GTCO",
@@ -151,109 +166,168 @@
     {
       "ticker": "NB",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
-      "candidates": []
+      "landing_url": "https://www.nbplc.com/investor-relations/financial-reports/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.nbplc.com/storage/2023/04/NB-Plc-2022-Annual-Report-and-Account.pdf",
+          "link_text": "2022 Annual Report & Accounts View Report",
+          "fiscal_year": 2022,
+          "score": 135
+        }
+      ]
     },
     {
       "ticker": "NB",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
-      "candidates": []
+      "landing_url": "https://www.nbplc.com/investor-relations/financial-reports/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.nbplc.com/storage/2024/05/NB-Plc-2023-Annual-Report-and-Accounts-FA.pdf",
+          "link_text": "2023 NBPLC Annual Report Accounts View Report",
+          "fiscal_year": 2023,
+          "score": 135
+        }
+      ]
     },
     {
       "ticker": "NESTLE",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://www.nestle-cwa.com/en/investors/nigeria",
+      "status": "request_error",
+      "error": "HTTPStatusError",
       "candidates": []
     },
     {
       "ticker": "NESTLE",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://www.nestle-cwa.com/en/investors/nigeria",
+      "status": "request_error",
+      "error": "HTTPStatusError",
       "candidates": []
     },
     {
       "ticker": "OKOMUOIL",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://okomunigeria.com/documents/governance-and-investors/",
+      "status": "no_candidates",
       "candidates": []
     },
     {
       "ticker": "OKOMUOIL",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://okomunigeria.com/documents/governance-and-investors/",
+      "status": "no_candidates",
       "candidates": []
     },
     {
       "ticker": "PRESCO",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://www.presco-plc.com/financial-reports/",
+      "status": "no_candidates",
       "candidates": []
     },
     {
       "ticker": "PRESCO",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://www.presco-plc.com/financial-reports/",
+      "status": "no_candidates",
       "candidates": []
     },
     {
       "ticker": "SEPLAT",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://www.seplatenergy.com/investors/information-for-shareholders/",
+      "status": "request_error",
+      "error": "HTTPStatusError",
       "candidates": []
     },
     {
       "ticker": "SEPLAT",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://www.seplatenergy.com/investors/information-for-shareholders/",
+      "status": "request_error",
+      "error": "HTTPStatusError",
       "candidates": []
     },
     {
       "ticker": "TOTAL",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://services.totalenergies.ng/totalenergies-marketing-nigeria-plc/financial-publications",
+      "status": "no_candidates",
       "candidates": []
     },
     {
       "ticker": "TOTAL",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://services.totalenergies.ng/totalenergies-marketing-nigeria-plc/financial-publications",
+      "status": "no_candidates",
       "candidates": []
     },
     {
       "ticker": "UBA",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
-      "candidates": []
+      "landing_url": "https://roa.ubagroup.com/investor-relations/financial-results/annual-report/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.ubagroup.com/wp-content/uploads/2023/04/UBA-ANNUAL-REPORT-ACCOUNTS-2022.pdf",
+          "link_text": "UBA Plc 2022 Annual Report and Accounts",
+          "fiscal_year": 2022,
+          "score": 135
+        }
+      ]
     },
     {
       "ticker": "UBA",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
-      "candidates": []
+      "landing_url": "https://roa.ubagroup.com/investor-relations/financial-results/annual-report/",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.ubagroup.com/wp-content/uploads/2025/05/uba_AR2023.pdf",
+          "link_text": "UBA Plc 2023 Annual Report and Accounts",
+          "fiscal_year": 2023,
+          "score": 135
+        }
+      ]
     },
     {
       "ticker": "WAPCO",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://www.lafarge.com.ng/financial-reports",
+      "status": "no_candidates",
       "candidates": []
     },
     {
       "ticker": "WAPCO",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
-      "candidates": []
+      "landing_url": "https://www.lafarge.com.ng/financial-reports",
+      "status": "candidates_found",
+      "candidates": [
+        {
+          "url": "https://www.lafarge.com.ng/sites/nigeria/files/2024-04/lafarge-africa-plc-2023-annual-report-accounts.pdf",
+          "link_text": "Lafarge Africa 2023 Annual Report and Account",
+          "fiscal_year": 2023,
+          "score": 135
+        }
+      ]
     },
     {
       "ticker": "ZENITHBANK",
       "fiscal_period": "2022-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://www.zenithbank.com/",
+      "status": "request_error",
+      "error": "HTTPStatusError",
       "candidates": []
     },
     {
       "ticker": "ZENITHBANK",
       "fiscal_period": "2023-12-31",
-      "status": "landing_url_required",
+      "landing_url": "https://www.zenithbank.com/",
+      "status": "request_error",
+      "error": "HTTPStatusError",
       "candidates": []
     }
   ]

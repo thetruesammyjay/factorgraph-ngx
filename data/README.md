@@ -99,7 +99,23 @@ uv run python -m scripts.discover_fundamentals_sources `
 Discovery matches fiscal years against link labels and PDF filenames, not
 upload-directory dates. It ranks candidates but never selects one. Review the
 candidate worksheet and verify that the document is the complete issuer annual
-report before copying its URL and publication evidence into the source catalog.
+report. Mark exactly one candidate with `yes`, `true`, `1`, or `x`, and provide
+the reviewer, review date, and any independently verified publication date.
+
+Apply reviewed selections to the download catalog with:
+
+```powershell
+uv run python -m scripts.apply_fundamentals_source_review `
+  --review ../../data/collection/fundamentals-source-candidates.csv `
+  --discovery ../../research/audit-results/fundamentals-2024-source-discovery.json `
+  --catalog ../../data/collection/fundamentals-document-sources.csv `
+  --report ../../research/audit-results/fundamentals-2024-source-selection.json
+```
+
+The command rejects multiple choices for one issuer-period, edited URLs that do
+not occur in the discovery evidence, missing reviewer metadata, invalid dates,
+and publication dates before fiscal year-end. Unselected catalog rows and
+previously recorded publication dates remain unchanged.
 
 ```powershell
 uv run python -m scripts.fetch_fundamentals_documents `

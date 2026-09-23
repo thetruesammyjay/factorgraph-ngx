@@ -18,7 +18,8 @@ CANONICAL_COLUMNS = [
     "total_assets",
     "total_liabilities",
     "currency",
-    "unit_multiplier",
+    "monetary_unit_multiplier",
+    "shares_unit_multiplier",
     "reporting_scope",
     "source_id",
     "source_url",
@@ -76,7 +77,8 @@ def create_review_queue(evidence: dict) -> pd.DataFrame:
                 "total_assets": "",
                 "total_liabilities": "",
                 "currency": "NGN",
-                "unit_multiplier": "",
+                "monetary_unit_multiplier": "",
+                "shares_unit_multiplier": "",
                 "reporting_scope": "",
                 "source_id": source_document.removesuffix(".pdf"),
                 "source_url": record.get("source_url", ""),
@@ -119,7 +121,8 @@ def promote_approved_reviews(frame: pd.DataFrame) -> PromotionResult:
             "book_equity_page",
             "shares_outstanding_page",
             "reporting_scope",
-            "unit_multiplier",
+            "monetary_unit_multiplier",
+            "shares_unit_multiplier",
         ):
             if not str(row[column]).strip():
                 errors.append(f"{identity}: approved row requires {column}")

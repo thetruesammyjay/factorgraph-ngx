@@ -16,7 +16,8 @@ def row(**overrides) -> dict:
         "total_assets": 2_000,
         "total_liabilities": 1_900,
         "currency": "NGN",
-        "unit_multiplier": 1_000_000,
+        "monetary_unit_multiplier": 1_000_000,
+        "shares_unit_multiplier": 1,
         "reporting_scope": "GROUP",
         "source_id": "zenith-2023-annual-report",
         "source_url": "https://example.test/zenith-2023.pdf",
@@ -38,6 +39,7 @@ def test_actual_publication_date_controls_effective_date_and_units():
     assert result.frame.loc[0, "effective_from"] == "2024-03-15"
     assert result.frame.loc[0, "effective_date_source"] == "ACTUAL_PUBLICATION_DATE"
     assert result.frame.loc[0, "book_equity"] == 100_000_000
+    assert result.frame.loc[0, "shares_outstanding"] == 31_396
     assert result.frame.loc[0, "earnings_per_share"] == 3.4
 
 
@@ -59,3 +61,21 @@ def test_rejects_look_ahead_and_missing_source_hash():
 
     assert "publication_date precedes fiscal_period" in result.errors
     assert any("source_sha256" in error for error in result.errors)
+
+
+def test_scales_monetary_values_and_share_counts_independently():
+    result = validate_and_align_fundamentals(
+        pd.DataFrame([
+            row(
+                book_equity=125,
+                shares_outstanding=31_396,
+                monetary_unit_multiplier=1_000_000,
+                shares_unit_multiplier=1_000,
+            )
+        ]),
+        {"ZENITHBANK"},
+    )
+
+    assert result.errors == []
+    assert result.frame.loc[0, "book_equity"] == 125_000_000
+    assert result.frame.loc[0, "shares_outstanding"] == 31_396_000

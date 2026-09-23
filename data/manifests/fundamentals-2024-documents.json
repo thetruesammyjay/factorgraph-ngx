@@ -1,12 +1,15 @@
 {
   "dataset_id": "ngx-15-fundamentals-source-documents",
   "plan_id": "ngx-15-fundamentals-point-in-time-pilot",
-  "retrieved_at": "2026-09-22T14:50:50.455261+00:00",
+  "retrieved_at": "2026-09-23T10:34:15.125310+00:00",
   "expected_documents": 30,
-  "available_documents": 0,
+  "available_documents": 12,
   "complete": false,
   "status_counts": {
-    "source_url_required": 30
+    "already_downloaded": 10,
+    "downloaded": 2,
+    "request_error": 2,
+    "source_url_required": 16
   },
   "records": [
     {
@@ -22,32 +25,74 @@
     {
       "ticker": "AIICO",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.aiicoplc.com/images/financialreports/Annual/AIICO_2022_Annual_Report.pdf",
+      "local_filename": "aiico-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 7416083,
+      "sha256": "124aa86c988ce8ed480e5d9bd0f6ec72aa1ea825593897ed8882bed6fc98f0e1",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.aiicoplc.com/index.php/about-us/investor-relations; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report candidate on official issuer page; publication date pending verification"
     },
     {
       "ticker": "AIICO",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.aiicoplc.com/images/financialreports/Annual/AIICO_Insurance_2023_Annual_Report.pdf",
+      "local_filename": "aiico-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 10772857,
+      "sha256": "e244e4b0b67e341d4f160d61bcf0e4ad04d4084ae8353c95a1e06d467c5aa3cb",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.aiicoplc.com/index.php/about-us/investor-relations; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report candidate on official issuer page; publication date pending verification"
     },
     {
       "ticker": "DANGCEM",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.dangotecement.com/wp-content/uploads/2023/04/DCP-2022-Annual-Report-UPDATED.pdf",
+      "local_filename": "dangcem-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 13504294,
+      "sha256": "6a3d12dfb89f691d3f6dab97b0c7e33e286f81620b0daeb702f34a6f957e06b5",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.dangotecement.com/investor-relations/; reviewed by Codex-assisted source audit on 2026-09-23; Filename identifies the complete annual report; publication date pending verification"
     },
     {
       "ticker": "DANGCEM",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.dangotecement.com/wp-content/uploads/2024/04/DCP-Annual-Report_AR23_full.pdf",
+      "local_filename": "dangcem-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 21170458,
+      "sha256": "6078aa26746e208f32e092a6576bc8d1f97c0797339f016b4419cd167b6d3b39",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.dangotecement.com/investor-relations/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report candidate on official issuer page; publication date pending verification"
     },
     {
       "ticker": "FBNH",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://first-holdco.com/wp-content/uploads/2025/10/FBNHoldings-Plc_2022_Annual_Report.pdf",
+      "local_filename": "fbnh-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 15943792,
+      "sha256": "6cf201df511eadb53f85fdd82120702fb6abbada68c1681ebb7305c129e8b75d",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://first-holdco.com/investor-relations/annual-report/annual-reports/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report on the official First HoldCo archive; publication date pending verification"
     },
     {
       "ticker": "FBNH",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://first-holdco.com/downloads/2024/FBNHoldings_Plc_2023_Annual_Report_and_Accounts.pdf",
+      "local_filename": "fbnh-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 12990619,
+      "sha256": "8b079c506b2db29ca11d8091c47f0a17f719139663a845b1f83d58fd6cf665c6",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://first-holdco.com/investor-relations/annual-report/annual-reports/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report on the official First HoldCo archive; publication date pending verification"
     },
     {
       "ticker": "GTCO",
@@ -57,27 +102,61 @@
     {
       "ticker": "GTCO",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://gtco-plc.files.svdcdn.com/production/annual-reports/2023-annual-report/2023-Annual-Report.pdf?dm=1716814519",
+      "local_filename": "gtco-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 3692874,
+      "sha256": "42b50218ad8722e569532f6b54c8812173b47c1f213189a59bb0bfa7d5c38a8d",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.gtcoplc.com/investor-relations/annual-reports; reviewed by Codex-assisted source audit on 2026-09-23; Official annual-report path; publication date pending verification"
     },
     {
       "ticker": "MTNN",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.mtn.ng/wp-content/uploads/2023/07/MTN-Nigeria-Annual-Report-2022.pdf?x53449",
+      "local_filename": "mtnn-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 13204462,
+      "sha256": "3a33c72b79a59f91cda98f43c01311e457cd1aee085e0552f5a61ac8a75743ab",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.mtn.ng/investors/annual-report/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report candidate on official issuer page; publication date pending verification"
     },
     {
       "ticker": "MTNN",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.mtn.ng/wp-content/uploads/2024/04/MTN-Nigeria-2023-Annual-Report.pdf?x53449",
+      "local_filename": "mtnn-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 9188399,
+      "sha256": "bae90392914247ade66ac652ca492a07b5c15208fcc9b6c8877f0852d2f7bd6c",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.mtn.ng/investors/annual-report/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report candidate on official issuer page; publication date pending verification"
     },
     {
       "ticker": "NB",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.nbplc.com/storage/2023/04/NB-Plc-2022-Annual-Report-and-Account.pdf",
+      "local_filename": "nb-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 7143211,
+      "sha256": "3df2f654c4b2c3a00706a59b420c98392f9e99a28c60d4cba935588c327883f7",
+      "publication_date": "2023-02-24",
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.nbplc.com/investor-relations/financial-reports/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report on the official issuer archive; publication date follows the NGX filing calendar"
     },
     {
       "ticker": "NB",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.nbplc.com/storage/2024/05/NB-Plc-2023-Annual-Report-and-Accounts-FA.pdf",
+      "local_filename": "nb-annual-report-2023.pdf",
+      "status": "request_error",
+      "error": "ReadTimeout",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.nbplc.com/investor-relations/financial-reports/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report on the official issuer archive; publication date pending verification"
     },
     {
       "ticker": "NESTLE",
@@ -132,12 +211,27 @@
     {
       "ticker": "UBA",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.ubagroup.com/wp-content/uploads/2023/04/UBA-ANNUAL-REPORT-ACCOUNTS-2022.pdf",
+      "local_filename": "uba-annual-report-2022.pdf",
+      "http_status": 200,
+      "status": "downloaded",
+      "bytes": 20167014,
+      "sha256": "8835bc14f16a5e1afbafca8dd65f84948e9f0d16a811ab235c39ffa0a6e67e89",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://roa.ubagroup.com/investor-relations/financial-results/annual-report/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report on the official issuer archive; publication date pending verification"
     },
     {
       "ticker": "UBA",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.ubagroup.com/wp-content/uploads/2025/05/uba_AR2023.pdf",
+      "local_filename": "uba-annual-report-2023.pdf",
+      "http_status": 404,
+      "status": "request_error",
+      "error": "HTTPStatusError",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://roa.ubagroup.com/investor-relations/financial-results/annual-report/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report on the official issuer archive; publication date pending verification"
     },
     {
       "ticker": "WAPCO",
@@ -147,7 +241,15 @@
     {
       "ticker": "WAPCO",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.lafarge.com.ng/sites/nigeria/files/2024-04/lafarge-africa-plc-2023-annual-report-accounts.pdf",
+      "local_filename": "wapco-annual-report-2023.pdf",
+      "http_status": 200,
+      "status": "downloaded",
+      "bytes": 10704564,
+      "sha256": "73c075e8a9936bfeadd34ff106121a129e7ea02bcee25c74f927d73ad12944bd",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Selected from https://www.lafarge.com.ng/financial-reports; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report on the official issuer archive; publication date pending verification"
     },
     {
       "ticker": "ZENITHBANK",

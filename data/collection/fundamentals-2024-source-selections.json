@@ -1,0 +1,13 @@
+{
+  "reviewer": "Codex-assisted source audit",
+  "reviewed_at": "2026-09-23",
+  "records": [
+    {"ticker": "FBNH", "fiscal_period": "2022-12-31", "review_notes": "Complete annual report on the official First HoldCo archive; publication date pending verification"},
+    {"ticker": "FBNH", "fiscal_period": "2023-12-31", "review_notes": "Complete annual report on the official First HoldCo archive; publication date pending verification"},
+    {"ticker": "NB", "fiscal_period": "2022-12-31", "publication_date": "2023-02-24", "review_notes": "Complete annual report on the official issuer archive; publication date follows the NGX filing calendar"},
+    {"ticker": "NB", "fiscal_period": "2023-12-31", "review_notes": "Complete annual report on the official issuer archive; publication date pending verification"},
+    {"ticker": "UBA", "fiscal_period": "2022-12-31", "review_notes": "Complete annual report on the official issuer archive; publication date pending verification"},
+    {"ticker": "UBA", "fiscal_period": "2023-12-31", "review_notes": "Complete annual report on the official issuer archive; publication date pending verification"},
+    {"ticker": "WAPCO", "fiscal_period": "2023-12-31", "review_notes": "Complete annual report on the official issuer archive; publication date pending verification"}
+  ]
+}

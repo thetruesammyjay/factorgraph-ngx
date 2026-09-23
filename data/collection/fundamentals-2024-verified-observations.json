@@ -1,0 +1,62 @@
+{
+  "reviewed_at": "2026-09-23",
+  "reviewer": "Codex-assisted document review",
+  "records": [
+    {
+      "ticker": "AIICO", "fiscal_period": "2022-12-31", "publication_date": null,
+      "book_equity": 44585606, "shares_outstanding": 36605276013,
+      "monetary_unit_multiplier": 1000, "shares_unit_multiplier": 1,
+      "reporting_scope": "consolidated_attributable_to_owners", "book_equity_page": 113,
+      "shares_outstanding_page": 151, "unit_page": 113,
+      "notes": "Group shareholders' funds, excluding non-controlling interest. Issued and fully paid year-end ordinary shares. Board approval 2023-02-28 does not establish public availability; 90-day publication lag applies."
+    },
+    {
+      "ticker": "AIICO", "fiscal_period": "2023-12-31", "publication_date": null,
+      "book_equity": 51395114, "shares_outstanding": 36605276013,
+      "monetary_unit_multiplier": 1000, "shares_unit_multiplier": 1,
+      "reporting_scope": "consolidated_attributable_to_owners", "book_equity_page": 131,
+      "shares_outstanding_page": 200, "unit_page": 131,
+      "notes": "Group equity attributable to owners, excluding non-controlling interest. EPS note reports 36,605,276 thousand shares; exact unchanged issued count is carried from the share-capital record. Board approval 2024-04-18 does not establish public availability; 90-day publication lag applies."
+    },
+    {
+      "ticker": "DANGCEM", "fiscal_period": "2022-12-31", "publication_date": "2023-02-27",
+      "book_equity": 1054369, "shares_outstanding": 16873559251,
+      "monetary_unit_multiplier": 1000000, "shares_unit_multiplier": 1,
+      "reporting_scope": "consolidated_attributable_to_owners", "book_equity_page": 112,
+      "shares_outstanding_page": 95, "unit_page": 112,
+      "notes": "Group equity attributable to owners, excluding non-controlling interest. Residual issued and fully paid shares after treasury-share buybacks. Publication date is the official FY2022 audited-results release date."
+    },
+    {
+      "ticker": "DANGCEM", "fiscal_period": "2023-12-31", "publication_date": "2024-03-04",
+      "book_equity": 1691034, "shares_outstanding": 16752154537,
+      "monetary_unit_multiplier": 1000000, "shares_unit_multiplier": 1,
+      "reporting_scope": "consolidated_attributable_to_owners", "book_equity_page": 112,
+      "shares_outstanding_page": 91, "unit_page": 112,
+      "notes": "Group equity attributable to owners, excluding non-controlling interest. Residual issued and fully paid shares after treasury-share buybacks. Publication date is the official FY2023 audited-results release date."
+    },
+    {
+      "ticker": "GTCO", "fiscal_period": "2023-12-31", "publication_date": null,
+      "book_equity": 1447641750, "shares_outstanding": 29431179224,
+      "monetary_unit_multiplier": 1000, "shares_unit_multiplier": 1,
+      "reporting_scope": "consolidated_attributable_to_owners", "book_equity_page": 90,
+      "shares_outstanding_page": 371, "unit_page": 90,
+      "notes": "Group capital and reserves attributable to equity holders of the parent, excluding non-controlling interest. Issued ordinary shares stated in the official annual report. Board approval 2024-01-30 does not establish public availability; 90-day publication lag applies."
+    },
+    {
+      "ticker": "MTNN", "fiscal_period": "2022-12-31", "publication_date": null,
+      "book_equity": 334237, "shares_outstanding": 20325703261,
+      "monetary_unit_multiplier": 1000000, "shares_unit_multiplier": 1,
+      "reporting_scope": "consolidated_attributable_to_owners", "book_equity_page": 146,
+      "shares_outstanding_page": 209, "unit_page": 146,
+      "notes": "Group equity attributable to owners, excluding non-controlling interest. Period-end shares outstanding equal 20,354,513,050 issued less 28,809,789 treasury shares. Board approval 2023-01-30 does not establish public availability; 90-day publication lag applies."
+    },
+    {
+      "ticker": "MTNN", "fiscal_period": "2023-12-31", "publication_date": null,
+      "book_equity": -45404, "shares_outstanding": 20966750314,
+      "monetary_unit_multiplier": 1000000, "shares_unit_multiplier": 1,
+      "reporting_scope": "consolidated_attributable_to_owners", "book_equity_page": 79,
+      "shares_outstanding_page": 103, "unit_page": 79,
+      "notes": "Group equity attributable to owners, excluding non-controlling interest. Period-end shares outstanding equal 20,995,560,103 issued less 28,809,789 treasury shares. Negative book equity is retained and must be excluded from positive-B/M sorts. Board approval 2024-02-28 does not establish public availability; 90-day publication lag applies."
+    }
+  ]
+}

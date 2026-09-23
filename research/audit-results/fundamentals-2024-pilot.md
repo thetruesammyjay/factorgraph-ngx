@@ -37,15 +37,25 @@ positive book-to-market portfolio sorts.
 
 ## Current status
 
-Collection has begun as an auditable scaffold. No financial values have been
-entered or inferred. The machine-readable status report records zero observed
-rows against 30 required issuer-period rows, so the point-in-time gate remains
-closed. Database loading and Value-factor construction must wait until the
-collection is complete and validation passes.
+Twelve official issuer annual reports are downloaded and SHA-256 verified. Seven
+have completed page-level review and promotion: AIICO FY2022–FY2023, Dangote
+Cement FY2022–FY2023, GTCO FY2023, and MTN Nigeria FY2022–FY2023. Their group
+book equity attributable to owners, period-end shares outstanding, source units,
+scope, hashes, and exact pages are recorded in the canonical collection.
 
-The next action is to retrieve each report, hash the original file, identify
-publication evidence and statement pages, and enter the supported values in
-`data/collection/fundamentals-2024-pilot.csv`.
+The validated pilot now contains seven of 30 required observations. Two Dangote
+Cement observations use verified official results-release dates; five use the
+declared 90-day fallback because board approval dates do not establish public
+availability. MTN Nigeria FY2023 has negative equity and is retained with the
+required positive-B/M exclusion warning.
+
+Five newly downloaded reports are ready for statement review: FBN Holdings
+FY2022–FY2023, Nigerian Breweries FY2022, UBA FY2022, and Lafarge Africa FY2023.
+The review queue therefore contains seven approved, five pending, and 18 blocked
+issuer-periods. Nigerian Breweries FY2023 and UBA FY2023 were selected from
+official archives but timed out during download; the other 16 blocked tasks need
+reviewed direct-source handling. The point-in-time gate remains closed until all
+30 observations pass validation.
 
 The acquisition command reads reviewed URLs from
 `data/collection/fundamentals-document-sources.csv`. It does not infer report
@@ -61,6 +71,11 @@ because a report for one fiscal year is commonly uploaded during the next year.
 Candidate scoring is advisory, and the generated worksheet requires human
 selection before any URL enters the download catalog.
 
+The source-selection gate verifies every chosen URL against the saved discovery
+evidence and permits only one choice per issuer-period. It also requires the
+reviewer's identity and review date. This prevents spreadsheet edits or an
+ambiguous pair of reports from silently changing the acquisition catalog.
+
 Once PDFs are present, the evidence index searches each page for conservative
 book-equity, issued-share, share-count, and unit labels. It records page numbers
 and short review contexts but does not infer a financial value. This separation
@@ -70,6 +85,6 @@ from silently entering the research dataset.
 The review worksheet is a separate control boundary. Rows start as `pending`
 when evidence is available and `blocked` when the source document is missing.
 Promotion requires an explicit `approved` decision, reviewer identity, review
-date, statement scope, unit multiplier, and separate page citations for book
-equity and shares outstanding. Only approved rows pass to the canonical
-point-in-time validator.
+date, statement scope, separate monetary and share-count unit multipliers, and
+separate page citations for book equity and shares outstanding. Only approved
+rows pass to the canonical point-in-time validator.
