@@ -33,6 +33,47 @@ export type Experiment = {
   result: string;
 };
 
+export type ExperimentRun = {
+  experiment_id: string;
+  status: "draft" | "running" | "completed" | "blocked";
+  dataset_version: string | null;
+  last_completed_node: string | null;
+  execution_trace: Array<{ node: string; status: string; outputs?: Record<string, unknown> }>;
+  node_outputs: Record<string, Record<string, unknown>>;
+  errors: Array<{ message: string }>;
+};
+
+export type ExperimentNodeRun = {
+  experiment_id: string;
+  node: string;
+  status: string;
+  outputs: Record<string, unknown>;
+};
+
+export type ExperimentCreatePayload = {
+  name: string;
+  start_date: string;
+  end_date: string;
+  factors: FactorKey[];
+  portfolio_method: string;
+  portfolio_size: number;
+  rebalance_frequency: string;
+  regime_count: number;
+  bootstrap_iterations: number;
+  newey_west_threshold: number;
+  fundamental_availability_policy: string;
+  fixed_reporting_lag_days: number;
+};
+
+export type ExperimentRecord = ExperimentCreatePayload & {
+  id: string;
+  status: string;
+  dataset_version: string;
+  created_at: string;
+  completed_at: string | null;
+  git_commit: string | null;
+};
+
 export type DatasetQuality = {
   dataset_id: string;
   structural_status: "passed" | "failed";
@@ -51,11 +92,79 @@ export type DatasetQuality = {
   longest_unchanged_close_run_by_ticker: Record<string, number>;
 };
 
+export type FundamentalsCompletion = {
+  dataset_id: string;
+  generated_at: string;
+  universe_id: string;
+  summary: {
+    expected_issuer_periods: number;
+    complete_issuer_periods: number;
+    missing_issuer_periods: number;
+    issuers_in_scope: number;
+    issuers_with_complete_observations: number;
+    remaining_issuers: string[];
+    fiscal_periods: string[];
+  };
+  workflow: string[];
+};
+
 export type FactorEligibility = {
   factor: FactorKey;
   status: "eligible" | "preliminary" | "blocked";
   reasons: string[];
   metrics: Record<string, number | boolean | string>;
+};
+
+export type FactorRegression = {
+  status: "blocked" | "preliminary" | "eligible";
+  reason: string | null;
+  observations: number;
+  predictors: string[];
+  newey_west_lags: number | null;
+  alpha: number | null;
+  alpha_std_error: number | null;
+  alpha_t: number | null;
+  alpha_p_value: number | null;
+  r_squared: number | null;
+  adjusted_r_squared: number | null;
+  coefficients: Record<string, {
+    coefficient: number;
+    std_error: number;
+    t_stat: number;
+    p_value: number;
+  }>;
+  target_definition: string;
+};
+
+export type CharacteristicPortfolio = {
+  status: "preliminary" | "eligible" | "blocked";
+  coverage: {
+    formation_months: number;
+    months_with_size_spread: number;
+    months_with_value_spread: number;
+    groups: number;
+    minimum_assets: number;
+  };
+  performance: Array<{
+    formation_month: string;
+    holding_month: string;
+    size_spread_return: number | null;
+    value_spread_return: number | null;
+    size_small_count: number;
+    size_big_count: number;
+    value_high_count: number;
+    value_low_count: number;
+  }>;
+  factors: Partial<Record<"size" | "value", {
+    methodology: Record<string, string>;
+    statistics: {
+      statistics: Record<string, number | null> | null;
+      newey_west_t: number | null;
+      newey_west_lags: number | null;
+      bootstrap: Record<string, number> | null;
+      observations: number;
+    };
+  }>>;
 };
 
 export type PilotExperiment = {
@@ -150,6 +259,40 @@ export type PilotExperiment = {
     market_excess_return: number | null;
   }>;
   market_factor_statistics: Record<string, number> | null;
+  factor_regressions: Partial<Record<FactorKey, FactorRegression>>;
+  characteristic_portfolios: CharacteristicPortfolio;
+  regime_analysis: {
+    status: "blocked" | "eligible";
+    reason: string | null;
+    coverage: {
+      monthly_endpoints: number;
+      complete_market_returns: number;
+      feature_observations: number;
+      minimum_observations: number;
+      states: number;
+      volatility_window: number;
+    };
+    model: {
+      algorithm: string;
+      covariance_type: string;
+      converged: boolean;
+      iterations: number;
+      log_likelihood: number;
+      seed: number;
+    } | null;
+    timeline: Array<{
+      observation_month: string;
+      state: number;
+      probabilities: number[];
+    }>;
+    statistics: Array<{
+      state: number;
+      mean_return: number;
+      volatility: number;
+      observations: number;
+    }>;
+    transition_matrix: number[][] | null;
+  };
   momentum_portfolio: {
     status: "preliminary";
     methodology: Record<string, string | number>;

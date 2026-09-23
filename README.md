@@ -240,6 +240,10 @@ The API exposes the result through:
 
 ```text
 GET /api/v1/experiments/pilot/latest
+POST /api/v1/experiments
+POST /api/v1/experiments/{experiment_id}/run
+GET /api/v1/experiments/{experiment_id}/run
+GET /api/v1/experiments/{experiment_id}/run/nodes/{node_name}
 GET /api/v1/factors
 GET /api/v1/factors/{factor}
 GET /api/v1/factors/market/history
@@ -255,6 +259,7 @@ GET /api/v1/factors/momentum/regression
 GET /api/v1/regimes
 GET /api/v1/regimes/timeline
 GET /api/v1/regimes/statistics
+GET /api/v1/datasets/fundamentals/completion/latest
 GET /api/v1/portfolios/ngx-public-data-2023-2024-pilot-v1
 GET /api/v1/portfolios/ngx-public-data-2023-2024-pilot-v1/holdings
 GET /api/v1/portfolios/ngx-public-data-2023-2024-pilot-v1/performance
@@ -263,6 +268,14 @@ GET /api/v1/companies/{ticker}
 GET /api/v1/companies/{ticker}/prices
 GET /api/v1/companies/{ticker}/fundamentals
 ```
+
+The experiment run endpoint executes the deterministic LangGraph workflow and
+returns the ordered node trace, final dataset version, last completed node, and
+any execution errors. Each trace entry also includes a compact output summary
+from the deterministic pilot report. The same trace and summaries are available
+through the `GET` run endpoint after execution, so a run can be inspected
+without rerunning it. A node endpoint provides the status and compact outputs
+for one named graph node when a narrower audit view is needed.
 
 The Next.js console reads these endpoints and shows blocked factors as blocked;
 it does not substitute demonstration statistics for missing research results.
@@ -293,6 +306,11 @@ record, including monthly endpoint coverage, feature observations, the
 minimum-sample gate, and (when available) state probabilities and transition
 diagnostics. The current 24-month pilot remains blocked until at least 36
 monthly observations are available.
+
+The fundamentals completion endpoint exposes the current point-in-time evidence
+queue, including approved and missing issuer-period counts and the remaining
+issuers. It is read-only; unsupported observations remain blocked until a
+reviewed report and page-level evidence are promoted.
 
 Every generated experiment records SHA-256 identities for its input files, a
 stable dataset fingerprint, its numerical configuration, the Git commit, and

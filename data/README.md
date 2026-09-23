@@ -276,6 +276,11 @@ three-state Gaussian HMM. It records the number of monthly endpoints,
 complete feature observations, the configured minimum sample, and either a
 blocked reason or the fitted timeline, state summaries, and transition matrix.
 
+The API also exposes the fundamentals completion report at
+`/api/v1/datasets/fundamentals/completion/latest`, allowing the web console to
+show approved, missing, and remaining issuer-period tasks without altering the
+canonical evidence file.
+
 ## Official market inputs
 
 Collect annual NGX ASI weekly closes and CBN 91-day NTB auction rates from

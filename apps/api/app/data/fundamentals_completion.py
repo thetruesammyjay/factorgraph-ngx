@@ -2,9 +2,26 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import asdict, dataclass
+from pathlib import Path
 
 import pandas as pd
+
+PACKAGED_COMPLETION_REPORT = (
+    Path(__file__).resolve().parents[4]
+    / "research"
+    / "audit-results"
+    / "fundamentals-2024-completion.json"
+)
+
+
+def load_completion_report(path: Path | None = None) -> dict:
+    """Load the committed fundamentals queue summary for the API."""
+    report_path = path or PACKAGED_COMPLETION_REPORT
+    if not report_path.is_file():
+        raise FileNotFoundError(f"fundamentals completion report not found: {report_path}")
+    return json.loads(report_path.read_text(encoding="utf-8"))
 
 
 @dataclass(frozen=True)
