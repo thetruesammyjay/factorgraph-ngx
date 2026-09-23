@@ -11,10 +11,10 @@ class HealthResponse(BaseModel):
     version: str
 
 class ExperimentConfig(BaseModel):
-    name: str = "ngx-five-factor-baseline"
-    start_date: date = date(2019, 1, 1)
-    end_date: date = date(2025, 12, 31)
-    factors: list[FactorName] = ["market", "size", "value", "momentum", "liquidity"]
+    name: str = "ngx-public-data-2024-pilot"
+    start_date: date = date(2024, 1, 2)
+    end_date: date = date(2024, 12, 31)
+    factors: list[FactorName] = ["market", "momentum"]
     portfolio_method: str = "equal_weight"
     portfolio_size: int = Field(10, ge=1, le=100)
     rebalance_frequency: str = "monthly"

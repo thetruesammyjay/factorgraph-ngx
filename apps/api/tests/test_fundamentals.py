@@ -79,3 +79,15 @@ def test_scales_monetary_values_and_share_counts_independently():
     assert result.errors == []
     assert result.frame.loc[0, "book_equity"] == 125_000_000
     assert result.frame.loc[0, "shares_outstanding"] == 31_396_000
+
+
+def test_can_revalidate_already_normalized_canonical_values_without_rescaling():
+    result = validate_and_align_fundamentals(
+        pd.DataFrame([row(book_equity=100_000_000, shares_outstanding=31_396_000)]),
+        {"ZENITHBANK"},
+        normalize_units=False,
+    )
+
+    assert result.errors == []
+    assert result.frame.loc[0, "book_equity"] == 100_000_000
+    assert result.frame.loc[0, "shares_outstanding"] == 31_396_000

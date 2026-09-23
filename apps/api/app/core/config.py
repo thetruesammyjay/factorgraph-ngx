@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     default_portfolio_size: int = 10
     fundamental_reporting_lag_days: int = 90
     data_quality_report_path: str = ""
+    pilot_experiment_report_path: str = ""
     log_level: str = "INFO"
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

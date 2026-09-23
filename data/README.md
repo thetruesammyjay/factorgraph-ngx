@@ -148,11 +148,13 @@ Create the human-review worksheet once the evidence index has been refreshed:
 ```powershell
 uv run python -m scripts.create_fundamentals_review `
   --evidence ../../research/audit-results/fundamentals-2024-evidence.json `
-  --output ../../data/collection/fundamentals-2024-review.csv
+  --output ../../data/collection/fundamentals-2024-review.csv `
+  --merge
 ```
 
-The command refuses to overwrite an existing worksheet unless `--replace` is
-passed, because the file may contain manual work. A reviewer must enter the
+The command refuses to overwrite an existing worksheet unless `--merge` or
+`--replace` is passed. Merge preserves completed reviews while refreshing
+evidence for newly downloaded documents. A reviewer must enter the
 financial values, statement scope, units, separate book-equity and share-count
 page citations, their name, review date, and `approved` status.
 
@@ -171,7 +173,8 @@ missing, or the canonical point-in-time validator rejects an observation.
 
 Enter only report-supported values in
 `collection/fundamentals-2024-pilot.csv`. Record the source URL, document name,
-SHA-256 hash, reporting scope, unit multiplier, and exact page reference. Use
+SHA-256 hash, reporting scope, separate monetary and share-count multipliers,
+and exact page reference. Use
 the report release date as `publication_date`; leave it blank only when the
 date cannot be established, so the builder labels its fixed-lag fallback.
 
@@ -185,7 +188,29 @@ uv run python -m scripts.build_fundamentals_pilot `
   --fixed-lag-days 90
 ```
 
-Do not load the processed file into PostgreSQL or use it in a factor run until
-the report's point-in-time gate passes. The empty committed collection file and
-status report expose unfinished coverage without inventing data.
+Do not use incomplete fundamentals for a full-universe Size or Value claim until
+the point-in-time gate passes. The committed collection and status report expose
+partial coverage without inventing data.
+
+## Deterministic return and eligibility pilot
+
+The first experiment uses the validated 15-security price dataset and reviewed
+canonical fundamentals. It preserves marked-price returns separately from
+official trade-to-trade returns, aggregates monthly equal-weight market proxies,
+calculates a short-horizon momentum snapshot, and evaluates every factor's
+input gate.
+
+```powershell
+uv run python -m scripts.build_public_data_experiment `
+  --prices ../../data/processed/ngx-dol-2024-15-security.csv `
+  --fundamentals ../../data/collection/fundamentals-2024-pilot.csv `
+  --daily-output ../../data/processed/ngx-2024-daily-returns.csv `
+  --monthly-output ../../data/processed/ngx-2024-monthly-returns.csv `
+  --report ../../research/audit-results/ngx-public-data-2024-pilot.json `
+  --api-report app/data/reports/pilot-latest.json `
+  --momentum-months 3
+```
+
+Generated return CSVs remain ignored because they are reproducible. The compact
+experiment report is committed for the API and research audit trail.
 

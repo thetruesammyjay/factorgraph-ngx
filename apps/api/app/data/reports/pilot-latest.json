@@ -1,0 +1,290 @@
+{
+  "experiment_id": "ngx-public-data-2024-pilot-v1",
+  "name": "2024 public-data return and eligibility pilot",
+  "status": "completed_with_constraints",
+  "generated_at": "2026-09-23T11:38:14.263711+00:00",
+  "price_dataset": "ngx-dol-2024-15-security.csv",
+  "fundamentals_dataset": "fundamentals-2024-pilot.csv",
+  "methodology": {
+    "marked_return": "close-to-close return using every staged market price",
+    "official_trade_return": "return between consecutive official-trade observations",
+    "market_proxy": "equal-weight mean across available security returns",
+    "momentum_window_months": 3,
+    "missing_values": "not imputed"
+  },
+  "coverage": {
+    "observations": 3255,
+    "tickers": 15,
+    "dates": 217,
+    "marked_returns": 3240,
+    "official_trade_returns": 694,
+    "carried_price_rows": 2550,
+    "first_date": "2024-01-02",
+    "last_date": "2024-12-31"
+  },
+  "factor_eligibility": [
+    {
+      "factor": "market",
+      "status": "preliminary",
+      "reasons": [
+        "15-security equal-weight market proxy is available",
+        "NGX All-Share Index history is unavailable",
+        "risk-free series is unavailable; excess returns are blocked"
+      ],
+      "metrics": {
+        "price_tickers": 15,
+        "expected_tickers": 15,
+        "benchmark_available": false,
+        "risk_free_available": false
+      }
+    },
+    {
+      "factor": "size",
+      "status": "preliminary",
+      "reasons": [
+        "7 of 30 issuer-period observations are validated",
+        "fundamentals currently cover 4 issuers"
+      ],
+      "metrics": {
+        "validated_fundamental_rows": 7,
+        "expected_fundamental_rows": 30,
+        "fundamental_tickers": 4
+      }
+    },
+    {
+      "factor": "value",
+      "status": "preliminary",
+      "reasons": [
+        "7 of 30 issuer-period observations are validated",
+        "fundamentals currently cover 4 issuers",
+        "6 observations have positive book equity"
+      ],
+      "metrics": {
+        "validated_fundamental_rows": 7,
+        "positive_book_equity_rows": 6,
+        "fundamental_tickers": 4
+      }
+    },
+    {
+      "factor": "momentum",
+      "status": "preliminary",
+      "reasons": [
+        "only 12 monthly endpoints are available",
+        "short-horizon momentum is permitted; conventional 12-1 momentum is blocked"
+      ],
+      "metrics": {
+        "monthly_endpoints": 12,
+        "standard_12_1_ready": false
+      }
+    },
+    {
+      "factor": "liquidity",
+      "status": "blocked",
+      "reasons": [
+        "verified daily volume and traded value are unavailable"
+      ],
+      "metrics": {
+        "volume": 0,
+        "trading_value": 0,
+        "number_of_transactions": 0
+      }
+    }
+  ],
+  "market_proxy_statistics": {
+    "marked_price": {
+      "observations": 11.0,
+      "mean_return": 0.030757220979574233,
+      "annualised_return": 0.3912828653524367,
+      "volatility": 0.2692434149595134,
+      "sharpe": 1.3708288903199022,
+      "max_drawdown": -0.15463048674885016
+    },
+    "official_trade": {
+      "observations": 11.0,
+      "mean_return": 0.02307134997599848,
+      "annualised_return": 0.25787459781022615,
+      "volatility": 0.29964472972294387,
+      "sharpe": 0.923948170114546,
+      "max_drawdown": -0.2157814996680265
+    },
+    "annualised_return_difference": 0.13340826754221058
+  },
+  "market_proxy": [
+    {
+      "observation_month": "2024-01",
+      "marked_equal_weight_return": null,
+      "official_equal_weight_return": null,
+      "marked_security_count": 0,
+      "official_security_count": 0
+    },
+    {
+      "observation_month": "2024-02",
+      "marked_equal_weight_return": -0.0488096496,
+      "official_equal_weight_return": -0.0129233255,
+      "marked_security_count": 15,
+      "official_security_count": 9
+    },
+    {
+      "observation_month": "2024-03",
+      "marked_equal_weight_return": 0.1075392885,
+      "official_equal_weight_return": 0.0773709803,
+      "marked_security_count": 15,
+      "official_security_count": 9
+    },
+    {
+      "observation_month": "2024-04",
+      "marked_equal_weight_return": -0.1546304867,
+      "official_equal_weight_return": -0.2157814997,
+      "marked_security_count": 15,
+      "official_security_count": 8
+    },
+    {
+      "observation_month": "2024-05",
+      "marked_equal_weight_return": 0.0601751881,
+      "official_equal_weight_return": 0.01468283,
+      "marked_security_count": 15,
+      "official_security_count": 8
+    },
+    {
+      "observation_month": "2024-06",
+      "marked_equal_weight_return": 0.0713238519,
+      "official_equal_weight_return": 0.0466092802,
+      "marked_security_count": 15,
+      "official_security_count": 10
+    },
+    {
+      "observation_month": "2024-07",
+      "marked_equal_weight_return": -0.0122603089,
+      "official_equal_weight_return": 0.0073632798,
+      "marked_security_count": 15,
+      "official_security_count": 8
+    },
+    {
+      "observation_month": "2024-08",
+      "marked_equal_weight_return": 0.0961203189,
+      "official_equal_weight_return": 0.0499945672,
+      "marked_security_count": 15,
+      "official_security_count": 8
+    },
+    {
+      "observation_month": "2024-09",
+      "marked_equal_weight_return": 0.0452148713,
+      "official_equal_weight_return": 0.0584504268,
+      "marked_security_count": 15,
+      "official_security_count": 9
+    },
+    {
+      "observation_month": "2024-10",
+      "marked_equal_weight_return": 0.039668571,
+      "official_equal_weight_return": 0.0529129298,
+      "marked_security_count": 15,
+      "official_security_count": 9
+    },
+    {
+      "observation_month": "2024-11",
+      "marked_equal_weight_return": 0.033330119,
+      "official_equal_weight_return": 0.0604065145,
+      "marked_security_count": 15,
+      "official_security_count": 8
+    },
+    {
+      "observation_month": "2024-12",
+      "marked_equal_weight_return": 0.1006576673,
+      "official_equal_weight_return": 0.1146988663,
+      "marked_security_count": 15,
+      "official_security_count": 8
+    }
+  ],
+  "latest_momentum": [
+    {
+      "observation_month": "2024-12",
+      "ticker": "WAPCO",
+      "momentum_return": 0.9269972452,
+      "rank": 1.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "SEPLAT",
+      "momentum_return": 0.3891935366,
+      "rank": 2.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "UBA",
+      "momentum_return": 0.3203883495,
+      "rank": 3.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "OKOMUOIL",
+      "momentum_return": 0.2231404959,
+      "rank": 4.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "ACCESSCORP",
+      "momentum_return": 0.2230769231,
+      "rank": 5.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "AIICO",
+      "momentum_return": 0.2222222222,
+      "rank": 6.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "ZENITHBANK",
+      "momentum_return": 0.2068965517,
+      "rank": 7.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "GTCO",
+      "momentum_return": 0.2025316456,
+      "rank": 8.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "NB",
+      "momentum_return": 0.095890411,
+      "rank": 9.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "MTNN",
+      "momentum_return": 0.0471204188,
+      "rank": 10.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "TOTAL",
+      "momentum_return": 0.0357619825,
+      "rank": 11.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "FBNH",
+      "momentum_return": -0.0035523979,
+      "rank": 12.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "NESTLE",
+      "momentum_return": -0.0168539326,
+      "rank": 13.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "PRESCO",
+      "momentum_return": -0.0214256283,
+      "rank": 14.0
+    },
+    {
+      "observation_month": "2024-12",
+      "ticker": "DANGCEM",
+      "momentum_return": -0.1,
+      "rank": 15.0
+    }
+  ]
+}

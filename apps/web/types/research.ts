@@ -50,3 +50,48 @@ export type DatasetQuality = {
   unique_closes_by_ticker: Record<string, number>;
   longest_unchanged_close_run_by_ticker: Record<string, number>;
 };
+
+export type FactorEligibility = {
+  factor: FactorKey;
+  status: "eligible" | "preliminary" | "blocked";
+  reasons: string[];
+  metrics: Record<string, number | boolean | string>;
+};
+
+export type PilotExperiment = {
+  experiment_id: string;
+  name: string;
+  status: "completed_with_constraints";
+  generated_at: string;
+  price_dataset: string;
+  fundamentals_dataset: string;
+  coverage: {
+    observations: number;
+    tickers: number;
+    dates: number;
+    marked_returns: number;
+    official_trade_returns: number;
+    carried_price_rows: number;
+    first_date: string;
+    last_date: string;
+  };
+  factor_eligibility: FactorEligibility[];
+  market_proxy_statistics: {
+    marked_price: Record<string, number>;
+    official_trade: Record<string, number>;
+    annualised_return_difference: number;
+  };
+  market_proxy: Array<{
+    observation_month: string;
+    marked_equal_weight_return: number | null;
+    official_equal_weight_return: number | null;
+    marked_security_count: number;
+    official_security_count: number;
+  }>;
+  latest_momentum: Array<{
+    observation_month: string;
+    ticker: string;
+    momentum_return: number | null;
+    rank: number | null;
+  }>;
+};

@@ -179,6 +179,43 @@ The pipeline applies:
 - labelled fixed-lag estimates where dates are unavailable; and
 - factor-specific coverage gates.
 
+## First deterministic experiment
+
+The repository includes a reproducible 2024 pilot that builds two return
+series for every security:
+
+- `marked_return`, calculated from every staged closing price; and
+- `official_trade_return`, calculated only between consecutive observations
+  identified as official trades.
+
+It also produces monthly equal-weight market proxies, a three-month momentum
+snapshot and machine-readable eligibility decisions for Market, Size, Value,
+Momentum and Liquidity. Build it from `apps/api`:
+
+```powershell
+$env:PYTHONPATH='.'
+uv run python scripts/build_public_data_experiment.py `
+  --prices ../../data/processed/ngx-dol-2024-15-security.csv `
+  --fundamentals ../../data/collection/fundamentals-2024-pilot.csv `
+  --daily-output ../../data/processed/ngx-2024-daily-returns.csv `
+  --monthly-output ../../data/processed/ngx-2024-monthly-returns.csv `
+  --report ../../research/audit-results/ngx-public-data-2024-pilot.json `
+  --api-report app/data/reports/pilot-latest.json `
+  --momentum-months 3
+```
+
+The API exposes the result through:
+
+```text
+GET /api/v1/experiments/pilot/latest
+GET /api/v1/factors
+GET /api/v1/factors/{factor}
+GET /api/v1/factors/market/history
+```
+
+The Next.js console reads these endpoints and shows blocked factors as blocked;
+it does not substitute demonstration statistics for missing research results.
+
 Raw licensed or confidential data must not be committed. Public source files in
 `data/raw/` are also ignored so datasets remain reproducible from their
 manifests without unnecessarily enlarging the repository.

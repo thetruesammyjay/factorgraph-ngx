@@ -28,7 +28,11 @@ class FundamentalsValidation:
 
 
 def validate_and_align_fundamentals(
-    frame: pd.DataFrame, universe: set[str], lag_days: int = 90
+    frame: pd.DataFrame,
+    universe: set[str],
+    lag_days: int = 90,
+    *,
+    normalize_units: bool = True,
 ) -> FundamentalsValidation:
     errors: list[str] = []
     warnings: list[str] = []
@@ -68,13 +72,12 @@ def validate_and_align_fundamentals(
         errors.append(
             "shares_unit_multiplier contains missing, invalid, or non-positive values"
         )
+    monetary_scale = monetary_multiplier if normalize_units else 1
+    shares_scale = shares_multiplier if normalize_units else 1
     for column in sorted(MONETARY_COLUMNS.intersection(result.columns)):
-        result[column] = (
-            pd.to_numeric(result[column], errors="coerce") * monetary_multiplier
-        )
+        result[column] = pd.to_numeric(result[column], errors="coerce") * monetary_scale
     result["shares_outstanding"] = (
-        pd.to_numeric(result["shares_outstanding"], errors="coerce")
-        * shares_multiplier
+        pd.to_numeric(result["shares_outstanding"], errors="coerce") * shares_scale
     )
     if "earnings_per_share" in result:
         result["earnings_per_share"] = pd.to_numeric(

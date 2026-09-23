@@ -23,7 +23,10 @@ def main() -> None:
     universe = {security["ticker"] for security in universe_document["securities"]}
     source = pd.read_csv(args.input)
     validation = validate_and_align_fundamentals(
-        source, universe=universe, lag_days=args.fixed_lag_days
+        source,
+        universe=universe,
+        lag_days=args.fixed_lag_days,
+        normalize_units=False,
     )
     frame = validation.frame
 

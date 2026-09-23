@@ -1,32 +1,62 @@
+"""Factor eligibility endpoints backed by the deterministic pilot report."""
+
+import json
+
 from fastapi import APIRouter, HTTPException
 
+from app.data.experiment_reports import load_pilot_report
+
 router = APIRouter()
-FACTORS = {
-    "market": {"name": "Market", "short": "MKT", "annualised_return": 14.8, "volatility": 12.1, "sharpe": 1.22, "newey_west_t": 2.84},
-    "size": {"name": "Size", "short": "SMB", "annualised_return": 6.4, "volatility": 8.9, "sharpe": .72, "newey_west_t": 1.96},
-    "value": {"name": "Value", "short": "HML", "annualised_return": 9.7, "volatility": 10.4, "sharpe": .93, "newey_west_t": 2.31},
-    "momentum": {"name": "Momentum", "short": "MOM", "annualised_return": 18.1, "volatility": 15.7, "sharpe": 1.15, "newey_west_t": 3.08},
-    "liquidity": {"name": "Liquidity", "short": "LIQ", "annualised_return": 11.3, "volatility": 9.6, "sharpe": 1.18, "newey_west_t": 2.67},
-}
+
+
+def eligibility_items() -> list[dict]:
+    try:
+        return load_pilot_report()["factor_eligibility"]
+    except (FileNotFoundError, json.JSONDecodeError, KeyError) as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
 
 def get_factor_or_404(factor: str) -> dict:
-    if factor not in FACTORS:
+    result = next((item for item in eligibility_items() if item["factor"] == factor), None)
+    if result is None:
         raise HTTPException(status_code=404, detail="Factor not found")
-    return {"factor": factor, **FACTORS[factor]}
+    return result
+
 
 @router.get("")
 def list_factors() -> dict:
-    return {"items": [{"factor": key, **value} for key, value in FACTORS.items()]}
+    return {"items": eligibility_items()}
+
 
 @router.get("/{factor}")
 def get_factor(factor: str) -> dict:
     return get_factor_or_404(factor)
 
+
 @router.get("/{factor}/history")
 def factor_history(factor: str) -> dict:
-    get_factor_or_404(factor)
-    return {"factor": factor, "items": [], "dataset_version": "ngx_monthly_v3"}
+    item = get_factor_or_404(factor)
+    if factor != "market":
+        return {
+            "factor": factor,
+            "status": item["status"],
+            "items": [],
+            "reason": "factor-return history has not passed its data gate",
+        }
+    report = load_pilot_report()
+    return {
+        "factor": factor,
+        "status": item["status"],
+        "items": report["market_proxy"],
+        "dataset_version": report["experiment_id"],
+    }
+
 
 @router.get("/{factor}/statistics")
 def factor_statistics(factor: str) -> dict:
-    return get_factor_or_404(factor)
+    item = get_factor_or_404(factor)
+    return {
+        **item,
+        "statistics": None,
+        "reason": "inferential statistics are unavailable until the factor gate passes",
+    }
