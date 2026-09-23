@@ -1,0 +1,110 @@
+{
+  "dataset_id": "ngx-public-2023-2024-ef97f98a23a6",
+  "generated_at": "2026-09-23T17:53:19.484254+00:00",
+  "years": [
+    2023,
+    2024
+  ],
+  "fingerprint": "ef97f98a23a6b81025e5553b0d0e4f1f6f8371b0268c37147d33a8956622e741",
+  "inputs": {
+    "prices_2023": {
+      "filename": "ngx-dol-2023-15-security.csv",
+      "bytes": 343030,
+      "sha256": "d2e2b393a834c4a42709c15891bd53c1440b44220ece52c8bd7c9d4da19db83d"
+    },
+    "prices_2024": {
+      "filename": "ngx-dol-2024-15-security.csv",
+      "bytes": 357621,
+      "sha256": "cf6de5776a81a1489610bd70f5dbfd5e987981eca5061ba412a3caf6156f8d29"
+    },
+    "benchmark_2023": {
+      "filename": "benchmark-2023.csv",
+      "bytes": 4637,
+      "sha256": "dde3822c023048b3c26bb73e49ea928e320d4191c45ac34656152083abcc25a1"
+    },
+    "benchmark_2024": {
+      "filename": "benchmark-2024.csv",
+      "bytes": 4653,
+      "sha256": "4a514a07e833cd09788c6c7c8cba6b2f54ba1dc7c4206392e4b99c0acc8f7408"
+    },
+    "risk_free_2023": {
+      "filename": "risk-free-2023.csv",
+      "bytes": 2151,
+      "sha256": "cda3a4ebc92dbe79617d7499f9068d24e1ca96ab170c7532a6027deba13ab86c"
+    },
+    "risk_free_2024": {
+      "filename": "risk-free-2024.csv",
+      "bytes": 2171,
+      "sha256": "17bf9a9719956a4f17f14a2a538cc31436bac9add24144755db1e14b9fcaf4dd"
+    }
+  },
+  "outputs": {
+    "prices": {
+      "filename": "ngx-dol-2023-2024-15-security.csv",
+      "bytes": 700491,
+      "sha256": "1bf4a1b338f4d223ef71a470929387330f3c4ac31cc700acc20f2ce2316443e6"
+    },
+    "benchmark": {
+      "filename": "benchmark-2023-2024.csv",
+      "bytes": 9008,
+      "sha256": "f9e1c03ff54f5fafb03a1ffe314e351cf4e01069331e44380d32b0e982dbb351"
+    },
+    "risk_free": {
+      "filename": "risk-free-2023-2024.csv",
+      "bytes": 4234,
+      "sha256": "fbfc5b52422ef402386a47489dea8263f9fb2452504739188ae93fda64482a05"
+    }
+  },
+  "coverage": {
+    "prices": {
+      "rows": 6375,
+      "start_date": "2023-01-03",
+      "end_date": "2024-12-31",
+      "years": [
+        2023,
+        2024
+      ],
+      "months": 24,
+      "entities": 15,
+      "rows_by_year": {
+        "2023": 3120,
+        "2024": 3255
+      }
+    },
+    "benchmark": {
+      "rows": 100,
+      "start_date": "2023-01-06",
+      "end_date": "2024-12-27",
+      "years": [
+        2023,
+        2024
+      ],
+      "months": 24,
+      "entities": 1,
+      "rows_by_year": {
+        "2023": 50,
+        "2024": 50
+      }
+    },
+    "risk_free": {
+      "rows": 50,
+      "start_date": "2023-01-11",
+      "end_date": "2024-12-11",
+      "years": [
+        2023,
+        2024
+      ],
+      "months": 24,
+      "entities": 1,
+      "rows_by_year": {
+        "2023": 25,
+        "2024": 25
+      }
+    }
+  },
+  "validation": {
+    "declared_years_match_rows": true,
+    "unique_primary_keys": true,
+    "consistent_year_sets": true
+  }
+}

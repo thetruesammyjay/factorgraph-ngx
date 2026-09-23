@@ -2,7 +2,7 @@ from fastapi.testclient import TestClient
 
 from app.main import app
 
-EXPERIMENT_ID = "ngx-public-data-2024-pilot-v1"
+EXPERIMENT_ID = "ngx-public-data-2023-2024-pilot-v1"
 
 
 def test_momentum_portfolio_endpoints_return_computed_pilot():
@@ -26,7 +26,7 @@ def test_momentum_portfolio_endpoints_return_computed_pilot():
     performance = client.get(
         f"/api/v1/portfolios/{EXPERIMENT_ID}/performance"
     ).json()
-    assert len(performance["items"]) == 12
+    assert len(performance["items"]) == 24
 
 
 def test_unknown_portfolio_experiment_returns_404():

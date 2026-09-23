@@ -1,27 +1,39 @@
-"""Regime endpoints guarded by the available monthly sample."""
+"""Regime endpoints guarded by the latest experiment's monthly sample."""
+
+import json
+from pathlib import Path
 
 from fastapi import APIRouter
 
 router = APIRouter()
 
-BLOCKED_REASON = (
-    "The 2024 pilot has only 12 monthly endpoints; a multi-state regime model "
-    "would not be statistically defensible."
-)
+REPORT_PATH = Path(__file__).resolve().parents[1] / "data" / "reports" / "pilot-latest.json"
+
+
+def blocked_context() -> tuple[str, str]:
+    report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
+    months = report.get("market_input_coverage", {}).get("aligned_months", 0)
+    reason = (
+        f"The current experiment has only {months} monthly endpoints; a multi-state "
+        "regime model requires at least 36 observations for this pilot."
+    )
+    return report["experiment_id"], reason
 
 
 @router.get("")
 def list_regimes() -> dict:
-    return {"status": "blocked", "items": [], "model": None, "reason": BLOCKED_REASON}
+    _, reason = blocked_context()
+    return {"status": "blocked", "items": [], "model": None, "reason": reason}
 
 
 @router.get("/timeline")
 def timeline() -> dict:
+    dataset_version, reason = blocked_context()
     return {
         "status": "blocked",
         "items": [],
-        "dataset_version": "ngx-public-data-2024-pilot-v1",
-        "reason": BLOCKED_REASON,
+        "dataset_version": dataset_version,
+        "reason": reason,
     }
 
 

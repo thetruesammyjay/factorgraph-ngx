@@ -43,6 +43,7 @@ def main() -> None:
     parser.add_argument("--report", required=True, type=Path)
     parser.add_argument("--api-report", required=True, type=Path)
     parser.add_argument("--momentum-months", type=int, default=3)
+    parser.add_argument("--momentum-skip-months", type=int, default=0)
     parser.add_argument("--benchmark", type=Path)
     parser.add_argument("--risk-free", type=Path)
     parser.add_argument("--benchmark-code", default="NGXASI")
@@ -67,6 +68,7 @@ def main() -> None:
         "benchmark_code": args.benchmark_code,
         "risk_free_tenor": args.risk_free_tenor,
         "momentum_months": args.momentum_months,
+        "momentum_skip_months": args.momentum_skip_months,
         "momentum_portfolio_size": 5,
         "transaction_cost_bps": 50,
         "missing_values": "not_imputed",
@@ -82,10 +84,13 @@ def main() -> None:
     )
     characteristic_snapshot = latest_characteristic_snapshot(characteristics)
     market_proxy = build_equal_weight_market_proxy(monthly)
-    momentum = latest_momentum_snapshot(monthly, months=args.momentum_months)
+    momentum = latest_momentum_snapshot(
+        monthly, months=args.momentum_months, skip_months=args.momentum_skip_months
+    )
     momentum_portfolio = run_momentum_pilot(
         monthly,
         lookback_months=args.momentum_months,
+        skip_months=args.momentum_skip_months,
         portfolio_size=5,
         transaction_cost_bps=50,
     )
@@ -124,12 +129,16 @@ def main() -> None:
         else None
     )
 
+    price_dates = pd.to_datetime(prices["trading_date"])
+    first_year = int(price_dates.dt.year.min())
+    last_year = int(price_dates.dt.year.max())
+    year_label = str(first_year) if first_year == last_year else f"{first_year}-{last_year}"
     report = {
-        "experiment_id": "ngx-public-data-2024-pilot-v1",
-        "name": "2024 public-data return and eligibility pilot",
+        "experiment_id": f"ngx-public-data-{year_label}-pilot-v1",
+        "name": f"{year_label} public-data return and eligibility pilot",
         "status": "completed_with_constraints",
         "generated_at": datetime.now(UTC).isoformat(),
-        "dataset_version": f"ngx-public-2024-{fingerprint[:12]}",
+        "dataset_version": f"ngx-public-{year_label}-{fingerprint[:12]}",
         "reproducibility": {
             "fingerprint": fingerprint,
             "inputs": input_identities,
@@ -144,6 +153,7 @@ def main() -> None:
             "official_trade_return": "return between consecutive official-trade observations",
             "market_proxy": "equal-weight mean across available security returns",
             "momentum_window_months": args.momentum_months,
+            "momentum_skip_months": args.momentum_skip_months,
             "missing_values": "not imputed",
             "risk_free_conversion": "effective monthly rate: (1 + annual rate)^(1/12) - 1",
         },

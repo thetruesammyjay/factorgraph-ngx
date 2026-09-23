@@ -13,4 +13,5 @@ def test_regime_endpoints_do_not_return_placeholder_results():
 
     timeline = client.get("/api/v1/regimes/timeline").json()
     assert timeline["status"] == "blocked"
-    assert timeline["dataset_version"] == "ngx-public-data-2024-pilot-v1"
+    assert timeline["dataset_version"] == "ngx-public-data-2023-2024-pilot-v1"
+    assert "24 monthly endpoints" in timeline["reason"]

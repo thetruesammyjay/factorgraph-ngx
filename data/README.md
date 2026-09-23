@@ -202,15 +202,18 @@ input gate.
 
 ```powershell
 uv run python scripts/build_public_data_experiment.py `
-  --prices ../../data/processed/ngx-dol-2024-15-security.csv `
+  --prices ../../data/processed/ngx-dol-2023-2024-15-security.csv `
   --fundamentals ../../data/collection/fundamentals-2024-pilot.csv `
-  --daily-output ../../data/processed/ngx-2024-daily-returns.csv `
-  --monthly-output ../../data/processed/ngx-2024-monthly-returns.csv `
-  --characteristics-output ../../data/processed/ngx-2024-point-in-time-characteristics.csv `
+  --daily-output ../../data/processed/ngx-2023-2024-daily-returns.csv `
+  --monthly-output ../../data/processed/ngx-2023-2024-monthly-returns.csv `
+  --characteristics-output ../../data/processed/ngx-2023-2024-point-in-time-characteristics.csv `
   --universe ../../data/universes/ngx-15-2024.json `
-  --report ../../research/audit-results/ngx-public-data-2024-pilot.json `
+  --report ../../research/audit-results/ngx-public-data-2023-2024-pilot.json `
   --api-report app/data/reports/pilot-latest.json `
-  --momentum-months 3
+  --momentum-months 11 `
+  --momentum-skip-months 1 `
+  --benchmark ../../data/processed/benchmark-2023-2024.csv `
+  --risk-free ../../data/processed/risk-free-2023-2024.csv
 ```
 
 The optional `--benchmark` and `--risk-free` arguments accept copies of the
@@ -227,8 +230,8 @@ hash. Its stable dataset version is derived from those identities and the
 numerical configuration, while the run metadata records the Git revision and
 whether uncommitted changes existed during generation.
 
-The report also contains a preliminary top-five Momentum portfolio. Each
-rebalance uses the preceding three monthly marked-price returns, applies the
+The report also contains a top-five 12–1 Momentum portfolio. Each rebalance
+uses 11 monthly returns ending one month before formation, applies the
 resulting weights to the following month, and deducts 50 basis points times
 one-way turnover. Official-trade returns are retained as a coverage-labelled
 sensitivity series; they are not silently substituted for missing observations.
@@ -241,21 +244,42 @@ from Size. Missing and excluded observations retain explicit reason codes.
 
 ## Official market inputs
 
-Collect the 2024 NGX ASI weekly closes and CBN 91-day NTB auction rates from
+Collect annual NGX ASI weekly closes and CBN 91-day NTB auction rates from
 `apps/api`:
 
 ```powershell
 $env:PYTHONPATH='.'
 uv run python scripts/collect_2024_market_inputs.py `
+  --year 2024 `
   --raw-dir ../../data/raw/market-inputs-2024 `
   --benchmark-output ../../data/collection/benchmark-2024.csv `
   --risk-free-output ../../data/collection/risk-free-2024.csv `
   --manifest ../../data/manifests/market-inputs-2024.json `
-  --review-report ../../research/audit-results/market-inputs-2024-review.json
+  --review ../../research/audit-results/market-inputs-2024-review.json
 ```
 
 The benchmark series is sampled from official weekly reports. Monthly alignment
 uses the last weekly close available in each month and does not describe it as a
 daily month-end close. The risk-free series uses the CBN primary-market `91DAY`
 marginal rate from the final auction available in each month.
+
+Merge reviewed annual files only after each annual audit passes:
+
+```powershell
+uv run python scripts/build_multi_year_dataset.py `
+  --prices 2023=../../data/processed/ngx-dol-2023-15-security.csv `
+  --prices 2024=../../data/processed/ngx-dol-2024-15-security.csv `
+  --benchmark 2023=../../data/collection/benchmark-2023.csv `
+  --benchmark 2024=../../data/collection/benchmark-2024.csv `
+  --risk-free 2023=../../data/collection/risk-free-2023.csv `
+  --risk-free 2024=../../data/collection/risk-free-2024.csv `
+  --prices-output ../../data/processed/ngx-dol-2023-2024-15-security.csv `
+  --benchmark-output ../../data/processed/benchmark-2023-2024.csv `
+  --risk-free-output ../../data/processed/risk-free-2023-2024.csv `
+  --manifest ../../data/manifests/ngx-public-2023-2024.json `
+  --review ../../research/audit-results/ngx-public-2023-2024-merge.json
+```
+
+The merger rejects mislabeled years and duplicate keys before it writes any
+combined output. Its manifest stores source and output SHA-256 identities.
 

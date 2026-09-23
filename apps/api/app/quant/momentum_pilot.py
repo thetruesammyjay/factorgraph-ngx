@@ -21,14 +21,16 @@ class MomentumPilotCoverage:
         return asdict(self)
 
 
-def _formation_scores(monthly: pd.DataFrame, lookback_months: int) -> pd.DataFrame:
+def _formation_scores(
+    monthly: pd.DataFrame, lookback_months: int, skip_months: int
+) -> pd.DataFrame:
     frame = monthly.sort_values(["ticker", "observation_month"]).copy()
     frame["formation_return"] = frame.groupby("ticker")["marked_monthly_return"].transform(
         lambda values: (
             (1 + values)
             .rolling(lookback_months, min_periods=lookback_months)
             .apply(lambda window: window.prod() - 1, raw=False)
-            .shift(1)
+            .shift(skip_months + 1)
         )
     )
     return frame
@@ -38,12 +40,15 @@ def run_momentum_pilot(
     monthly: pd.DataFrame,
     *,
     lookback_months: int = 3,
+    skip_months: int = 0,
     portfolio_size: int = 5,
     transaction_cost_bps: float = 50,
 ) -> dict:
     """Run a monthly top-momentum pilot with a one-period information lag."""
     if lookback_months < 1:
         raise ValueError("lookback_months must be positive")
+    if skip_months < 0:
+        raise ValueError("skip_months cannot be negative")
     if portfolio_size < 1:
         raise ValueError("portfolio_size must be positive")
     required = {
@@ -58,7 +63,7 @@ def run_momentum_pilot(
     if monthly[["observation_month", "ticker"]].duplicated().any():
         raise ValueError("monthly returns contain duplicate month-ticker keys")
 
-    scored = _formation_scores(monthly, lookback_months)
+    scored = _formation_scores(monthly, lookback_months, skip_months)
     months = sorted(scored["observation_month"].unique())
     tickers = sorted(scored["ticker"].unique())
     previous_weights = pd.Series(0.0, index=tickers)
@@ -137,8 +142,11 @@ def run_momentum_pilot(
     return {
         "status": "preliminary",
         "methodology": {
-            "signal": f"prior {lookback_months}-month compounded marked-price return",
-            "information_lag": "one month",
+            "signal": (
+                f"{lookback_months}-month compounded marked-price return "
+                f"after skipping {skip_months} recent month(s)"
+            ),
+            "information_lag": f"{skip_months + 1} month(s) from signal to holding return",
             "selection": f"top {portfolio_size} securities by formation return",
             "weighting": "equal weight",
             "rebalance_frequency": "monthly",

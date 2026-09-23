@@ -125,14 +125,21 @@ def build_equal_weight_market_proxy(monthly: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def latest_momentum_snapshot(monthly: pd.DataFrame, months: int = 3) -> pd.DataFrame:
+def latest_momentum_snapshot(
+    monthly: pd.DataFrame, months: int = 3, skip_months: int = 0
+) -> pd.DataFrame:
     """Rank latest short-horizon momentum using marked monthly closes."""
     if months < 1:
         raise ValueError("momentum window must be positive")
+    if skip_months < 0:
+        raise ValueError("skip_months cannot be negative")
     frame = monthly.sort_values(["ticker", "observation_month"]).copy()
     frame["momentum_return"] = frame.groupby("ticker")["marked_monthly_return"].transform(
-        lambda values: (1 + values).rolling(months, min_periods=months).apply(
-            lambda window: window.prod() - 1, raw=False
+        lambda values: (
+            (1 + values)
+            .rolling(months, min_periods=months)
+            .apply(lambda window: window.prod() - 1, raw=False)
+            .shift(skip_months)
         )
     )
     latest_month = frame["observation_month"].max()

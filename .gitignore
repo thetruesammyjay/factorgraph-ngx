@@ -9,6 +9,10 @@ coverage/
 __pycache__/
 *.py[cod]
 .venv/
+.pytest_cache/
+.pytest-local/
+.uv-cache/
+.tmp/
 .env
 .env.*
 !.env.example

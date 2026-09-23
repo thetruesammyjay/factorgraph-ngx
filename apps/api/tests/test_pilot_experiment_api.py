@@ -8,12 +8,12 @@ def test_latest_pilot_experiment_exposes_computed_results():
 
     assert response.status_code == 200
     payload = response.json()
-    assert payload["experiment_id"] == "ngx-public-data-2024-pilot-v1"
-    assert payload["coverage"]["observations"] == 3255
+    assert payload["experiment_id"] == "ngx-public-data-2023-2024-pilot-v1"
+    assert payload["coverage"]["observations"] == 6375
     statuses = {
         item["factor"]: item["status"] for item in payload["factor_eligibility"]
     }
-    assert statuses["momentum"] == "preliminary"
+    assert statuses["momentum"] == "eligible"
     assert statuses["liquidity"] == "blocked"
-    assert len(payload["market_proxy"]) == 12
-    assert payload["market_proxy_statistics"]["marked_price"]["observations"] == 11
+    assert len(payload["market_proxy"]) == 24
+    assert payload["market_proxy_statistics"]["marked_price"]["observations"] == 23

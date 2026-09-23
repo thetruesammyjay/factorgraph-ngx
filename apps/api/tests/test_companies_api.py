@@ -9,7 +9,8 @@ def test_companies_api_uses_actual_pilot_universe():
 
     assert payload["total"] == 15
     assert payload["source"] == "validated_public_data_pilot"
-    assert len(payload["dataset_version"].removeprefix("ngx-public-2024-")) == 12
+    assert payload["dataset_version"].startswith("ngx-public-2023-2024-")
+    assert len(payload["dataset_version"].rsplit("-", 1)[-1]) == 12
     assert {row["ticker"] for row in payload["items"]} >= {"AIICO", "DANGCEM", "GTCO"}
 
 
@@ -19,7 +20,7 @@ def test_company_prices_and_fundamentals_are_observed_data():
     fundamentals = client.get("/api/v1/companies/DANGCEM/fundamentals").json()
 
     assert prices["frequency"] == "monthly"
-    assert len(prices["items"]) == 12
+    assert len(prices["items"]) == 24
     assert len(fundamentals["items"]) == 2
     assert fundamentals["items"][-1]["source_id"] == "dangcem-annual-report-2023"
 

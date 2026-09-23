@@ -1,0 +1,534 @@
+{
+  "dataset_id": "ngx-15-2023",
+  "structural_status": "passed",
+  "price_universe_expansion": "proceed_with_stale_price_controls",
+  "research_readiness": "blocked_missing_liquidity",
+  "source_pdf_count": 215,
+  "valid_dol_document_count": 208,
+  "valid_document_rate": 0.9674,
+  "observation_count": 3120,
+  "tickers": [
+    "ACCESSCORP",
+    "AIICO",
+    "DANGCEM",
+    "FBNH",
+    "GTCO",
+    "MTNN",
+    "NB",
+    "NESTLE",
+    "OKOMUOIL",
+    "PRESCO",
+    "SEPLAT",
+    "TOTAL",
+    "UBA",
+    "WAPCO",
+    "ZENITHBANK"
+  ],
+  "universe": {
+    "universe_id": "ngx-15-2024",
+    "name": "NGX 15-security public-data audit universe",
+    "selection_basis": "Cross-sector, long-listed securities selected for data-feasibility testing; inclusion is not an investment recommendation.",
+    "securities": [
+      {
+        "ticker": "ACCESSCORP",
+        "company": "Access Holdings",
+        "sector": "Banking"
+      },
+      {
+        "ticker": "AIICO",
+        "company": "AIICO Insurance",
+        "sector": "Insurance"
+      },
+      {
+        "ticker": "DANGCEM",
+        "company": "Dangote Cement",
+        "sector": "Industrial Goods"
+      },
+      {
+        "ticker": "FBNH",
+        "company": "FBN Holdings",
+        "sector": "Banking"
+      },
+      {
+        "ticker": "GTCO",
+        "company": "Guaranty Trust Holding",
+        "sector": "Banking"
+      },
+      {
+        "ticker": "MTNN",
+        "company": "MTN Nigeria Communications",
+        "sector": "Telecommunications"
+      },
+      {
+        "ticker": "NB",
+        "company": "Nigerian Breweries",
+        "sector": "Consumer Goods"
+      },
+      {
+        "ticker": "NESTLE",
+        "company": "Nestle Nigeria",
+        "sector": "Consumer Goods"
+      },
+      {
+        "ticker": "OKOMUOIL",
+        "company": "Okomu Oil Palm",
+        "sector": "Agriculture"
+      },
+      {
+        "ticker": "PRESCO",
+        "company": "Presco",
+        "sector": "Agriculture"
+      },
+      {
+        "ticker": "SEPLAT",
+        "company": "Seplat Energy",
+        "sector": "Oil and Gas"
+      },
+      {
+        "ticker": "TOTAL",
+        "company": "TotalEnergies Marketing Nigeria",
+        "sector": "Oil and Gas"
+      },
+      {
+        "ticker": "UBA",
+        "company": "United Bank for Africa",
+        "sector": "Banking"
+      },
+      {
+        "ticker": "WAPCO",
+        "company": "Lafarge Africa",
+        "sector": "Industrial Goods"
+      },
+      {
+        "ticker": "ZENITHBANK",
+        "company": "Zenith Bank",
+        "sector": "Banking"
+      }
+    ]
+  },
+  "date_min": "2023-01-03",
+  "date_max": "2023-12-29",
+  "observations_by_ticker": {
+    "ACCESSCORP": 208,
+    "AIICO": 208,
+    "DANGCEM": 208,
+    "FBNH": 208,
+    "GTCO": 208,
+    "MTNN": 208,
+    "NB": 208,
+    "NESTLE": 208,
+    "OKOMUOIL": 208,
+    "PRESCO": 208,
+    "SEPLAT": 208,
+    "TOTAL": 208,
+    "UBA": 208,
+    "WAPCO": 208,
+    "ZENITHBANK": 208
+  },
+  "missing_ticker_dates": {
+    "ACCESSCORP": 0,
+    "AIICO": 0,
+    "DANGCEM": 0,
+    "FBNH": 0,
+    "GTCO": 0,
+    "MTNN": 0,
+    "NB": 0,
+    "NESTLE": 0,
+    "OKOMUOIL": 0,
+    "PRESCO": 0,
+    "SEPLAT": 0,
+    "TOTAL": 0,
+    "UBA": 0,
+    "WAPCO": 0,
+    "ZENITHBANK": 0
+  },
+  "duplicate_keys": 0,
+  "non_positive_closes": 0,
+  "carried_market_prices_by_ticker": {
+    "ACCESSCORP": 72,
+    "AIICO": 188,
+    "DANGCEM": 201,
+    "FBNH": 156,
+    "GTCO": 94,
+    "MTNN": 197,
+    "NB": 200,
+    "NESTLE": 208,
+    "OKOMUOIL": 207,
+    "PRESCO": 208,
+    "SEPLAT": 207,
+    "TOTAL": 208,
+    "UBA": 91,
+    "WAPCO": 176,
+    "ZENITHBANK": 78
+  },
+  "unique_closes_by_ticker": {
+    "ACCESSCORP": 103,
+    "AIICO": 27,
+    "DANGCEM": 37,
+    "FBNH": 101,
+    "GTCO": 112,
+    "MTNN": 64,
+    "NB": 65,
+    "NESTLE": 18,
+    "OKOMUOIL": 20,
+    "PRESCO": 26,
+    "SEPLAT": 19,
+    "TOTAL": 15,
+    "UBA": 104,
+    "WAPCO": 86,
+    "ZENITHBANK": 109
+  },
+  "longest_unchanged_close_run_by_ticker": {
+    "ACCESSCORP": 3,
+    "AIICO": 6,
+    "DANGCEM": 28,
+    "FBNH": 7,
+    "GTCO": 3,
+    "MTNN": 10,
+    "NB": 11,
+    "NESTLE": 44,
+    "OKOMUOIL": 27,
+    "PRESCO": 67,
+    "SEPLAT": 36,
+    "TOTAL": 92,
+    "UBA": 8,
+    "WAPCO": 7,
+    "ZENITHBANK": 4
+  },
+  "missing_liquidity_fields": {
+    "volume": 3120,
+    "trading_value": 3120,
+    "number_of_transactions": 3120
+  },
+  "parse_errors": [],
+  "source_date_mismatch_files": [
+    "ngx-dol-equities-2023-07-04.pdf",
+    "ngx-dol-equities-2023-10-03.pdf",
+    "ngx-dol-equities-2023-11-07.pdf",
+    "ngx-dol-equities-2023-11-21.pdf",
+    "ngx-dol-equities-2023-11-22.pdf"
+  ],
+  "monthly_download_coverage": {
+    "2023-01": {
+      "weekday_candidates": 22,
+      "documents_retrieved": 19,
+      "not_available": 3,
+      "candidate_coverage_rate": 0.8636,
+      "valid_dol_documents": 19,
+      "source_exceptions": 0,
+      "valid_dol_rate": 1.0
+    },
+    "2023-02": {
+      "weekday_candidates": 20,
+      "documents_retrieved": 15,
+      "not_available": 5,
+      "candidate_coverage_rate": 0.75,
+      "valid_dol_documents": 15,
+      "source_exceptions": 0,
+      "valid_dol_rate": 1.0
+    },
+    "2023-03": {
+      "weekday_candidates": 23,
+      "documents_retrieved": 20,
+      "not_available": 3,
+      "candidate_coverage_rate": 0.8696,
+      "valid_dol_documents": 20,
+      "source_exceptions": 0,
+      "valid_dol_rate": 1.0
+    },
+    "2023-04": {
+      "weekday_candidates": 20,
+      "documents_retrieved": 13,
+      "not_available": 7,
+      "candidate_coverage_rate": 0.65,
+      "valid_dol_documents": 13,
+      "source_exceptions": 0,
+      "valid_dol_rate": 1.0
+    },
+    "2023-05": {
+      "weekday_candidates": 23,
+      "documents_retrieved": 17,
+      "not_available": 6,
+      "candidate_coverage_rate": 0.7391,
+      "valid_dol_documents": 17,
+      "source_exceptions": 0,
+      "valid_dol_rate": 1.0
+    },
+    "2023-06": {
+      "weekday_candidates": 22,
+      "documents_retrieved": 18,
+      "not_available": 4,
+      "candidate_coverage_rate": 0.8182,
+      "valid_dol_documents": 18,
+      "source_exceptions": 0,
+      "valid_dol_rate": 1.0
+    },
+    "2023-07": {
+      "weekday_candidates": 21,
+      "documents_retrieved": 20,
+      "not_available": 1,
+      "candidate_coverage_rate": 0.9524,
+      "valid_dol_documents": 17,
+      "source_exceptions": 3,
+      "valid_dol_rate": 0.85
+    },
+    "2023-08": {
+      "weekday_candidates": 23,
+      "documents_retrieved": 22,
+      "not_available": 1,
+      "candidate_coverage_rate": 0.9565,
+      "valid_dol_documents": 22,
+      "source_exceptions": 0,
+      "valid_dol_rate": 1.0
+    },
+    "2023-09": {
+      "weekday_candidates": 21,
+      "documents_retrieved": 20,
+      "not_available": 1,
+      "candidate_coverage_rate": 0.9524,
+      "valid_dol_documents": 20,
+      "source_exceptions": 0,
+      "valid_dol_rate": 1.0
+    },
+    "2023-10": {
+      "weekday_candidates": 22,
+      "documents_retrieved": 19,
+      "not_available": 3,
+      "candidate_coverage_rate": 0.8636,
+      "valid_dol_documents": 18,
+      "source_exceptions": 1,
+      "valid_dol_rate": 0.9474
+    },
+    "2023-11": {
+      "weekday_candidates": 22,
+      "documents_retrieved": 20,
+      "not_available": 2,
+      "candidate_coverage_rate": 0.9091,
+      "valid_dol_documents": 17,
+      "source_exceptions": 3,
+      "valid_dol_rate": 0.85
+    },
+    "2023-12": {
+      "weekday_candidates": 21,
+      "documents_retrieved": 12,
+      "not_available": 9,
+      "candidate_coverage_rate": 0.5714,
+      "valid_dol_documents": 12,
+      "source_exceptions": 0,
+      "valid_dol_rate": 1.0
+    }
+  },
+  "monthly_observations_by_ticker": {
+    "2023-01": {
+      "ACCESSCORP": 19,
+      "AIICO": 19,
+      "DANGCEM": 19,
+      "FBNH": 19,
+      "GTCO": 19,
+      "MTNN": 19,
+      "NB": 19,
+      "NESTLE": 19,
+      "OKOMUOIL": 19,
+      "PRESCO": 19,
+      "SEPLAT": 19,
+      "TOTAL": 19,
+      "UBA": 19,
+      "WAPCO": 19,
+      "ZENITHBANK": 19
+    },
+    "2023-02": {
+      "ACCESSCORP": 15,
+      "AIICO": 15,
+      "DANGCEM": 15,
+      "FBNH": 15,
+      "GTCO": 15,
+      "MTNN": 15,
+      "NB": 15,
+      "NESTLE": 15,
+      "OKOMUOIL": 15,
+      "PRESCO": 15,
+      "SEPLAT": 15,
+      "TOTAL": 15,
+      "UBA": 15,
+      "WAPCO": 15,
+      "ZENITHBANK": 15
+    },
+    "2023-03": {
+      "ACCESSCORP": 20,
+      "AIICO": 20,
+      "DANGCEM": 20,
+      "FBNH": 20,
+      "GTCO": 20,
+      "MTNN": 20,
+      "NB": 20,
+      "NESTLE": 20,
+      "OKOMUOIL": 20,
+      "PRESCO": 20,
+      "SEPLAT": 20,
+      "TOTAL": 20,
+      "UBA": 20,
+      "WAPCO": 20,
+      "ZENITHBANK": 20
+    },
+    "2023-04": {
+      "ACCESSCORP": 13,
+      "AIICO": 13,
+      "DANGCEM": 13,
+      "FBNH": 13,
+      "GTCO": 13,
+      "MTNN": 13,
+      "NB": 13,
+      "NESTLE": 13,
+      "OKOMUOIL": 13,
+      "PRESCO": 13,
+      "SEPLAT": 13,
+      "TOTAL": 13,
+      "UBA": 13,
+      "WAPCO": 13,
+      "ZENITHBANK": 13
+    },
+    "2023-05": {
+      "ACCESSCORP": 17,
+      "AIICO": 17,
+      "DANGCEM": 17,
+      "FBNH": 17,
+      "GTCO": 17,
+      "MTNN": 17,
+      "NB": 17,
+      "NESTLE": 17,
+      "OKOMUOIL": 17,
+      "PRESCO": 17,
+      "SEPLAT": 17,
+      "TOTAL": 17,
+      "UBA": 17,
+      "WAPCO": 17,
+      "ZENITHBANK": 17
+    },
+    "2023-06": {
+      "ACCESSCORP": 18,
+      "AIICO": 18,
+      "DANGCEM": 18,
+      "FBNH": 18,
+      "GTCO": 18,
+      "MTNN": 18,
+      "NB": 18,
+      "NESTLE": 18,
+      "OKOMUOIL": 18,
+      "PRESCO": 18,
+      "SEPLAT": 18,
+      "TOTAL": 18,
+      "UBA": 18,
+      "WAPCO": 18,
+      "ZENITHBANK": 18
+    },
+    "2023-07": {
+      "ACCESSCORP": 17,
+      "AIICO": 17,
+      "DANGCEM": 17,
+      "FBNH": 17,
+      "GTCO": 17,
+      "MTNN": 17,
+      "NB": 17,
+      "NESTLE": 17,
+      "OKOMUOIL": 17,
+      "PRESCO": 17,
+      "SEPLAT": 17,
+      "TOTAL": 17,
+      "UBA": 17,
+      "WAPCO": 17,
+      "ZENITHBANK": 17
+    },
+    "2023-08": {
+      "ACCESSCORP": 22,
+      "AIICO": 22,
+      "DANGCEM": 22,
+      "FBNH": 22,
+      "GTCO": 22,
+      "MTNN": 22,
+      "NB": 22,
+      "NESTLE": 22,
+      "OKOMUOIL": 22,
+      "PRESCO": 22,
+      "SEPLAT": 22,
+      "TOTAL": 22,
+      "UBA": 22,
+      "WAPCO": 22,
+      "ZENITHBANK": 22
+    },
+    "2023-09": {
+      "ACCESSCORP": 20,
+      "AIICO": 20,
+      "DANGCEM": 20,
+      "FBNH": 20,
+      "GTCO": 20,
+      "MTNN": 20,
+      "NB": 20,
+      "NESTLE": 20,
+      "OKOMUOIL": 20,
+      "PRESCO": 20,
+      "SEPLAT": 20,
+      "TOTAL": 20,
+      "UBA": 20,
+      "WAPCO": 20,
+      "ZENITHBANK": 20
+    },
+    "2023-10": {
+      "ACCESSCORP": 18,
+      "AIICO": 18,
+      "DANGCEM": 18,
+      "FBNH": 18,
+      "GTCO": 18,
+      "MTNN": 18,
+      "NB": 18,
+      "NESTLE": 18,
+      "OKOMUOIL": 18,
+      "PRESCO": 18,
+      "SEPLAT": 18,
+      "TOTAL": 18,
+      "UBA": 18,
+      "WAPCO": 18,
+      "ZENITHBANK": 18
+    },
+    "2023-11": {
+      "ACCESSCORP": 17,
+      "AIICO": 17,
+      "DANGCEM": 17,
+      "FBNH": 17,
+      "GTCO": 17,
+      "MTNN": 17,
+      "NB": 17,
+      "NESTLE": 17,
+      "OKOMUOIL": 17,
+      "PRESCO": 17,
+      "SEPLAT": 17,
+      "TOTAL": 17,
+      "UBA": 17,
+      "WAPCO": 17,
+      "ZENITHBANK": 17
+    },
+    "2023-12": {
+      "ACCESSCORP": 12,
+      "AIICO": 12,
+      "DANGCEM": 12,
+      "FBNH": 12,
+      "GTCO": 12,
+      "MTNN": 12,
+      "NB": 12,
+      "NESTLE": 12,
+      "OKOMUOIL": 12,
+      "PRESCO": 12,
+      "SEPLAT": 12,
+      "TOTAL": 12,
+      "UBA": 12,
+      "WAPCO": 12,
+      "ZENITHBANK": 12
+    }
+  },
+  "price_expansion_gate": {
+    "minimum_source_documents": 200,
+    "minimum_valid_document_rate": 0.95,
+    "requires_complete_ticker_presence_in_retrieved_documents": true,
+    "passed": true
+  },
+  "interpretation": "Current Market Price is staged as close. Rows without an Official Close are flagged as carried_market_price. Business Done Qty is deliberately excluded because it is not verified as total daily volume."
+}

@@ -181,28 +181,32 @@ The pipeline applies:
 
 ## First deterministic experiment
 
-The repository includes a reproducible 2024 pilot that builds two return
+The repository includes a reproducible 2023–2024 pilot that builds two return
 series for every security:
 
 - `marked_return`, calculated from every staged closing price; and
 - `official_trade_return`, calculated only between consecutive observations
   identified as official trades.
 
-It also produces monthly equal-weight market proxies, a three-month momentum
+It also produces monthly equal-weight market proxies, a 12–1 momentum
 snapshot and machine-readable eligibility decisions for Market, Size, Value,
 Momentum and Liquidity. Build it from `apps/api`:
 
 ```powershell
 $env:PYTHONPATH='.'
 uv run python scripts/build_public_data_experiment.py `
-  --prices ../../data/processed/ngx-dol-2024-15-security.csv `
+  --prices ../../data/processed/ngx-dol-2023-2024-15-security.csv `
   --fundamentals ../../data/collection/fundamentals-2024-pilot.csv `
-  --daily-output ../../data/processed/ngx-2024-daily-returns.csv `
-  --monthly-output ../../data/processed/ngx-2024-monthly-returns.csv `
-  --characteristics-output ../../data/processed/ngx-2024-point-in-time-characteristics.csv `
-  --report ../../research/audit-results/ngx-public-data-2024-pilot.json `
+  --daily-output ../../data/processed/ngx-2023-2024-daily-returns.csv `
+  --monthly-output ../../data/processed/ngx-2023-2024-monthly-returns.csv `
+  --characteristics-output ../../data/processed/ngx-2023-2024-point-in-time-characteristics.csv `
+  --report ../../research/audit-results/ngx-public-data-2023-2024-pilot.json `
   --api-report app/data/reports/pilot-latest.json `
-  --momentum-months 3
+  --momentum-months 11 `
+  --momentum-skip-months 1 `
+  --benchmark ../../data/processed/benchmark-2023-2024.csv `
+  --risk-free ../../data/processed/risk-free-2023-2024.csv `
+  --universe ../../data/universes/ngx-15-2024.json
 ```
 
 When reviewed market inputs are available, add:
@@ -221,7 +225,7 @@ rate to an effective monthly return, and calculates `market_return -
 risk_free_return`. Both files are required together; until they contain valid,
 aligned observations, the Market factor remains preliminary.
 
-The committed 2024 pilot inputs contain official NGX weekly ASI closes and CBN
+The committed 2023–2024 pilot inputs contain official NGX weekly ASI closes and CBN
 91-day NTB auction marginal rates. Consequently, “final benchmark level” means
 the last weekly close available during each month, which is preserved as a
 pilot-frequency limitation in the source review.
@@ -235,9 +239,9 @@ GET /api/v1/factors/{factor}
 GET /api/v1/factors/market/history
 GET /api/v1/factors/size/characteristics
 GET /api/v1/factors/value/characteristics
-GET /api/v1/portfolios/ngx-public-data-2024-pilot-v1
-GET /api/v1/portfolios/ngx-public-data-2024-pilot-v1/holdings
-GET /api/v1/portfolios/ngx-public-data-2024-pilot-v1/performance
+GET /api/v1/portfolios/ngx-public-data-2023-2024-pilot-v1
+GET /api/v1/portfolios/ngx-public-data-2023-2024-pilot-v1/holdings
+GET /api/v1/portfolios/ngx-public-data-2023-2024-pilot-v1/performance
 GET /api/v1/companies
 GET /api/v1/companies/{ticker}
 GET /api/v1/companies/{ticker}/prices
@@ -246,10 +250,10 @@ GET /api/v1/companies/{ticker}/fundamentals
 
 The Next.js console reads these endpoints and shows blocked factors as blocked;
 it does not substitute demonstration statistics for missing research results.
-The portfolio view exposes a preliminary three-month Momentum pilot. Formation
-returns are lagged by one month, holdings are equally weighted, and a 50-basis-
-point transaction-cost assumption is applied to measured turnover. Its eight
-invested months are insufficient for a general factor-performance conclusion.
+The portfolio view exposes a 12–1 Momentum pilot. Formation returns compound
+months t-12 through t-2, holdings are equally weighted, and a 50-basis-point
+transaction-cost assumption is applied to measured turnover. The two-year
+sample supports a pilot experiment, not a general factor-performance claim.
 
 The Size and Value characteristic endpoints perform an as-of join using each
 fundamental observation's `effective_from` date. They expose eligible and
