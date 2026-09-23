@@ -10,6 +10,7 @@ from pathlib import Path
 import pandas as pd
 
 from app.data.market_inputs import build_monthly_market_inputs
+from app.data.provenance import dataset_fingerprint, git_revision, input_identity
 from app.factors.characteristics import (
     build_point_in_time_characteristics,
     latest_characteristic_snapshot,
@@ -46,12 +47,34 @@ def main() -> None:
     parser.add_argument("--risk-free", type=Path)
     parser.add_argument("--benchmark-code", default="NGXASI")
     parser.add_argument("--risk-free-tenor", default="91D")
+    parser.add_argument("--universe", type=Path)
     args = parser.parse_args()
     if bool(args.benchmark) != bool(args.risk_free):
         parser.error("--benchmark and --risk-free must be provided together")
 
     prices = pd.read_csv(args.prices)
     fundamentals = pd.read_csv(args.fundamentals)
+    repository_root = Path(__file__).resolve().parents[3]
+    input_paths = {"prices": args.prices, "fundamentals": args.fundamentals}
+    if args.benchmark:
+        input_paths["benchmark"] = args.benchmark
+    if args.risk_free:
+        input_paths["risk_free"] = args.risk_free
+    if args.universe:
+        input_paths["universe"] = args.universe
+    input_identities = {name: input_identity(path) for name, path in input_paths.items()}
+    experiment_configuration = {
+        "benchmark_code": args.benchmark_code,
+        "risk_free_tenor": args.risk_free_tenor,
+        "momentum_months": args.momentum_months,
+        "momentum_portfolio_size": 5,
+        "transaction_cost_bps": 50,
+        "missing_values": "not_imputed",
+    }
+    fingerprint = dataset_fingerprint(input_identities, experiment_configuration)
+    universe = (
+        json.loads(args.universe.read_text(encoding="utf-8")) if args.universe else None
+    )
     daily, coverage = build_daily_returns(prices)
     monthly = build_monthly_returns(daily)
     characteristics, characteristic_coverage = build_point_in_time_characteristics(
@@ -106,6 +129,14 @@ def main() -> None:
         "name": "2024 public-data return and eligibility pilot",
         "status": "completed_with_constraints",
         "generated_at": datetime.now(UTC).isoformat(),
+        "dataset_version": f"ngx-public-2024-{fingerprint[:12]}",
+        "reproducibility": {
+            "fingerprint": fingerprint,
+            "inputs": input_identities,
+            "configuration": experiment_configuration,
+            "software": git_revision(repository_root),
+        },
+        "universe": universe,
         "price_dataset": args.prices.name,
         "fundamentals_dataset": args.fundamentals.name,
         "methodology": {

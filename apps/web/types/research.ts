@@ -63,6 +63,19 @@ export type PilotExperiment = {
   name: string;
   status: "completed_with_constraints";
   generated_at: string;
+  dataset_version: string;
+  reproducibility: {
+    fingerprint: string;
+    inputs: Record<string, { filename: string; bytes: number; sha256: string }>;
+    configuration: Record<string, string | number>;
+    software: { commit: string | null; dirty: boolean | null };
+  };
+  universe: {
+    universe_id: string;
+    name: string;
+    selection_basis: string;
+    securities: Array<{ ticker: string; company: string; sector: string }>;
+  };
   price_dataset: string;
   fundamentals_dataset: string;
   coverage: {

@@ -210,6 +210,7 @@ When reviewed market inputs are available, add:
 ```powershell
   --benchmark ../../data/collection/benchmark.csv `
   --risk-free ../../data/collection/risk-free.csv `
+  --universe ../../data/universes/ngx-15-2024.json `
   --benchmark-code NGXASI `
   --risk-free-tenor 91D
 ```
@@ -237,6 +238,10 @@ GET /api/v1/factors/value/characteristics
 GET /api/v1/portfolios/ngx-public-data-2024-pilot-v1
 GET /api/v1/portfolios/ngx-public-data-2024-pilot-v1/holdings
 GET /api/v1/portfolios/ngx-public-data-2024-pilot-v1/performance
+GET /api/v1/companies
+GET /api/v1/companies/{ticker}
+GET /api/v1/companies/{ticker}/prices
+GET /api/v1/companies/{ticker}/fundamentals
 ```
 
 The Next.js console reads these endpoints and shows blocked factors as blocked;
@@ -251,6 +256,11 @@ fundamental observation's `effective_from` date. They expose eligible and
 excluded security-months separately. Market-capitalisation and book-to-market
 rankings remain descriptive until broader issuer coverage permits defensible
 SMB and HML return portfolios.
+
+Every generated experiment records SHA-256 identities for its input files, a
+stable dataset fingerprint, its numerical configuration, the Git commit, and
+whether the working tree contained uncommitted changes. Company endpoints are
+derived from the declared 15-security universe and computed report.
 
 Raw licensed or confidential data must not be committed. Public source files in
 `data/raw/` are also ignored so datasets remain reproducible from their

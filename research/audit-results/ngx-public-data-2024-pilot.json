@@ -2,7 +2,132 @@
   "experiment_id": "ngx-public-data-2024-pilot-v1",
   "name": "2024 public-data return and eligibility pilot",
   "status": "completed_with_constraints",
-  "generated_at": "2026-09-23T14:18:32.585829+00:00",
+  "generated_at": "2026-09-23T15:00:52.313987+00:00",
+  "dataset_version": "ngx-public-2024-90d13e2d4c6e",
+  "reproducibility": {
+    "fingerprint": "90d13e2d4c6e89ffcf468cff658c419bca537029be3501db8a89062532607a8b",
+    "inputs": {
+      "prices": {
+        "filename": "ngx-dol-2024-15-security.csv",
+        "bytes": 357621,
+        "sha256": "cf6de5776a81a1489610bd70f5dbfd5e987981eca5061ba412a3caf6156f8d29"
+      },
+      "fundamentals": {
+        "filename": "fundamentals-2024-pilot.csv",
+        "bytes": 4926,
+        "sha256": "078ae922b0d0bed9e4a18fd2b7ae15a9ab9d7b678e017b90c1ecb52d9a74c867"
+      },
+      "benchmark": {
+        "filename": "benchmark-2024.csv",
+        "bytes": 4653,
+        "sha256": "4a514a07e833cd09788c6c7c8cba6b2f54ba1dc7c4206392e4b99c0acc8f7408"
+      },
+      "risk_free": {
+        "filename": "risk-free-2024.csv",
+        "bytes": 2171,
+        "sha256": "17bf9a9719956a4f17f14a2a538cc31436bac9add24144755db1e14b9fcaf4dd"
+      },
+      "universe": {
+        "filename": "ngx-15-2024.json",
+        "bytes": 1493,
+        "sha256": "d1f8cae93646667853b246c8fabfc9297f4bf2e0b85a5cddf538d1dac821a707"
+      }
+    },
+    "configuration": {
+      "benchmark_code": "NGXASI",
+      "risk_free_tenor": "91D",
+      "momentum_months": 3,
+      "momentum_portfolio_size": 5,
+      "transaction_cost_bps": 50,
+      "missing_values": "not_imputed"
+    },
+    "software": {
+      "commit": "b2254e6c6d5c6c43043c4f21bf80cafcb1e8e35d",
+      "dirty": true
+    }
+  },
+  "universe": {
+    "universe_id": "ngx-15-2024",
+    "name": "NGX 15-security public-data audit universe",
+    "selection_basis": "Cross-sector, long-listed securities selected for data-feasibility testing; inclusion is not an investment recommendation.",
+    "securities": [
+      {
+        "ticker": "ACCESSCORP",
+        "company": "Access Holdings",
+        "sector": "Banking"
+      },
+      {
+        "ticker": "AIICO",
+        "company": "AIICO Insurance",
+        "sector": "Insurance"
+      },
+      {
+        "ticker": "DANGCEM",
+        "company": "Dangote Cement",
+        "sector": "Industrial Goods"
+      },
+      {
+        "ticker": "FBNH",
+        "company": "FBN Holdings",
+        "sector": "Banking"
+      },
+      {
+        "ticker": "GTCO",
+        "company": "Guaranty Trust Holding",
+        "sector": "Banking"
+      },
+      {
+        "ticker": "MTNN",
+        "company": "MTN Nigeria Communications",
+        "sector": "Telecommunications"
+      },
+      {
+        "ticker": "NB",
+        "company": "Nigerian Breweries",
+        "sector": "Consumer Goods"
+      },
+      {
+        "ticker": "NESTLE",
+        "company": "Nestle Nigeria",
+        "sector": "Consumer Goods"
+      },
+      {
+        "ticker": "OKOMUOIL",
+        "company": "Okomu Oil Palm",
+        "sector": "Agriculture"
+      },
+      {
+        "ticker": "PRESCO",
+        "company": "Presco",
+        "sector": "Agriculture"
+      },
+      {
+        "ticker": "SEPLAT",
+        "company": "Seplat Energy",
+        "sector": "Oil and Gas"
+      },
+      {
+        "ticker": "TOTAL",
+        "company": "TotalEnergies Marketing Nigeria",
+        "sector": "Oil and Gas"
+      },
+      {
+        "ticker": "UBA",
+        "company": "United Bank for Africa",
+        "sector": "Banking"
+      },
+      {
+        "ticker": "WAPCO",
+        "company": "Lafarge Africa",
+        "sector": "Industrial Goods"
+      },
+      {
+        "ticker": "ZENITHBANK",
+        "company": "Zenith Bank",
+        "sector": "Banking"
+      }
+    ]
+  },
   "price_dataset": "ngx-dol-2024-15-security.csv",
   "fundamentals_dataset": "fundamentals-2024-pilot.csv",
   "methodology": {

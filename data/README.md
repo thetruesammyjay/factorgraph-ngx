@@ -207,6 +207,7 @@ uv run python scripts/build_public_data_experiment.py `
   --daily-output ../../data/processed/ngx-2024-daily-returns.csv `
   --monthly-output ../../data/processed/ngx-2024-monthly-returns.csv `
   --characteristics-output ../../data/processed/ngx-2024-point-in-time-characteristics.csv `
+  --universe ../../data/universes/ngx-15-2024.json `
   --report ../../research/audit-results/ngx-public-data-2024-pilot.json `
   --api-report app/data/reports/pilot-latest.json `
   --momentum-months 3
@@ -220,6 +221,11 @@ the experiment methodology explicitly names another series.
 
 Generated return CSVs remain ignored because they are reproducible. The compact
 experiment report is committed for the API and research audit trail.
+
+The report identifies every supplied input by filename, byte length and SHA-256
+hash. Its stable dataset version is derived from those identities and the
+numerical configuration, while the run metadata records the Git revision and
+whether uncommitted changes existed during generation.
 
 The report also contains a preliminary top-five Momentum portfolio. Each
 rebalance uses the preceding three monthly marked-price returns, applies the
