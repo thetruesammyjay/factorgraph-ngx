@@ -201,16 +201,55 @@ calculates a short-horizon momentum snapshot, and evaluates every factor's
 input gate.
 
 ```powershell
-uv run python -m scripts.build_public_data_experiment `
+uv run python scripts/build_public_data_experiment.py `
   --prices ../../data/processed/ngx-dol-2024-15-security.csv `
   --fundamentals ../../data/collection/fundamentals-2024-pilot.csv `
   --daily-output ../../data/processed/ngx-2024-daily-returns.csv `
   --monthly-output ../../data/processed/ngx-2024-monthly-returns.csv `
+  --characteristics-output ../../data/processed/ngx-2024-point-in-time-characteristics.csv `
   --report ../../research/audit-results/ngx-public-data-2024-pilot.json `
   --api-report app/data/reports/pilot-latest.json `
   --momentum-months 3
 ```
 
+The optional `--benchmark` and `--risk-free` arguments accept copies of the
+schemas in `data/templates/benchmark.csv` and `data/templates/risk_free.csv`.
+They must be supplied together. The default selected series are `NGXASI` and
+`91D`; override them with `--benchmark-code` and `--risk-free-tenor` only when
+the experiment methodology explicitly names another series.
+
 Generated return CSVs remain ignored because they are reproducible. The compact
 experiment report is committed for the API and research audit trail.
+
+The report also contains a preliminary top-five Momentum portfolio. Each
+rebalance uses the preceding three monthly marked-price returns, applies the
+resulting weights to the following month, and deducts 50 basis points times
+one-way turnover. Official-trade returns are retained as a coverage-labelled
+sensitivity series; they are not silently substituted for missing observations.
+
+The point-in-time characteristic output matches every monthly price to the most
+recent fundamental observation whose `effective_from` date is on or before the
+price date. Size uses `close × shares_outstanding`. Value uses `book_equity ÷
+market_cap` and excludes non-positive book equity without excluding the issuer
+from Size. Missing and excluded observations retain explicit reason codes.
+
+## Official market inputs
+
+Collect the 2024 NGX ASI weekly closes and CBN 91-day NTB auction rates from
+`apps/api`:
+
+```powershell
+$env:PYTHONPATH='.'
+uv run python scripts/collect_2024_market_inputs.py `
+  --raw-dir ../../data/raw/market-inputs-2024 `
+  --benchmark-output ../../data/collection/benchmark-2024.csv `
+  --risk-free-output ../../data/collection/risk-free-2024.csv `
+  --manifest ../../data/manifests/market-inputs-2024.json `
+  --review-report ../../research/audit-results/market-inputs-2024-review.json
+```
+
+The benchmark series is sampled from official weekly reports. Monthly alignment
+uses the last weekly close available in each month and does not describe it as a
+daily month-end close. The risk-free series uses the CBN primary-market `91DAY`
+marginal rate from the final auction available in each month.
 

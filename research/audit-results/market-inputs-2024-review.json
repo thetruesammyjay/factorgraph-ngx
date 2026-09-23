@@ -1,0 +1,155 @@
+{
+  "dataset_id": "official-market-inputs-2024",
+  "decision": "accepted",
+  "coverage": {
+    "benchmark_observations": 50,
+    "benchmark_months": 12,
+    "risk_free_observations": 25,
+    "risk_free_months": 12,
+    "aligned_months": 12,
+    "benchmark_code": "NGXASI",
+    "risk_free_tenor": "91D",
+    "first_aligned_month": "2024-01",
+    "last_aligned_month": "2024-12"
+  },
+  "benchmark": {
+    "observations": 50,
+    "months": [
+      "2024-01",
+      "2024-02",
+      "2024-03",
+      "2024-04",
+      "2024-05",
+      "2024-06",
+      "2024-07",
+      "2024-08",
+      "2024-09",
+      "2024-10",
+      "2024-11",
+      "2024-12"
+    ],
+    "duplicate_keys": 0,
+    "non_positive_closes": 0,
+    "accepted_documents": 50,
+    "attempted_documents": 52
+  },
+  "risk_free": {
+    "observations": 25,
+    "months": [
+      "2024-01",
+      "2024-02",
+      "2024-03",
+      "2024-04",
+      "2024-05",
+      "2024-06",
+      "2024-07",
+      "2024-08",
+      "2024-09",
+      "2024-10",
+      "2024-11",
+      "2024-12"
+    ],
+    "duplicate_keys": 0,
+    "rate_min": 2.44,
+    "rate_max": 18.5,
+    "rate_field": "CBN NTB marginal rate"
+  },
+  "aligned_market_factor": [
+    {
+      "observation_month": "2024-01",
+      "benchmark_close": 102401.88,
+      "market_return": null,
+      "annual_rate_percent": 5.0,
+      "risk_free_return": 0.0040741238,
+      "market_excess_return": null
+    },
+    {
+      "observation_month": "2024-02",
+      "benchmark_close": 102088.3,
+      "market_return": -0.0030622485,
+      "annual_rate_percent": 17.0,
+      "risk_free_return": 0.0131696111,
+      "market_excess_return": -0.0162318596
+    },
+    {
+      "observation_month": "2024-03",
+      "benchmark_close": 104647.37,
+      "market_return": 0.0250672212,
+      "annual_rate_percent": 16.24,
+      "risk_free_return": 0.0126195321,
+      "market_excess_return": 0.0124476891
+    },
+    {
+      "observation_month": "2024-04",
+      "benchmark_close": 98152.91,
+      "market_return": -0.0620604225,
+      "annual_rate_percent": 16.24,
+      "risk_free_return": 0.0126195321,
+      "market_excess_return": -0.0746799547
+    },
+    {
+      "observation_month": "2024-05",
+      "benchmark_close": 99300.38,
+      "market_return": 0.0116906366,
+      "annual_rate_percent": 16.5,
+      "risk_free_return": 0.0128080871,
+      "market_excess_return": -0.0011174505
+    },
+    {
+      "observation_month": "2024-06",
+      "benchmark_close": 100057.49,
+      "market_return": 0.0076244421,
+      "annual_rate_percent": 16.3,
+      "risk_free_return": 0.0126630791,
+      "market_excess_return": -0.005038637
+    },
+    {
+      "observation_month": "2024-07",
+      "benchmark_close": 98201.49,
+      "market_return": -0.018549336,
+      "annual_rate_percent": 18.5,
+      "risk_free_return": 0.0142457484,
+      "market_excess_return": -0.0327950844
+    },
+    {
+      "observation_month": "2024-08",
+      "benchmark_close": 96579.54,
+      "market_return": -0.0165165518,
+      "annual_rate_percent": 18.2,
+      "risk_free_return": 0.0140315238,
+      "market_excess_return": -0.0305480756
+    },
+    {
+      "observation_month": "2024-09",
+      "benchmark_close": 98458.68,
+      "market_return": 0.019456916,
+      "annual_rate_percent": 17.0,
+      "risk_free_return": 0.0131696111,
+      "market_excess_return": 0.0062873049
+    },
+    {
+      "observation_month": "2024-10",
+      "benchmark_close": 99448.91,
+      "market_return": 0.0100573154,
+      "annual_rate_percent": 17.0,
+      "risk_free_return": 0.0131696111,
+      "market_excess_return": -0.0031122957
+    },
+    {
+      "observation_month": "2024-11",
+      "benchmark_close": 97506.87,
+      "market_return": -0.0195280169,
+      "annual_rate_percent": 18.0,
+      "risk_free_return": 0.0138884303,
+      "market_excess_return": -0.0334164473
+    },
+    {
+      "observation_month": "2024-12",
+      "benchmark_close": 102133.3,
+      "market_return": 0.0474472209,
+      "annual_rate_percent": 18.0,
+      "risk_free_return": 0.0138884303,
+      "market_excess_return": 0.0335587905
+    }
+  ]
+}

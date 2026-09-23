@@ -39,3 +39,21 @@ def test_public_pilot_marks_partial_factors_and_blocks_liquidity():
     assert results["momentum"].status == "preliminary"
     assert results["liquidity"].status == "blocked"
     assert results["liquidity"].metrics["volume"] == 0
+
+
+def test_market_is_eligible_only_with_an_aligned_excess_return():
+    prices = pd.DataFrame({"ticker": ["AAA"]})
+    monthly = pd.DataFrame({"ticker": ["AAA"], "observation_month": ["2024-01"]})
+    fundamentals = pd.DataFrame(columns=["ticker", "book_equity"])
+
+    result = evaluate_factor_eligibility(
+        prices,
+        monthly,
+        fundamentals,
+        benchmark_available=True,
+        risk_free_available=True,
+        market_factor_observations=1,
+    )[0]
+
+    assert result.status == "eligible"
+    assert result.metrics["market_factor_observations"] == 1

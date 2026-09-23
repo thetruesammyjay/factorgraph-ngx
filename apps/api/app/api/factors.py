@@ -47,7 +47,7 @@ def factor_history(factor: str) -> dict:
     return {
         "factor": factor,
         "status": item["status"],
-        "items": report["market_proxy"],
+        "items": report["market_factor"],
         "dataset_version": report["experiment_id"],
     }
 
@@ -55,8 +55,37 @@ def factor_history(factor: str) -> dict:
 @router.get("/{factor}/statistics")
 def factor_statistics(factor: str) -> dict:
     item = get_factor_or_404(factor)
+    if factor == "market" and item["status"] == "eligible":
+        report = load_pilot_report()
+        return {
+            **item,
+            "statistics": report["market_factor_statistics"],
+            "reason": None,
+        }
     return {
         **item,
         "statistics": None,
         "reason": "inferential statistics are unavailable until the factor gate passes",
+    }
+
+
+@router.get("/{factor}/characteristics")
+def factor_characteristics(factor: str, latest: bool = True) -> dict:
+    item = get_factor_or_404(factor)
+    if factor not in {"size", "value"}:
+        raise HTTPException(
+            status_code=400,
+            detail="characteristic snapshots are available only for Size and Value",
+        )
+    report = load_pilot_report()
+    source = report["latest_characteristics"] if latest else report["characteristics"]
+    eligibility_field = f"{factor}_eligible"
+    return {
+        "factor": factor,
+        "status": item["status"],
+        "latest": latest,
+        "coverage": report["characteristic_coverage"],
+        "items": [row for row in source if row[eligibility_field]],
+        "excluded": [row for row in source if not row[eligibility_field]],
+        "dataset_version": report["experiment_id"],
     }

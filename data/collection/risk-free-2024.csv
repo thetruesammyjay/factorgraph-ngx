@@ -1,0 +1,26 @@
+observation_date,series_name,tenor,annual_rate_percent,period_return_decimal,source_id
+2024-01-10,CBN 91-day Nigerian Treasury Bill marginal rate,91D,2.44,,cbn-ntb-4399
+2024-01-24,CBN 91-day Nigerian Treasury Bill marginal rate,91D,5.0,,cbn-ntb-4412
+2024-02-07,CBN 91-day Nigerian Treasury Bill marginal rate,91D,17.24,,cbn-ntb-4418
+2024-02-21,CBN 91-day Nigerian Treasury Bill marginal rate,91D,17.0,,cbn-ntb-4421
+2024-03-06,CBN 91-day Nigerian Treasury Bill marginal rate,91D,17.24,,cbn-ntb-4427
+2024-03-13,CBN 91-day Nigerian Treasury Bill marginal rate,91D,16.2399,,cbn-ntb-4430
+2024-03-27,CBN 91-day Nigerian Treasury Bill marginal rate,91D,16.24,,cbn-ntb-4433
+2024-04-24,CBN 91-day Nigerian Treasury Bill marginal rate,91D,16.24,,cbn-ntb-4442
+2024-05-08,CBN 91-day Nigerian Treasury Bill marginal rate,91D,16.24,,cbn-ntb-4448
+2024-05-22,CBN 91-day Nigerian Treasury Bill marginal rate,91D,16.5,,cbn-ntb-4451
+2024-06-05,CBN 91-day Nigerian Treasury Bill marginal rate,91D,16.5,,cbn-ntb-4464
+2024-06-11,CBN 91-day Nigerian Treasury Bill marginal rate,91D,18.0,,cbn-ntb-4530
+2024-06-13,CBN 91-day Nigerian Treasury Bill marginal rate,91D,16.3,,cbn-ntb-4467
+2024-06-26,CBN 91-day Nigerian Treasury Bill marginal rate,91D,16.3,,cbn-ntb-4476
+2024-07-24,CBN 91-day Nigerian Treasury Bill marginal rate,91D,18.5,,cbn-ntb-4482
+2024-08-07,CBN 91-day Nigerian Treasury Bill marginal rate,91D,18.5,,cbn-ntb-4485
+2024-08-21,CBN 91-day Nigerian Treasury Bill marginal rate,91D,18.2,,cbn-ntb-4488
+2024-09-04,CBN 91-day Nigerian Treasury Bill marginal rate,91D,17.0,,cbn-ntb-4500
+2024-09-11,CBN 91-day Nigerian Treasury Bill marginal rate,91D,16.63,,cbn-ntb-4503
+2024-09-25,CBN 91-day Nigerian Treasury Bill marginal rate,91D,17.0,,cbn-ntb-4506
+2024-10-09,CBN 91-day Nigerian Treasury Bill marginal rate,91D,17.0,,cbn-ntb-4518
+2024-10-23,CBN 91-day Nigerian Treasury Bill marginal rate,91D,17.0,,cbn-ntb-4524
+2024-11-20,CBN 91-day Nigerian Treasury Bill marginal rate,91D,18.0,,cbn-ntb-4533
+2024-12-04,CBN 91-day Nigerian Treasury Bill marginal rate,91D,18.0,,cbn-ntb-4536
+2024-12-11,CBN 91-day Nigerian Treasury Bill marginal rate,91D,18.0,,cbn-ntb-4544

@@ -75,7 +75,47 @@ export type PilotExperiment = {
     first_date: string;
     last_date: string;
   };
+  market_input_coverage: {
+    benchmark_observations: number;
+    benchmark_months: number;
+    risk_free_observations: number;
+    risk_free_months: number;
+    aligned_months: number;
+    benchmark_code: string | null;
+    risk_free_tenor: string | null;
+    first_aligned_month: string | null;
+    last_aligned_month: string | null;
+  } | null;
   factor_eligibility: FactorEligibility[];
+  characteristic_coverage: {
+    observations: number;
+    months: number;
+    universe_tickers: number;
+    point_in_time_observations: number;
+    fundamental_tickers: number;
+    size_eligible_observations: number;
+    value_eligible_observations: number;
+    actual_date_observations: number;
+    estimated_date_observations: number;
+  };
+  characteristics: Array<Record<string, unknown>>;
+  latest_characteristics: Array<{
+    observation_month: string;
+    ticker: string;
+    close: number;
+    fiscal_period: string | null;
+    effective_from: string | null;
+    effective_date_source: string | null;
+    market_cap: number | null;
+    book_to_market: number | null;
+    size_rank: number | null;
+    value_rank: number | null;
+    size_eligible: boolean;
+    value_eligible: boolean;
+    size_exclusion_reason: string | null;
+    value_exclusion_reason: string | null;
+    source_id: string | null;
+  }>;
   market_proxy_statistics: {
     marked_price: Record<string, number>;
     official_trade: Record<string, number>;
@@ -88,6 +128,45 @@ export type PilotExperiment = {
     marked_security_count: number;
     official_security_count: number;
   }>;
+  market_factor: Array<{
+    observation_month: string;
+    benchmark_close: number;
+    market_return: number | null;
+    annual_rate_percent: number;
+    risk_free_return: number;
+    market_excess_return: number | null;
+  }>;
+  market_factor_statistics: Record<string, number> | null;
+  momentum_portfolio: {
+    status: "preliminary";
+    methodology: Record<string, string | number>;
+    coverage: {
+      months: number;
+      invested_months: number;
+      holdings: number;
+      marked_return_months: number;
+      complete_official_return_months: number;
+    };
+    statistics: Record<string, number> | null;
+    performance: Array<{
+      observation_month: string;
+      positions: number;
+      turnover: number;
+      transaction_cost: number;
+      marked_gross_return: number | null;
+      marked_net_return: number | null;
+      official_gross_return: number | null;
+      official_net_return: number | null;
+      official_return_coverage: number | null;
+    }>;
+    holdings: Array<{
+      observation_month: string;
+      ticker: string;
+      rank: number;
+      formation_return: number;
+      weight: number;
+    }>;
+  };
   latest_momentum: Array<{
     observation_month: string;
     ticker: string;

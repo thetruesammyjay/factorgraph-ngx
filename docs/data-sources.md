@@ -14,3 +14,11 @@ hash, statement page, reporting scope, currency, and source unit. Normalize
 values to NGN and base units. The annual report's public release date is the
 effective date; when that evidence is unavailable, retain the missing
 publication date and explicitly label the configured fixed-lag estimate.
+
+## Benchmark and risk-free series
+
+Use an official NGX source for NGX All-Share Index levels and an official CBN or
+Debt Management Office source for the selected Treasury-bill series. Preserve the
+source URL, retrieval date, file hash, quoted tenor, rate convention, and any
+transformation. Do not mix tenors within one experiment or substitute a policy
+rate without changing the series name and methodology.

@@ -30,6 +30,7 @@ def evaluate_factor_eligibility(
     expected_fundamentals: int = 30,
     benchmark_available: bool = False,
     risk_free_available: bool = False,
+    market_factor_observations: int = 0,
 ) -> list[FactorEligibility]:
     """Evaluate factor readiness from observed coverage rather than configuration."""
     ticker_count = prices["ticker"].nunique()
@@ -57,6 +58,15 @@ def evaluate_factor_eligibility(
         market_reasons.append("NGX All-Share Index history is unavailable")
     if not risk_free_available:
         market_reasons.append("risk-free series is unavailable; excess returns are blocked")
+    if benchmark_available and risk_free_available and market_factor_observations == 0:
+        market_reasons.append("benchmark and risk-free dates do not produce an excess return")
+    if market_factor_observations > 0:
+        market_reasons.append(
+            f"{market_factor_observations} aligned market excess-return observations are available"
+        )
+    market_ready = (
+        benchmark_available and risk_free_available and market_factor_observations > 0
+    )
 
     standard_momentum_ready = month_count >= 13
     momentum_status: EligibilityStatus = "eligible" if standard_momentum_ready else "preliminary"
@@ -87,13 +97,14 @@ def evaluate_factor_eligibility(
     return [
         FactorEligibility(
             "market",
-            "eligible" if benchmark_available and risk_free_available else "preliminary",
+            "eligible" if market_ready else "preliminary",
             market_reasons,
             {
                 "price_tickers": ticker_count,
                 "expected_tickers": expected_tickers,
                 "benchmark_available": benchmark_available,
                 "risk_free_available": risk_free_available,
+                "market_factor_observations": market_factor_observations,
             },
         ),
         FactorEligibility(

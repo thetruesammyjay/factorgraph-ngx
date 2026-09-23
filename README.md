@@ -199,10 +199,31 @@ uv run python scripts/build_public_data_experiment.py `
   --fundamentals ../../data/collection/fundamentals-2024-pilot.csv `
   --daily-output ../../data/processed/ngx-2024-daily-returns.csv `
   --monthly-output ../../data/processed/ngx-2024-monthly-returns.csv `
+  --characteristics-output ../../data/processed/ngx-2024-point-in-time-characteristics.csv `
   --report ../../research/audit-results/ngx-public-data-2024-pilot.json `
   --api-report app/data/reports/pilot-latest.json `
   --momentum-months 3
 ```
+
+When reviewed market inputs are available, add:
+
+```powershell
+  --benchmark ../../data/collection/benchmark.csv `
+  --risk-free ../../data/collection/risk-free.csv `
+  --benchmark-code NGXASI `
+  --risk-free-tenor 91D
+```
+
+The experiment validates unique dated observations, selects each calendar
+month's final benchmark level and quoted rate, converts the annual percentage
+rate to an effective monthly return, and calculates `market_return -
+risk_free_return`. Both files are required together; until they contain valid,
+aligned observations, the Market factor remains preliminary.
+
+The committed 2024 pilot inputs contain official NGX weekly ASI closes and CBN
+91-day NTB auction marginal rates. Consequently, “final benchmark level” means
+the last weekly close available during each month, which is preserved as a
+pilot-frequency limitation in the source review.
 
 The API exposes the result through:
 
@@ -211,10 +232,25 @@ GET /api/v1/experiments/pilot/latest
 GET /api/v1/factors
 GET /api/v1/factors/{factor}
 GET /api/v1/factors/market/history
+GET /api/v1/factors/size/characteristics
+GET /api/v1/factors/value/characteristics
+GET /api/v1/portfolios/ngx-public-data-2024-pilot-v1
+GET /api/v1/portfolios/ngx-public-data-2024-pilot-v1/holdings
+GET /api/v1/portfolios/ngx-public-data-2024-pilot-v1/performance
 ```
 
 The Next.js console reads these endpoints and shows blocked factors as blocked;
 it does not substitute demonstration statistics for missing research results.
+The portfolio view exposes a preliminary three-month Momentum pilot. Formation
+returns are lagged by one month, holdings are equally weighted, and a 50-basis-
+point transaction-cost assumption is applied to measured turnover. Its eight
+invested months are insufficient for a general factor-performance conclusion.
+
+The Size and Value characteristic endpoints perform an as-of join using each
+fundamental observation's `effective_from` date. They expose eligible and
+excluded security-months separately. Market-capitalisation and book-to-market
+rankings remain descriptive until broader issuer coverage permits defensible
+SMB and HML return portfolios.
 
 Raw licensed or confidential data must not be committed. Public source files in
 `data/raw/` are also ignored so datasets remain reproducible from their

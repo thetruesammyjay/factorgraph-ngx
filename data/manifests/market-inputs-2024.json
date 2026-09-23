@@ -1,0 +1,529 @@
+{
+  "dataset_id": "official-market-inputs-2024",
+  "generated_at": "2026-09-23T12:51:49.890277+00:00",
+  "ngx_provider": "Nigerian Exchange Limited",
+  "cbn_provider": "Central Bank of Nigeria",
+  "ngx_records": [
+    {
+      "observation_date": "2024-01-05",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2005-01-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-01-05",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-01-05.pdf",
+      "bytes": 325026,
+      "sha256": "12a368f65756c95830ff7d59b5ba9a933159317c54a7228f8aad7b023690462f"
+    },
+    {
+      "observation_date": "2024-01-12",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2012-01-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-01-12",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-01-12.pdf",
+      "bytes": 226556,
+      "sha256": "45b7bc22ed3a0e5573f062bd95240b3602e2cd233b02ef6eb98e0cb2ff39106d"
+    },
+    {
+      "observation_date": "2024-01-19",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2019-01-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-01-19",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-01-19.pdf",
+      "bytes": 322379,
+      "sha256": "c4c8ec951bacb1a41e32247b4fd3782f3a31567e6654318c6a2ed1826b455d48"
+    },
+    {
+      "observation_date": "2024-01-26",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2026-01-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-01-26",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-01-26.pdf",
+      "bytes": 551511,
+      "sha256": "0597c7b840973f9569ac6616dc31d640e3f1b0fc4a2694b262cca8430931e86a"
+    },
+    {
+      "observation_date": "2024-02-02",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2002-02-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-02-02",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-02-02.pdf",
+      "bytes": 752432,
+      "sha256": "c88e7d1fa84a83fbe4d838dfdfbdf61ad5387ab4ee4b1d90d01b0d964fbaa2ac"
+    },
+    {
+      "observation_date": "2024-02-09",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2009-02-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-02-09",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-02-09.pdf",
+      "bytes": 278413,
+      "sha256": "eed6a671e51980d96028b0a821bfbfad2ca9a06ff753201311959cb18c0961ea"
+    },
+    {
+      "observation_date": "2024-02-16",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2016-02-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-02-16",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-02-16.pdf",
+      "bytes": 239499,
+      "sha256": "b79c7101c7cf24acc267d82f1cbd8c346cea97d7a689f7b0c7fadeeeb40e337d"
+    },
+    {
+      "observation_date": "2024-02-23",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2023-02-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-02-23",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-02-23.pdf",
+      "bytes": 226863,
+      "sha256": "0c9cc2d70c6f403a3068e129e03db845d776cccf402c58a99b40f16799cd3b45"
+    },
+    {
+      "observation_date": "2024-03-01",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2001-03-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-03-01",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-03-01.pdf",
+      "bytes": 227218,
+      "sha256": "64b1c965ff6eece6bc17660d51f8f2d586ec0e371f1b452778c56615a8016504"
+    },
+    {
+      "observation_date": "2024-03-08",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2008-03-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-03-08",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-03-08.pdf",
+      "bytes": 816305,
+      "sha256": "0bf4c186323dda570d9ee5af7f3322c70cb13e08f851c56fab96f42e8e358ef6"
+    },
+    {
+      "observation_date": "2024-03-15",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2015-03-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-03-15",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-03-15.pdf",
+      "bytes": 210983,
+      "sha256": "56282d7311eda1cbea036619039f4ef427b1026e71734b59bec7597f8f400463"
+    },
+    {
+      "observation_date": "2024-03-22",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2022-03-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-03-22",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-03-22.pdf",
+      "bytes": 206969,
+      "sha256": "04d8a58ddf999c15e213ea15675a9e1f745189b4ce2bef2f5560b03853acd81e"
+    },
+    {
+      "observation_date": "2024-03-29",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2029-03-2024.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "observation_date": "2024-04-05",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2005-04-2024.pdf",
+      "http_status": 404,
+      "status": "not_available"
+    },
+    {
+      "observation_date": "2024-04-12",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2012-04-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-04-12",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-04-12.pdf",
+      "bytes": 327681,
+      "sha256": "3475cf5c26f86a965ee54154775b8b69c7080f0e333885090a728ab08c3168e3"
+    },
+    {
+      "observation_date": "2024-04-19",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2019-04-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-04-19",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-04-19.pdf",
+      "bytes": 236225,
+      "sha256": "50284cc6a9eb290a9a049c94ebc118e067cbecbdfaca8ebc4b1e4eb097c3ecb2"
+    },
+    {
+      "observation_date": "2024-04-26",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2026-04-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-04-26",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-04-26.pdf",
+      "bytes": 235294,
+      "sha256": "dc62b4c3aec224c69d55991e7ec440ccfaa4f0857fa57f6fe8881677456967c6"
+    },
+    {
+      "observation_date": "2024-05-03",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2003-05-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-05-03",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-05-03.pdf",
+      "bytes": 651855,
+      "sha256": "abd6d0f35a9319bd5760e311518bb2f4f650a3957bd20473b46a60d90fdc5eb3"
+    },
+    {
+      "observation_date": "2024-05-10",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2010-05-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-05-10",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-05-10.pdf",
+      "bytes": 752938,
+      "sha256": "5da3c1a1a549da0577241078031014aed9fc6b3bcfd8a6ee3984e5acdff5e103"
+    },
+    {
+      "observation_date": "2024-05-17",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2017-05-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-05-17",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-05-17.pdf",
+      "bytes": 662285,
+      "sha256": "f09832d0ada4df37657a5f7c9581aff2bc660da1cebf7fe109766c1163a57e96"
+    },
+    {
+      "observation_date": "2024-05-24",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2024-05-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-05-24",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-05-24.pdf",
+      "bytes": 670594,
+      "sha256": "daf12827c25acb3777cfe489fe32773e4baf13c974bea5966224438b22bc1ba0"
+    },
+    {
+      "observation_date": "2024-05-31",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2031-05-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-05-31",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-05-31.pdf",
+      "bytes": 563295,
+      "sha256": "4dcef668493cf0831aefc6945a63c47c75a196126ddf3bbe5faf1922ee3777da"
+    },
+    {
+      "observation_date": "2024-06-07",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2007-06-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-06-07",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-06-07.pdf",
+      "bytes": 293615,
+      "sha256": "2904d4155377dca62ef2bfd80e217358cbf9893df4e7986d0e5183b35750385d"
+    },
+    {
+      "observation_date": "2024-06-14",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2014-06-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-06-14",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-06-14.pdf",
+      "bytes": 275835,
+      "sha256": "2742ec48c174e6746bedb8e5d71e6c9763c44c39512109d57d017df2cccf4e2f"
+    },
+    {
+      "observation_date": "2024-06-21",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2021-06-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-06-21",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-06-21.pdf",
+      "bytes": 289063,
+      "sha256": "a9f3ea2ccd90ee2bcdedd874e7bc45273ab7d7fd0d07560c39827230cf396fe0"
+    },
+    {
+      "observation_date": "2024-06-28",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2028-06-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-06-28",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-06-28.pdf",
+      "bytes": 241761,
+      "sha256": "c7e85a49d2c6b2e3fd80965a84e9f0af017301a3da9b09c4f08d5709fe7b4c30"
+    },
+    {
+      "observation_date": "2024-07-05",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2005-07-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-07-05",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-07-05.pdf",
+      "bytes": 239871,
+      "sha256": "ce583f56b8042f68ed37eb10ed885aa3d7fa6a6da6e7d541797953cc99db7003"
+    },
+    {
+      "observation_date": "2024-07-12",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2012-07-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-07-12",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-07-12.pdf",
+      "bytes": 857951,
+      "sha256": "8a1c824dee6cbec1b59c21443a19857d7b797cc2466d7e6c0ed5027c66a5da0a"
+    },
+    {
+      "observation_date": "2024-07-19",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2019-07-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-07-19",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-07-19.pdf",
+      "bytes": 289679,
+      "sha256": "5ee70b55a04214d1d73aa1d5fd326a4188f941344d2a21e2d89d5b68b42ba692"
+    },
+    {
+      "observation_date": "2024-07-26",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2026-07-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-07-26",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-07-26.pdf",
+      "bytes": 246794,
+      "sha256": "e9ba803873cf539e8ebe4ec6eeb1608bce3aab5b1543c7169b54e716bec06fda"
+    },
+    {
+      "observation_date": "2024-08-02",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2002-08-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-08-02",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-08-02.pdf",
+      "bytes": 336304,
+      "sha256": "d4c092dbc37d10bcd4ab007e4a5d663884cc68fa1cf65ab1ced855b570e0d291"
+    },
+    {
+      "observation_date": "2024-08-09",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2009-08-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-08-09",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-08-09.pdf",
+      "bytes": 237954,
+      "sha256": "04ba9cd285451b8ea9ce9ad1187a4a4b348d546d932445cf8ed228fae0d5729f"
+    },
+    {
+      "observation_date": "2024-08-16",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2016-08-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-08-16",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-08-16.pdf",
+      "bytes": 335179,
+      "sha256": "ac62f454d6c312964b13bc6647dba81b9dde1344db36bb1d7861f04ea98ae363"
+    },
+    {
+      "observation_date": "2024-08-23",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2023-08-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-08-23",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-08-23.pdf",
+      "bytes": 334298,
+      "sha256": "693795c20bf7d3680b90f5d53d5c61dad6d4598101bed57d0ccf43925b1a5567"
+    },
+    {
+      "observation_date": "2024-08-30",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2030-08-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-08-30",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-08-30.pdf",
+      "bytes": 232613,
+      "sha256": "038f31b23b96d3e3c59afe41d426a674514677f44c8f6ae0bb8954374c2665e3"
+    },
+    {
+      "observation_date": "2024-09-06",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2006-09-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-09-06",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-09-06.pdf",
+      "bytes": 294931,
+      "sha256": "e442f727c032b62c0809dde1794150dcf315d52727ac6cbd1ac707694135941c"
+    },
+    {
+      "observation_date": "2024-09-13",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2013-09-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-09-13",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-09-13.pdf",
+      "bytes": 347677,
+      "sha256": "6bdd195e8627b897d82df5d1586363b68d2f295130c2bbab4c414880d0a02c38"
+    },
+    {
+      "observation_date": "2024-09-20",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2020-09-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-09-20",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-09-20.pdf",
+      "bytes": 303197,
+      "sha256": "1aa0df0758b3fa311a2c4b2bfaf3e540bfb98e6097261bc601d3bb08b068074b"
+    },
+    {
+      "observation_date": "2024-09-27",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2027-09-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-09-27",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-09-27.pdf",
+      "bytes": 233270,
+      "sha256": "bcc2587879a9fa18d2309abff842a8d559d6bdae1ed81e48ce86b6a51122b81d"
+    },
+    {
+      "observation_date": "2024-10-04",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2004-10-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-10-04",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-10-04.pdf",
+      "bytes": 234141,
+      "sha256": "60f0a21f21efaabfb604cc744d23f8e7fedb2ae6b48d799f462787698b09b22c"
+    },
+    {
+      "observation_date": "2024-10-11",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2011-10-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-10-11",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-10-11.pdf",
+      "bytes": 349864,
+      "sha256": "8133a453c59c413b8d2698136cced72d3d1e8e0a4039f433a1e0a181c29f1d86"
+    },
+    {
+      "observation_date": "2024-10-18",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2018-10-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-10-18",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-10-18.pdf",
+      "bytes": 331530,
+      "sha256": "8b5a7a53ed936a5ad38972082d993838810d3c2fd53f8dc2d9651be1ac67e4f5"
+    },
+    {
+      "observation_date": "2024-10-25",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2025-10-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-10-25",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-10-25.pdf",
+      "bytes": 287577,
+      "sha256": "dcc7eaea83860fb4e2e27bc34a7cbeae7ed761bacf841cb7bbc5b5c9a773b51c"
+    },
+    {
+      "observation_date": "2024-11-01",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2001-11-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-11-01",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-11-01.pdf",
+      "bytes": 286145,
+      "sha256": "ed01ce9df7c44db000853b6310262017c5e34b75da5a4da3d02dba2c821dcebd"
+    },
+    {
+      "observation_date": "2024-11-08",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2008-11-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-11-08",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-11-08.pdf",
+      "bytes": 339582,
+      "sha256": "f04c57e2474284047a2ff72d8f74fc8ce62a4ae4a3d437fb2a8f493d4c56122f"
+    },
+    {
+      "observation_date": "2024-11-15",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2015-11-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-11-15",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-11-15.pdf",
+      "bytes": 294950,
+      "sha256": "2d0b57e1165be5415edc9bd15d36a9b7367e445fbfd7b9fb6c110c43912daa46"
+    },
+    {
+      "observation_date": "2024-11-22",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2022-11-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-11-22",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-11-22.pdf",
+      "bytes": 333719,
+      "sha256": "ff48e287449f9f3a9a2f63db04ffe85d5e4aab96efac9d2ffd9eb71d2b0fc45b"
+    },
+    {
+      "observation_date": "2024-11-29",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2029-11-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-11-29",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-11-29.pdf",
+      "bytes": 322045,
+      "sha256": "173fedd7ccb2a38a7a757147b34b7e782fa1f9bc415e6ae1b55ef0bdfeb97857"
+    },
+    {
+      "observation_date": "2024-12-06",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2006-12-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-12-06",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-12-06.pdf",
+      "bytes": 230991,
+      "sha256": "2f56305d8d6233e8f8af97369e05c2e52365f8c604c806ae79b7b9228bec976d"
+    },
+    {
+      "observation_date": "2024-12-13",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2013-12-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-12-13",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-12-13.pdf",
+      "bytes": 290153,
+      "sha256": "9966bf57f1a6d54078ab6fd02c53eb9834614ef3ea8fb0445b75cd2ac9a835cb"
+    },
+    {
+      "observation_date": "2024-12-20",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2020-12-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-12-20",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-12-20.pdf",
+      "bytes": 244284,
+      "sha256": "042a4a3f46c41682d5cd4d0520777f40aeeab45282900139849f9e5828b1bb06"
+    },
+    {
+      "observation_date": "2024-12-27",
+      "source_url": "https://doclib.ngxgroup.com/market_data-site/other-market-information-site/Week%20Market%20Report/Weekly%20Market%20Report%20for%20the%20Week%20Ended%2027-12-2024.pdf",
+      "http_status": 200,
+      "status": "accepted",
+      "source_id": "ngx-weekly-2024-12-27",
+      "local_path": "../../data/raw/market-inputs-2024/ngx-weekly-2024-12-27.pdf",
+      "bytes": 219998,
+      "sha256": "0afd8c0c11b8d50d047b3283cc56b5e205835cdf0f83ccd85e9e27a1f3adb324"
+    }
+  ],
+  "cbn_source": {
+    "source_url": "https://www.cbn.gov.ng/api/GetAllSecuritiesNTB",
+    "http_status": 200,
+    "local_path": "../../data/raw/market-inputs-2024/cbn-ntb-auctions.json",
+    "bytes": 863504,
+    "sha256": "68112a04e2493f56a8825663453c044a448bb9520365114fcd8d97344853bd42",
+    "records_received": 1809,
+    "accepted_91_day_records": 25
+  }
+}
