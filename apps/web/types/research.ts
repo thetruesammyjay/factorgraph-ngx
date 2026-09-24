@@ -35,19 +35,93 @@ export type Experiment = {
 
 export type ExperimentRun = {
   experiment_id: string;
-  status: "draft" | "running" | "completed" | "blocked";
+  status: "draft" | "running" | "completed" | "completed_with_constraints" | "blocked";
   dataset_version: string | null;
   last_completed_node: string | null;
-  execution_trace: Array<{ node: string; status: string; outputs?: Record<string, unknown> }>;
+  execution_trace: Array<{ sequence: number; node: string; status: string; outputs?: Record<string, unknown> }>;
   node_outputs: Record<string, Record<string, unknown>>;
+  constraints: Array<{ factor: string; status: string; reasons: string[] }>;
+  run_fingerprint: string | null;
   errors: Array<{ message: string }>;
+};
+
+export type ExperimentMarketRegression = Pick<FactorRegression,
+  | "status"
+  | "reason"
+  | "observations"
+  | "newey_west_lags"
+  | "alpha"
+  | "alpha_t"
+  | "r_squared"
+> & {
+  coefficients: FactorRegression["coefficients"];
+  target_definition: string;
+};
+
+export type ExperimentBenchmarkOutput = {
+  benchmark_code: string | null;
+  risk_free_tenor: string | null;
+  aligned_market_months: number;
+  regressions: Partial<Record<"size" | "value" | "momentum", ExperimentMarketRegression>>;
+  methodology: Record<string, string>;
+};
+
+export type ExperimentBacktestOutput = {
+  characteristic_factors: Partial<Record<"size" | "value", {
+    statistics?: {
+      statistics?: Record<string, number | null> | null;
+      newey_west_t?: number | null;
+      bootstrap?: Record<string, number> | null;
+      observations?: number;
+    };
+  }>>;
+  momentum_statistics: Record<string, number> | null;
+  characteristic_coverage: Record<string, number>;
+  momentum_coverage: Record<string, number>;
 };
 
 export type ExperimentNodeRun = {
   experiment_id: string;
   node: string;
+  sequence: number;
   status: string;
   outputs: Record<string, unknown>;
+};
+
+export type ExperimentPlan = {
+  experiment_id: string;
+  name: string;
+  configuration: Record<string, unknown>;
+  dataset_version: string;
+  requested_factors: string[];
+  factor_statuses: Record<string, string>;
+  constraints: Array<{ factor: string; status: string; reasons: string[] }>;
+  planned_nodes: string[];
+  run_fingerprint: string;
+};
+
+export type ExperimentManifest = {
+  experiment_id: string;
+  name: string;
+  status: string;
+  dataset_version: string;
+  run_fingerprint: string | null;
+  configuration: Record<string, unknown>;
+  constraints: Array<{ factor: string; status: string; reasons: string[] }>;
+  execution: {
+    node_count: number;
+    last_completed_node: string | null;
+    nodes: Array<{ sequence: number; node: string; status: string }>;
+  };
+};
+
+export type ExperimentExport = {
+  schema_version: number;
+  exported_at: string;
+  experiment: ExperimentManifest;
+  run: ExperimentRun;
+  dataset_provenance: Record<string, unknown> | null;
+  provenance_status: "captured_at_run" | "not_captured_for_this_run";
 };
 
 export type ExperimentCreatePayload = {
@@ -72,6 +146,11 @@ export type ExperimentRecord = ExperimentCreatePayload & {
   created_at: string;
   completed_at: string | null;
   git_commit: string | null;
+};
+
+export type ExperimentList = {
+  items: ExperimentRecord[];
+  total: number;
 };
 
 export type DatasetQuality = {

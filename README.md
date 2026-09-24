@@ -241,8 +241,11 @@ The API exposes the result through:
 ```text
 GET /api/v1/experiments/pilot/latest
 POST /api/v1/experiments
+GET /api/v1/experiments/{experiment_id}/plan
 POST /api/v1/experiments/{experiment_id}/run
 GET /api/v1/experiments/{experiment_id}/run
+GET /api/v1/experiments/{experiment_id}/manifest
+GET /api/v1/experiments/{experiment_id}/export
 GET /api/v1/experiments/{experiment_id}/run/nodes/{node_name}
 GET /api/v1/factors
 GET /api/v1/factors/{factor}
@@ -270,12 +273,70 @@ GET /api/v1/companies/{ticker}/fundamentals
 ```
 
 The experiment run endpoint executes the deterministic LangGraph workflow and
-returns the ordered node trace, final dataset version, last completed node, and
-any execution errors. Each trace entry also includes a compact output summary
-from the deterministic pilot report. The same trace and summaries are available
+returns the ordered, sequence-numbered node trace, final dataset version, last completed node, and
+any execution errors. Each trace entry includes a compact output summary. The
+same trace and summaries are available
 through the `GET` run endpoint after execution, so a run can be inspected
 without rerunning it. A node endpoint provides the status and compact outputs
 for one named graph node when a narrower audit view is needed.
+
+The regime node is computed during graph execution. It fits the deterministic
+Gaussian HMM to the pilot report's monthly market-excess-return series using
+the configured state count, and stores its coverage, fitted model diagnostics,
+transition matrix, and state timeline in that run's node output. A sample below
+the regime engine's minimum observation requirement remains explicitly blocked.
+
+The portfolio-construction node recomputes the selected Size and Value sorts
+and/or momentum portfolio from the report's point-in-time monthly observations.
+It uses the experiment's bootstrap iteration and portfolio-size settings, plus
+the dataset's declared sort, signal-lookback, skip-month, and transaction-cost
+methodology. The run trace records compact coverage and return statistics; the
+deterministic portfolio tables remain available to later graph nodes during the
+same execution.
+
+The benchmark-comparison node aligns the resulting monthly portfolio returns
+with the NGX All-Share Index excess-return series and estimates market-model
+alpha and beta with Newey-West HAC errors. It treats Size and Value spreads as
+zero-investment returns and subtracts the matched 91-day Treasury-bill return
+from the long-only Momentum net return. Short samples or missing aligned data
+remain explicitly blocked in the node output.
+
+The plan endpoint is a preflight view for the same deterministic run. It returns
+the selected factors, current eligibility status, any preliminary or blocked
+constraints, the nine planned graph nodes, the dataset version, and the
+run fingerprint before execution. The fingerprint is computed from the
+canonical pilot dataset and stable research configuration, so it can be
+reviewed before a run is started.
+In the Experiments view, **New experiment** submits a configuration, displays
+this preflight information with each selected factor's gate, and starts the
+graph only after the user chooses **Run this experiment**.
+Saved experiments remain in the API registry. The history table can reopen a
+run to review its persisted configuration, constraints, ordered node trace, and
+individual node output summaries. Its audit bundle export packages the
+configuration, complete run trace and node summaries, dataset fingerprint, and
+source input hashes in one JSON file.
+The saved-run view also presents the run's benchmark alpha, market beta,
+Newey-West alpha t-statistic, R-squared, and observation count in a compact
+results table; blocked or preliminary regressions retain their status and reason.
+It also shows annualized portfolio return, volatility and Sharpe ratio, plus
+Newey-West t-statistics and 95% bootstrap intervals for the Size and Value
+monthly mean spreads when those factors were selected.
+
+The manifest endpoint packages the run fingerprint, stable configuration,
+constraints, dataset version, and ordered node metadata for export or review.
+When `DATABASE_URL` is configured, experiment configurations and graph outputs
+are stored in PostgreSQL and remain available after the API restarts. Without a
+database URL, the API keeps the existing in-memory mode for local development.
+
+Each run also returns a SHA-256 `run_fingerprint` derived from the canonical
+dataset fingerprint and the submitted experiment configuration. Experiment IDs
+and display names are metadata; identical research inputs produce the same run
+fingerprint.
+
+Runs with requested factors that are preliminary or blocked use the
+`completed_with_constraints` status. These constraints are returned separately
+from execution errors so the platform does not present an incomplete factor
+study as an unconstrained result.
 
 The Next.js console reads these endpoints and shows blocked factors as blocked;
 it does not substitute demonstration statistics for missing research results.
@@ -376,7 +437,10 @@ NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
 - Deploy `apps/web` to Vercel.
 - Deploy `apps/api` to Railway.
 - Configure the Neon PostgreSQL connection through `DATABASE_URL`.
-- Run `uv run alembic upgrade head` against the production database.
+- Run `uv run alembic upgrade head` from `apps/api` against the production
+  database before deploying. The latest migration adds durable graph traces,
+  node summaries, constraints, completion state, and run fingerprints to saved
+  experiments.
 - Start the API with:
 
 ```bash

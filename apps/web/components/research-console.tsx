@@ -13,6 +13,7 @@ import {
   ChevronDown,
   CircleHelp,
   Database,
+  Download,
   FlaskConical,
   LayoutDashboard,
   Menu,
@@ -40,8 +41,8 @@ import {
   YAxis,
 } from "recharts";
 import { EQUITY_CURVE, EXPERIMENTS, FACTORS, HOLDINGS, NAV_ITEMS, REGIME_TIMELINE } from "@/lib/constants";
-import { createExperiment, getLatestDatasetQuality, getLatestFundamentalsCompletion, getLatestPilotExperiment, runExperiment } from "@/lib/api";
-import type { DatasetQuality, ExperimentCreatePayload, ExperimentRun, FactorKey, FactorRegression, FundamentalsCompletion, PilotExperiment, ViewKey } from "@/types/research";
+import { createExperiment, getExperimentNodeRun, getExperimentExport, getExperimentManifest, getExperimentPlan, getExperimentRun, getLatestDatasetQuality, getLatestFundamentalsCompletion, getLatestPilotExperiment, listExperiments, runExperiment } from "@/lib/api";
+import type { DatasetQuality, ExperimentBacktestOutput, ExperimentBenchmarkOutput, ExperimentCreatePayload, ExperimentManifest, ExperimentPlan, ExperimentRecord, ExperimentRun, FactorKey, FactorRegression, FundamentalsCompletion, PilotExperiment, ViewKey } from "@/types/research";
 import { formatPercent } from "@/lib/utils";
 
 const iconMap = { LayoutDashboard, Activity, Waves, BriefcaseBusiness, FlaskConical };
@@ -217,8 +218,8 @@ function MomentumPortfolioView({ pilot }: { pilot: PilotExperiment | null }) {
   </>;
 }
 
-function PilotExperimentsViewContent({ pilot }: { pilot: PilotExperiment | null }) {
-  return <><div className="page-heading"><div><div className="eyebrow">RESEARCH / EXPERIMENTS</div><h1>Experiment registry</h1><p className="lede">Computed results remain linked to their input datasets and eligibility decisions.</p></div></div>{pilot && <><div className="experiment-hero panel"><div className="experiment-hero-copy"><span className="eyebrow">{pilot.experiment_id}</span><h2>{pilot.name}</h2><p>{pilot.coverage.observations.toLocaleString()} price observations · {pilot.factor_eligibility.filter((factor) => factor.status === "blocked").length} blocked factor</p><div className="run-meta"><span><Check size={13} /> Completed with constraints</span><span><Database size={13} /> {pilot.dataset_version}</span></div></div><div className="run-score"><span>RESEARCH STATUS</span><strong>Auditable</strong><small>No blocked factor is reported as a result</small></div></div><section className="section-block"><SectionHeader eyebrow="REPRODUCIBILITY" title="Content-addressed experiment" /><div className="method-note"><Database size={15} /><span>Fingerprint <b>{pilot.reproducibility.fingerprint.slice(0, 16)}</b> · Git <b>{pilot.reproducibility.software.commit?.slice(0, 12) ?? "unavailable"}</b> · {Object.keys(pilot.reproducibility.inputs).length} hashed inputs · worktree {pilot.reproducibility.software.dirty ? "contained uncommitted changes" : "clean"}</span></div></section></>}</>;
+function PilotExperimentsViewContent({ pilot, onNewExperiment }: { pilot: PilotExperiment | null; onNewExperiment: () => void }) {
+  return <><div className="page-heading"><div><div className="eyebrow">RESEARCH / EXPERIMENTS</div><h1>Experiment registry</h1><p className="lede">Computed results remain linked to their input datasets and eligibility decisions.</p></div><button className="button button-primary" onClick={onNewExperiment}><Plus size={16} /> New experiment</button></div>{pilot && <><div className="experiment-hero panel"><div className="experiment-hero-copy"><span className="eyebrow">{pilot.experiment_id}</span><h2>{pilot.name}</h2><p>{pilot.coverage.observations.toLocaleString()} price observations · {pilot.factor_eligibility.filter((factor) => factor.status === "blocked").length} blocked factor</p><div className="run-meta"><span><Check size={13} /> Completed with constraints</span><span><Database size={13} /> {pilot.dataset_version}</span></div></div><div className="run-score"><span>RESEARCH STATUS</span><strong>Auditable</strong><small>No blocked factor is reported as a result</small></div></div><section className="section-block"><SectionHeader eyebrow="REPRODUCIBILITY" title="Content-addressed experiment" /><div className="method-note"><Database size={15} /><span>Fingerprint <b>{pilot.reproducibility.fingerprint.slice(0, 16)}</b> · Git <b>{pilot.reproducibility.software.commit?.slice(0, 12) ?? "unavailable"}</b> · {Object.keys(pilot.reproducibility.inputs).length} hashed inputs · worktree {pilot.reproducibility.software.dirty ? "contained uncommitted changes" : "clean"}</span></div></section></>}</>;
 }
 
 const GRAPH_RUN_CONFIG: ExperimentCreatePayload = {
@@ -236,7 +237,7 @@ const GRAPH_RUN_CONFIG: ExperimentCreatePayload = {
   fixed_reporting_lag_days: 90,
 };
 
-function ExecutableGraphRunPanel() {
+function LegacyExecutableGraphRunPanel() {
   const [run, setRun] = useState<ExperimentRun | null>(null);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -255,8 +256,303 @@ function ExecutableGraphRunPanel() {
   return <section className="section-block"><SectionHeader eyebrow="EXECUTABLE RESEARCH GRAPH" title="Inspectable node run" action={<button className="button button-primary" onClick={execute} disabled={pending}><Play size={14} /> {pending ? "Running graphâ€¦" : "Run graph"}</button>} />{error && <div className="panel method-note"><Database size={16} /><span>{error}</span></div>}{run && <><div className="table-card full-table"><table><thead><tr><th>Order</th><th>Node</th><th>Status</th></tr></thead><tbody>{run.execution_trace.map((step, index) => <tr key={`${step.node}-${index}`}><td>{String(index + 1).padStart(2, "0")}</td><td><b>{step.node}</b></td><td><StatusBadge status={step.status} /></td></tr>)}</tbody></table></div><div className="method-note"><Database size={15} /><span>Run <b>{run.experiment_id}</b> Â· dataset <b>{run.dataset_version ?? "unassigned"}</b> Â· last completed node <b>{run.last_completed_node ?? "none"}</b></span></div></>}{!run && !pending && !error && <div className="panel method-note"><Play size={16} /><span>Run the graph to execute and inspect every deterministic research node in order.</span></div>}</section>;
 }
 
-function PilotExperimentsView({ pilot }: { pilot: PilotExperiment | null }) {
-  return <><PilotExperimentsViewContent pilot={pilot} /><ExecutableGraphRunPanel /></>;
+function ExecutableGraphRunPanel() {
+  const [run, setRun] = useState<ExperimentRun | null>(null);
+  const [plan, setPlan] = useState<ExperimentPlan | null>(null);
+  const [pending, setPending] = useState(false);
+  const [detailPending, setDetailPending] = useState(false);
+  const [selectedNode, setSelectedNode] = useState<string | null>(null);
+  const [selectedOutput, setSelectedOutput] = useState<Record<string, unknown> | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const execute = async () => {
+    setPending(true);
+    setError(null);
+    setSelectedNode(null);
+    setSelectedOutput(null);
+    try {
+      const experiment = await createExperiment(GRAPH_RUN_CONFIG);
+      const nextPlan = await getExperimentPlan(experiment.id);
+      setPlan(nextPlan);
+      setRun(await runExperiment(experiment.id));
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Research graph failed");
+    } finally {
+      setPending(false);
+    }
+  };
+  const inspectNode = async (node: string) => {
+    if (!run) return;
+    setSelectedNode(node);
+    setDetailPending(true);
+    setError(null);
+    try {
+      const detail = await getExperimentNodeRun(run.experiment_id, node);
+      setSelectedOutput(detail.outputs);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Graph node output is unavailable");
+      setSelectedOutput(null);
+    } finally {
+      setDetailPending(false);
+    }
+  };
+  return <section className="section-block"><SectionHeader eyebrow="EXECUTABLE RESEARCH GRAPH" title="Inspectable node run" action={<button className="button button-primary" onClick={execute} disabled={pending}><Play size={14} /> {pending ? "Preparing and running..." : "Run graph"}</button>} />{error && <div className="panel method-note"><Database size={16} /><span>{error}</span></div>}{plan && <div className="panel method-note"><Database size={15} /><span><b>Preflight plan</b> · dataset <b>{plan.dataset_version}</b> · {plan.planned_nodes.length} planned nodes · factors {plan.requested_factors.map((factor) => `${factor} (${plan.factor_statuses[factor]})`).join(" · ")} · {plan.constraints.length ? `${plan.constraints.length} constraint${plan.constraints.length === 1 ? "" : "s"}` : "no constraints"} · fingerprint <b>{plan.run_fingerprint.slice(0, 16)}</b></span></div>}{run && <><div className="table-card full-table"><table><thead><tr><th>Order</th><th>Node</th><th>Status</th><th>Evidence</th></tr></thead><tbody>{run.execution_trace.map((step, index) => <tr key={`${step.node}-${index}`}><td>{String(index + 1).padStart(2, "0")}</td><td><b>{step.node}</b></td><td><StatusBadge status={step.status} /></td><td><button className="text-button" onClick={() => inspectNode(step.node)} disabled={detailPending && selectedNode === step.node}>{detailPending && selectedNode === step.node ? "Loading..." : "Inspect"}</button></td></tr>)}</tbody></table></div>{selectedNode && <div className="panel method-note"><Database size={15} /><span><b>{selectedNode}</b> output summary</span><pre>{JSON.stringify(selectedOutput ?? {}, null, 2)}</pre></div>}<div className="method-note"><Database size={15} /><span>Run <b>{run.experiment_id}</b> · dataset <b>{run.dataset_version ?? "unassigned"}</b> · last completed node <b>{run.last_completed_node ?? "none"}</b></span></div></>}{!run && !pending && !error && <div className="panel method-note"><Play size={16} /><span>Run the graph to execute and inspect every deterministic research node in order.</span></div>}</section>;
+}
+
+function ManifestExportPanel() {
+  const [manifest, setManifest] = useState<ExperimentManifest | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    let active = true;
+    const load = async () => {
+      try {
+        const registry = await listExperiments();
+        const latest = registry.items.find((item) => item.status !== "draft") ?? registry.items[0];
+        if (!latest) return;
+        const next = await getExperimentManifest(latest.id);
+        if (active) {
+          setManifest(next);
+          setError(null);
+        }
+      } catch (reason) {
+        if (active) setError(reason instanceof Error ? reason.message : "Experiment manifest is unavailable");
+      }
+    };
+    load();
+    const timer = window.setInterval(load, 3000);
+    return () => {
+      active = false;
+      window.clearInterval(timer);
+    };
+  }, []);
+  const download = () => {
+    if (!manifest) return;
+    const blob = new Blob([JSON.stringify(manifest, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `${manifest.experiment_id}-manifest.json`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  };
+  return <section className="section-block"><SectionHeader eyebrow="REPRODUCIBILITY MANIFEST" title="Latest run record" action={<button className="button button-quiet" onClick={download} disabled={!manifest}><Database size={14} /> Download JSON</button>} />{error && <div className="panel method-note"><Database size={16} /><span>{error}</span></div>}{manifest ? <div className="panel method-note"><Database size={16} /><span><b>{manifest.experiment_id}</b> Â· {manifest.execution.node_count} nodes Â· {manifest.status} Â· fingerprint <b>{manifest.run_fingerprint?.slice(0, 16) ?? "pending"}</b></span></div> : !error && <div className="panel method-note"><Database size={16} /><span>Run an experiment to populate its reproducibility manifest.</span></div>}</section>;
+}
+
+function ExperimentPortfolioResults({ run }: { run: ExperimentRun }) {
+  const output = run.node_outputs.historical_backtest as ExperimentBacktestOutput | undefined;
+  const percent = (value: number | null | undefined) =>
+    value == null ? "—" : `${(value * 100).toFixed(2)}%`;
+  const statistic = (value: number | null | undefined) =>
+    value == null ? "—" : value.toFixed(2);
+  const characteristicRows = (["size", "value"] as const).flatMap((factor) => {
+    const result = output?.characteristic_factors?.[factor];
+    const details = result?.statistics?.statistics;
+    if (!result) return [];
+    const interval = result.statistics?.bootstrap;
+    return [{
+      name: `${factor[0].toUpperCase()}${factor.slice(1)} spread`,
+      observations: result.statistics?.observations ?? details?.observations ?? null,
+      annualized: details?.annualised_return,
+      volatility: details?.volatility,
+      sharpe: details?.sharpe,
+      neweyWest: result.statistics?.newey_west_t,
+      interval: interval ? `${percent(interval.lower)} to ${percent(interval.upper)}` : "—",
+    }];
+  });
+  const momentum = output?.momentum_statistics;
+  const rows = [
+    ...characteristicRows,
+    ...(momentum ? [{
+      name: "Momentum net",
+      observations: momentum.observations ?? null,
+      annualized: momentum.annualised_return,
+      volatility: momentum.volatility,
+      sharpe: momentum.sharpe,
+      neweyWest: null,
+      interval: "—",
+    }] : []),
+  ];
+
+  return <section className="section-block">
+    <div className="detail-title"><div><span className="eyebrow">RUN-SPECIFIC PERFORMANCE</span><h2>Portfolio statistics</h2></div></div>
+    {rows.length ? <div className="table-card full-table"><table><thead><tr><th>Strategy</th><th>Months</th><th>Annualized return</th><th>Annualized volatility</th><th>Sharpe</th><th>Newey-West t</th><th>Monthly mean 95% bootstrap CI</th></tr></thead><tbody>{rows.map((row) => <tr key={row.name}><td><b>{row.name}</b></td><td>{row.observations ?? "—"}</td><td>{percent(row.annualized)}</td><td>{percent(row.volatility)}</td><td>{statistic(row.sharpe)}</td><td>{statistic(row.neweyWest)}</td><td>{row.interval}</td></tr>)}</tbody></table></div> : <div className="method-note"><Database size={15} /><span>No requested portfolio has performance statistics in this run.</span></div>}
+    <div className="method-note"><Database size={15} /><span>Momentum return is net of the configured trading-cost estimate. Size and Value are next-month long-short spread returns; their confidence intervals cover the monthly mean.</span></div>
+  </section>;
+}
+
+function ExperimentBenchmarkResults({ run }: { run: ExperimentRun }) {
+  const benchmark = run.node_outputs.benchmark_comparison as ExperimentBenchmarkOutput | undefined;
+  const entries = Object.entries(benchmark?.regressions ?? {}) as [
+    "size" | "value" | "momentum",
+    NonNullable<ExperimentBenchmarkOutput["regressions"]["size"]>,
+  ][];
+  const percent = (value: number | null | undefined) =>
+    value == null ? "—" : `${(value * 100).toFixed(2)}%`;
+  const statistic = (value: number | null | undefined, digits = 2) =>
+    value == null ? "—" : value.toFixed(digits);
+
+  return <section className="section-block">
+    <div className="detail-title"><div><span className="eyebrow">RUN-SPECIFIC DIAGNOSTICS</span><h2>Benchmark regression</h2></div><span className="dataset-tag">{benchmark?.benchmark_code ?? "Benchmark unavailable"}</span></div>
+    {entries.length ? <div className="table-card full-table"><table><thead><tr><th>Portfolio</th><th>Status</th><th>Months</th><th>Monthly alpha</th><th>Market beta</th><th>Alpha t-stat</th><th>R²</th></tr></thead><tbody>{entries.map(([factor, result]) => <tr key={factor}><td><b>{factor[0].toUpperCase() + factor.slice(1)}</b><small>{result.target_definition}</small></td><td><StatusBadge status={result.status} />{result.reason && <small>{result.reason}</small>}</td><td>{result.observations}</td><td>{percent(result.alpha)}</td><td>{statistic(result.coefficients.market_excess_return?.coefficient)}</td><td>{statistic(result.alpha_t)}</td><td>{percent(result.r_squared)}</td></tr>)}</tbody></table></div> : <div className="method-note"><Database size={15} /><span>No selected portfolio has a benchmark regression in this run.</span></div>}
+    <div className="method-note"><Database size={15} /><span>Market <b>{benchmark?.benchmark_code ?? "NGX ASI"}</b> · risk-free <b>{benchmark?.risk_free_tenor ?? "91D T-bill"}</b> · alpha and beta use Newey-West HAC errors. Momentum is compared after its matched risk-free return is deducted.</span></div>
+  </section>;
+}
+
+function LiveExperimentHistory() {
+  const [items, setItems] = useState<ExperimentRecord[]>([]);
+  const [selected, setSelected] = useState<{ manifest: ExperimentManifest; run: ExperimentRun } | null>(null);
+  const [selectedNode, setSelectedNode] = useState<string | null>(null);
+  const [nodeOutput, setNodeOutput] = useState<Record<string, unknown> | null>(null);
+  const [pendingId, setPendingId] = useState<string | null>(null);
+  const [nodePending, setNodePending] = useState(false);
+  const [exportPending, setExportPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    let active = true;
+    const load = async () => {
+      try {
+        const registry = await listExperiments();
+        if (active) setItems(registry.items);
+      } catch {
+        if (active) setItems([]);
+      }
+    };
+    load();
+    const timer = window.setInterval(load, 3000);
+    return () => {
+      active = false;
+      window.clearInterval(timer);
+    };
+  }, []);
+  const openRun = async (experimentId: string) => {
+    setPendingId(experimentId);
+    setError(null);
+    setSelectedNode(null);
+    setNodeOutput(null);
+    try {
+      const [manifest, run] = await Promise.all([
+        getExperimentManifest(experimentId),
+        getExperimentRun(experimentId),
+      ]);
+      setSelected({ manifest, run });
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Saved experiment could not be opened");
+    } finally {
+      setPendingId(null);
+    }
+  };
+  const inspectNode = async (node: string) => {
+    if (!selected) return;
+    setSelectedNode(node);
+    setNodePending(true);
+    setError(null);
+    try {
+      const detail = await getExperimentNodeRun(selected.run.experiment_id, node);
+      setNodeOutput(detail.outputs);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Saved node output is unavailable");
+      setNodeOutput(null);
+    } finally {
+      setNodePending(false);
+    }
+  };
+  const downloadBundle = async () => {
+    if (!selected) return;
+    setExportPending(true);
+    setError(null);
+    try {
+      const bundle = await getExperimentExport(selected.manifest.experiment_id);
+      const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `${selected.manifest.experiment_id}-audit-bundle.json`;
+      anchor.click();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Experiment audit bundle is unavailable");
+    } finally {
+      setExportPending(false);
+    }
+  };
+  return <section className="section-block"><SectionHeader eyebrow="LIVE RUN HISTORY" title="API experiment registry" />{error && <div className="panel method-note"><Database size={15} /><span>{error}</span></div>}{items.length ? <div className="table-card full-table"><table><thead><tr><th>Experiment</th><th>Status</th><th>Dataset</th><th>Created</th><th /></tr></thead><tbody>{items.map((item) => <tr key={item.id}><td><b>{item.name}</b><small>{item.id}</small></td><td><StatusBadge status={item.status} /></td><td>{item.dataset_version}</td><td>{new Date(item.created_at).toLocaleString()}</td><td><button className="text-button" onClick={() => openRun(item.id)} disabled={pendingId === item.id}>{pendingId === item.id ? "Loading..." : "Inspect"}</button></td></tr>)}</tbody></table></div> : <div className="panel method-note"><Database size={16} /><span>No API-created experiments are available yet.</span></div>}{selected && <div className="panel section-block"><div className="detail-title"><div><span className="eyebrow">SAVED EXPERIMENT</span><h2>{selected.manifest.name}</h2><small>{selected.manifest.experiment_id} · {selected.manifest.dataset_version}</small></div><div className="topbar-actions"><button className="button button-quiet" onClick={downloadBundle} disabled={exportPending}><Download size={14} /> {exportPending ? "Preparing..." : "Download audit bundle"}</button><button className="button button-quiet" onClick={() => setSelected(null)}>Close</button></div></div><div className="method-note"><Database size={15} /><span>Status <b>{selected.run.status}</b> · fingerprint <b>{selected.manifest.run_fingerprint?.slice(0, 16) ?? "pending"}</b> · {selected.manifest.execution.node_count} completed nodes</span></div>{selected.manifest.constraints.length > 0 && <div className="method-note"><BookOpen size={15} /><span>{selected.manifest.constraints.map((item) => `${item.factor}: ${item.status} (${item.reasons.join(", ")})`).join(" · ")}</span></div>}<details><summary>Experiment configuration</summary><pre>{JSON.stringify(selected.manifest.configuration, null, 2)}</pre></details><ExperimentPortfolioResults run={selected.run} /><ExperimentBenchmarkResults run={selected.run} />{selected.run.execution_trace.length > 0 && <div className="table-card full-table"><table><thead><tr><th>Order</th><th>Node</th><th>Status</th><th>Output</th></tr></thead><tbody>{selected.run.execution_trace.map((step) => <tr key={step.node}><td>{String(step.sequence).padStart(2, "0")}</td><td><b>{step.node}</b></td><td><StatusBadge status={step.status} /></td><td><button className="text-button" onClick={() => inspectNode(step.node)} disabled={nodePending && selectedNode === step.node}>{nodePending && selectedNode === step.node ? "Loading..." : "Inspect"}</button></td></tr>)}</tbody></table></div>}{selectedNode && <div className="method-note"><Database size={15} /><span><b>{selectedNode}</b> stored output</span><pre>{JSON.stringify(nodeOutput ?? {}, null, 2)}</pre></div>}</div>}</section>;
+}
+
+function PilotExperimentsView({ pilot, onNewExperiment }: { pilot: PilotExperiment | null; onNewExperiment: () => void }) {
+  return <><PilotExperimentsViewContent pilot={pilot} onNewExperiment={onNewExperiment} /><ExecutableGraphRunPanel /><ManifestExportPanel /><LiveExperimentHistory /></>;
+}
+
+const NEW_EXPERIMENT_DEFAULT: ExperimentCreatePayload = {
+  name: "NGX public data study",
+  start_date: "2023-01-03",
+  end_date: "2024-12-31",
+  factors: ["market", "size", "value", "momentum", "liquidity"],
+  portfolio_method: "equal_weight",
+  portfolio_size: 10,
+  rebalance_frequency: "monthly",
+  regime_count: 3,
+  bootstrap_iterations: 1000,
+  newey_west_threshold: 2.5,
+  fundamental_availability_policy: "actual_or_fixed_lag",
+  fixed_reporting_lag_days: 90,
+};
+
+function NewExperimentModal({ onClose, onCreated }: { onClose: () => void; onCreated: () => void }) {
+  const [configuration, setConfiguration] = useState<ExperimentCreatePayload>(NEW_EXPERIMENT_DEFAULT);
+  const [plan, setPlan] = useState<ExperimentPlan | null>(null);
+  const [run, setRun] = useState<ExperimentRun | null>(null);
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const update = <K extends keyof ExperimentCreatePayload>(key: K, value: ExperimentCreatePayload[K]) => {
+    setConfiguration((current) => ({ ...current, [key]: value }));
+  };
+  const toggleFactor = (factor: FactorKey) => {
+    const factors = configuration.factors.includes(factor)
+      ? configuration.factors.filter((item) => item !== factor)
+      : [...configuration.factors, factor];
+    update("factors", factors);
+  };
+  const prepare = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setPending(true);
+    setError(null);
+    try {
+      const experiment = await createExperiment(configuration);
+      setPlan(await getExperimentPlan(experiment.id));
+      onCreated();
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Experiment plan could not be prepared");
+    } finally {
+      setPending(false);
+    }
+  };
+  const execute = async () => {
+    if (!plan) return;
+    setPending(true);
+    setError(null);
+    try {
+      setRun(await runExperiment(plan.experiment_id));
+      onCreated();
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Experiment could not be run");
+    } finally {
+      setPending(false);
+    }
+  };
+
+  return <div className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="new-experiment-title"><div className="modal">
+    <div className="modal-head"><div><span className="eyebrow">NEW RESEARCH RUN</span><h2 id="new-experiment-title">{run ? "Run complete" : plan ? "Review preflight plan" : "Configure experiment"}</h2></div><button className="icon-button" onClick={onClose} aria-label="Close"><X size={18} /></button></div>
+    {!plan && <form onSubmit={prepare}>
+      <label>Experiment name<input required maxLength={200} value={configuration.name} onChange={(event) => update("name", event.target.value)} /></label>
+      <div className="form-grid"><label>Start date<input required type="date" value={configuration.start_date} onChange={(event) => update("start_date", event.target.value)} /></label><label>End date<input required type="date" value={configuration.end_date} onChange={(event) => update("end_date", event.target.value)} /></label></div>
+      <div className="form-grid"><label>Portfolio size<select value={configuration.portfolio_size} onChange={(event) => update("portfolio_size", Number(event.target.value))}><option value={10}>10 securities</option><option value={20}>20 securities</option><option value={30}>30 securities</option></select></label><label>Regime states<select value={configuration.regime_count} onChange={(event) => update("regime_count", Number(event.target.value))}><option value={2}>2 states</option><option value={3}>3 states</option><option value={4}>4 states</option></select></label></div>
+      <div className="factor-toggle-list"><span className="eyebrow">ENABLED FACTORS</span>{FACTORS.map((factor) => <div key={factor.key} role="checkbox" aria-checked={configuration.factors.includes(factor.key)} tabIndex={0} onClick={() => toggleFactor(factor.key)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") toggleFactor(factor.key); }}><span className={`factor-chip ${factor.tone}`}>{factor.short}</span><b>{factor.label}</b><span className={configuration.factors.includes(factor.key) ? "toggle-on" : "toggle-off"}>{configuration.factors.includes(factor.key) ? <Check size={12} /> : null}</span></div>)}</div>
+      {error && <div className="panel method-note"><Database size={15} /><span>{error}</span></div>}
+      <div className="modal-actions"><button type="button" className="button button-quiet" onClick={onClose}>Cancel</button><button type="submit" className="button button-primary" disabled={pending || configuration.factors.length === 0}><Play size={14} /> {pending ? "Preparing plan..." : "Create and review plan"}</button></div>
+    </form>}
+    {plan && !run && <><div className="panel method-note"><Database size={15} /><span><b>{plan.name}</b> · dataset <b>{plan.dataset_version}</b> · {plan.planned_nodes.length} graph nodes · fingerprint <b>{plan.run_fingerprint.slice(0, 16)}</b></span></div><div className="factor-grid">{plan.requested_factors.map((factor) => <article className="factor-card" key={factor}><span className="eyebrow">{factor}</span><StatusBadge status={plan.factor_statuses[factor]} />{plan.constraints.filter((item) => item.factor === factor).map((item) => <p className="method-note" key={item.factor}>{item.reasons.join(" · ")}</p>)}</article>)}</div>{error && <div className="panel method-note"><Database size={15} /><span>{error}</span></div>}<div className="modal-actions"><button className="button button-quiet" onClick={onClose}>Close</button><button className="button button-primary" onClick={execute} disabled={pending}><Play size={14} /> {pending ? "Running graph..." : "Run this experiment"}</button></div></>}
+    {run && <><div className="panel method-note"><Database size={15} /><span><b>{run.status}</b> · {run.execution_trace.length} nodes recorded · dataset <b>{run.dataset_version ?? "unassigned"}</b> · fingerprint <b>{run.run_fingerprint?.slice(0, 16) ?? "unavailable"}</b></span></div>{run.constraints.length > 0 && <div className="method-note"><BookOpen size={15} /><span>Constraints: {run.constraints.map((item) => `${item.factor}: ${item.status}`).join(" · ")}</span></div>}<div className="modal-actions"><button className="button button-primary" onClick={onClose}>Done</button></div></>}
+  </div></div>;
 }
 
 export function ResearchConsole({ view }: { view: ViewKey }) {
@@ -277,8 +573,8 @@ export function ResearchConsole({ view }: { view: ViewKey }) {
   const title = NAV_ITEMS.find((item) => item.href.includes(view))?.label ?? "Overview";
   return <div className="app-shell">
     <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}><div className="brand"><LogoMark /><button className="icon-button mobile-close" onClick={() => setSidebarOpen(false)}><X size={17} /></button></div><div className="workspace-switcher"><span className="workspace-avatar">SJ</span><div><b>Samuel Justin</b><small>Research workspace</small></div><ChevronDown size={15} /></div><nav><span className="nav-label">Workspace</span>{NAV_ITEMS.map((item) => { const Icon = iconMap[item.icon as keyof typeof iconMap]; const active = item.href === `/${view}` || (view === "dashboard" && item.href === "/dashboard"); return <a className={active ? "active" : ""} href={item.href} key={item.href} onClick={() => setSidebarOpen(false)}><Icon size={17} /><span>{item.label}</span>{item.label === "Experiments" && <span className="nav-count">3</span>}</a>; })}</nav><div className="sidebar-bottom"><div className={`data-health ${qualityError ? "unavailable" : "review"}`}><span className="health-dot" /><div><b>{qualityError ? "Data status unavailable" : quality ? "Price audit passed" : "Checking dataset"}</b><small>{quality ? `${quality.valid_dol_document_count} documents · liquidity blocked` : "Loading validation report"}</small></div></div><a href="#docs"><BookOpen size={16} /> Documentation</a><a href="#settings"><Settings2 size={16} /> Workspace settings</a></div></aside>
-    <main className="main-content"><header className="topbar"><button className="icon-button menu-trigger" onClick={() => setSidebarOpen(true)} aria-label="Open navigation"><Menu size={19} /></button><div className="breadcrumb"><span>Workspace</span><span>/</span><b>{title}</b></div><div className="topbar-actions"><span className="demo-pill"><span /> Public-data pilot</span><button className="icon-button" aria-label="Help"><CircleHelp size={17} /></button><button className="icon-button" aria-label="Notifications"><Bell size={17} /><i className="notification-dot" /></button><div className="topbar-avatar">SJ</div></div></header><div className="page-body">{view === "dashboard" && <PilotDashboardView pilot={pilot} />}{view === "factors" && <LiveFactorsView pilot={pilot} completion={completion} />}{view === "regimes" && <LiveRegimesView pilot={pilot} />}{view === "portfolio" && <MomentumPortfolioView pilot={pilot} />}{view === "experiments" && <PilotExperimentsView pilot={pilot} />}</div><footer className="site-footer"><span>NGX Research Console <i>·</i> academic research environment</span><span>Dataset <b>{quality?.dataset_id ?? "loading"}</b> <i>·</i> deterministic outputs only</span></footer></main>
-    {modalOpen && <div className="modal-backdrop" role="dialog" aria-modal="true"><div className="modal"><div className="modal-head"><div><span className="eyebrow">NEW RESEARCH RUN</span><h2>Configure experiment</h2></div><button className="icon-button" onClick={() => setModalOpen(false)} aria-label="Close"><X size={18} /></button></div><label>Experiment name<input defaultValue="Five-factor baseline — copy" /></label><div className="form-grid"><label>Start date<input type="date" defaultValue="2019-01-01" /></label><label>End date<input type="date" defaultValue="2025-12-31" /></label></div><div className="form-grid"><label>Portfolio size<select defaultValue="10"><option>10 securities</option><option>20 securities</option><option>30 securities</option></select></label><label>Regime states<select defaultValue="3"><option>3 states</option><option>2 states</option><option>4 states</option></select></label></div><div className="factor-toggle-list"><span className="eyebrow">ENABLED FACTORS</span>{FACTORS.map((factor) => <div key={factor.key}><span className={`factor-chip ${factor.tone}`}>{factor.short}</span><b>{factor.label}</b><span className="toggle-on"><Check size={12} /></span></div>)}</div><div className="modal-actions"><button className="button button-quiet" onClick={() => setModalOpen(false)}>Cancel</button><button className="button button-primary" onClick={() => { setModalOpen(false); showToast("Experiment saved as draft"); }}><Play size={14} /> Create draft</button></div></div></div>}
+    <main className="main-content"><header className="topbar"><button className="icon-button menu-trigger" onClick={() => setSidebarOpen(true)} aria-label="Open navigation"><Menu size={19} /></button><div className="breadcrumb"><span>Workspace</span><span>/</span><b>{title}</b></div><div className="topbar-actions"><span className="demo-pill"><span /> Public-data pilot</span><button className="icon-button" aria-label="Help"><CircleHelp size={17} /></button><button className="icon-button" aria-label="Notifications"><Bell size={17} /><i className="notification-dot" /></button><div className="topbar-avatar">SJ</div></div></header><div className="page-body">{view === "dashboard" && <PilotDashboardView pilot={pilot} />}{view === "factors" && <LiveFactorsView pilot={pilot} completion={completion} />}{view === "regimes" && <LiveRegimesView pilot={pilot} />}{view === "portfolio" && <MomentumPortfolioView pilot={pilot} />}{view === "experiments" && <PilotExperimentsView pilot={pilot} onNewExperiment={handleNewExperiment} />}</div><footer className="site-footer"><span>NGX Research Console <i>·</i> academic research environment</span><span>Dataset <b>{quality?.dataset_id ?? "loading"}</b> <i>·</i> deterministic outputs only</span></footer></main>
+    {modalOpen && <NewExperimentModal onClose={() => setModalOpen(false)} onCreated={() => showToast("Experiment saved to the registry")} />}
     {toast && <div className="toast"><span className="check-circle"><Check size={13} /></span>{toast}</div>}
   </div>;
 }

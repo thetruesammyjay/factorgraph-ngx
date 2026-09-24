@@ -114,7 +114,10 @@ def build_factor_regressions(
     if market.empty or "observation_month" not in market:
         base = pd.DataFrame(columns=["observation_month", "market_excess_return"])
     else:
-        base = market[["observation_month", "market_excess_return"]].copy()
+        base_columns = ["observation_month", "market_excess_return"]
+        if "risk_free_return" in market:
+            base_columns.append("risk_free_return")
+        base = market[base_columns].copy()
     base["observation_month"] = base["observation_month"].astype(str)
     base["market_excess_return"] = pd.to_numeric(
         base["market_excess_return"], errors="coerce"
@@ -153,6 +156,10 @@ def build_factor_regressions(
         target["observation_month"] = target["observation_month"].astype(str)
         target[column] = pd.to_numeric(target[column], errors="coerce")
         aligned = base.merge(target, on="observation_month", how="inner")
+        if factor == "momentum" and "risk_free_return" in aligned:
+            aligned[column] = aligned[column] - pd.to_numeric(
+                aligned["risk_free_return"], errors="coerce"
+            )
         result = factor_regression(
             aligned[column],
             aligned[["market_excess_return"]],

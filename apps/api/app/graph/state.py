@@ -8,6 +8,8 @@ class ResearchState(TypedDict, total=False):
     execution_trace: list[dict[str, Any]]
     node_outputs: dict[str, dict[str, Any]]
     pilot_report: dict[str, Any]
+    constraints: list[dict[str, Any]]
+    run_fingerprint: str
     last_completed_node: str
     dataset_version: str
     eligible_universe: list[str]
@@ -21,4 +23,5 @@ class ResearchState(TypedDict, total=False):
     stock_scores: dict[str, Any] | None
     portfolio_results: dict[str, Any] | None
     backtest_results: dict[str, Any] | None
+    benchmark_results: dict[str, Any] | None
     errors: list[dict[str, Any]]
