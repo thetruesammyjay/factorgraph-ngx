@@ -51,6 +51,8 @@ def build_characteristic_portfolios(
     min_assets: int = 2,
     bootstrap_iterations: int = 2_000,
     seed: int = 42,
+    holding_start_month: str | None = None,
+    holding_end_month: str | None = None,
 ) -> dict:
     """Form portfolios at month *t* and apply them to returns in month *t+1*."""
     missing = sorted(REQUIRED_COLUMNS.difference(characteristics.columns))
@@ -133,6 +135,23 @@ def build_characteristic_portfolios(
     performance = pd.DataFrame(rows)
     if performance.empty:
         performance = pd.DataFrame(columns=["formation_month", "holding_month"])
+    if holding_start_month:
+        performance = performance[
+            performance["holding_month"] >= holding_start_month
+        ]
+    if holding_end_month:
+        performance = performance[
+            performance["holding_month"] <= holding_end_month
+        ]
+    holdings_frame = pd.DataFrame(holdings)
+    if not holdings_frame.empty and holding_start_month:
+        holdings_frame = holdings_frame[
+            holdings_frame["holding_month"] >= holding_start_month
+        ]
+    if not holdings_frame.empty and holding_end_month:
+        holdings_frame = holdings_frame[
+            holdings_frame["holding_month"] <= holding_end_month
+        ]
     outputs = {}
     for factor in ("size", "value"):
         spread = performance.get(f"{factor}_spread_return", pd.Series(dtype=float))
@@ -161,6 +180,6 @@ def build_characteristic_portfolios(
             "minimum_assets": min_assets,
         },
         "performance": performance,
-        "holdings": pd.DataFrame(holdings),
+        "holdings": holdings_frame,
         "factors": outputs,
     }

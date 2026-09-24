@@ -1,12 +1,59 @@
+import math
+
 import pandas as pd
 
+from app.factors.ranking import build_stock_rankings
 from app.graph.state import ResearchState
 from app.quant.characteristic_portfolios import build_characteristic_portfolios
-from app.quant.momentum_pilot import run_momentum_pilot
+from app.quant.momentum_pilot import latest_momentum_scores, run_momentum_pilot
 from app.quant.regimes import build_regime_analysis
 from app.quant.regressions import build_factor_regressions
+from app.quant.statistics import describe_returns
 
 NODE_ORDER = ["prepare_dataset", "factor_construction", "validation", "regime_estimation", "stock_ranking", "portfolio_construction", "historical_backtest", "benchmark_comparison", "persist_results"]
+
+
+def _json_records(frame: pd.DataFrame) -> list[dict]:
+    """Convert result tables to JSON-safe records for the saved run artifact."""
+    records = []
+    for record in frame.to_dict(orient="records"):
+        normalized = {}
+        for key, value in record.items():
+            if value is None or pd.isna(value):
+                normalized[key] = None
+                continue
+            if isinstance(value, pd.Timestamp):
+                normalized[key] = value.isoformat()
+                continue
+            if hasattr(value, "item"):
+                value = value.item()
+            if isinstance(value, float) and not math.isfinite(value):
+                normalized[key] = None
+                continue
+            normalized[key] = value
+        records.append(normalized)
+    return records
+
+
+def _month_window(config: dict) -> tuple[str | None, str | None]:
+    start = config.get("start_date")
+    end = config.get("end_date")
+    return (str(start)[:7] if start else None, str(end)[:7] if end else None)
+
+
+def _filter_month_rows(rows: list[dict], config: dict, month_column: str = "observation_month") -> list[dict]:
+    start_month, end_month = _month_window(config)
+    filtered = []
+    for row in rows:
+        month = str(row.get(month_column, ""))[:7]
+        if len(month) != 7:
+            continue
+        if start_month and month < start_month:
+            continue
+        if end_month and month > end_month:
+            continue
+        filtered.append(row)
+    return filtered
 
 def _completed(state: ResearchState, name: str, outputs: dict | None = None) -> ResearchState:
     trace = [
@@ -33,6 +80,8 @@ def prepare_dataset(state: ResearchState) -> ResearchState:
     report = state.get("pilot_report", {})
     coverage = report.get("coverage", {})
     config = state.get("config", {})
+    selected_market_rows = _filter_month_rows(report.get("market_factor", []), config)
+    selected_characteristic_rows = _filter_month_rows(report.get("characteristics", []), config)
     prepared = {
         **state,
         "dataset_version": report.get("dataset_version", state.get("dataset_version", "ngx_monthly_v3")),
@@ -53,6 +102,9 @@ def prepare_dataset(state: ResearchState) -> ResearchState:
             "requested_factors": config.get("factors", []),
             "portfolio_size": config.get("portfolio_size"),
             "regime_count": config.get("regime_count"),
+            "monthly_window": list(_month_window(config)),
+            "market_months_in_window": len(selected_market_rows),
+            "characteristic_rows_in_window": len(selected_characteristic_rows),
         },
     )
 
@@ -60,7 +112,7 @@ def prepare_dataset(state: ResearchState) -> ResearchState:
 def estimate_regimes(state: ResearchState) -> ResearchState:
     report = state.get("pilot_report", {})
     config = state.get("config", {})
-    market_factor = pd.DataFrame(report.get("market_factor", []))
+    market_factor = pd.DataFrame(_filter_month_rows(report.get("market_factor", []), config))
     requested_states = config.get("regime_count")
     if requested_states is None:
         requested_states = report.get("regime_analysis", {}).get("coverage", {}).get("states", 3)
@@ -103,6 +155,8 @@ def construct_portfolios(state: ResearchState) -> ResearchState:
                 groups=int(dataset_config.get("characteristic_groups", 2)),
                 min_assets=int(dataset_config.get("characteristic_min_assets", 2)),
                 bootstrap_iterations=int(run_config.get("bootstrap_iterations", 10_000)),
+                holding_start_month=_month_window(run_config)[0],
+                holding_end_month=_month_window(run_config)[1],
             )
             results["characteristic_portfolios"] = characteristic_result
             outputs["characteristic_portfolios"] = {
@@ -112,6 +166,8 @@ def construct_portfolios(state: ResearchState) -> ResearchState:
                     factor: characteristic_result["factors"][factor]
                     for factor in sorted(requested.intersection({"size", "value"}))
                 },
+                "performance": _json_records(characteristic_result["performance"]),
+                "holdings": _json_records(characteristic_result["holdings"]),
             }
     else:
         outputs["characteristic_portfolios"] = {
@@ -139,6 +195,8 @@ def construct_portfolios(state: ResearchState) -> ResearchState:
                 skip_months=int(dataset_config.get("momentum_skip_months", 1)),
                 portfolio_size=int(run_config.get("portfolio_size", dataset_config.get("momentum_portfolio_size", 5))),
                 transaction_cost_bps=float(dataset_config.get("transaction_cost_bps", 50)),
+                start_month=_month_window(run_config)[0],
+                end_month=_month_window(run_config)[1],
             )
             results["momentum_portfolio"] = momentum_result
             outputs["momentum_portfolio"] = {
@@ -146,6 +204,8 @@ def construct_portfolios(state: ResearchState) -> ResearchState:
                 "methodology": momentum_result["methodology"],
                 "coverage": momentum_result["coverage"],
                 "statistics": momentum_result["statistics"],
+                "performance": _json_records(momentum_result["performance"]),
+                "holdings": _json_records(momentum_result["holdings"]),
             }
     else:
         outputs["momentum_portfolio"] = {
@@ -160,14 +220,65 @@ def construct_portfolios(state: ResearchState) -> ResearchState:
     )
 
 
+def rank_stocks(state: ResearchState) -> ResearchState:
+    """Create independent point-in-time cross-sectional factor rankings."""
+    report = state.get("pilot_report", {})
+    config = state.get("config", {})
+    dataset_config = report.get("reproducibility", {}).get("configuration", {})
+    requested = list(config.get("factors", []))
+    characteristics = pd.DataFrame(
+        _filter_month_rows(report.get("characteristics", []), config)
+    )
+    if characteristics.empty:
+        momentum_scores = pd.DataFrame()
+    else:
+        latest_month = characteristics["observation_month"].astype(str).max()
+        momentum_history = pd.DataFrame(report.get("characteristics", []))
+        momentum_history = momentum_history[
+            ["observation_month", "ticker", "marked_monthly_return"]
+        ].copy()
+        momentum_scores = latest_momentum_scores(
+            momentum_history,
+            lookback_months=int(dataset_config.get("momentum_months", 11)),
+            skip_months=int(dataset_config.get("momentum_skip_months", 1)),
+            as_of_month=latest_month,
+        )
+    result = build_stock_rankings(
+        characteristics,
+        momentum_scores,
+        requested_factors=requested,
+        portfolio_size=int(config.get("portfolio_size", 10)),
+    )
+    result["methodology"] = {
+        "ranking_date": "latest point-in-time observation month inside the requested window",
+        "selection": "top configured portfolio size within each independent factor sort",
+        "size": "smallest market capitalization first",
+        "value": "highest book-to-market first",
+        "momentum": f"{dataset_config.get('momentum_months', 11)}-month prior marked return, skipping {dataset_config.get('momentum_skip_months', 1)} recent month(s)",
+    }
+    return _completed(
+        {**state, "stock_scores": result},
+        "stock_ranking",
+        result,
+    )
+
+
 def summarize_backtest(state: ResearchState) -> ResearchState:
     """Summarize the portfolio streams produced earlier in this graph run."""
     report = state.get("pilot_report", {})
     portfolios = state.get("portfolio_results", {}) or {}
     characteristic = portfolios.get("characteristic_portfolios", {})
     momentum = portfolios.get("momentum_portfolio", {})
+    market_factor = pd.DataFrame(
+        _filter_month_rows(report.get("market_factor", []), state.get("config", {}))
+    )
+    market_returns = (
+        pd.to_numeric(market_factor["market_excess_return"], errors="coerce")
+        if "market_excess_return" in market_factor
+        else pd.Series(dtype=float)
+    )
     outputs = {
-        "market_factor": report.get("market_factor_statistics") or {},
+        "market_factor": describe_returns(market_returns) if market_returns.notna().any() else {},
         "characteristic_factors": characteristic.get("factors", {}),
         "characteristic_coverage": characteristic.get("coverage", {}),
         "momentum_statistics": momentum.get("statistics"),
@@ -184,7 +295,9 @@ def compare_benchmarks(state: ResearchState) -> ResearchState:
     """Estimate HAC market-model alpha and beta for this run's portfolios."""
     report = state.get("pilot_report", {})
     portfolios = state.get("portfolio_results", {}) or {}
-    market_inputs = pd.DataFrame(report.get("market_factor", []))
+    market_inputs = pd.DataFrame(
+        _filter_month_rows(report.get("market_factor", []), state.get("config", {}))
+    )
     characteristic = portfolios.get("characteristic_portfolios", {})
     momentum = portfolios.get("momentum_portfolio", {})
     characteristic_performance = characteristic.get("performance", pd.DataFrame())
@@ -205,7 +318,11 @@ def compare_benchmarks(state: ResearchState) -> ResearchState:
     outputs = {
         "benchmark_code": coverage.get("benchmark_code"),
         "risk_free_tenor": coverage.get("risk_free_tenor"),
-        "aligned_market_months": coverage.get("aligned_months", 0),
+        "aligned_market_months": (
+            int(pd.to_numeric(market_inputs.get("market_excess_return", pd.Series(dtype=float)), errors="coerce").notna().sum())
+            if not market_inputs.empty
+            else 0
+        ),
         "regressions": selected,
         "methodology": {
             "model": "portfolio return on NGX ASI excess return",
@@ -238,24 +355,18 @@ def _report_outputs(name: str, report: dict, config: dict | None = None) -> dict
         }
     if name == "validation":
         price_coverage = report.get("coverage", {})
-        coverage = report.get("market_input_coverage", {})
+        market_rows = _filter_month_rows(report.get("market_factor", []), config or {})
         fundamentals = report.get("fundamentals_validation", {})
         return {
             "price_observations": price_coverage.get("observations", 0),
             "carried_price_rows": price_coverage.get("carried_price_rows", 0),
             "official_trade_returns": price_coverage.get("official_trade_returns", 0),
-            "aligned_market_months": coverage.get("aligned_months", 0),
-            "benchmark_months": coverage.get("benchmark_months", 0),
-            "risk_free_months": coverage.get("risk_free_months", 0),
+            "aligned_market_months": sum(row.get("market_excess_return") is not None for row in market_rows),
+            "benchmark_months": sum(row.get("market_return") is not None for row in market_rows),
+            "risk_free_months": sum(row.get("risk_free_return") is not None for row in market_rows),
+            "monthly_window": list(_month_window(config or {})),
             "fundamental_errors": len(fundamentals.get("errors", [])),
             "fundamental_warnings": len(fundamentals.get("warnings", [])),
-        }
-    if name == "stock_ranking":
-        characteristics = report.get("latest_characteristics", [])
-        return {
-            "latest_observations": len(characteristics),
-            "size_eligible": sum(item.get("size_eligible", False) for item in characteristics),
-            "value_eligible": sum(item.get("value_eligible", False) for item in characteristics),
         }
     if name == "persist_results":
         reproducibility = report.get("reproducibility", {})

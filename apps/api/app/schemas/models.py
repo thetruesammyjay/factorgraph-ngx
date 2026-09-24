@@ -1,7 +1,7 @@
 from datetime import date, datetime
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 FactorName = Literal["market", "size", "value", "momentum", "liquidity"]
 
@@ -23,6 +23,12 @@ class ExperimentConfig(BaseModel):
     newey_west_threshold: float = 2.5
     fundamental_availability_policy: str = "actual_or_fixed_lag"
     fixed_reporting_lag_days: int = 90
+
+    @model_validator(mode="after")
+    def validate_date_window(self) -> "ExperimentConfig":
+        if self.start_date > self.end_date:
+            raise ValueError("start_date must be on or before end_date")
+        return self
 
 class ExperimentCreate(ExperimentConfig):
     pass

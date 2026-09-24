@@ -42,7 +42,7 @@ import {
 } from "recharts";
 import { EQUITY_CURVE, EXPERIMENTS, FACTORS, HOLDINGS, NAV_ITEMS, REGIME_TIMELINE } from "@/lib/constants";
 import { createExperiment, getExperimentNodeRun, getExperimentExport, getExperimentManifest, getExperimentPlan, getExperimentRun, getLatestDatasetQuality, getLatestFundamentalsCompletion, getLatestPilotExperiment, listExperiments, runExperiment } from "@/lib/api";
-import type { DatasetQuality, ExperimentBacktestOutput, ExperimentBenchmarkOutput, ExperimentCreatePayload, ExperimentManifest, ExperimentPlan, ExperimentRecord, ExperimentRun, FactorKey, FactorRegression, FundamentalsCompletion, PilotExperiment, ViewKey } from "@/types/research";
+import type { DatasetQuality, ExperimentBacktestOutput, ExperimentBenchmarkOutput, ExperimentCreatePayload, ExperimentManifest, ExperimentPlan, ExperimentPortfolioOutput, ExperimentRecord, ExperimentRun, ExperimentStockRankingOutput, FactorKey, FactorRegression, FundamentalsCompletion, PilotExperiment, ViewKey } from "@/types/research";
 import { formatPercent } from "@/lib/utils";
 
 const iconMap = { LayoutDashboard, Activity, Waves, BriefcaseBusiness, FlaskConical };
@@ -379,6 +379,93 @@ function ExperimentPortfolioResults({ run }: { run: ExperimentRun }) {
   </section>;
 }
 
+function ExperimentPortfolioSeries({ run }: { run: ExperimentRun }) {
+  const output = run.node_outputs.portfolio_construction as ExperimentPortfolioOutput | undefined;
+  const characteristic = output?.characteristic_portfolios;
+  const momentum = output?.momentum_portfolio;
+  const monthly = new Map<string, { month: string; size: number | null; value: number | null; momentum: number | null }>();
+  const monthlyRow = (month: string) => {
+    const current = monthly.get(month) ?? { month, size: null, value: null, momentum: null };
+    monthly.set(month, current);
+    return current;
+  };
+  for (const row of characteristic?.performance ?? []) {
+    if (typeof row.holding_month !== "string") continue;
+    const current = monthlyRow(row.holding_month);
+    current.size = typeof row.size_spread_return === "number" ? row.size_spread_return : null;
+    current.value = typeof row.value_spread_return === "number" ? row.value_spread_return : null;
+  }
+  for (const row of momentum?.performance ?? []) {
+    if (typeof row.observation_month !== "string") continue;
+    const current = monthlyRow(row.observation_month);
+    current.momentum = typeof row.marked_net_return === "number" ? row.marked_net_return : null;
+  }
+  const chart = [...monthly.values()]
+    .filter((row) => row.size != null || row.value != null || row.momentum != null)
+    .sort((left, right) => left.month.localeCompare(right.month));
+  const holdings = [
+    ...(characteristic?.holdings ?? []).flatMap((row) =>
+      typeof row.ticker === "string" && typeof row.holding_month === "string"
+        ? [{
+            month: row.holding_month,
+            factor: typeof row.factor === "string" ? row.factor : "—",
+            ticker: row.ticker,
+            bucket: typeof row.portfolio === "string" ? row.portfolio : "—",
+            signal: typeof row.characteristic === "number" ? row.characteristic : null,
+            weight: null as number | null,
+          }]
+        : [],
+    ),
+    ...(momentum?.holdings ?? []).flatMap((row) =>
+      typeof row.ticker === "string" && typeof row.observation_month === "string"
+        ? [{
+            month: row.observation_month,
+            factor: "momentum",
+            ticker: row.ticker,
+            bucket: typeof row.rank === "number" ? `rank ${row.rank}` : "selected",
+            signal: typeof row.formation_return === "number" ? row.formation_return : null,
+            weight: typeof row.weight === "number" ? row.weight : null,
+          }]
+        : [],
+    ),
+  ].sort((left, right) => left.month.localeCompare(right.month) || left.factor.localeCompare(right.factor) || left.ticker.localeCompare(right.ticker));
+  const percent = (value: unknown) =>
+    typeof value === "number" ? `${(value * 100).toFixed(2)}%` : "—";
+  const formationSignal = (factor: string, value: number | null) => {
+    if (value == null) return "—";
+    return factor === "momentum"
+      ? percent(value)
+      : value.toLocaleString(undefined, { maximumFractionDigits: 4 });
+  };
+
+  return <section className="section-block">
+    <div className="detail-title"><div><span className="eyebrow">MONTHLY RESEARCH OUTPUT</span><h2>Portfolio returns and holdings</h2></div></div>
+    {chart.length ? <><div className="panel detail-chart"><ResponsiveContainer width="100%" height="100%"><LineChart data={chart} margin={{ top: 12, right: 18, left: 5, bottom: 0 }}><CartesianGrid vertical={false} stroke="rgba(22,51,0,.10)" strokeDasharray="3 5" /><XAxis dataKey="month" tickLine={false} axisLine={false} tick={{ fill: "#718083", fontSize: 10 }} /><YAxis tickLine={false} axisLine={false} tick={{ fill: "#718083", fontSize: 10 }} tickFormatter={percent} /><Tooltip formatter={(value: number) => [percent(value), "Monthly return"]} contentStyle={{ background: "#fffdf7", border: "1px solid #dfe4d9", borderRadius: 8 }} /><Line dataKey="size" name="Size spread" stroke="#8b6dd1" strokeWidth={2} dot={false} connectNulls={false} /><Line dataKey="value" name="Value spread" stroke="#219a82" strokeWidth={2} dot={false} connectNulls={false} /><Line dataKey="momentum" name="Momentum net" stroke="#c08c2e" strokeWidth={2} dot={false} connectNulls={false} /></LineChart></ResponsiveContainer></div><div className="chart-legend"><span><i className="legend-line" style={{ background: "#8b6dd1" }} /> Size spread</span><span><i className="legend-line" style={{ background: "#219a82" }} /> Value spread</span><span><i className="legend-line" style={{ background: "#c08c2e" }} /> Momentum net</span></div></> : <div className="method-note"><Database size={15} /><span>This saved run has no captured monthly portfolio return rows. Rerun the experiment to create them.</span></div>}
+    {holdings.length > 0 && <details className="panel"><summary className="method-note">Security-level holdings · {holdings.length} records</summary><div className="table-card full-table"><table><thead><tr><th>Month</th><th>Factor</th><th>Ticker</th><th>Portfolio</th><th>Formation signal or characteristic</th><th>Weight</th></tr></thead><tbody>{holdings.map((row, index) => <tr key={`${row.month}-${row.factor}-${row.ticker}-${index}`}><td>{row.month}</td><td>{row.factor}</td><td><b>{row.ticker}</b></td><td>{row.bucket}</td><td>{formationSignal(row.factor, row.signal)}</td><td>{percent(row.weight)}</td></tr>)}</tbody></table></div></details>}
+    <div className="method-note"><Database size={15} /><span>Returns are grouped by holding month. Momentum formation signals are returns; Size uses market capitalization and Value uses book-to-market. Formation signals and selected holdings are saved with the experiment so the portfolio can be audited.</span></div>
+  </section>;
+}
+
+function ExperimentStockRankings({ run }: { run: ExperimentRun }) {
+  const output = run.node_outputs.stock_ranking as ExperimentStockRankingOutput | undefined;
+  const factors = Object.entries(output?.factors ?? {}) as [
+    FactorKey,
+    NonNullable<ExperimentStockRankingOutput["factors"][FactorKey]>,
+  ][];
+  const formatScore = (factor: FactorKey, score: number) => {
+    if (factor === "momentum") return `${(score * 100).toFixed(2)}%`;
+    return factor === "size"
+      ? score.toLocaleString(undefined, { notation: "compact", maximumFractionDigits: 2 })
+      : score.toFixed(4);
+  };
+
+  return <section className="section-block">
+    <div className="detail-title"><div><span className="eyebrow">POINT-IN-TIME CROSS SECTION</span><h2>Selected-month factor rankings</h2></div><span className="dataset-tag">{output?.observation_month ?? "No month"}</span></div>
+    {factors.length ? factors.map(([factor, result]) => <details className="panel" key={factor}><summary className="method-note"><b>{factor[0].toUpperCase() + factor.slice(1)}</b> · {result.selected_securities} of {result.eligible_securities} selected at portfolio size {output?.portfolio_size}<span style={{ marginLeft: "auto" }}><StatusBadge status={result.status} /></span></summary>{result.reason && <div className="method-note">{result.reason}</div>}{result.rankings.length > 0 && <div className="table-card full-table"><table><thead><tr><th>Rank</th><th>Ticker</th><th>Factor characteristic</th><th>Selection</th></tr></thead><tbody>{result.rankings.map((row) => <tr key={`${factor}-${row.ticker}`}><td>{row.rank}</td><td><b>{row.ticker}</b></td><td>{formatScore(factor, row.score)}</td><td>{row.selected ? "Selected" : "Outside portfolio size"}</td></tr>)}</tbody></table></div>}</details>) : <div className="method-note"><Database size={15} /><span>Stock rankings were not captured in this saved run.</span></div>}
+    <div className="method-note"><Database size={15} /><span>{output?.ranking_scope ?? "Each factor is ranked independently; unlike scores are not combined into a stock recommendation."}</span></div>
+  </section>;
+}
+
 function ExperimentBenchmarkResults({ run }: { run: ExperimentRun }) {
   const benchmark = run.node_outputs.benchmark_comparison as ExperimentBenchmarkOutput | undefined;
   const entries = Object.entries(benchmark?.regressions ?? {}) as [
@@ -474,7 +561,7 @@ function LiveExperimentHistory() {
       setExportPending(false);
     }
   };
-  return <section className="section-block"><SectionHeader eyebrow="LIVE RUN HISTORY" title="API experiment registry" />{error && <div className="panel method-note"><Database size={15} /><span>{error}</span></div>}{items.length ? <div className="table-card full-table"><table><thead><tr><th>Experiment</th><th>Status</th><th>Dataset</th><th>Created</th><th /></tr></thead><tbody>{items.map((item) => <tr key={item.id}><td><b>{item.name}</b><small>{item.id}</small></td><td><StatusBadge status={item.status} /></td><td>{item.dataset_version}</td><td>{new Date(item.created_at).toLocaleString()}</td><td><button className="text-button" onClick={() => openRun(item.id)} disabled={pendingId === item.id}>{pendingId === item.id ? "Loading..." : "Inspect"}</button></td></tr>)}</tbody></table></div> : <div className="panel method-note"><Database size={16} /><span>No API-created experiments are available yet.</span></div>}{selected && <div className="panel section-block"><div className="detail-title"><div><span className="eyebrow">SAVED EXPERIMENT</span><h2>{selected.manifest.name}</h2><small>{selected.manifest.experiment_id} · {selected.manifest.dataset_version}</small></div><div className="topbar-actions"><button className="button button-quiet" onClick={downloadBundle} disabled={exportPending}><Download size={14} /> {exportPending ? "Preparing..." : "Download audit bundle"}</button><button className="button button-quiet" onClick={() => setSelected(null)}>Close</button></div></div><div className="method-note"><Database size={15} /><span>Status <b>{selected.run.status}</b> · fingerprint <b>{selected.manifest.run_fingerprint?.slice(0, 16) ?? "pending"}</b> · {selected.manifest.execution.node_count} completed nodes</span></div>{selected.manifest.constraints.length > 0 && <div className="method-note"><BookOpen size={15} /><span>{selected.manifest.constraints.map((item) => `${item.factor}: ${item.status} (${item.reasons.join(", ")})`).join(" · ")}</span></div>}<details><summary>Experiment configuration</summary><pre>{JSON.stringify(selected.manifest.configuration, null, 2)}</pre></details><ExperimentPortfolioResults run={selected.run} /><ExperimentBenchmarkResults run={selected.run} />{selected.run.execution_trace.length > 0 && <div className="table-card full-table"><table><thead><tr><th>Order</th><th>Node</th><th>Status</th><th>Output</th></tr></thead><tbody>{selected.run.execution_trace.map((step) => <tr key={step.node}><td>{String(step.sequence).padStart(2, "0")}</td><td><b>{step.node}</b></td><td><StatusBadge status={step.status} /></td><td><button className="text-button" onClick={() => inspectNode(step.node)} disabled={nodePending && selectedNode === step.node}>{nodePending && selectedNode === step.node ? "Loading..." : "Inspect"}</button></td></tr>)}</tbody></table></div>}{selectedNode && <div className="method-note"><Database size={15} /><span><b>{selectedNode}</b> stored output</span><pre>{JSON.stringify(nodeOutput ?? {}, null, 2)}</pre></div>}</div>}</section>;
+  return <section className="section-block"><SectionHeader eyebrow="LIVE RUN HISTORY" title="API experiment registry" />{error && <div className="panel method-note"><Database size={15} /><span>{error}</span></div>}{items.length ? <div className="table-card full-table"><table><thead><tr><th>Experiment</th><th>Status</th><th>Dataset</th><th>Created</th><th /></tr></thead><tbody>{items.map((item) => <tr key={item.id}><td><b>{item.name}</b><small>{item.id}</small></td><td><StatusBadge status={item.status} /></td><td>{item.dataset_version}</td><td>{new Date(item.created_at).toLocaleString()}</td><td><button className="text-button" onClick={() => openRun(item.id)} disabled={pendingId === item.id}>{pendingId === item.id ? "Loading..." : "Inspect"}</button></td></tr>)}</tbody></table></div> : <div className="panel method-note"><Database size={16} /><span>No API-created experiments are available yet.</span></div>}{selected && <div className="panel section-block"><div className="detail-title"><div><span className="eyebrow">SAVED EXPERIMENT</span><h2>{selected.manifest.name}</h2><small>{selected.manifest.experiment_id} · {selected.manifest.dataset_version}</small></div><div className="topbar-actions"><button className="button button-quiet" onClick={downloadBundle} disabled={exportPending}><Download size={14} /> {exportPending ? "Preparing..." : "Download audit bundle"}</button><button className="button button-quiet" onClick={() => setSelected(null)}>Close</button></div></div><div className="method-note"><Database size={15} /><span>Status <b>{selected.run.status}</b> · fingerprint <b>{selected.manifest.run_fingerprint?.slice(0, 16) ?? "pending"}</b> · {selected.manifest.execution.node_count} completed nodes</span></div>{selected.manifest.constraints.length > 0 && <div className="method-note"><BookOpen size={15} /><span>{selected.manifest.constraints.map((item) => `${item.factor}: ${item.status} (${item.reasons.join(", ")})`).join(" · ")}</span></div>}<details><summary>Experiment configuration</summary><pre>{JSON.stringify(selected.manifest.configuration, null, 2)}</pre></details><ExperimentStockRankings run={selected.run} /><ExperimentPortfolioResults run={selected.run} /><ExperimentPortfolioSeries run={selected.run} /><ExperimentBenchmarkResults run={selected.run} />{selected.run.execution_trace.length > 0 && <div className="table-card full-table"><table><thead><tr><th>Order</th><th>Node</th><th>Status</th><th>Output</th></tr></thead><tbody>{selected.run.execution_trace.map((step) => <tr key={step.node}><td>{String(step.sequence).padStart(2, "0")}</td><td><b>{step.node}</b></td><td><StatusBadge status={step.status} /></td><td><button className="text-button" onClick={() => inspectNode(step.node)} disabled={nodePending && selectedNode === step.node}>{nodePending && selectedNode === step.node ? "Loading..." : "Inspect"}</button></td></tr>)}</tbody></table></div>}{selectedNode && <div className="method-note"><Database size={15} /><span><b>{selectedNode}</b> stored output</span><pre>{JSON.stringify(nodeOutput ?? {}, null, 2)}</pre></div>}</div>}</section>;
 }
 
 function PilotExperimentsView({ pilot, onNewExperiment }: { pilot: PilotExperiment | null; onNewExperiment: () => void }) {
@@ -550,9 +637,21 @@ function NewExperimentModal({ onClose, onCreated }: { onClose: () => void; onCre
       {error && <div className="panel method-note"><Database size={15} /><span>{error}</span></div>}
       <div className="modal-actions"><button type="button" className="button button-quiet" onClick={onClose}>Cancel</button><button type="submit" className="button button-primary" disabled={pending || configuration.factors.length === 0}><Play size={14} /> {pending ? "Preparing plan..." : "Create and review plan"}</button></div>
     </form>}
-    {plan && !run && <><div className="panel method-note"><Database size={15} /><span><b>{plan.name}</b> · dataset <b>{plan.dataset_version}</b> · {plan.planned_nodes.length} graph nodes · fingerprint <b>{plan.run_fingerprint.slice(0, 16)}</b></span></div><div className="factor-grid">{plan.requested_factors.map((factor) => <article className="factor-card" key={factor}><span className="eyebrow">{factor}</span><StatusBadge status={plan.factor_statuses[factor]} />{plan.constraints.filter((item) => item.factor === factor).map((item) => <p className="method-note" key={item.factor}>{item.reasons.join(" · ")}</p>)}</article>)}</div>{error && <div className="panel method-note"><Database size={15} /><span>{error}</span></div>}<div className="modal-actions"><button className="button button-quiet" onClick={onClose}>Close</button><button className="button button-primary" onClick={execute} disabled={pending}><Play size={14} /> {pending ? "Running graph..." : "Run this experiment"}</button></div></>}
+    {plan && !run && <><div className="panel method-note"><Database size={15} /><span><b>{plan.name}</b> · dataset <b>{plan.dataset_version}</b> · {plan.planned_nodes.length} graph nodes · {plan.analysis_window.start_month}–{plan.analysis_window.end_month} monthly · {plan.analysis_window.market_months} market months · fingerprint <b>{plan.run_fingerprint.slice(0, 16)}</b></span></div><div className="factor-grid">{plan.requested_factors.map((factor) => <article className="factor-card" key={factor}><span className="eyebrow">{factor}</span><StatusBadge status={plan.factor_statuses[factor]} />{plan.constraints.filter((item) => item.factor === factor).map((item) => <p className="method-note" key={item.factor}>{item.reasons.join(" · ")}</p>)}</article>)}</div>{error && <div className="panel method-note"><Database size={15} /><span>{error}</span></div>}<div className="modal-actions"><button className="button button-quiet" onClick={onClose}>Close</button><button className="button button-primary" onClick={execute} disabled={pending}><Play size={14} /> {pending ? "Running graph..." : "Run this experiment"}</button></div></>}
     {run && <><div className="panel method-note"><Database size={15} /><span><b>{run.status}</b> · {run.execution_trace.length} nodes recorded · dataset <b>{run.dataset_version ?? "unassigned"}</b> · fingerprint <b>{run.run_fingerprint?.slice(0, 16) ?? "unavailable"}</b></span></div>{run.constraints.length > 0 && <div className="method-note"><BookOpen size={15} /><span>Constraints: {run.constraints.map((item) => `${item.factor}: ${item.status}`).join(" · ")}</span></div>}<div className="modal-actions"><button className="button button-primary" onClick={onClose}>Done</button></div></>}
   </div></div>;
+}
+
+function ApiLoadError({ message, onRetry }: { message: string; onRetry: () => void }) {
+  return <section className="panel method-note" role="alert">
+    <Database size={18} />
+    <div>
+      <b>Could not load the research data</b>
+      <p>{message}</p>
+      <p>Check that the FastAPI server is running and that <code>NEXT_PUBLIC_API_URL</code> points to its API root.</p>
+      <button type="button" className="button button-quiet" onClick={onRetry}>Retry</button>
+    </div>
+  </section>;
 }
 
 export function ResearchConsole({ view }: { view: ViewKey }) {
@@ -562,18 +661,36 @@ export function ResearchConsole({ view }: { view: ViewKey }) {
   const [quality, setQuality] = useState<DatasetQuality | null>(null);
   const [pilot, setPilot] = useState<PilotExperiment | null>(null);
   const [completion, setCompletion] = useState<FundamentalsCompletion | null>(null);
-  const [qualityError, setQualityError] = useState(false);
+  const [qualityError, setQualityError] = useState<string | null>(null);
+  const [pilotError, setPilotError] = useState<string | null>(null);
+  const [reloadCount, setReloadCount] = useState(0);
   useEffect(() => {
-    getLatestDatasetQuality().then(setQuality).catch(() => setQualityError(true));
-    getLatestPilotExperiment().then(setPilot).catch(() => setPilot(null));
-    getLatestFundamentalsCompletion().then(setCompletion).catch(() => setCompletion(null));
-  }, []);
+    let active = true;
+    setQualityError(null);
+    setPilotError(null);
+    getLatestDatasetQuality()
+      .then((result) => { if (active) setQuality(result); })
+      .catch((error: unknown) => {
+        if (!active) return;
+        setQualityError(error instanceof Error ? error.message : "Dataset quality report is unavailable.");
+      });
+    getLatestPilotExperiment()
+      .then((result) => { if (active) setPilot(result); })
+      .catch((error: unknown) => {
+        if (!active) return;
+        setPilot(null);
+        setPilotError(error instanceof Error ? error.message : "Pilot experiment report is unavailable.");
+      });
+    getLatestFundamentalsCompletion().then((result) => { if (active) setCompletion(result); }).catch(() => { if (active) setCompletion(null); });
+    return () => { active = false; };
+  }, [reloadCount]);
+  const retryLoad = () => setReloadCount((count) => count + 1);
   const showToast = (message: string) => { setToast(message); window.setTimeout(() => setToast(""), 2800); };
   const handleNewExperiment = () => setModalOpen(true);
   const title = NAV_ITEMS.find((item) => item.href.includes(view))?.label ?? "Overview";
   return <div className="app-shell">
-    <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}><div className="brand"><LogoMark /><button className="icon-button mobile-close" onClick={() => setSidebarOpen(false)}><X size={17} /></button></div><div className="workspace-switcher"><span className="workspace-avatar">SJ</span><div><b>Samuel Justin</b><small>Research workspace</small></div><ChevronDown size={15} /></div><nav><span className="nav-label">Workspace</span>{NAV_ITEMS.map((item) => { const Icon = iconMap[item.icon as keyof typeof iconMap]; const active = item.href === `/${view}` || (view === "dashboard" && item.href === "/dashboard"); return <a className={active ? "active" : ""} href={item.href} key={item.href} onClick={() => setSidebarOpen(false)}><Icon size={17} /><span>{item.label}</span>{item.label === "Experiments" && <span className="nav-count">3</span>}</a>; })}</nav><div className="sidebar-bottom"><div className={`data-health ${qualityError ? "unavailable" : "review"}`}><span className="health-dot" /><div><b>{qualityError ? "Data status unavailable" : quality ? "Price audit passed" : "Checking dataset"}</b><small>{quality ? `${quality.valid_dol_document_count} documents · liquidity blocked` : "Loading validation report"}</small></div></div><a href="#docs"><BookOpen size={16} /> Documentation</a><a href="#settings"><Settings2 size={16} /> Workspace settings</a></div></aside>
-    <main className="main-content"><header className="topbar"><button className="icon-button menu-trigger" onClick={() => setSidebarOpen(true)} aria-label="Open navigation"><Menu size={19} /></button><div className="breadcrumb"><span>Workspace</span><span>/</span><b>{title}</b></div><div className="topbar-actions"><span className="demo-pill"><span /> Public-data pilot</span><button className="icon-button" aria-label="Help"><CircleHelp size={17} /></button><button className="icon-button" aria-label="Notifications"><Bell size={17} /><i className="notification-dot" /></button><div className="topbar-avatar">SJ</div></div></header><div className="page-body">{view === "dashboard" && <PilotDashboardView pilot={pilot} />}{view === "factors" && <LiveFactorsView pilot={pilot} completion={completion} />}{view === "regimes" && <LiveRegimesView pilot={pilot} />}{view === "portfolio" && <MomentumPortfolioView pilot={pilot} />}{view === "experiments" && <PilotExperimentsView pilot={pilot} onNewExperiment={handleNewExperiment} />}</div><footer className="site-footer"><span>NGX Research Console <i>·</i> academic research environment</span><span>Dataset <b>{quality?.dataset_id ?? "loading"}</b> <i>·</i> deterministic outputs only</span></footer></main>
+    <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}><div className="brand"><LogoMark /><button className="icon-button mobile-close" onClick={() => setSidebarOpen(false)}><X size={17} /></button></div><div className="workspace-switcher"><span className="workspace-avatar">SJ</span><div><b>Samuel Justin</b><small>Research workspace</small></div><ChevronDown size={15} /></div><nav><span className="nav-label">Workspace</span>{NAV_ITEMS.map((item) => { const Icon = iconMap[item.icon as keyof typeof iconMap]; const active = item.href === `/${view}` || (view === "dashboard" && item.href === "/dashboard"); return <a className={active ? "active" : ""} href={item.href} key={item.href} onClick={() => setSidebarOpen(false)}><Icon size={17} /><span>{item.label}</span>{item.label === "Experiments" && <span className="nav-count">3</span>}</a>; })}</nav><div className="sidebar-bottom"><div className={`data-health ${qualityError ? "unavailable" : "review"}`}><span className="health-dot" /><div><b>{qualityError ? "Data status unavailable" : quality ? "Price audit passed" : "Checking dataset"}</b>{quality ? <small>{quality.valid_dol_document_count} documents · liquidity blocked</small> : qualityError ? <button type="button" className="text-button" title={qualityError} onClick={retryLoad}>Retry validation report</button> : <small>Loading validation report</small>}</div></div><a href="#docs"><BookOpen size={16} /> Documentation</a><a href="#settings"><Settings2 size={16} /> Workspace settings</a></div></aside>
+    <main className="main-content"><header className="topbar"><button className="icon-button menu-trigger" onClick={() => setSidebarOpen(true)} aria-label="Open navigation"><Menu size={19} /></button><div className="breadcrumb"><span>Workspace</span><span>/</span><b>{title}</b></div><div className="topbar-actions"><span className="demo-pill"><span /> Public-data pilot</span><button className="icon-button" aria-label="Help"><CircleHelp size={17} /></button><button className="icon-button" aria-label="Notifications"><Bell size={17} /><i className="notification-dot" /></button><div className="topbar-avatar">SJ</div></div></header><div className="page-body">{pilotError && view !== "experiments" ? <ApiLoadError message={pilotError} onRetry={retryLoad} /> : <>{view === "dashboard" && <PilotDashboardView pilot={pilot} />}{view === "factors" && <LiveFactorsView pilot={pilot} completion={completion} />}{view === "regimes" && <LiveRegimesView pilot={pilot} />}{view === "portfolio" && <MomentumPortfolioView pilot={pilot} />}{view === "experiments" && <>{pilotError && <ApiLoadError message={pilotError} onRetry={retryLoad} />}<PilotExperimentsView pilot={pilot} onNewExperiment={handleNewExperiment} /></>}</>}</div><footer className="site-footer"><span>NGX Research Console <i>·</i> academic research environment</span><span>Dataset <b>{quality?.dataset_id ?? (qualityError ? "unavailable" : "loading")}</b> <i>·</i> deterministic outputs only</span></footer></main>
     {modalOpen && <NewExperimentModal onClose={() => setModalOpen(false)} onCreated={() => showToast("Experiment saved to the registry")} />}
     {toast && <div className="toast"><span className="check-circle"><Check size={13} /></span>{toast}</div>}
   </div>;

@@ -7,6 +7,7 @@ from app.graph.nodes import (
     estimate_regimes,
     mark_node,
     prepare_dataset,
+    rank_stocks,
     summarize_backtest,
 )
 from app.graph.state import ResearchState
@@ -28,6 +29,7 @@ def build_research_graph():
             {
                 "regime_estimation": estimate_regimes,
                 "portfolio_construction": construct_portfolios,
+                "stock_ranking": rank_stocks,
                 "historical_backtest": summarize_backtest,
                 "benchmark_comparison": compare_benchmarks,
             }.get(name, mark_node(name)),

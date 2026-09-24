@@ -294,6 +294,14 @@ methodology. The run trace records compact coverage and return statistics; the
 deterministic portfolio tables remain available to later graph nodes during the
 same execution.
 
+The stock-ranking node produces separate cross-sectional rankings for each
+selected security-level factor at the latest observation month in the requested
+window. Size orders the smallest market capitalizations first, Value orders the
+highest book-to-market ratios first, and Momentum orders lagged compounded
+returns after the configured skip period. It does not combine unlike scores;
+the output records per-factor eligibility, selected tickers, and reasons when a
+ranking is unavailable. The saved-run view exposes these lists for inspection.
+
 The benchmark-comparison node aligns the resulting monthly portfolio returns
 with the NGX All-Share Index excess-return series and estimates market-model
 alpha and beta with Newey-West HAC errors. It treats Size and Value spreads as
@@ -304,7 +312,12 @@ remain explicitly blocked in the node output.
 The plan endpoint is a preflight view for the same deterministic run. It returns
 the selected factors, current eligibility status, any preliminary or blocked
 constraints, the nine planned graph nodes, the dataset version, and the
-run fingerprint before execution. The fingerprint is computed from the
+run fingerprint before execution. It also reports the effective calendar-month
+window and the available market and characteristic months. The requested day
+dates select inclusive calendar months, matching the granularity of the pilot
+series. Portfolio formation uses earlier observations as signal warm-up where
+needed, while reported holding returns remain inside the selected window. The
+fingerprint is computed from the
 canonical pilot dataset and stable research configuration, so it can be
 reviewed before a run is started.
 In the Experiments view, **New experiment** submits a configuration, displays
@@ -321,6 +334,12 @@ results table; blocked or preliminary regressions retain their status and reason
 It also shows annualized portfolio return, volatility and Sharpe ratio, plus
 Newey-West t-statistics and 95% bootstrap intervals for the Size and Value
 monthly mean spreads when those factors were selected.
+The persisted portfolio node output also contains the monthly portfolio-return
+rows and security-level holdings, so the audit bundle retains the series behind
+the reported metrics rather than only summary statistics.
+The saved-run view plots the monthly Size, Value and net Momentum series and
+provides a collapsible, month-by-month table of formation signals, bucket
+membership and available weights.
 
 The manifest endpoint packages the run fingerprint, stable configuration,
 constraints, dataset version, and ordered node metadata for export or review.

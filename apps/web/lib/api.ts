@@ -2,6 +2,27 @@ import type { DatasetQuality, ExperimentCreatePayload, ExperimentExport, Experim
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api/v1";
 
+async function fetchResearchJson<T>(path: string, unavailableMessage: string): Promise<T> {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 15_000);
+  try {
+    const response = await fetch(`${API_URL}${path}`, {
+      cache: "no-store",
+      signal: controller.signal,
+    });
+    if (!response.ok) throw new Error(`${unavailableMessage} (HTTP ${response.status})`);
+    return await response.json() as T;
+  } catch (error) {
+    if (controller.signal.aborted) {
+      throw new Error("The research API did not respond within 15 seconds.");
+    }
+    if (error instanceof Error) throw error;
+    throw new Error(unavailableMessage);
+  } finally {
+    window.clearTimeout(timeout);
+  }
+}
+
 export async function getApiHealth() {
   const response = await fetch(`${API_URL}/health`, { cache: "no-store" });
   if (!response.ok) throw new Error("Research API is unavailable");
@@ -9,21 +30,15 @@ export async function getApiHealth() {
 }
 
 export async function getLatestDatasetQuality(): Promise<DatasetQuality> {
-  const response = await fetch(`${API_URL}/datasets/quality/latest`, { cache: "no-store" });
-  if (!response.ok) throw new Error("Dataset quality report is unavailable");
-  return response.json() as Promise<DatasetQuality>;
+  return fetchResearchJson<DatasetQuality>("/datasets/quality/latest", "Dataset quality report is unavailable");
 }
 
 export async function getLatestPilotExperiment(): Promise<PilotExperiment> {
-  const response = await fetch(`${API_URL}/experiments/pilot/latest`, { cache: "no-store" });
-  if (!response.ok) throw new Error("Pilot experiment report is unavailable");
-  return response.json() as Promise<PilotExperiment>;
+  return fetchResearchJson<PilotExperiment>("/experiments/pilot/latest", "Pilot experiment report is unavailable");
 }
 
 export async function getLatestFundamentalsCompletion(): Promise<FundamentalsCompletion> {
-  const response = await fetch(`${API_URL}/datasets/fundamentals/completion/latest`, { cache: "no-store" });
-  if (!response.ok) throw new Error("Fundamentals completion report is unavailable");
-  return response.json() as Promise<FundamentalsCompletion>;
+  return fetchResearchJson<FundamentalsCompletion>("/datasets/fundamentals/completion/latest", "Fundamentals completion report is unavailable");
 }
 
 export async function createExperiment(payload: ExperimentCreatePayload): Promise<ExperimentRecord> {

@@ -36,6 +36,36 @@ def _formation_scores(
     return frame
 
 
+def latest_momentum_scores(
+    monthly: pd.DataFrame,
+    *,
+    lookback_months: int,
+    skip_months: int,
+    as_of_month: str | None = None,
+) -> pd.DataFrame:
+    """Return the latest point-in-time momentum signal for every security."""
+    required = {"observation_month", "ticker", "marked_monthly_return"}
+    missing = sorted(required.difference(monthly.columns))
+    if missing:
+        raise ValueError(f"monthly returns missing columns: {', '.join(missing)}")
+    if monthly[["observation_month", "ticker"]].duplicated().any():
+        raise ValueError("monthly returns contain duplicate month-ticker keys")
+    if lookback_months < 1 or skip_months < 0:
+        raise ValueError("momentum lookback must be positive and skip months non-negative")
+
+    scored = _formation_scores(monthly, lookback_months, skip_months)
+    scored["observation_month"] = scored["observation_month"].astype(str)
+    if as_of_month:
+        scored = scored[scored["observation_month"] <= as_of_month]
+    if scored.empty:
+        return pd.DataFrame(columns=["observation_month", "ticker", "formation_return"])
+    latest_month = scored["observation_month"].max()
+    return scored.loc[
+        scored["observation_month"] == latest_month,
+        ["observation_month", "ticker", "formation_return"],
+    ].reset_index(drop=True)
+
+
 def run_momentum_pilot(
     monthly: pd.DataFrame,
     *,
@@ -43,6 +73,8 @@ def run_momentum_pilot(
     skip_months: int = 0,
     portfolio_size: int = 5,
     transaction_cost_bps: float = 50,
+    start_month: str | None = None,
+    end_month: str | None = None,
 ) -> dict:
     """Run a monthly top-momentum pilot with a one-period information lag."""
     if lookback_months < 1:
@@ -69,8 +101,14 @@ def run_momentum_pilot(
     previous_weights = pd.Series(0.0, index=tickers)
     performance_rows: list[dict] = []
     holding_rows: list[dict] = []
+    period_started = False
 
     for month in months:
+        if end_month and month > end_month:
+            break
+        if not period_started and (not start_month or month >= start_month):
+            previous_weights = pd.Series(0.0, index=tickers)
+            period_started = True
         cross_section = scored[scored["observation_month"] == month].copy()
         eligible = cross_section.dropna(subset=["formation_return", "marked_monthly_return"])
         selected = eligible.nlargest(portfolio_size, "formation_return").copy()
@@ -124,9 +162,23 @@ def run_momentum_pilot(
 
     performance = pd.DataFrame(performance_rows)
     holdings = pd.DataFrame(holding_rows)
+    selected_months = [
+        month
+        for month in months
+        if (not start_month or month >= start_month)
+        and (not end_month or month <= end_month)
+    ]
+    if not performance.empty and start_month:
+        performance = performance[performance["observation_month"] >= start_month]
+    if not performance.empty and end_month:
+        performance = performance[performance["observation_month"] <= end_month]
+    if not holdings.empty and start_month:
+        holdings = holdings[holdings["observation_month"] >= start_month]
+    if not holdings.empty and end_month:
+        holdings = holdings[holdings["observation_month"] <= end_month]
     invested = performance[performance["positions"] > 0]
     coverage = MomentumPilotCoverage(
-        months=len(months),
+        months=len(selected_months),
         invested_months=len(invested),
         holdings=len(holdings),
         marked_return_months=int(invested["marked_net_return"].notna().sum()),

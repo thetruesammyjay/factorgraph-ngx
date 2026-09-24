@@ -51,8 +51,37 @@ def build_experiment_plan(config: dict, report: dict) -> dict:
     run_fingerprint = hashlib.sha256(
         json.dumps(fingerprint_input, sort_keys=True, default=str).encode("utf-8")
     ).hexdigest()
+    start_month = str(config.get("start_date", ""))[:7] or None
+    end_month = str(config.get("end_date", ""))[:7] or None
+
+    def selected(month: str) -> bool:
+        return (not start_month or month >= start_month) and (
+            not end_month or month <= end_month
+        )
+
+    market_months = sorted(
+        {
+            str(item.get("observation_month", ""))[:7]
+            for item in report.get("market_factor", [])
+            if item.get("observation_month") and selected(str(item["observation_month"])[:7])
+        }
+    )
+    characteristic_months = sorted(
+        {
+            str(item.get("observation_month", ""))[:7]
+            for item in report.get("characteristics", [])
+            if item.get("observation_month") and selected(str(item["observation_month"])[:7])
+        }
+    )
     return {
         "dataset_version": report.get("dataset_version"),
+        "analysis_window": {
+            "granularity": "calendar month",
+            "start_month": start_month,
+            "end_month": end_month,
+            "market_months": len(market_months),
+            "characteristic_months": len(characteristic_months),
+        },
         "requested_factors": requested,
         "factor_statuses": {
             factor: eligibility.get(factor, {}).get("status", "unavailable")

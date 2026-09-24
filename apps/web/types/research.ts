@@ -80,6 +80,33 @@ export type ExperimentBacktestOutput = {
   momentum_coverage: Record<string, number>;
 };
 
+export type ExperimentPortfolioOutput = {
+  characteristic_portfolios?: {
+    performance?: Array<Record<string, string | number | null>>;
+    holdings?: Array<Record<string, string | number | null>>;
+  };
+  momentum_portfolio?: {
+    performance?: Array<Record<string, string | number | null>>;
+    holdings?: Array<Record<string, string | number | null>>;
+  };
+};
+
+export type ExperimentStockRankingOutput = {
+  status: string;
+  observation_month: string | null;
+  portfolio_size: number;
+  ranking_scope?: string;
+  factors: Partial<Record<FactorKey, {
+    status: string;
+    reason: string | null;
+    characteristic?: string;
+    interpretation?: string;
+    eligible_securities: number;
+    selected_securities: number;
+    rankings: Array<{ rank: number; ticker: string; score: number; selected: boolean }>;
+  }>>;
+};
+
 export type ExperimentNodeRun = {
   experiment_id: string;
   node: string;
@@ -93,6 +120,13 @@ export type ExperimentPlan = {
   name: string;
   configuration: Record<string, unknown>;
   dataset_version: string;
+  analysis_window: {
+    granularity: string;
+    start_month: string | null;
+    end_month: string | null;
+    market_months: number;
+    characteristic_months: number;
+  };
   requested_factors: string[];
   factor_statuses: Record<string, string>;
   constraints: Array<{ factor: string; status: string; reasons: string[] }>;
