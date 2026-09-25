@@ -188,13 +188,14 @@ uv run python -m scripts.build_fundamentals_pilot `
   --fixed-lag-days 90
 ```
 
-Do not use incomplete fundamentals for a full-universe Size or Value claim until
-the point-in-time gate passes. The committed collection and status report expose
-partial coverage without inventing data.
+The current review contains all 30 expected issuer-periods and passes the
+point-in-time gate. Its two-year Size and Value portfolio results are still
+preliminary; complete input coverage does not turn the short pilot into evidence
+of a persistent factor premium.
 
-To continue collection after an incomplete review, regenerate the issuer-period
-queue. It preserves the current canonical observations and identifies the 11
-issuers that still have no complete observation:
+For a new fiscal period or a future replacement review, regenerate the
+issuer-period queue. It preserves the current canonical observations and
+identifies missing periods without fabricating values:
 
 ```powershell
 uv run python scripts/build_fundamentals_completion.py `
@@ -263,8 +264,9 @@ The same report contains deterministic Size and Value portfolios. Each sort is
 formed at month end and applied to the following month, with two equal-weight
 groups: Small minus Big for Size and High book-to-market minus Low for Value.
 The report includes group counts, long-short spreads, Newey-West t-statistics,
-and seeded 95% bootstrap intervals. These outputs remain labelled preliminary
-while the fundamentals completion gate is incomplete.
+and seeded 95% bootstrap intervals. The current fundamentals gate is complete,
+but all portfolio results remain labelled preliminary because this pilot spans
+only two years and 22 holding periods.
 
 It also contains market-only HAC regression diagnostics for the Size, Value,
 and Momentum return series. The regressions align each target with the monthly

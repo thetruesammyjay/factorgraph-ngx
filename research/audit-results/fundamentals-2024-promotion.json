@@ -1,7 +1,7 @@
 {
   "review_rows": 30,
-  "approved_rows": 12,
-  "promoted_rows": 12,
+  "approved_rows": 30,
+  "promoted_rows": 30,
   "errors": [],
   "warnings": [
     "non-positive book equity must be excluded from positive-B/M sorts"

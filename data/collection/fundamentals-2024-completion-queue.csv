@@ -1,31 +1,31 @@
 ticker,company,sector,fiscal_period,status,priority,required_missing,source_id,source_url
+ACCESSCORP,Access Holdings,Banking,2022-12-31,complete,missing_period,,accesscorp-annual-report-2022,https://theaccesscorporation.com/wp-content/uploads/2023/07/ACCESS-HOLDINGS-PLCS-2022-ANNUAL-REPORT.pdf
+ACCESSCORP,Access Holdings,Banking,2023-12-31,complete,missing_period,,accesscorp-annual-report-2023,https://theaccesscorporation.com/ACCESS-HOLDINGS-PLC-2023-ANNUAL-REPORT.pdf
 AIICO,AIICO Insurance,Insurance,2022-12-31,complete,missing_period,,aiico-annual-report-2022,https://www.aiicoplc.com/images/financialreports/Annual/AIICO_2022_Annual_Report.pdf
 AIICO,AIICO Insurance,Insurance,2023-12-31,complete,missing_period,,aiico-annual-report-2023,https://www.aiicoplc.com/images/financialreports/Annual/AIICO_Insurance_2023_Annual_Report.pdf
 DANGCEM,Dangote Cement,Industrial Goods,2022-12-31,complete,missing_period,,dangcem-annual-report-2022,https://www.dangotecement.com/wp-content/uploads/2023/04/DCP-2022-Annual-Report-UPDATED.pdf
 DANGCEM,Dangote Cement,Industrial Goods,2023-12-31,complete,missing_period,,dangcem-annual-report-2023,https://www.dangotecement.com/wp-content/uploads/2024/04/DCP-Annual-Report_AR23_full.pdf
 FBNH,FBN Holdings,Banking,2022-12-31,complete,missing_period,,fbnh-annual-report-2022,https://first-holdco.com/wp-content/uploads/2025/10/FBNHoldings-Plc_2022_Annual_Report.pdf
 FBNH,FBN Holdings,Banking,2023-12-31,complete,missing_period,,fbnh-annual-report-2023,https://first-holdco.com/downloads/2024/FBNHoldings_Plc_2023_Annual_Report_and_Accounts.pdf
+GTCO,Guaranty Trust Holding,Banking,2022-12-31,complete,missing_period,,gtco-annual-report-2022,https://gtco-plc.files.svdcdn.com/production/financial-information/2022-Annual-Report.pdf?dm=1687801902
 GTCO,Guaranty Trust Holding,Banking,2023-12-31,complete,missing_period,,gtco-annual-report-2023,https://gtco-plc.files.svdcdn.com/production/annual-reports/2023-annual-report/2023-Annual-Report.pdf?dm=1716814519
 MTNN,MTN Nigeria Communications,Telecommunications,2022-12-31,complete,missing_period,,mtnn-annual-report-2022,https://www.mtn.ng/wp-content/uploads/2023/07/MTN-Nigeria-Annual-Report-2022.pdf?x53449
 MTNN,MTN Nigeria Communications,Telecommunications,2023-12-31,complete,missing_period,,mtnn-annual-report-2023,https://www.mtn.ng/wp-content/uploads/2024/04/MTN-Nigeria-2023-Annual-Report.pdf?x53449
 NB,Nigerian Breweries,Consumer Goods,2022-12-31,complete,missing_period,,nb-annual-report-2022,https://www.nbplc.com/storage/2023/04/NB-Plc-2022-Annual-Report-and-Account.pdf
+NB,Nigerian Breweries,Consumer Goods,2023-12-31,complete,missing_period,,nb-annual-report-2023,https://www.nbplc.com/storage/2024/05/NB-Plc-2023-Annual-Report-and-Accounts-FA.pdf
+NESTLE,Nestle Nigeria,Consumer Goods,2022-12-31,complete,missing_period,,nestle-annual-report-2022,https://www.nestle-cwa.com/sites/g/files/pydnoa346/files/2023-04/Nestle%20Annual%20Report%202022_0.pdf
+NESTLE,Nestle Nigeria,Consumer Goods,2023-12-31,complete,missing_period,,nestle-annual-report-2023,https://www.nestle-cwa.com/sites/g/files/pydnoa346/files/2024-05/2023-annual-report.pdf
+OKOMUOIL,Okomu Oil Palm,Agriculture,2022-12-31,complete,missing_period,,okomuoil-annual-report-2022,https://okomunigeria.com/wp-content/uploads/2023/05/2022-Annual-reports-and-accounts.pdf
+OKOMUOIL,Okomu Oil Palm,Agriculture,2023-12-31,complete,missing_period,,okomuoil-annual-report-2023,https://okomunigeria.com/wp-content/uploads/2024/05/Annual-reports-and-accounts.pdf
+PRESCO,Presco,Agriculture,2022-12-31,complete,missing_period,,presco-annual-report-2022,https://www.presco-plc.com/downloads/annual-report-consolidated-and-separate-financial-statements-for-the-year-ended-31-december-2022/
+PRESCO,Presco,Agriculture,2023-12-31,complete,missing_period,,presco-annual-report-2023,https://www.presco-plc.com/prescoPLC/assets/File/PRESCO%20%20Annual%20Report%20and%20Account%202023.pdf
+SEPLAT,Seplat Energy,Oil and Gas,2022-12-31,complete,missing_period,,seplat-annual-report-2022,https://www.seplatenergy.com/media/024plwr5/seplat-energy-ar-2022.pdf
+SEPLAT,Seplat Energy,Oil and Gas,2023-12-31,complete,missing_period,,seplat-annual-report-2023,https://www.seplatenergy.com/media/54qbdvut/7529-sep-ar23-24-07-03_web_compressed.pdf
+TOTAL,TotalEnergies Marketing Nigeria,Oil and Gas,2022-12-31,complete,missing_period,,total-annual-report-2022,https://cardinalstoneregistrars.com/wp-content/uploads/2023/01/TotalEnergies%20Annual%20Reports%202022.pdf
+TOTAL,TotalEnergies Marketing Nigeria,Oil and Gas,2023-12-31,complete,missing_period,,total-annual-report-2023,https://doclib.ngxgroup.com/Financial_NewsDocs/40605_TOTALENERGIES_MARKETING_NIGERIA_PLC-_QUARTER_5_-_FINANCIAL_STATEMENT_FOR_2023_FINANCIAL_STATEMENTS_MARCH_2024.pdf
 UBA,United Bank for Africa,Banking,2022-12-31,complete,missing_period,,uba-annual-report-2022,https://www.ubagroup.com/wp-content/uploads/2023/04/UBA-ANNUAL-REPORT-ACCOUNTS-2022.pdf
+UBA,United Bank for Africa,Banking,2023-12-31,complete,missing_period,,uba-annual-report-2023,https://www.ubagroup.com/wp-content/uploads/2024/05/UBA-Plc-2023-Annual-Report-and-Accounts.pdf
+WAPCO,Lafarge Africa,Industrial Goods,2022-12-31,complete,missing_period,,wapco-annual-report-2022,https://www.lafarge.com.ng/sites/nigeria/files/2023-02/lafarge-africa-plc-2022-audited-financial-statements.pdf
 WAPCO,Lafarge Africa,Industrial Goods,2023-12-31,complete,missing_period,,wapco-annual-report-2023,https://www.lafarge.com.ng/sites/nigeria/files/2024-04/lafarge-africa-plc-2023-annual-report-accounts.pdf
-ACCESSCORP,Access Holdings,Banking,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-ACCESSCORP,Access Holdings,Banking,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-GTCO,Guaranty Trust Holding,Banking,2022-12-31,missing,missing_period,book_equity;shares_outstanding;reporting_scope;source_id,,
-NB,Nigerian Breweries,Consumer Goods,2023-12-31,missing,missing_period,book_equity;shares_outstanding;reporting_scope;source_id,,
-NESTLE,Nestle Nigeria,Consumer Goods,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-NESTLE,Nestle Nigeria,Consumer Goods,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-OKOMUOIL,Okomu Oil Palm,Agriculture,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-OKOMUOIL,Okomu Oil Palm,Agriculture,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-PRESCO,Presco,Agriculture,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-PRESCO,Presco,Agriculture,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-SEPLAT,Seplat Energy,Oil and Gas,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-SEPLAT,Seplat Energy,Oil and Gas,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-TOTAL,TotalEnergies Marketing Nigeria,Oil and Gas,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-TOTAL,TotalEnergies Marketing Nigeria,Oil and Gas,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-UBA,United Bank for Africa,Banking,2023-12-31,missing,missing_period,book_equity;shares_outstanding;reporting_scope;source_id,,
-WAPCO,Lafarge Africa,Industrial Goods,2022-12-31,missing,missing_period,book_equity;shares_outstanding;reporting_scope;source_id,,
-ZENITHBANK,Zenith Bank,Banking,2022-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
-ZENITHBANK,Zenith Bank,Banking,2023-12-31,missing,remaining_issuer,book_equity;shares_outstanding;reporting_scope;source_id,,
+ZENITHBANK,Zenith Bank,Banking,2022-12-31,complete,missing_period,,zenithbank-annual-report-2022,https://www.zenithbank.com/media/5qxhbr1t/zb-2022-annual-report.pdf
+ZENITHBANK,Zenith Bank,Banking,2023-12-31,complete,missing_period,,zenithbank-annual-report-2023,https://www.digital.zenithbank.com/pdfs/Annual-Report-2023.pdf

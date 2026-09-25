@@ -1,0 +1,51 @@
+{
+  "reviewed_at": "2026-09-24",
+  "reviewer": "Codex-assisted manual review of user-provided page images",
+  "status": "evidence_review_complete_for_two_records",
+  "records": [
+    {
+      "ticker": "OKOMUOIL",
+      "fiscal_period": "2023-12-31",
+      "source_id": "okomuoil-annual-report-2023",
+      "source_url": "https://okomunigeria.com/wp-content/uploads/2024/05/Annual-reports-and-accounts.pdf",
+      "source_sha256": "67c4520b80d1f6b977fb06740da7371cbf95af0be002d6cf75ee3ec13f12d40b",
+      "book_equity_candidate": 38874530,
+      "share_capital_amount": 476955,
+      "monetary_unit": "NGN thousands (N'000)",
+      "reporting_scope": "not_explicitly_identified_on_provided_statement_page",
+      "book_equity_page": 34,
+      "corroborating_equity_page": 36,
+      "share_capital_note_number": 27,
+      "shares_outstanding": 953910000,
+      "shares_unit_multiplier": 1,
+      "shares_outstanding_page": 74,
+      "shares_evidence_url": "https://doclib.ngxgroup.com/Financial_NewsDocs/40755_OKOMU_OIL_PALM_PLC.-_QUARTER_5_-_FINANCIAL_STATEMENT_FOR_2023_FINANCIAL_STATEMENTS_MARCH_2024.pdf",
+      "publication_date": "2024-03-29",
+      "board_approval_date": "2024-03-28",
+      "review_notes": "Page 34 reports total equity of N'000 38,874,530 and share capital of N'000 476,955; the report presents a single financial-statement scope without separate group/company columns. Page 36 confirms year-end total equity. Note 27, printed page 74, reports 953,910,000 ordinary shares at N0.50 each. NGX Release Calendar records filing of FY2023 audited financial statements on 2024-03-29; the Board approved the statements on 2024-03-28."
+    },
+    {
+      "ticker": "NB",
+      "fiscal_period": "2023-12-31",
+      "source_id": "nb-annual-report-2023",
+      "source_url": "https://www.nbplc.com/storage/2024/05/NB-Plc-2023-Annual-Report-and-Accounts-FA.pdf",
+      "source_sha256": "82afe8cf98e22cbb053877ff7bc8e4ae406f8e19e50179ec5517e9bca55c9014",
+      "book_equity_candidate": 63284377,
+      "company_equity_comparator": 65168612,
+      "share_capital_amount": 5138066,
+      "monetary_unit": "NGN thousands (N'000)",
+      "reporting_scope": "consolidated_attributable_to_owners",
+      "book_equity_page": 64,
+      "corroborating_equity_page": 65,
+      "company_equity_changes_page": 66,
+      "share_capital_note_number": 23,
+      "shares_outstanding": 10276132378,
+      "shares_unit_multiplier": 1,
+      "shares_outstanding_page": 81,
+      "shares_evidence_url": "https://www.nbplc.com/wp-content/uploads/2024/02/Nigerian-Breweries-Plc-2023-FS_Final.pdf",
+      "publication_date": "2024-02-14",
+      "board_approval_date": "2024-02-14",
+      "review_notes": "Page 64 reports 2023 group equity attributable to owners of N'000 63,284,377 and company equity of N'000 65,168,612; use the group figure for consolidated book equity. Page 65 corroborates the year-end group equity balance. The supplied page 66 is the company changes-in-equity statement and confirms company equity; page 67 is the cash-flow statement. Note 23, printed page 81, reports 10,276,132,378 issued and fully paid ordinary shares. NGX Release Calendar records filing of FY2023 audited financial statements on 2024-02-14, matching the Board approval date."
+    }
+  ]
+}

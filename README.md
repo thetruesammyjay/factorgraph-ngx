@@ -64,28 +64,18 @@ public source and are deliberately left missing.
 ### Point-in-time fundamentals
 
 The pilot targets FY2022 and FY2023 for all 15 issuers, or 30 issuer-periods.
-Twelve observations have completed page-level review and canonical validation:
+All 30 observations have completed page-level review and passed canonical
+validation. Each row preserves reported book equity, shares, reporting scope,
+units, source URL, document hash, cited PDF pages, and a point-in-time effective
+date. Eight filing dates are verified; the remaining 22 use the declared
+90-day fallback. Negative book equity is retained and excluded from positive
+book-to-market sorts. See the [fundamentals pilot report](research/audit-results/fundamentals-2024-pilot.md).
 
-- AIICO FY2022 and FY2023;
-- Dangote Cement FY2022 and FY2023;
-- FBN Holdings FY2022 and FY2023;
-- GTCO FY2023;
-- MTN Nigeria FY2022 and FY2023;
-- Nigerian Breweries FY2022;
-- UBA FY2022; and
-- Lafarge Africa FY2023.
-
-Each observation preserves book equity attributable to owners, period-end
-shares outstanding, reporting scope, source units, report URL, document hash,
-exact PDF pages and its point-in-time effective date. Three observations use
-verified publication dates; nine use the declared 90-day fallback. Negative
-book equity is retained and excluded from positive book-to-market sorts.
-
-Twelve official annual reports are downloaded, SHA-256 verified and promoted.
-The remaining 18 issuer-period tasks are blocked pending acceptable report
-evidence. See the
-[fundamentals pilot report](research/audit-results/fundamentals-2024-pilot.md)
-for the current collection status.
+The 2023–2024 experiment now uses the complete fundamentals set. It produces
+preliminary Size and Value portfolios for 22 monthly holding periods; bootstrap
+intervals include zero, so the results demonstrate a working research pipeline
+rather than establish factor premia. Full coverage, output statistics and
+limitations are documented in the [experiment results](research/audit-results/ngx-public-data-2023-2024-pilot.md).
 
 ## Factor eligibility
 
@@ -93,12 +83,12 @@ Factors are enabled only after their input gate passes.
 
 | Factor | Current status | Permitted interpretation |
 | --- | --- | --- |
-| Market | Partial | 15-security market proxy pending NGX ASI history |
-| Size | Partial | Pilot only; incomplete point-in-time shares and market capitalisation |
-| Value | Partial | Twelve verified issuer-period observations |
-| Momentum | Pilot-ready | Short-horizon 2024 analysis with stale-price sensitivity controls |
+| Market | Eligible | 23 aligned monthly excess returns; descriptive two-year pilot |
+| Size | Eligible | 30/30 fundamentals rows; 22 preliminary spread observations |
+| Value | Eligible | 28 positive-equity rows; 22 preliminary spread observations |
+| Momentum | Formation eligible | 12–1 ranks build; regression sample is too short for validation |
 | Liquidity | Blocked | Verified daily volume and traded value are unavailable |
-| Regime analysis | Limited | Exploratory pipeline validation; one year is insufficient for strong inference |
+| Regime analysis | Blocked | 24 monthly endpoints; model requires at least 36 |
 
 The eligibility model is part of the research result: the platform explains why
 a calculation is available, preliminary or blocked.

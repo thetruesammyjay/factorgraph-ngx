@@ -1,26 +1,37 @@
 {
   "dataset_id": "ngx-15-fundamentals-source-documents",
   "plan_id": "ngx-15-fundamentals-point-in-time-pilot",
-  "retrieved_at": "2026-09-23T10:34:15.125310+00:00",
+  "retrieved_at": "2026-09-25T00:48:19.353629+00:00",
   "expected_documents": 30,
-  "available_documents": 12,
-  "complete": false,
+  "available_documents": 30,
+  "complete": true,
   "status_counts": {
-    "already_downloaded": 10,
-    "downloaded": 2,
-    "request_error": 2,
-    "source_url_required": 16
+    "already_downloaded": 30
   },
   "records": [
     {
       "ticker": "ACCESSCORP",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://theaccesscorporation.com/wp-content/uploads/2023/07/ACCESS-HOLDINGS-PLCS-2022-ANNUAL-REPORT.pdf",
+      "local_filename": "accesscorp-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 10830421,
+      "sha256": "f9ff8210f654fbf697fda53eb7e007505040f75350d4b7e19c1309724860b424",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Access Holdings annual report; selected from https://theaccesscorporation.com/annual-reports/; publication date pending verification"
     },
     {
       "ticker": "ACCESSCORP",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://theaccesscorporation.com/ACCESS-HOLDINGS-PLC-2023-ANNUAL-REPORT.pdf",
+      "local_filename": "accesscorp-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 24368457,
+      "sha256": "eade1a6eea5826d023471f868e7da4abc4a27166558b43fe5f6716eb535e4afb",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Access Holdings annual report; selected from https://theaccesscorporation.com/annual-reports/; publication date pending verification"
     },
     {
       "ticker": "AIICO",
@@ -97,7 +108,14 @@
     {
       "ticker": "GTCO",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://gtco-plc.files.svdcdn.com/production/financial-information/2022-Annual-Report.pdf?dm=1687801902",
+      "local_filename": "gtco-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 3493431,
+      "sha256": "0a8acebfc460dba55902634b2268fa89e534a9cd65eb17c9fcc9df8654c3b490",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official GTCO 2022 annual report; selected from https://www.gtcoplc.com/investor-relations/annual-reports; publication date pending verification"
     },
     {
       "ticker": "GTCO",
@@ -152,8 +170,9 @@
       "fiscal_period": "2023-12-31",
       "source_url": "https://www.nbplc.com/storage/2024/05/NB-Plc-2023-Annual-Report-and-Accounts-FA.pdf",
       "local_filename": "nb-annual-report-2023.pdf",
-      "status": "request_error",
-      "error": "ReadTimeout",
+      "status": "already_downloaded",
+      "bytes": 169593925,
+      "sha256": "82afe8cf98e22cbb053877ff7bc8e4ae406f8e19e50179ec5517e9bca55c9014",
       "publication_date": null,
       "source_kind": "issuer_annual_report",
       "notes": "Selected from https://www.nbplc.com/investor-relations/financial-reports/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report on the official issuer archive; publication date pending verification"
@@ -161,60 +180,129 @@
     {
       "ticker": "NESTLE",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.nestle-cwa.com/sites/g/files/pydnoa346/files/2023-04/Nestle%20Annual%20Report%202022_0.pdf",
+      "local_filename": "nestle-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 7989415,
+      "sha256": "118fb6a7d9f144b0dfcf1bf68f1d1c8fdb3a95de69d1344599e374e72e45e7b0",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Nestle Nigeria annual report; publication date pending verification"
     },
     {
       "ticker": "NESTLE",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.nestle-cwa.com/sites/g/files/pydnoa346/files/2024-05/2023-annual-report.pdf",
+      "local_filename": "nestle-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 5277726,
+      "sha256": "54f0c2fb703d22695919d248f745d7188046eae32ceaaeb7682a88c5174e0af9",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Nestle Nigeria annual report; publication date pending verification"
     },
     {
       "ticker": "OKOMUOIL",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://okomunigeria.com/wp-content/uploads/2023/05/2022-Annual-reports-and-accounts.pdf",
+      "local_filename": "okomuoil-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 58131045,
+      "sha256": "8bbc96cccfd5e3e0ce4c9bf14aca9fd8cb8eb8af0e48a206db7467a3ecc6874e",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Okomu Oil Palm annual report and accounts; publication date pending verification"
     },
     {
       "ticker": "OKOMUOIL",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://okomunigeria.com/wp-content/uploads/2024/05/Annual-reports-and-accounts.pdf",
+      "local_filename": "okomuoil-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 64638366,
+      "sha256": "67c4520b80d1f6b977fb06740da7371cbf95af0be002d6cf75ee3ec13f12d40b",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Okomu Oil Palm annual report and accounts; publication date pending verification"
     },
     {
       "ticker": "PRESCO",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.presco-plc.com/downloads/annual-report-consolidated-and-separate-financial-statements-for-the-year-ended-31-december-2022/",
+      "local_filename": "presco-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 2914457,
+      "sha256": "d479df4e4fea2b1af5bb12d53e458a9563ddd3390dad9b1bce4af3a664a5a883",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Presco annual report and financial statements; publication date pending verification"
     },
     {
       "ticker": "PRESCO",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.presco-plc.com/prescoPLC/assets/File/PRESCO%20%20Annual%20Report%20and%20Account%202023.pdf",
+      "local_filename": "presco-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 8949766,
+      "sha256": "be3fbb422df1fe720996ed926a3fb03d5b3d50ac42dface057c54cdee86dce88",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Presco annual report and accounts; publication date pending verification"
     },
     {
       "ticker": "SEPLAT",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.seplatenergy.com/media/024plwr5/seplat-energy-ar-2022.pdf",
+      "local_filename": "seplat-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 7481694,
+      "sha256": "25bfceec3676f6c5862f3d5d8f47be5f3803ef512b9332ac9e1059ffe0ed4872",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Seplat Energy Annual Report and Accounts 2022; linked from https://www.seplatenergy.com/agm-2023/; publication date pending verification"
     },
     {
       "ticker": "SEPLAT",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.seplatenergy.com/media/54qbdvut/7529-sep-ar23-24-07-03_web_compressed.pdf",
+      "local_filename": "seplat-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 17607610,
+      "sha256": "ab7f34c4e66e637e5d08ad9ed7e5f5bd847f52bd26631c13893dd1d9a99fa9d4",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Seplat Energy Annual Report and Accounts 2023; linked from https://www.seplatenergy.com/investors/information-for-shareholders/; publication date pending verification"
     },
     {
       "ticker": "TOTAL",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://cardinalstoneregistrars.com/wp-content/uploads/2023/01/TotalEnergies%20Annual%20Reports%202022.pdf",
+      "local_filename": "total-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 20753798,
+      "sha256": "e8de12d1765ba9bcd75103db82f93769add9395503313ac89a8191f7bc9118c1",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "TotalEnergies Marketing Nigeria 2022 Annual Report hosted by its registrar CardinalStone; selected from https://cardinalstoneregistrars.com/annual-reports/; publication date pending verification"
     },
     {
       "ticker": "TOTAL",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://doclib.ngxgroup.com/Financial_NewsDocs/40605_TOTALENERGIES_MARKETING_NIGERIA_PLC-_QUARTER_5_-_FINANCIAL_STATEMENT_FOR_2023_FINANCIAL_STATEMENTS_MARCH_2024.pdf",
+      "local_filename": "total-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 2607775,
+      "sha256": "bb9cf18c3da1869bacccff33cf257a955e7a63441e9b518b6796a9ace55013de",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official NGX-hosted 2023 year-end filing; identifies the annual report and financial statements for year ended 31 December 2023; publication date pending verification"
     },
     {
       "ticker": "UBA",
       "fiscal_period": "2022-12-31",
       "source_url": "https://www.ubagroup.com/wp-content/uploads/2023/04/UBA-ANNUAL-REPORT-ACCOUNTS-2022.pdf",
       "local_filename": "uba-annual-report-2022.pdf",
-      "http_status": 200,
-      "status": "downloaded",
+      "status": "already_downloaded",
       "bytes": 20167014,
       "sha256": "8835bc14f16a5e1afbafca8dd65f84948e9f0d16a811ab235c39ffa0a6e67e89",
       "publication_date": null,
@@ -224,27 +312,33 @@
     {
       "ticker": "UBA",
       "fiscal_period": "2023-12-31",
-      "source_url": "https://www.ubagroup.com/wp-content/uploads/2025/05/uba_AR2023.pdf",
+      "source_url": "https://www.ubagroup.com/wp-content/uploads/2024/05/UBA-Plc-2023-Annual-Report-and-Accounts.pdf",
       "local_filename": "uba-annual-report-2023.pdf",
-      "http_status": 404,
-      "status": "request_error",
-      "error": "HTTPStatusError",
+      "status": "already_downloaded",
+      "bytes": 18811701,
+      "sha256": "d356321e7906be2a2dfbdbf7f93e99b023edf46965715bdd38a9671ff4aac00c",
       "publication_date": null,
       "source_kind": "issuer_annual_report",
-      "notes": "Selected from https://roa.ubagroup.com/investor-relations/financial-results/annual-report/; reviewed by Codex-assisted source audit on 2026-09-23; Complete annual report on the official issuer archive; publication date pending verification"
+      "notes": "Selected from https://roa.ubagroup.com/investor-relations/financial-results/annual-report/; official archive link replaces the 404 file path; publication date pending verification"
     },
     {
       "ticker": "WAPCO",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.lafarge.com.ng/sites/nigeria/files/2023-02/lafarge-africa-plc-2022-audited-financial-statements.pdf",
+      "local_filename": "wapco-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 4297025,
+      "sha256": "11aefdc35058b3765c0dcf3e39787d6026264cb6b395ac8ac7366f65d365aa1e",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Lafarge Africa annual report and audited financial statements; selected from https://www.lafarge.com.ng/financial-reports; publication date pending verification"
     },
     {
       "ticker": "WAPCO",
       "fiscal_period": "2023-12-31",
       "source_url": "https://www.lafarge.com.ng/sites/nigeria/files/2024-04/lafarge-africa-plc-2023-annual-report-accounts.pdf",
       "local_filename": "wapco-annual-report-2023.pdf",
-      "http_status": 200,
-      "status": "downloaded",
+      "status": "already_downloaded",
       "bytes": 10704564,
       "sha256": "73c075e8a9936bfeadd34ff106121a129e7ea02bcee25c74f927d73ad12944bd",
       "publication_date": null,
@@ -254,12 +348,26 @@
     {
       "ticker": "ZENITHBANK",
       "fiscal_period": "2022-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.zenithbank.com/media/5qxhbr1t/zb-2022-annual-report.pdf",
+      "local_filename": "zenithbank-annual-report-2022.pdf",
+      "status": "already_downloaded",
+      "bytes": 8810170,
+      "sha256": "84f2e8f0ed91d5ca06e2abf63727e10cca4de574aa104418a0a3ca6d3135d732",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Zenith Bank Annual Report December 31 2022; replacement URL verified against the issuer's report index"
     },
     {
       "ticker": "ZENITHBANK",
       "fiscal_period": "2023-12-31",
-      "status": "source_url_required"
+      "source_url": "https://www.digital.zenithbank.com/pdfs/Annual-Report-2023.pdf",
+      "local_filename": "zenithbank-annual-report-2023.pdf",
+      "status": "already_downloaded",
+      "bytes": 16355906,
+      "sha256": "1cd1e499d14ab0043fc7591a34cec85b710375838cfd2944a8487ba856e664ca",
+      "publication_date": null,
+      "source_kind": "issuer_annual_report",
+      "notes": "Official Zenith Bank Annual Report December 31 2023; replacement URL verified against the issuer's digital report library"
     }
   ]
 }
