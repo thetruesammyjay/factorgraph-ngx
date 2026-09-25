@@ -11,6 +11,7 @@ from alembic import context
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.core.config import settings
+from app.db.session import sqlalchemy_database_url
 from app.db.models import Base
 
 config = context.config
@@ -20,13 +21,14 @@ if not settings.database_url:
 
 # Alembic uses percent interpolation in its config parser. Escaping percent
 # characters keeps passwords containing '%' valid.
-config.set_main_option("sqlalchemy.url", settings.database_url.replace("%", "%%"))
+database_url = sqlalchemy_database_url(settings.database_url)
+config.set_main_option("sqlalchemy.url", database_url.replace("%", "%%"))
 target_metadata = Base.metadata
 
 
 def run_migrations_offline() -> None:
     context.configure(
-        url=settings.database_url,
+        url=database_url,
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
