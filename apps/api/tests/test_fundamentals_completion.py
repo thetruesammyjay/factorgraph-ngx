@@ -1,7 +1,17 @@
+from pathlib import Path
+
 import pandas as pd
 import pytest
 
-from app.data.fundamentals_completion import build_completion_queue
+from app.data.fundamentals_completion import build_completion_queue, completion_report_path
+
+
+def test_completion_report_path_uses_packaged_copy_outside_monorepo(monkeypatch):
+    module_file = Path("/service/app/data/fundamentals_completion.py")
+    packaged_report = module_file.parent / "reports" / "fundamentals-2024-completion.json"
+    monkeypatch.setattr(Path, "is_file", lambda path: path == packaged_report)
+
+    assert completion_report_path(module_file) == packaged_report
 
 
 def test_completion_queue_identifies_missing_issuers_and_periods():

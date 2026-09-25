@@ -40,7 +40,11 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.report.parent.mkdir(parents=True, exist_ok=True)
     queue.to_csv(args.output, index=False)
-    args.report.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    report_text = json.dumps(report, indent=2) + "\n"
+    args.report.write_text(report_text, encoding="utf-8")
+    api_report = Path(__file__).resolve().parents[1] / "app" / "data" / "reports" / "fundamentals-2024-completion.json"
+    api_report.parent.mkdir(parents=True, exist_ok=True)
+    api_report.write_text(report_text, encoding="utf-8")
     print(json.dumps(report, indent=2))
 
 

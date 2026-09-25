@@ -8,17 +8,22 @@ from pathlib import Path
 
 import pandas as pd
 
-PACKAGED_COMPLETION_REPORT = (
-    Path(__file__).resolve().parents[4]
-    / "research"
-    / "audit-results"
-    / "fundamentals-2024-completion.json"
-)
+REPORT_RELATIVE_PATH = Path("research/audit-results/fundamentals-2024-completion.json")
+PACKAGED_COMPLETION_REPORT = Path(__file__).parent / "reports" / "fundamentals-2024-completion.json"
+
+
+def completion_report_path(module_file: Path = Path(__file__)) -> Path:
+    """Use the monorepo report locally and the packaged copy in a service image."""
+    for parent in module_file.resolve().parents:
+        repository_report = parent / REPORT_RELATIVE_PATH
+        if repository_report.is_file():
+            return repository_report
+    return module_file.parent / "reports" / "fundamentals-2024-completion.json"
 
 
 def load_completion_report(path: Path | None = None) -> dict:
     """Load the committed fundamentals queue summary for the API."""
-    report_path = path or PACKAGED_COMPLETION_REPORT
+    report_path = path or completion_report_path()
     if not report_path.is_file():
         raise FileNotFoundError(f"fundamentals completion report not found: {report_path}")
     return json.loads(report_path.read_text(encoding="utf-8"))
