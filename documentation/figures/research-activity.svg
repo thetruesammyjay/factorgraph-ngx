@@ -1,0 +1,18 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1040" viewBox="0 0 1120 1040" role="img" aria-labelledby="t d">
+<title id="t">Research experiment UML activity diagram</title><desc id="d">Activity flow from experiment configuration and preflight through validation, point-in-time alignment, eligibility gates, supported calculations and run persistence, with blocked constraints recorded.</desc>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#385a3d"/></marker></defs><style>.bg{fill:#fafbf9}.act{fill:#e5f2df;stroke:#437c48;stroke-width:2}.decision{fill:#fff3d6;stroke:#b68a20;stroke-width:2}.t{font:16px Arial;fill:#183522}.h{font:700 24px Arial;fill:#173d22}.edge{fill:none;stroke:#385a3d;stroke-width:2.4;marker-end:url(#a)}.node{fill:#183b20}.final{fill:#183b20;stroke:#183b20;stroke-width:4}</style>
+<rect class="bg" width="1120" height="1040"/><text class="h" x="560" y="40" text-anchor="middle">Experiment activity</text>
+<circle class="node" cx="560" cy="90" r="12"/>
+<rect class="act" x="390" y="125" width="340" height="62" rx="16"/><text class="t" x="560" y="162" text-anchor="middle">Submit experiment configuration</text>
+<rect class="act" x="390" y="225" width="340" height="62" rx="16"/><text class="t" x="560" y="262" text-anchor="middle">Build preflight plan and fingerprint</text>
+<rect class="act" x="390" y="325" width="340" height="62" rx="16"/><text class="t" x="560" y="362" text-anchor="middle">Validate data and coverage</text>
+<path class="edge" d="M560 102v18M560 187v33M560 287v33"/>
+<polygon class="decision" points="560,425 665,485 560,545 455,485"/><text class="t" x="560" y="481" text-anchor="middle">Inputs valid?</text><text class="t" x="560" y="504" text-anchor="middle">Yes / No</text><path class="edge" d="M560 387v30"/>
+<rect class="decision" x="790" y="455" width="240" height="75" rx="12"/><text class="t" x="910" y="485" text-anchor="middle">Record validation errors</text><text class="t" x="910" y="508" text-anchor="middle">and stop calculation</text><path class="edge" d="M665 485h115"/><text class="t" x="708" y="474">No</text>
+<rect class="act" x="390" y="590" width="340" height="62" rx="16"/><text class="t" x="560" y="627" text-anchor="middle">Align fundamentals as of formation date</text><path class="edge" d="M560 545v40"/><text class="t" x="575" y="574">Yes</text>
+<rect class="act" x="390" y="690" width="340" height="62" rx="16"/><text class="t" x="560" y="727" text-anchor="middle">Evaluate factor and sample gates</text><path class="edge" d="M560 652v33"/>
+<rect class="act" x="390" y="790" width="340" height="62" rx="16"/><text class="t" x="560" y="827" text-anchor="middle">Calculate supported outputs and statistics</text><path class="edge" d="M560 752v33"/>
+<rect class="act" x="390" y="890" width="340" height="62" rx="16"/><text class="t" x="560" y="927" text-anchor="middle">Store node trace, constraints and run result</text><path class="edge" d="M560 852v33"/>
+<circle class="final" cx="560" cy="997" r="15"/><circle class="bg" cx="560" cy="997" r="8"/><path class="edge" d="M560 952v27"/>
+<path class="edge" d="M910 530v445H585"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="t d">
+<title id="t">the research platform researcher use cases</title><desc id="d">Researcher creates and runs experiments, inspects datasets, factors, portfolios, graph traces, and exports. Liquidity and regime use cases report blocked readiness for the current pilot.</desc>
+<style>.bg{fill:#f7faf6}.bound{fill:#fff;stroke:#4d8f43;stroke-width:3}.uc{fill:#e8f4df;stroke:#4d8f43;stroke-width:2}.warn{fill:#fff3d4;stroke:#c99722;stroke-width:2}.txt{font:18px Arial;fill:#17351f}.head{font:700 26px Arial;fill:#123d20}.line{stroke:#55745a;stroke-width:2}</style>
+<rect class="bg" width="1200" height="720"/><text class="head" x="600" y="48" text-anchor="middle">the research platform use cases</text>
+<rect class="bound" x="300" y="85" width="850" height="590" rx="18"/><text class="head" x="725" y="122" text-anchor="middle">Research platform</text>
+<circle cx="125" cy="230" r="30" fill="#123d20"/><path d="M125 260v110m-65-55h130m-65 55-55 80m55-80 55 80" stroke="#123d20" stroke-width="8" fill="none"/><text class="txt" x="125" y="465" text-anchor="middle">Researcher</text>
+<ellipse class="uc" cx="520" cy="200" rx="165" ry="48"/><text class="txt" x="520" y="207" text-anchor="middle">Review data quality and sources</text>
+<ellipse class="uc" cx="900" cy="200" rx="165" ry="48"/><text class="txt" x="900" y="207" text-anchor="middle">Configure and plan experiment</text>
+<ellipse class="uc" cx="520" cy="325" rx="165" ry="48"/><text class="txt" x="520" y="332" text-anchor="middle">Run deterministic research graph</text>
+<ellipse class="uc" cx="900" cy="325" rx="165" ry="48"/><text class="txt" x="900" y="332" text-anchor="middle">Inspect factors and portfolios</text>
+<ellipse class="uc" cx="520" cy="450" rx="165" ry="48"/><text class="txt" x="520" y="457" text-anchor="middle">Inspect node trace and constraints</text>
+<ellipse class="uc" cx="900" cy="450" rx="165" ry="48"/><text class="txt" x="900" y="457" text-anchor="middle">Export experiment audit bundle</text>
+<ellipse class="warn" cx="520" cy="575" rx="165" ry="48"/><text class="txt" x="520" y="570" text-anchor="middle">Check Liquidity readiness</text><text class="txt" x="520" y="594" text-anchor="middle">Blocked: no verified volume/value</text>
+<ellipse class="warn" cx="900" cy="575" rx="165" ry="48"/><text class="txt" x="900" y="570" text-anchor="middle">Check regime readiness</text><text class="txt" x="900" y="594" text-anchor="middle">Blocked: 24 of 36 months</text>
+<g class="line"><path d="M155 230L355 200M155 245L355 325M155 260L355 450M155 270L355 575M155 230L735 200M155 245L735 325M155 255L735 450M155 270L735 575"/></g>
+</svg>

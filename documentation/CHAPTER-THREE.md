@@ -1,354 +1,201 @@
-# CHAPTER THREE
+﻿# CHAPTER THREE
 
 # RESEARCH METHODOLOGY AND SYSTEM DESIGN
 
 ## 3.0 Introduction
 
-This chapter presents the software engineering methodology used to design and implement the graph-orchestrated multi-agent system for liquidity-augmented, regime-aware multi-factor analysis of Nigerian Exchange equities. An iterative and incremental software development methodology was adopted. The system was divided into functional increments instead of being developed as one complete unit. Each increment passed through requirements analysis, system design, implementation, testing, and review before integration with the next increment.
+This chapter describes the software-development method, requirements, system design, implementation tools, and testing approach. The study used an iterative and incremental development method. Work proceeded in increments because data collection, point-in-time alignment, quantitative analysis, API development, and the interface depend on one another. Each increment added a usable part of the research platform and informed the next design decisions.
 
-The methodology was suitable because the system contains several dependent modules. The database structure and data-preparation functions had to exist before factor values could be calculated. Factor outputs had to exist before regime analysis and stock ranking could be performed. Portfolio construction depended on the ranking results, while historical backtesting depended on portfolio weights and later returns. The web interface and REST API also depended on stable analytical outputs. Incremental development allowed each dependency to be implemented and tested before the next module used it.
+The project began with public NGX source collection and data-quality review. It then added price and fundamentals processing, point-in-time characteristics, return and portfolio calculations, API services, graph execution, persistence options, and the web console. Testing was added as functions and services were developed. The implemented workflow uses deterministic financial modules coordinated by a graph. It reports only analyses supported by the pilot evidence.
 
-Brhel et al. (2015) identify iterative and incremental design and development as a core principle of user-centred Agile software development. Campanelli and Parreiras (2015) also report that Agile methods can be tailored to suit a project's objectives and development environment. These findings support the adapted methodology used for this study. The project applied short implementation cycles, continuous testing, and revision without claiming to follow every practice of a formal Scrum framework.
-
-Development was organised into five increments:
-
-1. The first increment defined the software requirements and established the project structure, configuration, web application, FastAPI service, and health endpoints.
-2. The second increment implemented the research database, schema migrations, dataset versioning, data validation, ingestion structures, and point-in-time fundamental alignment.
-3. The third increment implemented the Market, Size, Value, Momentum, and Liquidity factor modules. It also added statistical validation and Hidden Markov Model regime estimation.
-4. The fourth increment added security ranking, portfolio construction, transaction costs, historical backtesting, benchmark comparison, LangGraph orchestration, and research API endpoints.
-5. The fifth increment integrated the landing page and research dashboards, improved responsive behaviour, connected production configuration, strengthened automated testing, and prepared the project documentation.
-
-Testing and review occurred within every increment. A defect found during integration was returned to the relevant requirement, design decision, or module for correction. This cycle continued until the increment satisfied its acceptance conditions and could be connected to the rest of the system.
-
-**Figure 3.1: Iterative and Incremental Software Development Process Used for the System**
+The implementation was evaluated with a public-data pilot from January 2023 to December 2024. The pilot covers 15 securities, 6,375 daily security-date observations, and 30 reviewed FY2022 and FY2023 fundamental observations. It supports preliminary Market, Size, Value, and Momentum outputs. Liquidity and regime estimation remain blocked by the available evidence and sample size.
 
 ## 3.1 Requirements Elicitation
 
-The study derived requirements from the research question, the factor definitions, the proposed NGX data request, the system architecture, and the need for reproducible research. The study grouped the requirements into functional and non-functional requirements.
+Requirements were derived from the approved study topic, the public NGX sources that could be collected, the resulting data audit, and the need for repeatable analysis. The requirements were refined as source limitations became clear. The system therefore treats data sufficiency as a requirement: a calculation must be marked preliminary or blocked when its input gate fails.
 
-The functional requirements define what the system must do. The system must load and inspect source data. It must align fundamental observations and calculate factor values. It must estimate regimes, construct portfolios, run backtests, store experiment information, and display results.
+The functional requirements define the work performed by the platform. Non-functional requirements define how the platform preserves data integrity, provenance, security, and reproducibility.
 
-The non-functional requirements define how the system must operate. The system must protect the database connection, preserve source provenance, reject invalid data, use deterministic calculations where possible, and expose clear workflow status. These requirements support data integrity and repeatable research.
+**Table 3.1: Software requirements and acceptance conditions**
 
-**Table 3.1: Analysed software requirements**
-
-| ID | Software requirement | Acceptance condition |
-| --- | --- | --- |
-| FR-01 | Store companies, security identifiers, prices, fundamentals, corporate actions, benchmarks, and risk-free observations. | Each valid record is stored in the required table with a valid key. |
-| FR-02 | Register a dataset version and its source metadata. | A dataset version contains a name, source, coverage period, and manifest. |
-| FR-03 | Read and normalise NGX source files. | The system converts supported source files to the canonical column names. |
-| FR-04 | Validate dates, prices, trading values, duplicates, and required columns. | Invalid records produce a validation error before database insertion. |
-| FR-05 | Align fundamentals by information availability. | Each fundamental record has an effective date and effective-date source. |
-| FR-06 | Calculate Market, Size, Value, Momentum, and Liquidity factors. | Each factor receives valid input data and returns a dated factor series. |
-| FR-07 | Calculate factor statistics and regression diagnostics. | The system returns observations, mean return, volatility, Sharpe ratio, Newey-West result, and confidence interval fields where data permits. |
-| FR-08 | Estimate market regimes with a Gaussian Hidden Markov Model. | The system stores state assignments, state probabilities, transition information, and state summaries. |
-| FR-09 | Rank securities and construct a configurable portfolio. | The system selects eligible securities, applies the portfolio rule, and records weights. |
-| FR-10 | Backtest the portfolio and compare it with a benchmark. | The system returns periodic returns, cumulative return, drawdown, risk measures, and benchmark comparison. |
-| FR-11 | Orchestrate the research stages as a directed workflow. | The workflow executes dependent stages in order and reports node status. |
-| FR-12 | Provide REST endpoints and web views for research results. | A client can request dashboard, factor, regime, portfolio, and experiment data. |
-| NFR-01 | Preserve reproducibility. | Dataset version, experiment configuration, random seed, and calculation settings are stored. |
-| NFR-02 | Prevent look-ahead bias. | A fundamental observation is not available before its effective date. |
-| NFR-03 | Protect sensitive configuration and database access. | Production credentials remain in environment configuration and are not stored in source code. |
-| NFR-04 | Preserve data integrity. | Database constraints reject invalid prices, negative trading values, and invalid shares outstanding values. |
-| NFR-05 | Support failure reporting. | A failed workflow stage returns a clear error and does not present incomplete results as complete. |
-| NFR-06 | Support later data-source changes. | A source adapter can map a new file format to the canonical schema without changing factor formulas. |
+| ID | Requirement | Acceptance condition |
+|---|---|---|
+| FR-01 | Inspect public NGX market and issuer data. | Supported price, annual-report, benchmark, and risk-free inputs can be represented in the research workflow. |
+| FR-02 | Preserve source provenance. | Source URLs, document hashes, cited pages, manifests, and data versions remain linked to inputs or reports. |
+| FR-03 | Validate observations. | Invalid dates, duplicate keys, invalid prices, missing required fields, and coverage gaps are reported. |
+| FR-04 | Preserve daily price status. | Marked-price and official-trade returns are calculated and reported separately. |
+| FR-05 | Align fundamentals point in time. | The selected fundamental observation has an effective date no later than the formation date. |
+| FR-06 | Evaluate factor eligibility. | The system reports eligible, preliminary, or blocked status with reasons. |
+| FR-07 | Calculate supported research outputs. | Deterministic modules produce market returns, Size and Value sorts, Momentum formation ranks, and applicable statistics. |
+| FR-08 | Check regime-model readiness. | The sample minimum is evaluated before HMM fitting; an insufficient sample remains blocked. |
+| FR-09 | Execute and inspect an experiment. | The graph records ordered node status, output summaries, constraints, and a run fingerprint. |
+| FR-10 | Provide research API and web views. | Clients can request dataset, company, factor, portfolio, regime-readiness, and experiment information. |
+| FR-11 | Persist experiment runs when configured. | PostgreSQL stores experiment state and graph outputs when a database connection is configured. |
+| NFR-01 | Support reproducibility. | The data version, stable configuration, input fingerprints, and software revision can be identified. |
+| NFR-02 | Limit look-ahead bias. | Fundamentals are selected only after their verified or declared estimated effective date. |
+| NFR-03 | Preserve missing evidence. | Missing activity or sample information is not converted into a zero observation or an unsupported output. |
+| NFR-04 | Report workflow failures clearly. | A failed or constrained node is visible in the run status and trace. |
+| NFR-05 | Separate concerns. | User-interface code does not perform financial calculations; Python modules own quantitative operations. |
 
 ## 3.2 System Design
 
-The proposed system is a web-based research application with presentation, application, analytical, orchestration, and data-management responsibilities. The separation of these responsibilities allows the researcher to inspect stored results through the web interface without placing financial calculations inside the page components.
+The platform uses a layered design. The presentation layer uses Next.js and TypeScript. The service layer uses FastAPI and typed request and response models. Deterministic Python modules perform data preparation, factor calculations, statistical analysis, and portfolio operations. LangGraph coordinates the ordered research nodes. PostgreSQL provides optional durable storage for experiments and graph outputs.
 
-The presentation component uses Next.js and TypeScript. It provides the landing page and research views for factors, market regimes, portfolios, backtests, and experiments. The interface sends structured requests to the FastAPI service and displays the returned research results.
+The data workflow starts with public source documents and structured files. Scripts and review worksheets record the source and validation evidence. The canonical pilot report supplies the experiment workflow. The system aligns fundamentals to effective dates, evaluates factor gates, calculates supported outputs, records node results, and returns an inspectable experiment record.
 
-The application component uses FastAPI to validate requests and expose the research functions through REST endpoints. Research services translate an experiment configuration into the state required by the analytical workflow. They also manage experiment status and provide structured responses to the web application.
-
-The analytical component uses Python modules for data preparation, point-in-time alignment, factor construction, statistical validation, regime estimation, and security ranking. Other modules handle portfolio construction, transaction-cost adjustment, historical backtesting, and benchmark comparison. Each module has a defined input and output so that it can be tested separately.
-
-LangGraph coordinates the analytical modules as an ordered set of specialised graph nodes. A node receives the current experiment state, performs one research task, and returns an updated state. The next node uses that state as its input. This design provides a traceable execution path from the selected dataset to the final experiment results.
-
-PostgreSQL provides persistent storage for companies, historical identifiers, prices, fundamentals, corporate actions, benchmark observations, risk-free observations, dataset versions, and experiment records. The data-preparation modules read the required observations from the database, while the workflow stores experiment metadata and completed results. External NGX and supporting data sources enter the system through the ingestion and validation process before analytical modules can use them.
+The diagrams in this section use standard UML concepts for actors, classes, activities, interactions, components, deployment nodes, and state transitions. They describe the implemented software and distinguish optional or blocked functions from current pilot results. UML 2.5.1 provides the notation reference (Object Management Group, 2017).
 
 ### 3.2.1 Use Case Diagram
 
-The main actor is the researcher. The researcher configures an experiment, selects the date range, selects the factors, reviews the data status, starts the workflow, and examines the results. The system performs data validation, factor construction, statistical validation, regime analysis, portfolio construction, and backtesting.
+The primary actor is the researcher. The researcher reviews data quality, configures an experiment, requests a preflight plan, starts a run, examines factors and portfolio results, reviews graph nodes and constraints, and exports an audit bundle. The platform validates inputs and runs supported calculations. It also reports Liquidity and regime readiness, which are blocked for the current pilot.
 
-The database and data sources support the system but do not act as human users. The workflow controls the order of computational activities.
+![Researcher use-case diagram](figures/research-use-cases.svg)
 
-**Figure 3.2: Use Case Diagram for the Research System**
+**Figure 3.1: UML use-case diagram for the research platform.**
 
 ### 3.2.2 Data Model
 
-The data model separates issuer identity, security identifiers, observations, source versions, and experiments.
+The data model separates issuer identity, time-varying security identifiers, observations, source-data versions, and experiments. In the relational schema, a company can have multiple security identifiers and multiple price, fundamental, and corporate-action observations. Price, fundamental, benchmark, risk-free, and corporate-action rows may reference a dataset version. An experiment stores its configuration, status, trace, node outputs, constraints, errors, and run fingerprint. Its dataset-version label is stored in the experiment record.
 
-The companies table stores the issuer record. The security_identifiers table stores ticker and ISIN validity periods. The price_observations table stores daily security data with a composite key of company and trading date. The fundamental_observations table stores fiscal information and its publication and effective dates. The corporate_actions table stores events that can affect price interpretation.
+The model does not imply that the current pilot has values for every schema field. For example, the schema can hold trading volume and value, but those values remain unavailable in the reviewed daily price inputs.
 
-The benchmark_observations table stores NGX All Share and other benchmark observations. The risk_free_observations table stores dated rates by tenor. The dataset_versions table stores source and coverage metadata. The experiments table stores research configuration and a logical reference to the dataset version used by the experiment.
+![Core relational data model](figures/data-model.svg)
 
-The model uses constraints and indexes to protect data quality. Price records cannot contain a non-positive close price. Trading volume and trading value cannot be negative. Fundamental records cannot contain non-positive shares outstanding. The model also prevents duplicate daily observations for one company.
+**Figure 3.2: Core relational data model.**
 
-**Figure 3.3: Core Data Model**
+The following domain classes show the main attributes and associations used by the application.
+
+![UML domain class diagram](figures/domain-class.svg)
+
+**Figure 3.3: UML domain class diagram..**
 
 ### 3.2.3 Activity Diagram
 
-The research activity starts when the researcher selects an experiment configuration. The system loads and inspects the selected dataset. If validation fails, the system records the errors and marks the experiment as failed. If validation succeeds, the system aligns fundamentals by their effective dates and constructs the five factors.
+The activity begins when the researcher submits an experiment configuration. The service builds a preflight plan and checks the dataset. If validation fails, the workflow records the error and stops downstream calculations. If validation passes, the workflow aligns fundamentals to the formation date and checks factor-specific input and sample gates. It calculates supported outputs and retains blocked reasons for unsupported analyses. The run trace and final status are then stored or returned.
 
-The workflow calculates factor statistics before it estimates market regimes. It analyses factor performance by regime. It ranks eligible securities and constructs the portfolio. It performs the backtest, compares results with the NGX benchmark, and stores the experiment.
+![Experiment activity diagram](figures/research-activity.svg)
 
-**Figure 3.4: Research Workflow Activity Diagram**
+**Figure 3.4: UML activity diagram for experiment execution.**
 
 ### 3.2.4 Sequence Diagram
 
-The proposed production sequence starts when the researcher sends an experiment request through the web application. The FastAPI service stores the configuration, marks the experiment as running, and invokes the workflow. Each workflow node receives the state produced by the preceding node. The workflow stores the final results and returns them to the API. The API then returns the completed experiment to the web application.
+The sequence diagram shows the interaction between the researcher, web client, API, experiment service, LangGraph, deterministic Python modules, and optional PostgreSQL storage. The researcher first requests a plan and then starts the run. The graph calls the modules in sequence. The service returns the run status, constraints, fingerprint, and trace to the web client. Database persistence occurs only when configured.
 
-**Figure 3.5: Sequence Diagram**
+![Experiment sequence diagram](figures/research-sequence.svg)
+
+**Figure 3.5: UML sequence diagram for an experiment run..**
+
+### 3.2.5 Component Diagram
+
+The component diagram shows the software responsibilities and dependencies. The Next.js client calls FastAPI. The experiment service invokes LangGraph. Graph nodes use data and quantitative modules. The modules read canonical pilot reports and return calculations to the graph. Optional persistence stores experiment records. The Python quantitative modules do not depend on the page layout.
+
+![Software component diagram](figures/component-diagram.svg)
+
+**Figure 3.6: UML component diagram of the implemented software.**
+
+### 3.2.6 Deployment Diagram
+
+The target deployment uses Vercel for the Next.js interface, Railway for the FastAPI service, and Neon as the optional hosted PostgreSQL database. The service reads deployment settings from environment variables. In local development, the API can use in-memory experiment storage if no database URL is set. The diagram shows the intended topology; it does not claim that production instances are active.
+
+![Target deployment diagram](figures/deployment-diagram.svg)
+
+**Figure 3.7: UML deployment diagram for the target hosting topology.**
+
+### 3.2.7 Experiment State Diagram
+
+An experiment begins in draft state. The planning operation creates the plan and fingerprint. Execution moves the run to running. A run ends as completed when it has no declared constraints, completed_with_constraints when one or more selected analyses are preliminary or blocked, or failed when execution cannot complete. The record retains errors and the last completed node for inspection.
+
+![Experiment state diagram](figures/experiment-state.svg)
+
+**Figure 3.8: UML state machine for experiment lifecycle.**
 
 ## 3.3 System Implementation
 
-Implementation follows the requirements and the stated workflow. Each major function is kept in a separate module. Data ingestion, validation, alignment, factor construction, statistical analysis, regime estimation, portfolio construction, and backtesting do not depend on the web page layout.
-
-The implementation also preserves the difference between raw data and processed research data. Raw source extracts remain in the data directory and are not committed when the source terms restrict redistribution. The processed dataset receives a version and a manifest before it is used by an experiment.
+Implementation keeps data collection, review, quantitative calculations, graph orchestration, API services, persistence, and presentation in separate modules. Source collection and evidence review happen before the experiment builder creates the canonical pilot report. The report is then read by the experiment and API services.
 
 ### 3.3.1 Front-end Tools
 
-The presentation tier uses Next.js and TypeScript. The landing page introduces the system and directs the researcher to the research console. The console provides views for the dashboard, factors, regimes, portfolio, and experiments.
-
-The web interface uses responsive CSS and reusable components. The layout supports desktop and mobile screens. The header remains visible during page scrolling. The mobile view provides a menu button for navigation. The research console uses a sidebar and a top header to separate navigation from the active research view.
-
-Charts and tables present factor history, factor statistics, regime timelines, portfolio holdings, cumulative performance, drawdown, and benchmark comparison. The interface displays a dataset version and experiment status with the result so that the researcher can identify the source of the displayed values.
+The presentation layer uses Next.js 15, React 19, and TypeScript. It provides overview, factor, regime-readiness, portfolio, and experiment views. React Query supports API data loading, Recharts displays research series, and Lucide provides interface icons. The research console displays factor status and reasons for blocked outputs. The frontend is configured for deployment on Vercel.
 
 ### 3.3.2 Back-end Tools
 
-The application tier uses Python 3.12 and FastAPI. Pydantic defines request and response models. Pydantic Settings reads environment configuration such as the database URL, frontend URL, bootstrap iterations, regime count, and reporting lag.
+The service layer uses Python 3.12 and FastAPI. Pydantic defines request and response schemas. Pandas and NumPy support tabular and numerical operations. SciPy and Statsmodels support quantitative analysis, including Newey-West statistics. LangGraph coordinates the experiment nodes. Pytest, pytest-asyncio, and Ruff are included in the development toolchain.
 
-SQLAlchemy provides database access. Alembic manages schema migrations. Pandas and NumPy provide tabular and numerical operations. SciPy and Statsmodels support statistical calculations. Scikit-learn and hmmlearn support modelling tasks, including Gaussian Hidden Markov Model estimation. LangGraph coordinates the dependent research nodes. HTTPX supports external HTTP requests when a data source or supporting service requires them.
-
-The quantitative engine remains deterministic when the method permits deterministic computation. Bootstrap calculations use a stored random seed. The experiment configuration stores the bootstrap iteration count, Newey-West threshold, regime count, portfolio size, transaction cost, and reporting-lag policy.
+Financial calculations reside in deterministic Python modules. Graph nodes transfer state and record status. They do not use a language model to create or adjudicate financial evidence.
 
 ### 3.3.3 Database
 
-PostgreSQL stores the research data and experiment information. The production database is hosted on Neon. The application connects through the DATABASE_URL environment variable. The value is not stored in source code.
+PostgreSQL is the relational database option. SQLAlchemy defines the models and data access. Alembic manages schema migrations. The schema includes companies, security identifiers, price observations, fundamental observations, corporate actions, benchmark observations, risk-free observations, dataset versions, and experiments.
 
-Alembic creates and updates the schema. The first migration creates the following tables:
-
-- companies
-- security_identifiers
-- price_observations
-- fundamental_observations
-- corporate_actions
-- benchmark_observations
-- risk_free_observations
-- dataset_versions
-- experiments
-
-The database uses foreign keys to connect observations to companies and dataset versions. Composite keys prevent duplicate price, benchmark, and risk-free observations. Indexes support queries by ticker, company, sector, trading date, effective date, and dataset version.
-
-The dataset_versions table supports reproducibility. It stores the source name, coverage period, manifest, and version identifier. An experiment stores the dataset version used in the research run. This record prevents a later data update from silently changing an earlier experiment.
+The experiment table stores configuration, status, completion time, ordered execution trace, node outputs, constraints, errors, fingerprint, and last completed node. A configured DATABASE_URL enables persistence. Without it, the local API can use in-memory experiment storage.
 
 ### 3.3.4 Data Ingestion and Validation
 
-The data pipeline accepts source extracts from NGX and other documented sources. The ingestion layer reads supported CSV files and returns a tabular data frame. The cleaning layer normalises column names and converts date fields to the canonical format.
+The data workflow contains parsers and services for NGX Daily Official Lists, annual reports, market inputs, fundamentals, source documents, quality reports, and provenance. Scripts collect or process the source material and produce manifests, canonical observations, and audit reports.
 
-The data rules examine required columns, date values, duplicate keys, positive close prices, non-negative trading values, and required fundamental fields. The audit process reports missing values. It does not fill them without a stated method.
-
-The pipeline uses these canonical input structures:
-
-prices:
-
-ticker, trading_date, close, volume, trading_value
-
-fundamentals:
-
-ticker, fiscal_period, publication_date, book_equity, shares_outstanding
-
-benchmark:
-
-benchmark_code, trading_date, close
-
-risk_free:
-
-observation_date, tenor, annualized_rate
-
-The importer first creates or updates company and security-identifier records. It then inserts observations with the related dataset version. A repeated import must update the same natural key or report a conflict. It must not create duplicate observations.
+Daily price validation checks date and security keys, required price values, and accepted source documents. Source status distinguishes official trades from carried price rows. Fundamental review records book equity, shares, units, reporting scope, cited pages, source document, hash, and effective-date evidence. Negative book equity is preserved in the evidence but excluded from positive book-to-market sorting.
 
 ### 3.3.5 Point-in-Time Alignment
 
-The system does not treat the fiscal period as the information availability date. It uses publication_date when NGX or the source document provides that date.
+The alignment module selects the most recent fundamental observation whose effective date is on or before a formation date. A verified filing date is preferred. When it is not available, the configured 90-day estimate is used and labelled as an estimate.
 
-When publication_date is not available, the system applies the configured reporting lag. The default configuration uses 90 days. The system stores either ACTUAL_PUBLICATION_DATE or FIXED_LAG_ESTIMATE in effective_date_source.
-
-The value factor uses the latest fundamental observation for which effective_from is not later than the portfolio formation date. This rule prevents the backtest from using financial information that was not available when the simulated decision occurred.
+Market capitalisation uses the available price and shares outstanding. Book-to-market uses book equity divided by market capitalisation only when book equity is positive. These rules preserve the timing and eligibility of each characteristic.
 
 ### 3.3.6 Factor Construction
 
-The factor engine exposes a common interface for factor modules. Each factor validates its required inputs, calculates the factor values, and returns a description of the calculation.
+The return engine produces marked-price returns and official-trade returns separately. Marked-price returns use consecutive staged closing prices. Official-trade returns use consecutive records classified as official trades.
 
-The Market factor is the market return above the risk-free rate:
+The Market excess-return series subtracts the aligned risk-free return from the market return. Size ranks eligible securities by market capitalisation. Value ranks them by point-in-time book-to-market. The monthly Size and Value spreads use equal-weighted portfolios and are preliminary.
 
-~~~text
-MKT_t = R_m,t - R_f,t
-~~~
+Momentum uses a 12–1 formation period. It compounds returns from month t−12 through month t−2 and skips the latest month. Formation ranks can be created for the pilot, but the available regression series has only 11 complete observations and does not pass the 12-observation minimum.
 
-The Size factor uses market capitalisation:
-
-~~~text
-Market Capitalisation = Closing Price x Shares Outstanding
-~~~
-
-The Size factor compares small and large securities.
-
-The Value factor uses book-to-market:
-
-~~~text
-Book-to-Market = Book Equity / Market Capitalisation
-~~~
-
-The Value factor uses only fundamental observations that satisfy the point-in-time rule.
-
-The Momentum factor uses the 12-1 month formation rule. The calculation uses the cumulative return from month t-12 through month t-2. It excludes month t-1.
-
-The Liquidity factor uses trading value and return movement. The system supports an Amihud-style measure:
-
-~~~text
-ILLIQ_i = average( |daily return_i| / daily trading value_i )
-~~~
-
-The factor configuration records the chosen ranking, breakpoint, and portfolio rules. The engine does not replace missing values with zero unless the selected method states that rule.
+The schema and eligibility layer include Liquidity, but no Liquidity factor is calculated for the current pilot. Verified daily volume and traded value are absent. The system reports the factor as blocked.
 
 ### 3.3.7 Statistical Validation
 
-The statistical engine calculates descriptive and inferential metrics for factor returns. The report includes observation count, mean return, annualised return, standard deviation, annualised volatility, Sharpe ratio, maximum drawdown, Newey-West adjusted t-statistic, and bootstrap confidence interval. The system reports a metric only when the input data supports its calculation.
+When the sample supports a calculation, the quantitative modules report observation count, average return, annualised measures, volatility, Sharpe ratio, Newey-West statistics, regression diagnostics, and bootstrap confidence intervals. Bootstrap calculations use an explicit seed so the same configuration can be repeated.
 
-The statistical engine uses Newey-West adjusted errors. Return observations can exhibit changing variance and serial dependence. The selected threshold is stored in the experiment configuration. A threshold is a reporting rule. It does not by itself prove that a factor is economically useful.
-
-The bootstrap module resamples the available factor-return observations. It records the iteration count, random seed, lower confidence bound, and upper confidence bound. Bootstrap results are reported as estimates from the selected sample. They are not presented as guarantees of future performance.
-
-The regression module estimates market sensitivity and factor relationships when the required observations are available. It stores the coefficient, standard error, t-statistic, p-value, and R-squared fields returned by the calculation.
+Statistics are interpreted in the context of the sample. Newey-West estimates and bootstrap intervals do not correct incomplete inputs or the limited length of the pilot. The system reports preliminary and blocked status with the numeric output.
 
 ### 3.3.8 Regime, Portfolio, and Backtest Modules
 
-The regime module uses a Gaussian Hidden Markov Model. Its default features are monthly NGX market return and rolling market volatility. The default model contains three states. The state labels are assigned after estimation from the estimated return, volatility, persistence, and transition values.
+The portfolio engine forms monthly Size and Value sorts and records following-month holdings and returns. The backtest and transaction-cost modules support portfolio return, turnover, and cost calculations when the required observations are present. The Momentum pilot produces formation and portfolio information but has too few complete observations for regression validation.
 
-The portfolio module standardises the Size, Value, Momentum, and Liquidity signals. It combines the signals using the configured weights. The default composite score gives equal weight to the four ranking signals. The Market factor supports market-risk estimation and benchmark modelling.
-
-The portfolio engine selects the highest-ranked eligible securities. The default portfolio is long-only and equal-weighted. The default portfolio size is ten securities. The strategy rebalances monthly.
-
-The backtest engine applies the portfolio weights to subsequent returns. It accounts for portfolio turnover and an estimated transaction cost. It returns periodic returns, cumulative performance, volatility, Sharpe ratio, maximum drawdown, and benchmark comparison.
+The regime module prepares monthly market-return and rolling-volatility features for a three-state Gaussian HMM. It checks for at least 36 monthly endpoints. The current 24-month pilot does not pass this gate, so the module does not assign states or report regime-specific performance.
 
 ### 3.3.9 Workflow and API
 
-LangGraph represents the research process as connected nodes. Each node has a defined task. The nodes prepare the dataset, align fundamentals, calculate factors, and inspect statistics. Other nodes estimate regimes, rank securities, construct the portfolio, run the backtest, compare the benchmark, and save the result.
+FastAPI exposes data-quality, company, factor, portfolio, regime-readiness, and experiment resources. Experiment operations create a configuration, build a preflight plan, execute a graph, retrieve a saved run, inspect an individual node, return a manifest, and export an audit bundle.
 
-FastAPI exposes the workflow through REST endpoints under /api/v1. The main resources are companies, factors, regimes, experiments, and portfolios. The API returns structured JSON so that the Next.js application can display the results.
-
-The API does not place trades. It provides research data, workflow status, factor results, regime results, portfolio results, and experiment metadata. This boundary keeps the academic research system separate from a live brokerage system.
+LangGraph executes the ordered nodes for dataset preparation, factor construction, validation, regime readiness, stock ranking, portfolio construction, historical backtest, benchmark comparison, and persistence. Each node records a sequence number, status, and compact output. Run-level results include constraints, errors, dataset version, last completed node, and a stable run fingerprint.
 
 ## 3.4 System Testing
 
-Testing uses unit, component, integration, data-quality, and efficiency controls. Each control maps to a requirement in Table 3.1. The tests use controlled data for calculations. They do not represent NGX market results.
+The repository contains automated tests for source parsing, annual-report processing, fundamental review and completion, point-in-time characteristics, price returns, factor eligibility, portfolio construction, regressions, regimes, API routes, provenance, and experiment graph runs.
 
-The testing process covers four levels. Unit tests examine individual formulas and validation rules. Component tests examine connected modules. Integration tests examine data flow across the API, workflow, quantitative engine, and database. Efficiency tests measure execution time in the development environment.
-
-The production database is not used for destructive test setup. Test data uses a separate database or an isolated test configuration. Licensed NGX source data is not copied into the test suite.
+Tests use controlled inputs to check expected calculations, validation decisions, API response structures, gate reasons, and graph trace behaviour. These tests provide software-level evidence. They do not establish that the empirical results generalise beyond the 2023–2024 pilot.
 
 ### 3.4.1 Unit Testing
 
-Unit tests inspect:
-
-- Date parsing and canonical column names.
-- Price validation.
-- Duplicate detection.
-- Point-in-time fundamental selection.
-- Market capitalisation.
-- Book-to-market calculation.
-- 12-1 momentum calculation.
-- Amihud-style liquidity calculation.
-- Factor z-score calculation.
-- Newey-West result fields.
-- Bootstrap reproducibility with a fixed seed.
-- Portfolio weight calculation.
-- Maximum drawdown calculation.
-
-A unit test passes when the returned value equals a manually calculated expected value or when invalid input produces the expected error.
+Unit tests exercise parsing rules, date alignment, returns, market capitalisation, book-to-market, eligibility decisions, portfolio statistics, bootstrap repeatability, and regime minimum-sample checks. Valid and invalid inputs are used to check accepted results and blocked cases.
 
 ### 3.4.2 Component Testing
 
-Component tests connect related functions. A data component test loads a source frame, normalises it, validates it, and returns a canonical frame. A factor component test reads the prepared data and calculates one factor. A regime component test receives market features and returns states and state summaries.
-
-A portfolio component test receives factor scores, selects the configured number of securities, assigns weights, and calculates turnover. A backtest component test applies the weights to later returns and deducts the configured transaction cost.
+Component tests connect related modules, including source parsing with validation, fundamental alignment with characteristic formation, portfolio construction with statistical summaries, and graph nodes with report data. These tests check that status and explanatory reasons move with the calculated outputs.
 
 ### 3.4.3 Integration Testing
 
-Integration tests follow an experiment from configuration to stored results. The test creates an experiment configuration, loads a controlled dataset version, runs the workflow, and validates the result fields.
-
-The integration tests also validate that:
-
-- The API accepts a valid experiment request.
-- The workflow executes nodes in the required order.
-- A failed validation stage prevents later calculation stages.
-- Fundamental observations use the effective date rule.
-- Results include the dataset version.
-- The portfolio output contains holdings and weights.
-- The benchmark comparison uses the selected benchmark.
-- Repeating an import does not create duplicate observations.
+API and graph tests cover experiment planning, execution, run retrieval, node inspection, constraints, fingerprints, and exports. Dataset, company, factor, portfolio, and regime API tests check that the services expose the expected research outputs. PostgreSQL persistence is tested only with a configured database connection.
 
 ### 3.4.4 Efficiency Testing
 
-Efficiency tests measure data-loading time, factor-calculation time, workflow time, and API response time. The measurements use the local development environment and the test dataset size. They do not represent guaranteed production performance.
-
-The test records the number of rows, number of securities, date range, execution time, and memory conditions where available. The researcher uses these measurements to identify slow stages before loading the full NGX dataset.
-
-**Table 3.2: Testing metrics and acceptance basis**
-
-| Metric | What was inspected | Reason for selection |
-| --- | --- | --- |
-| Pass or fail status | Actual result against expected result | Indicates whether the requirement behaves correctly. |
-| Functional pass rate | Passed tests divided by executed tests | Summarises functional correctness. |
-| Data validation rate | Valid and rejected records | Indicates whether unsafe input is detected. |
-| Requirement coverage | Requirements linked to executed tests | Indicates whether important functions are tested. |
-| Calculation accuracy | Computed result against a manual result | Validates financial and statistical formulas. |
-| Reproducibility | Same configuration and seed produce the same result | Validates repeatability of deterministic calculations. |
-| Point-in-time control | Fundamental records selected by effective date | Validates protection against look-ahead bias. |
-| Execution time | Time for a stage and complete workflow | Indicates efficiency in the test environment. |
-| API response time | Time for selected API requests | Measures service responsiveness. |
-| Data integrity | Valid links among source, dataset, experiment, and result | Validates research traceability. |
+The completed pilot records its observation counts and coverage, including securities, dates, monthly endpoints, and factor return counts. The project does not report production load-test results or a formal concurrency benchmark. API response-time claims are therefore outside the current evaluation.
 
 ## 3.5 Summary
 
-This chapter described the methodology and system design for the proposed system. The requirements came from the research question, the factor model, NGX data needs, and reproducibility requirements. The system uses a three-tier architecture. It contains a Next.js interface, a FastAPI application tier, a Python quantitative engine, LangGraph workflow orchestration, and a PostgreSQL research database.
-
-The design includes a versioned data model, point-in-time fundamental alignment, and five factor modules. It also includes statistical validation, Hidden Markov Model regime analysis, portfolio construction, benchmark comparison, and historical backtesting. The testing plan covers unit, component, integration, data-quality, reproducibility, and efficiency validation.
+This chapter described the iterative development method, system requirements, UML design, and implementation approach. The design includes use-case, domain-class, activity, sequence, component, deployment, and experiment-state diagrams. The implementation uses Next.js, FastAPI, deterministic Python modules, LangGraph orchestration, and optional PostgreSQL persistence. The pilot supports preliminary Market, Size, Value, and Momentum outputs. Liquidity and regime estimation remain blocked by documented data and sample constraints.
 
 ## REFERENCES
 
-Abdullahi, I. B., & Fakunmoju, S. K. (2019). Market liquidity and stock return in the Nigerian Stock Exchange market. Binus Business Review, 10(2), 87–94. https://doi.org/10.21512/bbr.v10i2.5588
+Object Management Group. (2017). *OMG Unified Modeling Language (OMG UML), version 2.5.1*. https://www.omg.org/spec/UML/2.5.1/PDF
 
-Alaba, J. S., Ahmed, Y., Malik-Abdulmajeed, K. M., & Hussain, U. (2024). Stock market liquidity and stock market performance in Nigeria: Evidence from the Nigerian Exchange Limited. iRASD Journal of Management, 6(2), 78–89. https://doi.org/10.52131/jom.2024.0602.0124 (Open access)
-
-Confalonieri, R., Kutz, O., Calvanese, D., Alonso, J. M., Zhou, S. M., & Daga, E. (2024). Data journeys: Explaining AI workflows through abstraction. Semantic Web, 15, 1057–1083. https://doi.org/10.3233/SW-233407
-
-Fama, E. F., & French, K. R. (2015). A five-factor asset pricing model. Journal of Financial Economics, 116(1), 1–22. https://doi.org/10.1016/j.jfineco.2014.10.010
-
-Fama, E. F., & French, K. R. (2017). International tests of a five-factor asset pricing model. Journal of Financial Economics, 123(3), 441–463. https://doi.org/10.1016/j.jfineco.2016.11.004
-
-Foye, J. (2018). A comprehensive test of the Fama-French five-factor model in emerging markets. Emerging Markets Review, 37, 199–222. https://doi.org/10.1016/j.ememar.2018.09.002
-
-Gu, S., Kelly, B., & Xiu, D. (2020). Empirical asset pricing via machine learning. The Review of Financial Studies, 33(5), 2223–2273. https://doi.org/10.1093/rfs/hhaa009
-
-Harvey, C. R., Liu, Y., & Zhu, H. (2016). ...and the cross-section of expected returns. The Review of Financial Studies, 29(1), 5–68. https://doi.org/10.1093/rfs/hhv059
-
-Hou, K., Xue, C., & Zhang, L. (2015). Digesting anomalies: An investment approach. The Review of Financial Studies, 28(3), 650–705. https://doi.org/10.1093/rfs/hhu068
-
-Irejeh, E. M., & Aninoritse, L. E. (2024). Fama and French three factor model. European Journal of Accounting, Auditing and Finance Research, 12(5), 17–30. https://eajournals.org/ejaafr/wp-content/uploads/sites/16/2024/04/Fama-and-French-Three-Factor-Model.pdf (Open access)
-
-Kundu, S., Sahoo, D., Li, V., Rabowsky, J., & Varshney, A. (2025). A multi-agent framework for quantitative finance: An application to portfolio management analytics. Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: Industry Track, 812–824. https://aclanthology.org/2025.emnlp-industry.55/
-
-McLean, R. D., & Pontiff, J. (2016). Does academic research destroy stock return predictability? The Journal of Finance, 71(1), 5–32. https://doi.org/10.1111/jofi.12365
-
-Nguyen, P., & Pham, T. (2026). Toward reliable evaluation of LLM-based financial multi-agent systems: Taxonomy, coordination primacy, and cost awareness. arXiv. https://arxiv.org/abs/2603.27539 (Open access)
-
-Xiao, Y., et al. (2025). TradingAgents: Multi-agents LLM financial trading framework. Proceedings of the 39th AAAI Conference on Artificial Intelligence. arXiv. https://arxiv.org/abs/2412.20138 (Open access)
-
-Yahaya, A., John, S. A., Adegoroye, A., & Olorunfemi, O. A. (2023). Stock market liquidity and volatility on the Nigerian Exchange Limited (NGX). World Journal of Advanced Research and Reviews, 20(3), 147–156. https://doi.org/10.30574/wjarr.2023.20.3.2333 (Open access)
-
-Nystrup, P., Kolm, P. N., & Stenfors, A. (2020). Regime-switching factor investing with hidden Markov models. Journal of Risk and Financial Management, 13(12), 311. https://doi.org/10.3390/jrfm13120311
-
-Zaremba, A. (2015). Country selection strategies based on value, size and momentum. Investment Analysts Journal, 44(3), 171–198. https://doi.org/10.1080/10293523.2015.1060747

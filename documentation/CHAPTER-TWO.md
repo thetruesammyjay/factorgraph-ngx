@@ -1,149 +1,144 @@
-# CHAPTER TWO
+﻿# CHAPTER TWO
 
 # LITERATURE REVIEW
 
-This chapter reviews literature related to the proposed system. The review covers factor investing, emerging-market equity returns, liquidity, machine learning in asset pricing, market regimes, and quantitative research workflows. The review also identifies the gap addressed by this study. The proposed system is designed as a graph-orchestrated multi-agent system. It coordinates specialised analytical tasks for factor construction, regime analysis, portfolio evaluation, and experiment tracking.
+This chapter reviews factor research, emerging-market evidence, Nigerian liquidity studies, regime models, and reproducible computational workflows. It uses these ideas to define the research gap for a point-in-time NGX research platform. The implemented project is deterministic. It does not use language-model agents to calculate or interpret financial results.
 
 ## 2.1 Background Concept
 
-Factor investing studies whether measurable company or market characteristics explain differences in stock returns. A factor can describe a market exposure or a portfolio return spread. Common equity factors include market, size, value, profitability, investment, momentum, and liquidity.
+Factor analysis studies whether market exposures or company characteristics help explain differences in equity returns. Researchers form factor portfolios by ranking securities on measures such as market capitalisation, book-to-market equity, past returns, profitability, investment, and liquidity.
 
-Fama and French (2015) present a five-factor asset pricing model that extends a three-factor structure with profitability and investment. Their results show that a group of factors can explain patterns in average returns more effectively than a single market factor in their sample. Hou, Xue, and Zhang (2015) also use factor portfolios to organise several return patterns into an investment-based model.
+Fama and French (2017) test a five-factor model across international markets and report regional differences. Foye (2018) also reports variation in factor results across emerging markets. These findings support market-specific tests rather than direct transfer of results from another exchange.
 
-Factor research depends on the definition of the signal and the method used to form portfolios. A size signal requires market capitalisation. A value signal requires a valuation measure such as book equity relative to market capitalisation. A momentum signal requires a historical return window. A liquidity signal requires trading information. The researcher must define the observation date, ranking rule, portfolio rule, and rebalancing frequency for each factor.
+Each factor needs suitable evidence. Size requires market capitalisation. Value requires book equity and market capitalisation. Momentum requires a sufficient historical return window. Liquidity requires valid trading activity measures. The researcher must define the formation date, eligible universe, ranking method, holding period, and rebalancing rule.
 
-The proposed system applies this concept to NGX equities. It constructs five research factors:
+This project implements a pilot for NGX data. It derives market excess returns and point-in-time Size and Value characteristics. It constructs preliminary monthly Size and Value spreads and 12–1 Momentum formation ranks. The available daily price files do not provide verified volume and traded value, so Liquidity remains blocked. The 24-month pilot also falls below the sample minimum for regime estimation.
 
-- Market
-- Size
-- Value
-- Momentum
-- Liquidity
-
-The Market factor represents the excess return of the NGX equity market above the selected risk-free rate. The Size factor uses market capitalisation. The Value factor uses point-in-time book-to-market information. The Momentum factor uses a 12-1 month formation return. The Liquidity factor uses trading activity and an Amihud-style illiquidity measure.
-
-Emerging markets require separate empirical testing. Zaremba (2015) finds that value, size, and momentum effects vary across national markets. Foye (2018) also reports that factor results can differ across emerging markets. These studies support the need to test the NGX market directly instead of treating a result from a developed market as a universal result.
-
-Liquidity is important because a security can have a high estimated return and still be difficult or costly to trade. Abdullahi and Fakunmoju (2019) study the relationship between liquidity and stock returns in the Nigerian market. Their work supports the inclusion of liquidity information in a Nigerian equity research system.
-
-The system also uses market-regime analysis. A market regime is a period with a distinct pattern of return, volatility, or transition behaviour. Nystrup, Kolm, and Stenfors (2020) apply Hidden Markov Models to regime-switching factor investing. Their work supports the use of hidden states to compare factor performance under different market conditions.
-
-Research quality also depends on the treatment of data and model choices. Harvey, Liu, and Zhu (2016) discuss the problem of false discoveries in the cross-section of expected returns. McLean and Pontiff (2016) show that return predictability can decline outside the original research sample and after publication. These findings support the use of transparent configurations, out-of-sample evaluation, data versioning, and multiple statistical controls.
-
-**Figure 2.1: Conceptual Framework for the Proposed Graph-Orchestrated Multi-Agent System**
-
-The framework begins with NGX market data, company fundamentals, supporting market series, and a versioned experiment configuration. The LangGraph orchestrator coordinates the specialised analytical agents and records the execution state. The data-preparation agent validates and aligns the observations before the five factor agents construct the Market, Size, Value, Momentum, and Liquidity factors. The statistical-validation agent evaluates the factor results, while the regime-analysis agent identifies latent market states. Validated factor scores and regime information jointly inform security ranking. The portfolio and backtest agent then simulates the selected securities. The evaluation agent applies transaction-cost assumptions and compares performance with the NGX benchmark. The system stores the validated factor results, regime-specific findings, portfolio results, benchmark comparison, and reproducible experiment record.
+Point-in-time data handling matters because company reports become public after their fiscal periods. A system must use filing dates where evidence is available. If it uses a fallback date, it must label that date as an estimate. The implemented research workflow is shown in Chapter Four.
 
 ## 2.2 Theoretical Framework
 
-Four theoretical perspectives support this study: factor asset pricing theory, liquidity and market microstructure theory, regime-switching theory, and reproducible computational research.
+Four perspectives inform the system: factor asset pricing, liquidity and market microstructure, regime-switching analysis, and reproducible computational research. The platform implements only analyses supported by the available pilot.
 
 ### 2.2.1 Factor Asset Pricing Theory
 
-Factor asset pricing theory explains returns through exposure to common risk or return characteristics. The theory supports the use of portfolio return spreads to measure whether a characteristic relates to future returns.
+Factor asset-pricing theory represents common return patterns through market or company characteristics. Researchers use factor portfolios and regressions to test whether characteristics relate to realised returns.
 
-Fama and French (2015) provide a recent multi-factor framework based on market, size, value, profitability, and investment. Hou, Xue, and Zhang (2015) provide another factor framework based on market, size, investment, and profitability. These studies show that researchers can use factor portfolios to test whether observable characteristics explain cross-sectional return differences.
+Fama and French (2017) evaluate a multi-factor model across international markets. Foye (2018) studies a five-factor model in emerging markets. Their work motivates market-specific measurement and transparent portfolio rules.
 
-The proposed system adapts the factor approach to the research question and available NGX data. It retains market, size, and value concepts. It adds momentum and liquidity because these characteristics are relevant to the stated research model. The system does not claim that the NGX factors must produce the same results as factors in other markets. It calculates the factor series and evaluates the results with stated statistical procedures.
+This project uses the factor framework as an empirical method. It calculates market excess returns and constructs preliminary Size and Value spreads. It also forms Momentum rankings when the return window is available. The pilot does not support a complete model with validated premiums. Its sample is short, and the Size and Value bootstrap intervals include zero.
 
 ### 2.2.2 Liquidity and Market Microstructure Theory
 
-Liquidity theory links trading conditions to the cost and risk of buying or selling a security. A liquid security can usually trade with lower delay and lower price impact. An illiquid security may require a larger price movement to attract a trade.
+Liquidity concerns the speed and cost of trading an asset. Volume, traded value, transaction counts, bid-ask spreads, and price impact can measure different aspects of liquidity. A price-only file cannot establish these trading conditions.
 
-A trading-value measure can support an Amihud-style illiquidity calculation:
+An Amihud-style measure relates absolute return movement to traded value:
 
 ~~~text
-ILLIQ_i = average( |daily return_i| / daily trading value_i )
+ILLIQ_i = mean(absolute daily return_i / daily traded value_i)
 ~~~
 
-A higher value indicates more return movement for a given amount of trading value. The value therefore represents lower liquidity.
+The measure requires verified traded value and valid daily returns. The public pilot does not contain verified daily volume or traded value. The platform therefore records Liquidity as blocked. It does not replace missing turnover with zero or with a price proxy.
 
-Abdullahi and Fakunmoju (2019) examine liquidity and stock returns in the Nigerian market. The study provides local support for examining liquidity with other return characteristics. The proposed system stores volume and trading value so that the researcher can test liquidity definitions and document the selected definition in the experiment configuration.
-
-Liquidity theory also affects portfolio construction. A strategy may select a security because of its factor score, but trading cost can reduce the realised portfolio return. The proposed system therefore applies a configurable transaction-cost estimate during backtesting.
+Yahaya et al. (2023) study liquidity and volatility on the NGX. Alaba et al. (2024) examine liquidity and Nigerian market performance. These studies support the relevance of local liquidity research. They do not supply the missing daily observations for this project.
 
 ### 2.2.3 Regime-Switching Theory
 
-Regime-switching theory assumes that an observed time series can behave differently across unobserved states. A market can have a stable state, a positive-return state, or a high-volatility state. The state is not known directly. The model estimates the state from observed data.
+Regime-switching models represent changes in a time series through latent states. A Hidden Markov Model estimates state probabilities and transitions from observed features such as returns and volatility.
 
-A Gaussian Hidden Markov Model represents each state with a probability distribution and represents movement between states with a transition matrix. The proposed system uses monthly market return and rolling market volatility as regime features. It estimates three states by default. The researcher interprets the states after reviewing their estimated returns, volatility, persistence, and transition probabilities.
+Nystrup et al. (2020) apply Hidden Markov Models to regime-switching factor investing. Their work provides a basis for examining factor behaviour across market conditions. Regime estimation still requires enough observations to estimate state distributions and transitions.
 
-Nystrup, Kolm, and Stenfors (2020) show how Hidden Markov Models can support factor-investing decisions across changing market states. The proposed system uses the model for regime description and regime-specific factor analysis. It does not assume that a state label has a fixed economic meaning before estimation.
+The platform includes a three-state Gaussian HMM workflow. Its configured pilot minimum is 36 monthly endpoints. The 2023–2024 dataset has 24 endpoints. The model therefore remains blocked for this pilot. No state labels or regime-specific findings are reported.
 
 ### 2.2.4 Reproducible Computational Research
 
-Reproducible computational research requires a clear record of data, methods, parameters, and outputs. A result should be traceable to the dataset and instructions that produced it.
+Reproducible computational research records the data, transformations, configuration, and software version behind a result. Harvey et al. (2016) discuss false discoveries in asset-pricing research. McLean and Pontiff (2016) show that published return predictors can weaken outside their original samples.
 
-This principle is important in factor research because small changes can affect results. Examples include a different missing-data rule, a different reporting lag, a different ranking date, a different portfolio breakpoint, or a different transaction-cost assumption. Harvey, Liu, and Zhu (2016) show why researchers should control false discoveries when they examine many possible return predictors. McLean and Pontiff (2016) show why results should be tested beyond the original sample.
-
-The proposed system implements reproducibility through dataset versions, data manifests, experiment configurations, fixed random seeds, graph node status, and stored results. The system also separates raw source files from prepared data. This design allows the researcher to identify the exact input and configuration used for an experiment.
+The platform records source manifests, file hashes, dataset fingerprints, experiment configuration, node status, and software revision where available. Deterministic calculations use explicit settings, including bootstrap seeds. A graph run stores its ordered trace and output summaries. These controls support inspection and repeatability. They do not remove the limits of a short or incomplete dataset.
 
 ## 2.3 Related Works
 
 ### 2.3.1 Multi-Factor Asset Pricing
 
-Fama and French (2015) test a five-factor model that includes market, size, value, profitability, and investment. Their work provides a basis for the use of factor portfolios in return explanation. Hou, Xue, and Zhang (2015) propose a related factor approach that uses investment and profitability signals. Fama and French (2017) test a five-factor model across international markets and show that factor results can vary by region.
-
-These studies provide established factor concepts, but they do not provide a complete NGX research system. They also do not define the data ingestion, point-in-time alignment, graph execution, dashboard, and experiment persistence required by this study.
+Fama and French (2017) test a five-factor model across international markets and report regional differences. Foye (2018) evaluates a five-factor model in emerging markets. These studies provide a basis for factor portfolio analysis, but they do not present the NGX-specific data collection and point-in-time software platform implemented here.
 
 ### 2.3.2 Size, Value, and Momentum in Emerging Markets
 
-Zaremba (2015) studies value, size, and momentum across national equity markets. The study reports that the strength of these effects can vary across markets. Foye (2018) examines the Fama-French five-factor model in emerging markets and reports differences in factor behaviour across markets.
+Emerging-market factor results can depend on coverage, market structure, and period. Foye (2018) reports variation in five-factor performance across emerging markets. Irejeh and Aninoritse (2024) test a Fama–French three-factor model using NGX-listed companies and report relationships involving market, size, and book-to-market measures.
 
-These studies support country-level factor testing. They also show the need for a system that allows factor definitions and eligibility rules to remain visible and configurable.
+This project adds a software-engineering contribution. It records point-in-time evidence, preserves source provenance, and executes calculations through an inspectable workflow. Its 2023–2024 pilot is too short to support broad claims about persistent factor premiums.
 
 ### 2.3.3 Liquidity and Nigerian Equity Returns
 
-Abdullahi and Fakunmoju (2019) examine market liquidity and stock returns in the Nigerian Stock Exchange market. Their study considers liquidity with macroeconomic variables and uses historical Nigerian data.
+Abdullahi and Fakunmoju (2019) examine market liquidity and stock returns in Nigeria. Yahaya et al. (2023) examine liquidity and volatility on the NGX. Alaba et al. (2024) analyse liquidity and stock-market performance in Nigeria.
 
-The study is relevant to the proposed system because it provides local evidence for the relationship between liquidity and stock returns. However, it does not provide the complete multi-factor, regime-aware, graph-orchestrated workflow proposed in this project. The proposed system extends the research setting by combining liquidity with market, size, value, and momentum signals.
+These studies establish local interest in liquidity. They do not remove the need for verified daily trading activity. The public Daily Official List files collected for this project provide price fields but not verified daily volume or traded value. The platform therefore does not report liquidity returns.
 
 ### 2.3.4 Machine Learning and Empirical Asset Pricing
 
-Gu, Kelly, and Xiu (2020) compare machine learning methods for empirical asset pricing. They report that nonlinear interactions among predictors can improve return prediction in their data. Their work shows the value of systematic model comparison and disciplined validation.
+Gu et al. (2020) compare machine-learning methods for empirical asset pricing. Their work shows that flexible models can capture nonlinear relations, while careful validation remains necessary.
 
-The proposed system uses machine learning in a limited and controlled way. The system uses a Gaussian Hidden Markov Model for regime estimation. The core factor definitions remain explicit and deterministic. This design makes the financial calculations easier to inspect and reduces the risk that an opaque prediction model replaces the research definition.
+This project uses explicit financial formulas for returns and characteristics. It does not use a machine-learning model to generate price, fundamental, or factor evidence. A Gaussian HMM is available for regime analysis, but the pilot fails its minimum-data gate. The system reports that constraint instead of fitting an unsupported model.
 
 ### 2.3.5 Regime-Aware Factor Investing
 
-Nystrup, Kolm, and Stenfors (2020) study factor investing with Hidden Markov Models. Their work connects factor selection with estimated market regimes. It supports the idea that factor performance can vary across market conditions.
+Nystrup et al. (2020) study factor investing with Hidden Markov Models. Their work motivates analysis of factors under different market states.
 
-The proposed system differs in its workflow scope. It inspects input data, aligns fundamentals by availability date, constructs factors, estimates regimes, calculates regime-specific statistics, builds a portfolio, and stores the complete experiment. This design allows the researcher to examine both factor behaviour and the consequences of a portfolio rule.
+The current project implements the regime workflow and its readiness checks. It does not report estimated regimes for the 24-month pilot because the configured minimum is 36 monthly endpoints. Software support does not mean that the current dataset supports an empirical result.
 
 ### 2.3.6 Graph-Orchestrated Quantitative Workflows
 
-Kundu et al. (2025) present a multi-agent framework for quantitative finance and portfolio management analytics. Their work shows how specialised components can coordinate financial analysis tasks. Confalonieri et al. (2024) also examine graph-based representations of data-science workflows and their role in explaining how systems produce analytical results.
+Confalonieri et al. (2024) examine workflow representations that help explain data-science processes. A graph can make dependencies and execution order visible. LangGraph applies graph-based orchestration to stateful application workflows.
 
-These studies support the use of modular and coordinated computational components. The proposed system applies the idea to a deterministic research pipeline. Each graph node has a defined task and receives the output of an earlier node. The graph records the execution order and makes the workflow easier to inspect.
+This project uses LangGraph to coordinate deterministic research nodes. Nodes prepare data, align fundamentals, check eligibility, calculate supported outputs, and save run information. Financial formulas remain in Python modules. The graph coordinates computation; it does not act as an independent financial agent.
 
 ### 2.3.7 Open-Access Evidence Reinforcing the Research Gap
 
-Two further open-access studies confirm that the Nigerian liquidity gap identified above remains unresolved in the current literature. Yahaya, John, Adegoroye, and Olorunfemi (2023) use a GARCH model to examine liquidity and volatility on the Nigerian Exchange Limited and report that liquidity has a significant positive effect on volatility. Alaba, Ahmed, Malik-Abdulmajeed, and Hussain (2024) apply a Vector Error Correction System to NGX-30 constituents and find that liquidity depth, breadth, and immediacy significantly affect stock market performance. Both articles are published under open-access licences and are freely downloadable in full text, which allows their methods and NGX evidence to be checked directly. Neither study, however, embeds liquidity within a multi-factor model, aligns fundamentals on a point-in-time basis, estimates market regimes, or produces a reproducible, orchestrated research pipeline. This confirms that the gap named in Section 2.5 below is not an artefact of a narrow literature search but persists in the most recent freely accessible Nigerian liquidity research.
+Recent open-access Nigerian studies show that liquidity remains an active local research topic. Yahaya et al. (2023) study liquidity and volatility on the NGX. Alaba et al. (2024) examine liquidity and stock-market performance. Irejeh and Aninoritse (2024) test a three-factor model on NGX-listed equities.
 
-A further freely downloadable Nigerian application, Irejeh and Aninoritse (2024), tests the Fama-French three-factor model on sixty-eight NGX-listed stocks from 2013 to 2022 and reports a significant relationship between book-to-market equity, firm size, and stock returns. This confirms that market, size, and value effects are detectable on the NGX, but the study stops at the three-factor structure: it does not add momentum or liquidity, does not align fundamentals to their publication dates, and does not test whether the estimated relationships hold across different market regimes. It also relies on a single static regression rather than a versioned, reproducible research pipeline. The gap between a three-factor NGX test and the liquidity-augmented, regime-aware, five-factor system proposed in this study is therefore still open in the freely accessible literature as of 2024.
-
-Recent open-access research on LLM-based multi-agent financial systems reinforces the case for the deterministic, graph-orchestrated design adopted in this study. Nguyen and Pham (2026), freely available as an arXiv preprint, review twelve published multi-agent trading systems and document five recurring evaluation failures: look-ahead bias, survivorship bias, backtesting overfitting, transaction-cost neglect, and regime-shift blindness. They report that none of the surveyed systems satisfies all five minimum evaluation standards, that reported returns can reverse sign under controlled re-evaluation, and that no surveyed system is evaluated on an African or Nigerian market. Xiao et al. (2025), also freely accessible on arXiv, present TradingAgents, a multi-agent large language model framework whose headline Sharpe ratio is drawn from a single three-month bullish window and is not evaluated across market regimes or against transaction costs. These freely downloadable sources show that agentic financial-research systems in the wider literature still lack point-in-time universes, regime coverage, and net-of-cost evaluation. The proposed system addresses this by keeping factor computation deterministic and auditable, aligning fundamentals to their publication dates, estimating explicit market regimes, and applying transaction costs during backtesting, rather than delegating financial judgement to an unvalidated language-model agent.
+The present project addresses a different problem: how to build an auditable platform that collects public data, records point-in-time assumptions, applies eligibility gates, and runs deterministic analyses. The sources reviewed for this study do not present the same end-to-end implementation with document-level provenance, carried-price treatment, fundamental availability dates, factor eligibility status, graph-run traces, and a web interface for NGX pilot analysis. This statement describes the reviewed works and does not imply that no other NGX research system exists.
 
 ## 2.4 Summary of Literature Review
 
-The literature shows that factor models can organise the study of cross-sectional equity returns. Recent studies support the use of market, size, value, momentum, and liquidity characteristics. The literature also shows that emerging markets can produce different factor results from developed markets.
+The literature provides methods for factor portfolio construction, emerging-market testing, liquidity measurement, regime analysis, and computational research. It also shows why local data coverage and transparent assumptions matter.
 
-Liquidity is relevant to the Nigerian equity market because trading conditions can affect both return measurement and portfolio implementation. Regime-switching research supports the use of Hidden Markov Models to examine changes in market return and volatility. Machine learning research supports disciplined prediction and validation, but it also creates a need for controls against overfitting and false discoveries.
-
-The review therefore supports a system with five features. The system must use explicit factor definitions. It must preserve point-in-time data availability. It must include liquidity and regime analysis. It must record data and experiment versions. It must separate computation from workflow coordination.
+The implemented platform applies these ideas within the limits of its public NGX pilot. It calculates Market, Size, Value, and Momentum outputs when input rules permit them. It blocks Liquidity because verified daily trading activity is absent. It blocks HMM estimation because the monthly sample is below the configured minimum. Empirical conclusions remain limited to the completed pilot.
 
 ## 2.5 Research Gaps
 
-The reviewed studies reveal the following gaps:
+The review and data audit identify these gaps:
 
-1. Many factor studies focus on markets outside Nigeria. The results may not represent the data coverage, liquidity, and trading conditions of NGX equities.
-2. Studies on Nigerian liquidity do not provide an integrated system for multi-factor construction, regime analysis, portfolio simulation, and experiment tracking.
-3. A factor study can produce biased results if it uses financial information before its publication date. The reviewed application literature does not provide the point-in-time data workflow required by this project.
-4. Factor definitions, ranking rules, and portfolio assumptions can remain difficult to reproduce when researchers use disconnected scripts or spreadsheets.
-5. A factor model can hide changes in performance when it reports only an average result for the full sample. Regime-specific analysis can provide additional information about the conditions under which a factor performs.
-6. Machine learning can increase flexibility, but it can also increase model complexity and the risk of overfitting. The proposed system therefore keeps the factor calculations explicit and uses statistical validation around them.
-7. Existing related works do not combine a versioned NGX data pipeline and a graph-orchestrated research workflow. They also do not combine a REST API and a web dashboard in one academic research system.
-8. Freely downloadable Nigerian liquidity studies published as recently as 2024 (Alaba et al., 2024; Yahaya et al., 2023) and a freely downloadable NGX three-factor test (Irejeh & Aninoritse, 2024) confirm that liquidity and factor effects exist on the NGX, but none of them combine liquidity with size, value, and momentum in a single point-in-time, regime-aware system.
-9. Freely accessible reviews of LLM-based multi-agent financial systems (Nguyen & Pham, 2026; Xiao et al., 2025) show that agentic research pipelines in the wider literature commonly suffer from look-ahead bias, regime-shift blindness, and transaction-cost neglect, and that none has been evaluated on an African or Nigerian market. This project addresses that gap by keeping factor computation deterministic, applying point-in-time alignment, and validating results across estimated market regimes and transaction costs.
+1. International factor findings cannot be assumed to hold on the NGX. Local data and market conditions require direct testing.
+2. NGX research needs workflows that preserve source identity, file coverage, and price-status distinctions. Carried prices must not be confused with official trades.
+3. Point-in-time fundamental analysis requires evidence about report values, units, reporting scope, cited pages, and availability dates.
+4. Research outputs need explicit eligibility rules. A missing input must not be mistaken for a valid zero or an unconstrained result.
+5. Short samples limit inference. The current Size and Value intervals include zero, and the sample does not support regime estimation.
+6. Public NGX price files in this pilot do not provide verified daily volume and traded value. This prevents a defensible daily Liquidity factor calculation.
+7. The reviewed studies do not present the same integrated platform demonstrated here: source provenance, point-in-time alignment, deterministic factor modules, graph-run traces, API access, and an interactive research console.
 
-The proposed system addresses these gaps by providing an integrated research system for NGX equities. It combines data validation, point-in-time alignment, five-factor construction, statistical tests, regime estimation, portfolio backtesting, and experiment persistence.
+The project addresses these engineering and data-process gaps. Its 2023–2024 results are a pilot evaluation. Further data collection and a longer observation period are required before stronger claims about factor premiums, liquidity, or market regimes can be made.
+
+## REFERENCES
+
+Abdullahi, I. B., & Fakunmoju, S. K. (2019). Market liquidity and stock return in the Nigerian Stock Exchange market. *Binus Business Review, 10*(2), 87–94. https://doi.org/10.21512/bbr.v10i2.5588
+
+Alaba, J. S., Ahmed, Y., Malik-Abdulmajeed, K. M., & Hussain, U. (2024). Stock market liquidity and stock market performance in Nigeria: Evidence from the Nigerian Exchange Limited. *iRASD Journal of Management, 6*(2), 78–89. https://doi.org/10.52131/jom.2024.0602.0124
+
+Confalonieri, R., Kutz, O., Calvanese, D., Alonso, J. M., Zhou, S. M., & Daga, E. (2024). Data journeys: Explaining AI workflows through abstraction. *Semantic Web, 15*, 1057–1083. https://doi.org/10.3233/SW-233407
+
+Fama, E. F., & French, K. R. (2017). International tests of a five-factor asset pricing model. *Journal of Financial Economics, 123*(3), 441–463. https://doi.org/10.1016/j.jfineco.2016.11.004
+
+Foye, J. (2018). A comprehensive test of the Fama–French five-factor model in emerging markets. *Emerging Markets Review, 37*, 199–222. https://doi.org/10.1016/j.ememar.2018.09.002
+
+Gu, S., Kelly, B., & Xiu, D. (2020). Empirical asset pricing via machine learning. *The Review of Financial Studies, 33*(5), 2223–2273. https://doi.org/10.1093/rfs/hhaa009
+
+Harvey, C. R., Liu, Y., & Zhu, H. (2016). …and the cross-section of expected returns. *The Review of Financial Studies, 29*(1), 5–68. https://doi.org/10.1093/rfs/hhv059
+
+Irejeh, E. M., & Aninoritse, L. E. (2024). Fama and French three factor model. *European Journal of Accounting, Auditing and Finance Research, 12*(5), 17–30. https://eajournals.org/ejaafr/wp-content/uploads/sites/16/2024/04/Fama-and-French-Three-Factor-Model.pdf
+
+McLean, R. D., & Pontiff, J. (2016). Does academic research destroy stock return predictability? *The Journal of Finance, 71*(1), 5–32. https://doi.org/10.1111/jofi.12365
+
+Nystrup, P., Kolm, P. N., & Stenfors, A. (2020). Regime-switching factor investing with hidden Markov models. *Journal of Risk and Financial Management, 13*(12), 311. https://doi.org/10.3390/jrfm13120311
+
+Yahaya, A., John, S. A., Adegoroye, A., & Olorunfemi, O. A. (2023). Stock market liquidity and volatility on the Nigerian Exchange Limited (NGX). *World Journal of Advanced Research and Reviews, 20*(3), 147–156. https://doi.org/10.30574/wjarr.2023.20.3.2333
+

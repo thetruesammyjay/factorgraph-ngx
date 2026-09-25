@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="430" viewBox="0 0 1120 430" role="img" aria-labelledby="t d">
+<title id="t">Experiment lifecycle UML state machine</title><desc id="d">Experiment lifecycle from draft to planned to running, ending as completed or completed with constraints, or failed. Runs preserve the last completed node and errors.</desc>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#355d3a"/></marker></defs><style>.bg{fill:#fafcf9}.st{fill:#e6f2e1;stroke:#4e804c;stroke-width:2}.end{fill:#173d22;stroke:#173d22;stroke-width:4}.t{font:16px Arial;fill:#173522}.n{font:700 23px Arial;fill:#173d22}.l{stroke:#355d3a;stroke-width:2.3;fill:none;marker-end:url(#a)}</style>
+<rect class="bg" width="1120" height="430"/><text class="n" x="560" y="40" text-anchor="middle">Experiment lifecycle states</text><circle cx="65" cy="210" r="11" fill="#173d22"/>
+<rect class="st" x="110" y="175" width="145" height="70" rx="20"/><text class="t" x="182" y="216" text-anchor="middle">draft</text>
+<rect class="st" x="315" y="175" width="145" height="70" rx="20"/><text class="t" x="387" y="216" text-anchor="middle">planned</text>
+<rect class="st" x="520" y="175" width="145" height="70" rx="20"/><text class="t" x="592" y="216" text-anchor="middle">running</text>
+<rect class="st" x="760" y="80" width="220" height="70" rx="20"/><text class="t" x="870" y="122" text-anchor="middle">completed</text>
+<rect class="st" x="760" y="180" width="220" height="70" rx="20"/><text class="t" x="870" y="222" text-anchor="middle">completed_with_constraints</text>
+<rect class="st" x="760" y="300" width="145" height="70" rx="20"/><text class="t" x="832" y="342" text-anchor="middle">failed</text>
+<circle class="end" cx="1040" cy="115" r="14"/><circle cx="1040" cy="115" r="8" fill="#fafcf9"/><circle class="end" cx="1040" cy="215" r="14"/><circle cx="1040" cy="215" r="8" fill="#fafcf9"/><circle class="end" cx="965" cy="335" r="14"/><circle cx="965" cy="335" r="8" fill="#fafcf9"/>
+<path class="l" d="M76 210h29M255 210h54M460 210h54M665 200h90V115h9M665 210h89M665 220h85v115h4M980 115h45M980 215h45M905 335h45"/>
+<text class="t" x="278" y="195">plan</text><text class="t" x="483" y="195">run</text><text class="t" x="680" y="137">no constraints</text><text class="t" x="684" y="198">constraints exist</text><text class="t" x="683" y="303">execution error</text>
+</svg>

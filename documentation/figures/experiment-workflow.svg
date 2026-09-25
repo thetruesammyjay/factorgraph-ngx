@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="600" viewBox="0 0 1280 600" role="img" aria-labelledby="t d">
+<title id="t">the research platform experiment workflow</title><desc id="d">Researcher submits configuration; API creates preflight plan; graph validates data, aligns fundamentals, checks gates, calculates supported results, stores trace, and returns run. Failed gates remain blocked or preliminary.</desc>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#23723a"/></marker></defs>
+<style>.bg{fill:#f7faf6}.box{fill:#e7f3de;stroke:#579448;stroke-width:2}.gate{fill:#fff3d4;stroke:#c99722;stroke-width:2}.out{fill:#123d20;stroke:#123d20}.txt{font:17px Arial;fill:#183322}.white{fill:#fff}.h{font:700 25px Arial;fill:#123d20}.arrow{stroke:#23723a;stroke-width:3;fill:none;marker-end:url(#a)}</style>
+<rect class="bg" width="1280" height="600"/><text class="h" x="640" y="48" text-anchor="middle">Experiment activity and result sequence</text>
+<rect class="box" x="50" y="120" width="220" height="90" rx="14"/><text class="txt" x="160" y="157" text-anchor="middle">Researcher configures</text><text class="txt" x="160" y="182" text-anchor="middle">and requests a plan</text>
+<rect class="box" x="350" y="120" width="220" height="90" rx="14"/><text class="txt" x="460" y="157" text-anchor="middle">FastAPI validates</text><text class="txt" x="460" y="182" text-anchor="middle">and returns preflight</text>
+<rect class="box" x="650" y="120" width="220" height="90" rx="14"/><text class="txt" x="760" y="157" text-anchor="middle">LangGraph validates</text><text class="txt" x="760" y="182" text-anchor="middle">and aligns evidence</text>
+<rect class="gate" x="950" y="120" width="270" height="90" rx="14"/><text class="txt" x="1085" y="157" text-anchor="middle">Eligibility gates classify</text><text class="txt" x="1085" y="182" text-anchor="middle">available, preliminary, blocked</text>
+<path class="arrow" d="M270 165h74M570 165h74M870 165h74"/>
+<rect class="box" x="180" y="320" width="260" height="105" rx="14"/><text class="txt" x="310" y="360" text-anchor="middle">Python modules calculate</text><text class="txt" x="310" y="386" text-anchor="middle">supported outputs</text>
+<rect class="gate" x="510" y="320" width="260" height="105" rx="14"/><text class="txt" x="640" y="360" text-anchor="middle">Unsupported tasks retain</text><text class="txt" x="640" y="386" text-anchor="middle">a blocked reason</text>
+<rect class="box" x="840" y="320" width="260" height="105" rx="14"/><text class="txt" x="970" y="360" text-anchor="middle">Graph stores ordered trace,</text><text class="txt" x="970" y="386" text-anchor="middle">outputs and fingerprint</text>
+<path class="arrow" d="M1085 210v60H310v44M1085 210v65H640v39M440 372h64M770 372h64"/>
+<rect class="out" x="330" y="490" width="620" height="75" rx="14"/><text class="txt white" x="640" y="522" text-anchor="middle" font-weight="700">FastAPI returns run; Next.js displays results, constraints and export</text><text class="txt white" x="640" y="546" text-anchor="middle">Optional PostgreSQL persistence preserves saved runs across API restarts</text>
+<path class="arrow" d="M970 425v35H640v24"/>
+</svg>

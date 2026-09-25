@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+<title id="title">the research platform implemented system architecture</title>
+<desc id="desc">Public NGX data flows through provenance and validation, point-in-time alignment, eligibility gates, deterministic Python calculations, LangGraph run records, FastAPI, and the Next.js research console. Liquidity and regime analysis are blocked for the current pilot.</desc>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#23723a"/></marker>
+  <style>
+    .bg{fill:#f7faf6}.box{fill:#fff;stroke:#9bbf91;stroke-width:2}.dark{fill:#123d20;stroke:#123d20}.green{fill:#e6f4dc;stroke:#6ba957}.amber{fill:#fff5d7;stroke:#d4a52a}.blue{fill:#eaf2fb;stroke:#6a92c1}.txt{font:20px Arial,sans-serif;fill:#183322}.small{font:15px Arial,sans-serif;fill:#3c5842}.white{fill:#fff}.title{font:700 30px Arial,sans-serif;fill:#123d20}.arrow{stroke:#23723a;stroke-width:3;fill:none;marker-end:url(#arrow)}.dash{stroke-dasharray:8 7}
+  </style>
+</defs>
+<rect class="bg" width="1440" height="900"/>
+<text id="title" class="title" x="720" y="48" text-anchor="middle">the research platform: implemented research platform</text>
+<text class="small" x="720" y="78" text-anchor="middle">Point-in-time data controls · deterministic calculations · inspectable graph runs</text>
+
+<rect class="box" x="55" y="125" width="280" height="135" rx="15"/>
+<text class="txt" x="195" y="160" text-anchor="middle" font-weight="700">Public sources</text>
+<text class="small" x="195" y="193" text-anchor="middle">NGX Daily Official Lists</text>
+<text class="small" x="195" y="217" text-anchor="middle">Issuer annual reports</text>
+<text class="small" x="195" y="241" text-anchor="middle">ASI and 91-day T-bill data</text>
+
+<rect class="green" x="395" y="125" width="280" height="135" rx="15"/>
+<text class="txt" x="535" y="160" text-anchor="middle" font-weight="700">Collection and review</text>
+<text class="small" x="535" y="193" text-anchor="middle">Source manifests and hashes</text>
+<text class="small" x="535" y="217" text-anchor="middle">Document and row review</text>
+<text class="small" x="535" y="241" text-anchor="middle">Canonical datasets</text>
+
+<rect class="green" x="735" y="125" width="280" height="135" rx="15"/>
+<text class="txt" x="875" y="160" text-anchor="middle" font-weight="700">Validation and timing</text>
+<text class="small" x="875" y="193" text-anchor="middle">Coverage and price status</text>
+<text class="small" x="875" y="217" text-anchor="middle">Point-in-time fundamentals</text>
+<text class="small" x="875" y="241" text-anchor="middle">Verified date or 90-day estimate</text>
+
+<rect class="amber" x="1075" y="125" width="300" height="135" rx="15"/>
+<text class="txt" x="1225" y="160" text-anchor="middle" font-weight="700">Eligibility gates</text>
+<text class="small" x="1225" y="193" text-anchor="middle">Available · preliminary · blocked</text>
+<text class="small" x="1225" y="217" text-anchor="middle">Missing evidence remains missing</text>
+<text class="small" x="1225" y="241" text-anchor="middle">Reasons travel with each result</text>
+
+<path class="arrow" d="M335 193 H390"/><path class="arrow" d="M675 193 H730"/><path class="arrow" d="M1015 193 H1070"/>
+
+<rect class="dark" x="240" y="335" width="960" height="100" rx="18"/>
+<text class="txt white" x="720" y="373" text-anchor="middle" font-weight="700">LangGraph research workflow</text>
+<text class="small white" x="720" y="405" text-anchor="middle">Ordered nodes · state transfer · failure status · run fingerprint · inspectable trace</text>
+<path class="arrow" d="M1225 260 V300 H720 V330"/>
+
+<rect class="blue" x="80" y="510" width="310" height="155" rx="15"/>
+<text class="txt" x="235" y="548" text-anchor="middle" font-weight="700">Deterministic Python</text>
+<text class="small" x="235" y="582" text-anchor="middle">Returns and characteristics</text>
+<text class="small" x="235" y="606" text-anchor="middle">Size and Value portfolios</text>
+<text class="small" x="235" y="630" text-anchor="middle">HAC statistics and bootstrap</text>
+
+<rect class="amber" x="565" y="510" width="310" height="155" rx="15"/>
+<text class="txt" x="720" y="548" text-anchor="middle" font-weight="700">Current pilot constraints</text>
+<text class="small" x="720" y="582" text-anchor="middle">Liquidity: no verified volume/value</text>
+<text class="small" x="720" y="606" text-anchor="middle">Regimes: 24 months, 36 required</text>
+<text class="small" x="720" y="630" text-anchor="middle">Both remain blocked</text>
+
+<rect class="green" x="1050" y="510" width="310" height="155" rx="15"/>
+<text class="txt" x="1205" y="548" text-anchor="middle" font-weight="700">Experiment record</text>
+<text class="small" x="1205" y="582" text-anchor="middle">Result summaries and constraints</text>
+<text class="small" x="1205" y="606" text-anchor="middle">Node outputs and dataset version</text>
+<text class="small" x="1205" y="630" text-anchor="middle">Optional PostgreSQL persistence</text>
+
+<path class="arrow" d="M570 435 V475 H235 V505"/><path class="arrow" d="M720 435 V505"/><path class="arrow" d="M870 435 V475 H1205 V505"/>
+<path class="arrow" d="M390 587 H1045"/>
+
+<rect class="dark" x="245" y="745" width="420" height="95" rx="16"/>
+<text class="txt white" x="455" y="782" text-anchor="middle" font-weight="700">FastAPI research services</text>
+<text class="small white" x="455" y="812" text-anchor="middle">Data · factors · portfolios · experiments</text>
+<rect class="dark" x="775" y="745" width="420" height="95" rx="16"/>
+<text class="txt white" x="985" y="782" text-anchor="middle" font-weight="700">Next.js research console</text>
+<text class="small white" x="985" y="812" text-anchor="middle">Coverage · outputs · blocked reasons · run review</text>
+<path class="arrow" d="M1205 665 V710 H455 V740"/>
+<path class="arrow" d="M665 792 H770"/>
+</svg>

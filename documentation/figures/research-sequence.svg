@@ -1,0 +1,25 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" role="img" aria-labelledby="t d">
+<title id="t">Research run UML sequence diagram</title><desc id="d">Sequence of researcher, Next.js, FastAPI, experiment service, LangGraph, numerical modules and optional PostgreSQL through planning, execution and retrieval.</desc>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#35583b"/></marker></defs><style>.bg{fill:#fff}.p{fill:#e8f2e2;stroke:#528548;stroke-width:2}.life{stroke:#809284;stroke-width:1.5;stroke-dasharray:7 6}.m{stroke:#35583b;stroke-width:2;marker-end:url(#a)}.ret{stroke:#65816a;stroke-width:1.7;stroke-dasharray:7 5;marker-end:url(#a)}.t{font:14px Arial;fill:#1d3423}.h{font:700 23px Arial;fill:#173d22}.bar{fill:#8ab67c}</style>
+<rect class="bg" width="1320" height="760"/><text class="h" x="660" y="34" text-anchor="middle">Experiment execution sequence</text>
+<g><rect class="p" x="30" y="60" width="145" height="56" rx="8"/><text class="t" x="102" y="94" text-anchor="middle">Researcher</text>
+<rect class="p" x="210" y="60" width="145" height="56" rx="8"/><text class="t" x="282" y="94" text-anchor="middle">Next.js UI</text>
+<rect class="p" x="390" y="60" width="145" height="56" rx="8"/><text class="t" x="462" y="94" text-anchor="middle">FastAPI</text>
+<rect class="p" x="570" y="60" width="155" height="56" rx="8"/><text class="t" x="647" y="94" text-anchor="middle">Experiment service</text>
+<rect class="p" x="760" y="60" width="145" height="56" rx="8"/><text class="t" x="832" y="94" text-anchor="middle">LangGraph</text>
+<rect class="p" x="940" y="60" width="155" height="56" rx="8"/><text class="t" x="1017" y="94" text-anchor="middle">Python modules</text>
+<rect class="p" x="1130" y="60" width="155" height="56" rx="8"/><text class="t" x="1207" y="94" text-anchor="middle">PostgreSQL (optional)</text></g>
+<path class="life" d="M102 116v600M282 116v600M462 116v600M647 116v600M832 116v600M1017 116v600M1207 116v600"/>
+<path class="m" d="M102 155H277"/><text class="t" x="185" y="146" text-anchor="middle">1. submit configuration</text>
+<path class="m" d="M282 195H457"/><text class="t" x="370" y="185" text-anchor="middle">2. POST experiment</text>
+<path class="m" d="M462 235H642"/><text class="t" x="552" y="225" text-anchor="middle">3. create plan and run record</text>
+<path class="m" d="M647 275H827"/><text class="t" x="737" y="265" text-anchor="middle">4. invoke graph with state</text>
+<path class="m" d="M832 315H1012"/><text class="t" x="922" y="305" text-anchor="middle">5. execute deterministic task</text>
+<path class="ret" d="M1017 355H837"/><text class="t" x="927" y="346" text-anchor="middle">6. return output and status</text>
+<path class="m" d="M832 395H1202"/><text class="t" x="1017" y="385" text-anchor="middle">7. persist trace when configured</text>
+<path class="ret" d="M1207 435H652"/><text class="t" x="930" y="425" text-anchor="middle">8. saved run record</text>
+<path class="ret" d="M647 475H467"/><text class="t" x="557" y="465" text-anchor="middle">9. result, constraints, fingerprint</text>
+<path class="ret" d="M462 515H287"/><text class="t" x="374" y="505" text-anchor="middle">10. JSON response</text>
+<path class="ret" d="M282 555H107"/><text class="t" x="194" y="545" text-anchor="middle">11. display run and trace</text>
+<rect class="bar" x="826" y="292" width="12" height="155"/><rect class="bar" x="1011" y="330" width="12" height="38"/><rect class="bar" x="641" y="252" width="12" height="237"/>
+</svg>

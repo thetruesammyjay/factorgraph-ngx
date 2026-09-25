@@ -25,17 +25,19 @@ The project aims to design, implement and evaluate a reproducible platform that:
 - performs deterministic factor calculations and pilot backtests; and
 - records every experiment's data version, configuration and software revision.
 
-The current evaluation is a **public-data pilot**. It demonstrates the research
-workflow without claiming that the observations conclusively validate a
-five-factor asset-pricing model for the entire NGX.
+The current evaluation is a **public-data pilot** covering January 2023 to
+December 2024. It demonstrates a reproducible research workflow. It does not
+claim to validate a complete factor model or establish persistent NGX factor
+premiums. The supported outputs and blocked analyses are described below.
 
 ## Current data coverage
 
 ### Market prices
 
-The processed 2024 dataset contains **3,255 observations** for 15 securities,
-covering 217 accepted NGX Daily Official List dates from 2 January through
-31 December 2024.
+The processed 2024 source dataset contains **3,255 observations** for 15
+securities, covering 217 accepted NGX Daily Official List dates from 2 January
+through 31 December 2024. The merged 2023–2024 pilot contains **6,375
+security-date observations** across 425 dates.
 
 | Ticker | Company | Sector |
 | --- | --- | --- |
@@ -92,6 +94,10 @@ Factors are enabled only after their input gate passes.
 
 The eligibility model is part of the research result: the platform explains why
 a calculation is available, preliminary or blocked.
+
+The academic chapters describe this implemented scope: [Chapter One](documentation/CHAPTER-ONE.md),
+[Chapter Two](documentation/CHAPTER-TWO.md), [Chapter Three](documentation/CHAPTER-THREE.md),
+[Chapter Four](documentation/CHAPTER-FOUR.md), and [Chapter Five](documentation/CHAPTER-FIVE.md).
 
 ## Architecture
 
@@ -270,11 +276,12 @@ through the `GET` run endpoint after execution, so a run can be inspected
 without rerunning it. A node endpoint provides the status and compact outputs
 for one named graph node when a narrower audit view is needed.
 
-The regime node is computed during graph execution. It fits the deterministic
-Gaussian HMM to the pilot report's monthly market-excess-return series using
-the configured state count, and stores its coverage, fitted model diagnostics,
-transition matrix, and state timeline in that run's node output. A sample below
-the regime engine's minimum observation requirement remains explicitly blocked.
+The regime node checks whether the selected sample meets the deterministic
+Gaussian HMM's minimum observation requirement. The current 24-month pilot is
+below the 36-month minimum, so the node records a blocked readiness result and
+does not fit the model or create a state timeline. With sufficient input data,
+the workflow can return model diagnostics, transition information, and state
+probabilities.
 
 The portfolio-construction node recomputes the selected Size and Value sorts
 and/or momentum portfolio from the report's point-in-time monthly observations.
@@ -356,9 +363,9 @@ sample supports a pilot experiment, not a general factor-performance claim.
 
 The Size and Value characteristic endpoints perform an as-of join using each
 fundamental observation's `effective_from` date. They expose eligible and
-excluded security-months separately. Market-capitalisation and book-to-market
-rankings remain descriptive until broader issuer coverage permits defensible
-SMB and HML return portfolios.
+excluded security-months separately. The system builds preliminary Size and
+Value spread portfolios from the current universe. Their short sample and
+confidence intervals that include zero limit them to descriptive pilot results.
 
 Size and Value history endpoints now expose the computed preliminary portfolio
 sorts. Each formation uses only characteristics known by that month and applies

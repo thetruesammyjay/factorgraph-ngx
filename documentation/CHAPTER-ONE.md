@@ -1,132 +1,106 @@
-# CHAPTER ONE
+﻿# CHAPTER ONE
 
 # INTRODUCTION
 
 ## 1.1 Background to the Study
 
-The Nigerian Exchange (NGX) provides an important market for studying equity returns, risk, liquidity, and portfolio performance. Investors and researchers can examine listed companies through market prices, trading activity, company fundamentals, and market-index data. However, these data sources do not become useful research evidence until a system collects, validates, aligns, and analyses them in a consistent way.
+Factor analysis studies whether market exposure and company characteristics help explain differences in equity returns. Common characteristics include market capitalisation, book-to-market equity, past returns, profitability, investment, and liquidity. International research finds that factor results can differ across markets. Researchers must therefore test each market with suitable local data (Fama & French, 2017; Foye, 2018).
 
-Factor investing provides a structured method for studying differences in stock returns. Instead of relying on one market indicator, a factor model groups securities according to measurable characteristics. Common characteristics include market exposure, company size, value, momentum, profitability, investment, and liquidity. Fama and French (2015) show that a multi-factor model can explain average stock returns more effectively than a single market factor. Their analysis uses a specific sample. Hou, Xue, and Zhang (2015) also show that factor portfolios can summarise several return patterns through a systematic investment approach.
+The Nigerian Exchange (NGX) provides a relevant setting for this work. Public sources include daily official lists, issuer reports, index observations, and government security rates. These sources use different formats, identifiers, and reporting dates. Some daily price records also carry forward a prior price when a new trade price is not reported. A research system must preserve these distinctions.
 
-Evidence from emerging markets shows that factor behaviour can differ across countries and periods. Zaremba (2015) reports that value, size, and momentum effects can vary across national markets. This result supports the need for country-specific testing rather than direct transfer of results from developed markets to the Nigerian market. The NGX market also has features that make liquidity important. These features include differences in trading activity, price availability, company size, and the number of actively traded securities. Abdullahi and Fakunmoju (2019) examine liquidity and stock returns in the Nigerian market and show the relevance of market conditions to return analysis.
+Point-in-time alignment is important. A financial statement describes a past fiscal period, but investors can use its information only after publication. A study that treats fiscal year-end as the availability date can create look-ahead bias. This platform uses a verified filing date where the evidence supports one. Where it does not, it applies a declared 90-day reporting-lag estimate and records that choice.
 
-A factor model requires more than formulas. It requires a reliable research process. The system examines daily prices for duplicate observations, invalid values, missing dates, and inconsistent security identifiers. Fundamental data must be linked to the date on which the information became available. If a backtest uses a financial statement before its publication date, the result may contain look-ahead bias. The system must also preserve missing observations instead of silently replacing them with invented values.
+This project designs and implements a graph-orchestrated, point-in-time research platform for NGX equities. Deterministic Python modules calculate returns, characteristics, portfolio results, and statistics. LangGraph coordinates the research steps. FastAPI provides research services, and a Next.js console displays results. The graph does not use language-model agents to create or judge financial evidence.
 
-The proposed study addresses these requirements by designing a graph-orchestrated multi-agent system for liquidity-augmented, regime-aware multi-factor analysis of Nigerian Exchange equities. The system stores company information, daily prices, fundamentals, corporate actions, benchmark observations, risk-free rates, and dataset versions. It then prepares a monthly research dataset and calculates five factors:
-
-1. Market
-2. Size
-3. Value
-4. Momentum
-5. Liquidity
-
-The system uses a directed research workflow. The workflow loads and inspects the dataset. It aligns fundamentals by availability date. It constructs factor series and calculates statistical diagnostics. It estimates market regimes, ranks securities, constructs a portfolio, performs a backtest, and stores the experiment. LangGraph provides workflow orchestration. Python provides quantitative calculations. FastAPI exposes research services. PostgreSQL stores versioned research data and experiment records. Next.js provides the web interface.
-
-Machine learning research supports the use of structured computational methods in empirical asset pricing. Gu, Kelly, and Xiu (2020) show that machine learning methods can use nonlinear relationships among financial predictors. The system does not use a machine learning model as a replacement for the factor definitions or statistical tests. It uses deterministic factor formulas and statistical procedures as the source of financial results. The graph workflow coordinates the calculations and records their configuration so that an experiment can be repeated.
-
-Market conditions can also change over time. A factor that performs well during a stable period may behave differently during a high-volatility period. A Hidden Markov Model can represent market regimes as unobserved states that generate different return and volatility patterns. Nystrup, Kolm, and Stenfors (2020) support the use of Hidden Markov Models for regime-aware factor analysis.
-
-The study therefore combines financial data engineering, factor construction, statistical validation, regime analysis, portfolio simulation, and workflow orchestration. The study targets academic research. It does not provide financial advice, execute live trades, or guarantee future investment performance.
+The completed evaluation is a public-data pilot from January 2023 to December 2024. It covers 15 NGX securities and 30 reviewed FY2022–FY2023 fundamental observations. It provides preliminary Market, Size, Value, and Momentum outputs where input gates permit them. Verified daily volume and traded value are unavailable, so Liquidity analysis is blocked. The 24-month sample is below the regime engine’s 36-month minimum, so the pilot does not estimate market states.
 
 ## 1.2 Statement of the Problem
 
-Researchers who study NGX equities may need to combine data from several sources. These sources can use different ticker formats, date formats, frequencies, and definitions. A market-price file may identify a company by ticker, while a financial statement may use a company name or an ISIN. A price record may contain a trading date, while a fundamental record may contain a fiscal period and a later publication date. Without a common data model, these records are difficult to join correctly.
+NGX research data is spread across official price lists, issuer reports, index records, and interest-rate sources. The records differ in format, frequency, identifiers, and coverage. Manual combination can introduce duplicate records, incorrect joins, or undocumented transformations.
 
-A second problem concerns the availability of financial information. A financial statement belongs to a fiscal period, but investors do not know its contents until the company publishes it. A research system may use the fiscal-period end date as the availability date. That date may precede the simulated decision date. The system may then use information that was not available at the decision date. This error can make a backtest appear more successful than a realistic strategy.
+Price data also needs careful interpretation. An unchanged recorded price may reflect a genuine trade at the same price or a value carried forward from a prior observation. These cases have different meanings for return analysis. The researcher must preserve source status and must not treat unavailable trading activity as zero.
 
-A third problem concerns the application of factor models to the NGX market. Many factor studies use large developed-market datasets. Their factor definitions, breakpoints, liquidity measures, and eligibility rules may not fit a smaller emerging market. The researcher therefore needs a system that makes each factor definition visible, configurable, and testable with NGX data.
+Fundamental data has a timing problem. Book equity and shares outstanding refer to a fiscal period, but the annual report becomes public later. Using fiscal year-end as the information date can create look-ahead bias. A reliable process must record the effective date and evidence for the value, unit, reporting scope, and cited report page.
 
-A fourth problem concerns market regimes. A single average factor return can hide differences between calm, expansionary, and stressed market conditions. Without regime analysis, the researcher cannot examine whether a factor behaves consistently across changing market states.
+The available public pilot does not support every proposed analysis. It lacks verified daily volume and traded value for liquidity measurement. It has 24 monthly endpoints, below the configured minimum for a three-state regime model. A research platform must expose these limits and block unsupported calculations.
 
-A fifth problem concerns reproducibility. Manual spreadsheet calculations and disconnected scripts can make it difficult to reproduce an experiment. The researcher needs to know which dataset version, factor settings, date range, portfolio rule, transaction cost, bootstrap seed, and regime configuration produced a result.
-
-This study addresses these problems by designing and implementing the proposed system. The system provides a versioned research database, point-in-time data alignment, five-factor construction, statistical validation, Hidden Markov Model regime analysis, portfolio backtesting, and graph-based experiment tracking.
+A further problem is reproducibility. If the researcher does not preserve input files, transformations, settings, and software revision, another person may not reproduce the result. This project addresses these issues with a deterministic, point-in-time platform that validates data, records evidence, applies factor-specific gates, and stores inspectable experiment runs.
 
 ## 1.3 Objectives of the Study
 
-The general objective is to design and implement a graph-orchestrated multi-agent system for liquidity-augmented, regime-aware multi-factor analysis of Nigerian Exchange equities. The system will construct and validate a multi-factor model using Nigerian Exchange data.
+The general objective is to design and implement a graph-orchestrated, point-in-time research platform for factor analysis of Nigerian Exchange equities.
 
-The specific objectives are:
+The specific objectives are to:
 
-1. Design a versioned data pipeline for NGX prices, company fundamentals, corporate actions, benchmark observations, and risk-free rates.
-2. Implement point-in-time data alignment that uses publication dates or an explicitly recorded fixed reporting lag.
-3. Construct Market, Size, Value, Momentum, and Liquidity factors from eligible NGX securities.
-4. Validate factor behaviour with descriptive statistics, Newey-West adjusted tests, bootstrap confidence intervals, and regression diagnostics.
-5. Identify latent market regimes with a Gaussian Hidden Markov Model and analyse factor performance within each regime.
-6. Rank eligible securities, construct a configurable long-only portfolio, and perform a historical backtest with transaction-cost adjustment.
-7. Provide a web interface and REST API for experiment configuration, workflow execution, result storage, and research-result visualisation.
-8. Preserve dataset provenance and experiment configuration so that research results can be reproduced.
+1. Design a reproducible workflow for public NGX prices, issuer fundamentals, benchmark observations, and risk-free rates.
+2. Implement validation and provenance controls for source documents and structured observations.
+3. Align fundamentals to verified or explicitly estimated public availability dates.
+4. Implement deterministic return, Market, Size, Value, and 12–1 Momentum calculations with eligibility rules.
+5. Implement Size and Value portfolio sorts with Newey-West statistics and bootstrap confidence intervals.
+6. Orchestrate research tasks as inspectable graph runs and expose status and results through FastAPI and a Next.js console.
+7. Evaluate the system with the available 15-security NGX pilot for January 2023 to December 2024 and report its limits.
 
 ## 1.4 Scope of the Study
 
-This study covers the design and implementation of a quantitative research system for ordinary equities listed on the Nigerian Exchange. The system uses daily observations as the main input frequency and derives monthly observations for factor construction, regime modelling, and portfolio rebalancing.
+The study covers the design, implementation, and pilot evaluation of a web-based research platform for NGX equities. Daily prices cover January 2023 through December 2024 for 15 securities. The fundamental dataset contains FY2022 and FY2023 observations for those issuers. All 30 rows have completed page-level review. Eight filing dates are verified; the other 22 effective dates use a documented 90-day estimate.
 
-The study covers the period from 1 January 2019 to 31 December 2025. The data pipeline may request earlier observations to provide a formation period for momentum calculations. The research universe contains NGX companies for which the required observations are available. The system can represent listing dates, delisting dates, ticker history, and missing observations.
+The system derives monthly marked-price returns and official-trade returns. Marked-price returns use staged closing prices, including carried rows. Official-trade returns use observations classified as official trades. The experiment aligns monthly NGX All-Share Index and 91-day Treasury-bill observations.
 
-The factors covered by the study are:
+The research outputs include market excess returns, point-in-time Size and Value characteristics, preliminary Size and Value portfolio spreads, Momentum formation ranks, regression diagnostics, Newey-West statistics, bootstrap intervals, portfolio holdings, and experiment provenance. The two-year pilot produces 22 Size and Value spread observations. Their confidence intervals include zero, so the results remain preliminary.
 
-- Market, based on market excess return.
-- Size, based on market capitalisation.
-- Value, based on point-in-time book-to-market information.
-- Momentum, based on a 12-1 month formation return.
-- Liquidity, based on trading activity and an Amihud-style illiquidity measure.
-
-The system also covers:
-
-- NGX All Share Index comparison.
-- Risk-free rate alignment.
-- Factor portfolio construction.
-- Statistical diagnostics.
-- Three-state market regime estimation.
-- Equal-weighted long-only portfolio construction.
-- Monthly portfolio rebalancing.
-- Transaction-cost adjustment.
-- Experiment metadata and result persistence.
-- REST API access.
-- Research dashboards.
-
-The study does not cover live order execution, broker integration, high-frequency trading, financial advice, guaranteed investment returns, or the replacement of professional investment management. It also does not claim that a factor causes a return. It measures associations and simulated historical performance under stated assumptions.
+Liquidity is outside the completed empirical analysis because verified daily volume and traded value are absent. Regime estimation is also outside the completed pilot because 24 monthly endpoints do not meet the configured minimum of 36. The platform reports these analyses as blocked. The study does not cover live trading, broker integration, high-frequency trading, a complete NGX history, investment advice, or predictive claims about future returns.
 
 ## 1.5 Significance of the Study
 
-The study is significant to students and researchers because it provides an integrated system for empirical research on NGX equities. The system makes the data preparation process visible and records the assumptions used during analysis. This can help a researcher repeat an experiment and identify the source of a change in results.
+The platform gives students and researchers a practical way to prepare and inspect NGX research data. It keeps source details, point-in-time dates, data-quality rules, and experiment settings visible. Users can inspect why a calculation is available, preliminary, or blocked.
 
-The study is significant to financial analysts because it provides a structured way to compare Market, Size, Value, Momentum, and Liquidity signals. The analyst can inspect factor statistics, regime-specific behaviour, portfolio holdings, benchmark performance, and transaction-cost effects in one system.
+The system also separates quantitative calculations from workflow coordination and presentation. Python modules calculate the financial outputs. LangGraph manages task order and state. FastAPI provides research services, and the Next.js console presents the results.
 
-The study is significant to software engineers because it demonstrates how a quantitative research process can be implemented as a set of connected workflow nodes. The design separates data ingestion, factor calculations, statistical analysis, regime modelling, portfolio construction, and backtesting. This separation can support testing and later extension.
+The pilot shows how data limitations affect empirical research. It makes clear that factor eligibility depends on verified inputs and sample size. This prevents an incomplete pilot from being presented as full validation.
 
-The study is significant to the Nigerian financial research community because it focuses on NGX data. It does not assume that results from other markets apply without testing. It also treats liquidity as a central part of the model. This focus suits a market in which trading activity and data coverage may differ across securities.
+## 1.6 Limitations of the Study
 
-The study is significant to research integrity because it records dataset versions, source metadata, effective dates, and experiment configurations. These records help the researcher identify the source of a result. The source may be a new dataset, factor definition, portfolio rule, or statistical configuration.
+The study uses a public-data pilot that covers 15 NGX securities from January 2023 to December 2024. This two-year period is short for asset-pricing research. The results may not represent other periods, all NGX securities, or the long-run behaviour of the market. The Size and Value portfolio results are preliminary and do not establish reliable factor premiums.
 
-## 1.6 Definition of Terms
+Some staged daily prices are carried forward from an earlier observation. The platform keeps carried-price returns separate from returns between consecutive official-trade observations. These return series have different coverage and may produce different results. The pilot therefore does not treat every unchanged price as evidence of a new trade.
 
-Backtest: A simulation that applies a stated investment rule to historical data.
+The fundamental dataset contains 30 FY2022 and FY2023 observations. Eight filing dates are verified from available evidence. The remaining 22 dates use a declared 90-day reporting-lag estimate. An estimated date may differ from the date when the information became public. Point-in-time results that use these observations therefore retain this timing uncertainty. The platform records the date basis so that users can identify estimated dates.
 
-Benchmark: A market or index series used to compare the performance of a factor or portfolio.
+The available data does not include verified daily volume and traded value for the study universe. The project therefore cannot calculate or evaluate a Liquidity factor. The NGX All-Share Index and 91-day Treasury-bill data cover only the same 24-month pilot period, which also limits the statistical sample.
 
-Corporate Action: An event such as a dividend, share split, rights issue, or bonus issue that can affect a security record or price series.
+The regime engine requires at least 36 monthly observations. The pilot provides 24 monthly endpoints, so the system blocks regime estimation. Momentum can be formed from the available price history, but its complete return sample does not meet the configured minimum for regression analysis. These outputs must not be interpreted as validated evidence of regime effects or Momentum premiums.
 
-Factor: A measurable characteristic or return series used to study differences in expected or realised stock returns.
+The study evaluates a research platform and its deterministic outputs. It does not test live trading, execution quality, or performance with a longer history or a larger security universe. The findings are limited to the available sources, documented assumptions, and sample period used in the pilot.
 
-Factor Portfolio: A portfolio formed by ranking securities according to a factor characteristic.
+## 1.7 Definition of Terms
 
-Fundamental Data: Financial information about a company, such as book equity, earnings, assets, liabilities, and shares outstanding.
+**Benchmark:** A market index or return series used to compare research returns.
 
-Hidden Markov Model: A statistical model that represents observed data as the output of an unobserved state process.
+**Carried price:** A price value retained from an earlier observation when a new official trade price is unavailable.
 
-Liquidity: The ability to trade a security with limited delay and limited price impact.
+**Effective date:** The date from which a fundamental observation is treated as public information.
 
-Market Capitalisation: The value of a company's equity, calculated as price multiplied by shares outstanding.
+**Factor:** A measurable market or company characteristic used to group or explain equity returns.
 
-Point-in-Time Alignment: The process of using a financial observation only from the date on which that information became available.
+**Factor eligibility:** A decision that shows whether required inputs and sample conditions support a calculation.
 
-Portfolio Rebalancing: The process of updating portfolio holdings and weights at a defined interval.
+**Fundamental data:** Issuer financial information, such as book equity and shares outstanding.
 
-Risk-Free Rate: A reference return used to calculate excess returns and risk-adjusted performance measures.
+**Graph orchestration:** Coordination of ordered computational tasks through nodes that exchange research state.
 
-Ticker: The short security identifier used by an exchange.
+**Liquidity:** The ability to trade a security promptly and with limited cost or price impact.
 
-Transaction Cost: An estimated cost of buying or selling a security, expressed as a monetary amount or basis-point rate.
+**Market capitalisation:** The market value of a company’s listed equity, based on price and shares outstanding.
 
-Workflow Orchestration: The coordination of dependent computational steps in a defined execution order.
+**Momentum:** A return characteristic based on past performance over a defined formation window.
+
+**Point-in-time alignment:** Use of a fundamental observation only after its public effective date.
+
+**Portfolio sort:** A method that ranks securities by a characteristic and forms groups or return spreads.
+
+**Risk-free rate:** A reference rate used to calculate excess returns.
+
+**Run fingerprint:** A hash that identifies the research data and configuration used for an experiment.
+
+**Transaction cost:** An estimated charge applied to portfolio turnover in a simulation.
+
